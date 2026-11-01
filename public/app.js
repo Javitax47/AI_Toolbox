@@ -11,7 +11,7 @@ const S = {
 };
 
 function defaultFilters() {
-  return { task: '', maxVram: '', params: '', speed: 0, quality: 0, permissive: false, age: '', sort: 'relevance', quant: false };
+  return { task: '', kind: '', maxVram: '', params: '', speed: 0, quality: 0, permissive: false, age: '', sort: 'relevance', quant: false };
 }
 
 // ---------- utilidades ----------
@@ -30,6 +30,8 @@ const timeAgo = (d) => {
 const fmtDate = (d) => new Date(d).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
 const taskLabel = (t) => S.taskMap[t]?.label || (t === 'other' ? 'Otros' : t.replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase()));
 const taskIcon = (t) => S.taskMap[t]?.icon || '🧩';
+const tasksOf = (m) => m.tasks || [m.task];
+const isProject = (m) => m.kind === 'project';
 const CAT_ICON = { Lanzamiento: '🚀', 'Open Source': '🔓', Investigación: '🔬', Industria: '🏢', Herramientas: '🛠️', Negocio: '💼' };
 
 async function load() {
@@ -63,7 +65,7 @@ function parseQuery(q) {
   for (const t of S.tasks) {
     let s = 0;
     for (const k of t.keywords) {
-      const kw = norm(k).split(/[\s-]+/);
+      const kw = norm(k).split(/[\s-]+/).filter((w) => w.length > 2 || /\d/.test(w));
       if (kw.every(has)) s += kw.length > 1 ? 3 * kw.length : 2;
     }
     if (s) out.taskScores[t.tag] = s;
@@ -83,7 +85,7 @@ function parseQuery(q) {
 function scoreModel(m, pq) {
   if (!pq.tokens.length && !Object.keys(pq.taskScores).length) return m.relevance;
   let s = 0;
-  const ts = pq.taskScores[m.task];
+  const ts = Math.max(0, ...tasksOf(m).map((t) => pq.taskScores[t] || 0));
   if (ts) s += 60 * (ts / pq.maxTask);
   let hits = 0;
   for (const t of pq.tokens) {
@@ -106,7 +108,8 @@ function filterModels() {
   const permissive = f.permissive || c.permissive;
   let list = S.models.map((m) => ({ m, s: scoreModel(m, pq) })).filter(({ m, s }) => {
     if (s < 0) return false;
-    if (f.task && m.task !== f.task) return false;
+    if (f.task && !tasksOf(m).includes(f.task)) return false;
+    if (f.kind && (m.kind || 'model') !== f.kind) return false;
     if (maxVram != null && !(m.minVram != null && m.minVram <= maxVram)) return false;
     if (f.params) { const [lo, hi] = f.params.split('-').map(Number); const b = (m.params || 0) / 1e9; if (!m.params || b < lo || b >= hi) return false; }
     if (minSpeed && !(m.speed && m.speed.level >= minSpeed)) return false;
@@ -142,7 +145,7 @@ const EXAMPLES = [
 
 function renderToolbox() {
   const counts = {};
-  for (const m of S.models) counts[m.task] = (counts[m.task] || 0) + 1;
+  for (const m of S.models) for (const t of tasksOf(m)) counts[t] = (counts[t] || 0) + 1;
   const taskOrder = [...S.tasks.map((t) => t.tag), ...Object.keys(counts).filter((t) => !S.taskMap[t]).sort((a, b) => counts[b] - counts[a])].filter((t) => counts[t]);
   const newCount = S.models.filter((m) => daysSince(m.createdAt) <= 7).length;
 
@@ -161,6 +164,13 @@ function renderToolbox() {
   <section class="toolbox">
     <aside class="filters" id="filters">
       <h3>Filtros</h3>
+      <label>Tipo
+        <select data-f="kind">
+          <option value="">Modelos y proyectos</option>
+          <option value="model">Modelos con pesos (Hugging Face)</option>
+          <option value="project">Proyectos de investigación (código)</option>
+        </select>
+      </label>
       <label>Hardware disponible
         <select data-f="maxVram">
           <option value="">Cualquiera</option>
@@ -286,7 +296,9 @@ function modelCard(m) {
     </div>
     <p>${esc(m.summary || 'Sin descripción disponible.')}</p>
     <div class="stats">
-      <div class="stat"><span>Parámetros</span><b>${fmtParams(m.params)}${m.activeParams ? ` <small>(${fmtParams(m.activeParams)} act.)</small>` : ''}</b></div>
+      ${isProject(m)
+        ? `<div class="stat"><span>Estrellas</span><b>★ ${fmtNum(m.likes)}</b></div>`
+        : `<div class="stat"><span>Parámetros</span><b>${fmtParams(m.params)}${m.activeParams ? ` <small>(${fmtParams(m.activeParams)} act.)</small>` : ''}</b></div>`}
       <div class="stat" title="${esc(m.hwTier)}"><span>VRAM mín.</span><b>${m.minVram != null ? m.minVram + ' GB' : '?'}</b></div>
       <div class="stat" title="${esc(m.speed?.ref || '')}"><span>Velocidad</span><b>${m.speed ? (m.speed.value ? `${m.speed.value} tok/s` : m.speed.label) : '?'}</b></div>
     </div>
@@ -295,10 +307,13 @@ function modelCard(m) {
       ${isNew ? '<span class="badge new">Nuevo</span>' : ''}
       ${m.trending >= 50 ? '<span class="badge hot">🔥 Tendencia</span>' : ''}
       ${hasNews ? '<span class="badge news">📰 En la revista</span>' : ''}
+      ${isProject(m) ? '<span class="badge news">🧪 Proyecto de investigación</span>' : ''}
+      ${m.paper && !isProject(m) ? '<span class="badge">📄 Con paper</span>' : ''}
+      ${m.mentions?.length ? `<span class="badge hot" title="${esc(m.mentions.join(' · '))}">📺 Destacado</span>` : ''}
+      ${tasksOf(m).slice(1).map((t) => `<span class="badge">${taskIcon(t)} ${esc(taskLabel(t))}</span>`).join('')}
       ${m.license ? `<span class="badge">${esc(m.license)}</span>` : ''}
       ${m.hasQuant ? '<span class="badge">Cuantizado</span>' : ''}
-      <span class="badge">♥ ${fmtNum(m.likes)}</span>
-      <span class="badge">⬇ ${fmtNum(m.downloads)}</span>
+      ${isProject(m) ? '' : `<span class="badge">♥ ${fmtNum(m.likes)}</span><span class="badge">⬇ ${fmtNum(m.downloads)}</span>`}
     </div>
   </a>`;
 }
@@ -312,7 +327,10 @@ function renderModel(id) {
     <div class="kicker">${taskIcon(m.task)} ${esc(taskLabel(m.task))} <time>publicado ${fmtDate(m.createdAt)}</time></div>
     <h1>${esc(m.name)}</h1>
     <p class="lead">${esc(m.summary || '')}</p>
-    <p><a class="btn" href="${esc(m.url)}" target="_blank" rel="noopener">Ver en Hugging Face ↗</a>
+    <p><a class="btn" href="${esc(m.url)}" target="_blank" rel="noopener">${isProject(m) ? 'Ver código en GitHub ↗' : 'Ver en Hugging Face ↗'}</a>
+       ${m.paper ? `<a class="btn ghost" href="${esc(safeUrl(m.paper))}" target="_blank" rel="noopener">Paper ↗</a>` : ''}
+       ${m.project ? `<a class="btn ghost" href="${esc(safeUrl(m.project))}" target="_blank" rel="noopener">Página del proyecto ↗</a>` : ''}
+       ${m.code && !isProject(m) ? `<a class="btn ghost" href="${esc(safeUrl(m.code))}" target="_blank" rel="noopener">Código ↗</a>` : ''}
        ${m.hasQuant ? `<a class="btn ghost" href="https://huggingface.co/models?other=base_model:quantized:${encodeURIComponent(m.id)}" target="_blank" rel="noopener">Versiones cuantizadas ↗</a>` : ''}</p>
     <div class="detail-stats">
       <div class="stat"><span>Autor</span><b>${esc(m.author)}</b></div>
@@ -321,8 +339,10 @@ function renderModel(id) {
       <div class="stat"><span>Velocidad est.</span><b>${m.speed ? (m.speed.value ? `~${m.speed.value} tok/s` : m.speed.label) : '?'}</b><span>${esc(m.speed?.ref || '')}</span></div>
       <div class="stat"><span>Calidad</span><b>${m.quality}/100</b></div>
       <div class="stat"><span>Licencia</span><b>${esc(m.license || '?')}</b></div>
-      <div class="stat"><span>Likes / descargas</span><b>${fmtNum(m.likes)} / ${fmtNum(m.downloads)}</b></div>
+      <div class="stat"><span>${isProject(m) ? 'Estrellas GitHub' : 'Likes / descargas'}</span><b>${isProject(m) ? '★ ' + fmtNum(m.likes) : `${fmtNum(m.likes)} / ${fmtNum(m.downloads)}`}</b></div>
+      <div class="stat"><span>Categorías</span><b>${tasksOf(m).map((t) => esc(taskLabel(t))).join(' · ')}</b></div>
     </div>
+    ${m.mentions?.length ? `<div class="panel"><h2>Destacado en</h2><ul>${m.mentions.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
     ${m.useCases?.length ? `<div class="panel"><h2>Casos de uso</h2><ul>${m.useCases.map((u) => `<li>${esc(u)}</li>`).join('')}</ul></div>` : ''}
     ${m.vram ? `<div class="panel"><h2>Memoria estimada (VRAM / RAM unificada)</h2>
       <table class="vram"><tr><th>Precisión</th><th>Memoria</th></tr>

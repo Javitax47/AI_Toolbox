@@ -3,6 +3,7 @@
 import path from 'node:path';
 import { fetchJSON, fetchText, readJSON, writeJSON, pool, stripMarkdown, firstSentences, DATA_DIR, CONFIG_DIR } from './util.mjs';
 import { llmJSON, llmEnabled } from './llm.mjs';
+import { classify } from './research.mjs';
 
 const HF = 'https://huggingface.co/api/models';
 const EXPAND = ['safetensors', 'pipeline_tag', 'likes', 'downloads', 'createdAt', 'lastModified', 'tags', 'trendingScore', 'cardData']
@@ -15,8 +16,10 @@ const MAX_ENRICH_PER_RUN = Number(process.env.MAX_ENRICH_PER_RUN || 40);
 const QUANT_RE = /(gguf|[-_.]awq|gptq|[-_]mlx|mlx[-_]|exl2|exl3|[-_]int[48]\b|bnb|[-_][2-8]bit|onnx|fp8[-_]dynamic|nvfp4|[-_]q[2-8]_)/i;
 const PERMISSIVE = /^(apache-2\.0|mit|bsd.*|cc-by-4\.0|cc0-1\.0|openrail.*|creativeml-openrail-m|unlicense|isc|mpl-2\.0|artistic-2\.0)$/i;
 
-export async function updateModels() {
+export async function updateModels(research = []) {
   const tasks = await readJSON(path.join(CONFIG_DIR, 'tasks.json'), []);
+  const rcfg = (await readJSON(path.join(CONFIG_DIR, 'sources.json'), {})).research || {};
+  const customTasks = tasks.filter((t) => t.custom);
   const taskMap = Object.fromEntries(tasks.map((t) => [t.tag, t]));
   const watch = (await readJSON(path.join(CONFIG_DIR, 'watchlist.json'), { searches: [] })).searches;
   const prev = await readJSON(path.join(DATA_DIR, 'models.json'), { models: [] });
@@ -27,14 +30,25 @@ export async function updateModels() {
   const urls = [
     `${HF}?sort=trendingScore&limit=300&${EXPAND}`,
     `${HF}?sort=createdAt&limit=500&${EXPAND}`,
-    ...tasks.map((t) => `${HF}?pipeline_tag=${t.tag}&sort=trendingScore&limit=${PER_TASK_LIMIT}&${EXPAND}`),
-    ...tasks.map((t) => `${HF}?pipeline_tag=${t.tag}&sort=likes30d&limit=25&${EXPAND}`),
+    ...tasks.filter((t) => !t.custom).map((t) => `${HF}?pipeline_tag=${t.tag}&sort=trendingScore&limit=${PER_TASK_LIMIT}&${EXPAND}`),
+    ...tasks.filter((t) => !t.custom).map((t) => `${HF}?pipeline_tag=${t.tag}&sort=likes30d&limit=25&${EXPAND}`),
   ];
+  // Dominios sin pipeline tag propio (animación, mundos, terreno…): se buscan por etiquetas del Hub
+  const domainQueries = tasks.flatMap((t) => (t.hfTags || []).map((tag) => ({ task: t.tag, url: `${HF}?filter=${encodeURIComponent(tag)}&sort=trendingScore&limit=30&${EXPAND}` })));
+  urls.push(...domainQueries.map((q) => q.url));
+  const domainStart = urls.length - domainQueries.length;
+  // Pesos publicados por papers/proyectos que sigue el módulo de investigación
+  const researchByWeight = new Map();
+  for (const r of research) for (const w of r.weights || []) if (r.score >= (rcfg.minScoreToolbox ?? 14) || r.mentions?.length) researchByWeight.set(w, r);
   const watchUrls = watch.map((q) => `${HF}?search=${encodeURIComponent(q)}&sort=likes&limit=4&${EXPAND}`);
   console.log(`· Hugging Face: ${urls.length + watchUrls.length} consultas`);
   const lists = await pool([...urls, ...watchUrls], 6, (u) => fetchJSON(u));
+  const domainHint = new Map();
+  lists.slice(domainStart, urls.length).forEach((list, n) => (list || []).forEach((m) => domainHint.set(m.id, [...(domainHint.get(m.id) || []), domainQueries[n].task])));
+  const singles = await pool([...researchByWeight.keys()], 6, (id) => fetchJSON(`${HF}/${id}`, { retries: 1 }));
+  lists.push(singles.filter((m) => m && m.id));
   // Solo cuenta como coincidencia si el término aparece como palabra en el nombre (evita "IDOL" → "idolsankaku")
-  const watchIds = new Set(lists.slice(urls.length).flatMap((list, n) => {
+  const watchIds = new Set(lists.slice(urls.length, urls.length + watchUrls.length).flatMap((list, n) => {
     const q = watch[n].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const re = new RegExp(`(^|[-_./])${q}($|[-_.\\d])`, 'i');
     return (list || []).filter((m) => re.test(m.id.split('/')[1])).map((m) => m.id);
@@ -49,7 +63,7 @@ export async function updateModels() {
     if (quantOf.length || tags.includes('gguf') || QUANT_RE.test(m.id)) continue;
     if (tags.includes('not-for-all-audiences')) continue;
     if (tags.some((t) => t.startsWith('base_model:adapter:')) && (m.likes || 0) < 50) continue;
-    if ((m.likes || 0) < 5 && !watchIds.has(m.id)) continue;
+    if ((m.likes || 0) < 5 && !watchIds.has(m.id) && !researchByWeight.has(m.id)) continue;
     raw.set(m.id, m);
   }
   console.log(`· ${raw.size} modelos candidatos (${quantBases.size} con cuantizaciones detectadas)`);
@@ -78,6 +92,11 @@ export async function updateModels() {
       lastModified: m.lastModified,
       hasQuant: quantBases.has(m.id) || old.hasQuant || false,
       watch: watchIds.has(m.id) || old.watch || false,
+      kind: 'model',
+      domainHint: [...new Set([...(old.domainHint || []), ...(domainHint.get(m.id) || []), ...(researchByWeight.get(m.id)?.tasks || [])])],
+      paper: researchByWeight.get(m.id)?.arxivId ? `https://arxiv.org/abs/${researchByWeight.get(m.id).arxivId}` : old.paper || null,
+      code: researchByWeight.get(m.id)?.repo ? `https://github.com/${researchByWeight.get(m.id).repo}` : old.code || null,
+      mentions: researchByWeight.get(m.id)?.mentions || old.mentions || [],
       firstSeen: old.firstSeen || now,
       lastSeen: now,
       tags: (m.tags || []).filter((t) => !/^(region:|endpoints_|base_model:|deploy:|arxiv:|dataset:|license:|doi:)/.test(t)).slice(0, 15),
@@ -85,16 +104,56 @@ export async function updateModels() {
     byId.set(m.id, rec);
   }
 
+  // 2b) Proyectos de investigación con código pero sin pesos en el Hub (repos de GitHub)
+  const weightIds = new Set(byId.keys());
+  for (const r of research) {
+    if (!r.repo || (r.weights || []).some((w) => weightIds.has(w))) continue;
+    if (!(r.score >= (rcfg.minScoreToolbox ?? 14) || r.stars >= 30 || r.mentions?.length)) continue;
+    const id = 'gh:' + r.repo;
+    const old = byId.get(id) || {};
+    byId.set(id, {
+      ...old,
+      id,
+      kind: 'project',
+      name: r.name && r.name.length <= 40 ? r.name : r.repo.split('/')[1],
+      author: r.repo.split('/')[0],
+      url: 'https://github.com/' + r.repo,
+      code: 'https://github.com/' + r.repo,
+      paper: r.arxivId ? 'https://arxiv.org/abs/' + r.arxivId : null,
+      project: r.project || r.homepage || null,
+      task: r.tasks?.[0] || old.task || 'other',
+      domainHint: r.tasks || [],
+      params: old.params || null,
+      license: old.license || null,
+      likes: r.stars || 0,
+      downloads: 0,
+      trending: Math.round(r.score || 0),
+      researchScore: r.llmScore ?? null,
+      mentions: r.mentions || [],
+      summary: old.summary || r.summaryEs || firstSentences(r.summary || r.description || '', 280),
+      createdAt: r.repoCreated || r.published || r.firstSeen,
+      firstSeen: old.firstSeen || now,
+      lastSeen: now,
+      tags: r.topics || [],
+    });
+  }
+
   // 3) Enriquecimiento (resumen en español, casos de uso, benchmarks) solo para modelos nuevos
   const pending = [...byId.values()]
     .filter((m) => m.lastSeen === now && m.enriched !== 'llm' && (llmEnabled || !m.enriched))
-    .sort((a, b) => (b.watch - a.watch) || (b.trending - a.trending) || (b.likes - a.likes))
+    .sort((a, b) => (b.watch - a.watch) || ((b.kind === 'project') - (a.kind === 'project')) || (b.trending - a.trending) || (b.likes - a.likes))
     .slice(0, MAX_ENRICH_PER_RUN);
   console.log(`· Enriqueciendo ${pending.length} modelos (LLM ${llmEnabled ? 'activado' : 'desactivado'})`);
   await pool(pending, 4, async (m) => enrich(m, taskMap[m.task]));
 
   // 4) Estimaciones derivadas
   const all = [...byId.values()];
+  // Multi-etiqueta: tarea principal + dominios detectados (un modelo de robótica puede ser también de animación)
+  for (const m of all) {
+    const fromText = classify(`${m.name.replace(/[-_]/g, ' ')} ${(m.tags || []).join(' ')} ${m.summary || ''} ${(m.keywords || []).join(' ')}`, customTasks).map((x) => x.tag);
+    m.tasks = [...new Set([m.task, ...(m.domainHint || []), ...fromText])].slice(0, 4);
+    if (m.task === 'other' && m.tasks.length > 1) { m.tasks = m.tasks.filter((t) => t !== 'other'); m.task = m.tasks[0]; }
+  }
   const maxByTask = {};
   for (const m of all) {
     const k = m.task;
@@ -110,7 +169,7 @@ export async function updateModels() {
   for (const m of all) {
     const stale = (Date.now() - new Date(m.lastSeen)) / 86400000 > 120;
     if (stale && !m.watch && m.likes < 1000) continue;
-    (grouped[m.task] ||= []).push(m);
+    (grouped[m.kind === 'project' ? 'project:' + m.task : m.task] ||= []).push(m);
   }
   const final = [];
   for (const [task, list] of Object.entries(grouped)) {
@@ -126,7 +185,8 @@ export async function updateModels() {
 }
 
 async function enrich(m, task) {
-  const readme = (await fetchText(`https://huggingface.co/${m.id}/raw/main/README.md`, { retries: 1 })) || '';
+  const readmeUrl = m.kind === 'project' ? `https://raw.githubusercontent.com/${m.id.slice(3)}/HEAD/README.md` : `https://huggingface.co/${m.id}/raw/main/README.md`;
+  const readme = (await fetchText(readmeUrl, { retries: 1 })) || '';
   const plain = stripMarkdown(readme);
   // Primer párrafo con aspecto de prosa (evita badges, enlaces de navegación y tablas)
   const para = plain.split(/\n\n+/).map((p) => p.replace(/\s+/g, ' ').trim())
@@ -157,7 +217,9 @@ Devuelve este JSON:
   "calidad": entero 1-10 estimando la calidad frente al estado del arte open source de su tarea según los benchmarks y comparativas de la ficha (5 si no hay datos),
   "calidad_motivo": "una frase justificando la puntuación",
   "hardware_nota": "requisitos de hardware si la ficha los menciona, si no null",
-  "velocidad_nota": "tiempos de inferencia si la ficha los menciona, si no null"
+  "velocidad_nota": "tiempos de inferencia si la ficha los menciona, si no null",
+  "vram_gb": número con la VRAM mínima en GB si la ficha la indica, si no null,
+  "parametros_b": número de parámetros en miles de millones si la ficha lo indica, si no null
 }`,
     { maxTokens: 1200 }
   );
@@ -171,6 +233,8 @@ Devuelve este JSON:
     m.hardwareNote = out.hardware_nota || null;
     m.speedNote = out.velocidad_nota || null;
     if (num(out.parametros_activos_b)) m.activeParams = out.parametros_activos_b * 1e9;
+    if (num(out.vram_gb)) m.statedVram = out.vram_gb;
+    if (!m.params && num(out.parametros_b)) m.params = out.parametros_b * 1e9;
     if (m.task === 'other' && typeof out.tarea === 'string' && /^[a-z0-9-]+$/.test(out.tarea)) m.task = out.tarea;
     m.enriched = 'llm';
   } else {
@@ -200,11 +264,15 @@ export function estimate(m, task, max) {
   const isLLM = Boolean(task?.llm);
   const out = { vram: null, minVram: null, hwTier: 'Desconocido', speed: null, quality: 0, relevance: 0 };
 
+  if (m.statedVram) {
+    out.minVram = m.statedVram;
+    out.hwTier = GPU_TIERS.find(([lim]) => out.minVram <= lim)[1];
+  }
   if (P) {
     const gb = (bytesPerParam) => +(P * bytesPerParam * 1.2 / 1e9 + 0.3).toFixed(1);
     out.vram = { q4: gb(0.57), q8: gb(1.07), fp16: gb(2) };
     // LLMs se suelen ejecutar cuantizados a 4 bits (GGUF/AWQ); el resto en fp16/bf16
-    out.minVram = isLLM || m.hasQuant ? out.vram.q4 : out.vram.fp16;
+    out.minVram = m.statedVram || (isLLM || m.hasQuant ? out.vram.q4 : out.vram.fp16);
     out.hwTier = GPU_TIERS.find(([lim]) => out.minVram <= lim)[1];
 
     if (isLLM) {
@@ -227,9 +295,12 @@ export function estimate(m, task, max) {
   // Calidad: estimación del LLM a partir de benchmarks de la ficha + señal de la comunidad
   const lg = (v, mx) => Math.log10((v || 0) + 1) / Math.log10((mx || 1) + 1);
   const community = Math.max(lg(m.likes, max.likes), lg(m.trending, max.trending) * 0.95, lg(m.downloads, max.downloads) * 0.9);
-  out.quality = m.qualityLLM
-    ? Math.round(m.qualityLLM * 10 * 0.65 + community * 100 * 0.35)
+  const expert = m.qualityLLM || m.researchScore;
+  out.quality = expert
+    ? Math.round(expert * 10 * 0.65 + community * 100 * 0.35)
     : Math.round(community * 90);
+  // Proyectos de investigación: sin likes del Hub, la señal es la puntuación del radar de investigación
+  if (m.kind === 'project') out.quality = Math.max(out.quality, Math.min(85, Math.round((m.trending || 0) * 2)));
   const ageDays = (Date.now() - new Date(m.createdAt || m.firstSeen)) / 86400000;
   out.relevance = +(out.quality * 0.6 + lg(m.trending, max.trending) * 40 + Math.max(0, 30 - ageDays) / 3).toFixed(2);
   out.permissive = m.license ? PERMISSIVE.test(m.license) : null;

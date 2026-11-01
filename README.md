@@ -11,15 +11,27 @@ Sitio estático (sin build) + un pipeline Node sin dependencias, ejecutado cada 
 
 ```
 scripts/update.mjs          orquestador (cron horario)
-├─ lib/models.mjs           Hugging Face → catálogo, estimaciones de VRAM/velocidad/calidad, resumen ES por LLM (una vez por modelo)
-├─ lib/news.mjs             RSS + páginas sin RSS + lanzamientos HF + HF Papers + GitHub → agrupación por tema → artículo por LLM
+├─ lib/research.mjs         radar de investigación de nicho (ver abajo)
+├─ lib/models.mjs           Hugging Face (por tarea y por dominio) + proyectos del radar → catálogo con estimaciones
+├─ lib/news.mjs             RSS + páginas sin RSS + lanzamientos HF + radar + GitHub → agrupación por tema → artículo
 └─ lib/llm.mjs              cliente para cualquier API compatible con OpenAI (OpenRouter por defecto)
-config/tasks.json           tareas, etiquetas y palabras clave en español para la búsqueda por problema
-config/sources.json         fuentes de noticias y umbrales (añade/quita libremente)
-config/watchlist.json       modelos que siempre deben aparecer aunque no estén en trending
+config/tasks.json           tareas/dominios: palabras clave (ES) para buscar, términos (EN) para clasificar, etiquetas HF y topics GitHub
+config/sources.json         fuentes de noticias, agregadores, categorías de arXiv y umbrales
+config/watchlist.json       (opcional) modelos que siempre deben aparecer
 public/                     web (index.html, app.js, styles.css) + data/*.json generados
 state/                      estado del pipeline (qué noticias ya se cubrieron)
 ```
+
+### Radar de investigación
+
+La mayoría de lanzamientos interesantes (animación, mundos 3D, terreno, assets, física…) no son de grandes laboratorios ni salen en trending: son papers con un repo de GitHub de pocas decenas de estrellas. El radar los encuentra así:
+
+1. **arXiv** (cs.CV, cs.GR, cs.RO, cs.SD, cs.CL, cs.LG, cs.AI, cs.MA, cs.HC, eess.AS, eess.IV): unos 400 papers al día. Se quedan los que publican código, pesos o página de proyecto y encajan en algún dominio de `tasks.json`.
+2. **Agregadores**: canales de YouTube (AI Search, Two Minute Papers) cuyas descripciones enlazan cada proyecto; los enlaces se resuelven a paper/repo/pesos. Una mención suma mucho interés.
+3. **GitHub por dominio**: repos nuevos con topics como `motion-generation`, `terrain-generation`, `world-model`… desde 15 estrellas.
+4. **HF Daily Papers**: votos de la comunidad y repos asociados.
+
+Cada hallazgo se sigue 30 días: estrellas (y su velocidad), votos, menciones y pesos publicados en Hugging Face (`arxiv:<id>`). Con LLM se hace además un triaje de interés práctico. Lo que supera el umbral entra en el toolbox como **proyecto de investigación** y en la revista.
 
 **Estimaciones** (marcadas como tales en la web):
 - VRAM = parámetros × bytes por peso (Q4 0,57 · Q8 1,07 · FP16 2) × 1,2 de margen. LLMs se evalúan en Q4; el resto en FP16.

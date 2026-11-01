@@ -1,48 +1,845 @@
 [
-  { "tag": "text-generation", "label": "Chat / LLM", "icon": "💬", "llm": true,
-    "keywords": ["chat", "llm", "texto", "escribir", "redactar", "asistente", "razonamiento", "reasoning", "codigo", "code", "programar", "programacion", "coding", "agente", "agent", "agentes", "resumir", "resumen", "preguntas", "responder", "matematicas", "math", "tool use", "herramientas", "function calling", "rag", "chatbot", "copiloto"] },
-  { "tag": "image-text-to-text", "label": "Visión + lenguaje", "icon": "👁️", "llm": true,
-    "keywords": ["vision", "vlm", "imagen", "foto", "describir imagen", "entender imagen", "ocr", "documento", "documentos", "pdf", "factura", "tabla", "grafico", "captura", "screenshot", "computer use", "multimodal", "leer texto"] },
-  { "tag": "any-to-any", "label": "Multimodal omni", "icon": "🌀", "llm": true,
-    "keywords": ["omni", "multimodal", "audio y video", "voz e imagen", "any-to-any", "conversacion por voz"] },
-  { "tag": "video-text-to-text", "label": "Entender vídeo", "icon": "🎞️", "llm": true,
-    "keywords": ["entender video", "analizar video", "resumir video", "video qa", "preguntas sobre video", "vigilancia"] },
-  { "tag": "text-to-image", "label": "Generar imágenes", "icon": "🎨",
-    "keywords": ["generar imagen", "crear imagen", "imagenes", "ilustracion", "arte", "dibujo", "diffusion", "difusion", "foto ia", "logo", "text-to-image", "txt2img"] },
-  { "tag": "image-to-image", "label": "Editar imágenes", "icon": "🖌️",
-    "keywords": ["editar imagen", "retocar", "inpainting", "outpainting", "upscale", "escalar", "mejorar imagen", "restaurar foto", "estilo", "edicion", "img2img", "relight", "probador virtual"] },
-  { "tag": "text-to-video", "label": "Generar vídeo", "icon": "🎬",
-    "keywords": ["generar video", "crear video", "video ia", "animacion", "clip", "text-to-video", "cortometraje"] },
-  { "tag": "image-to-video", "label": "Animar imagen a vídeo", "icon": "📽️",
-    "keywords": ["animar imagen", "animar foto", "imagen a video", "image-to-video", "dar vida", "movimiento"] },
-  { "tag": "text-to-speech", "label": "Texto a voz (TTS)", "icon": "🗣️",
-    "keywords": ["voz", "tts", "texto a voz", "locucion", "narrar", "narrador", "audiolibro", "clonar voz", "voice cloning", "sintesis de voz", "doblaje", "hablar"] },
-  { "tag": "automatic-speech-recognition", "label": "Voz a texto", "icon": "🎙️",
-    "keywords": ["transcribir", "transcripcion", "subtitulos", "dictado", "asr", "speech to text", "reuniones", "audio a texto", "whisper", "podcast"] },
-  { "tag": "text-to-audio", "label": "Música y audio", "icon": "🎵",
-    "keywords": ["musica", "cancion", "sonido", "efectos de sonido", "audio", "componer", "beat", "sfx"] },
-  { "tag": "audio-to-audio", "label": "Procesar audio", "icon": "🎚️",
-    "keywords": ["separar voces", "quitar ruido", "denoise", "cambiar voz", "voice conversion", "stems", "limpiar audio"] },
-  { "tag": "translation", "label": "Traducción", "icon": "🌐",
-    "keywords": ["traducir", "traduccion", "translation", "idiomas", "interprete", "subtitulos traducidos", "simultanea"] },
-  { "tag": "image-to-3d", "label": "Imagen a 3D", "icon": "🧊",
-    "keywords": ["3d", "modelo 3d", "imagen a 3d", "malla", "mesh", "gaussian splatting", "reconstruccion 3d", "objeto 3d", "fotogrametria"] },
-  { "tag": "text-to-3d", "label": "Texto a 3D", "icon": "🏗️",
-    "keywords": ["texto a 3d", "generar 3d", "escena 3d", "habitacion 3d", "assets 3d", "mundo 3d"] },
-  { "tag": "image-segmentation", "label": "Segmentación / recorte", "icon": "✂️",
-    "keywords": ["quitar fondo", "eliminar fondo", "recortar", "segmentar", "segmentacion", "mascara", "matting", "background removal", "chroma"] },
-  { "tag": "mask-generation", "label": "Máscaras (SAM)", "icon": "🎭",
-    "keywords": ["sam", "segment anything", "mascaras", "seleccionar objeto"] },
-  { "tag": "object-detection", "label": "Detección de objetos", "icon": "📦",
-    "keywords": ["detectar objetos", "deteccion", "yolo", "contar objetos", "bounding box", "camara", "vigilancia", "personas"] },
-  { "tag": "depth-estimation", "label": "Profundidad", "icon": "🌊",
-    "keywords": ["profundidad", "depth", "mapa de profundidad", "distancia"] },
-  { "tag": "feature-extraction", "label": "Embeddings", "icon": "🧭",
-    "keywords": ["embeddings", "busqueda semantica", "rag", "vectores", "similitud", "recuperacion", "buscador", "retrieval"] },
-  { "tag": "text-ranking", "label": "Reranking", "icon": "🏆",
-    "keywords": ["rerank", "reranker", "ordenar resultados", "relevancia", "rag"] },
-  { "tag": "robotics", "label": "Robótica", "icon": "🤖",
-    "keywords": ["robot", "robotica", "humanoide", "manipulacion", "vla", "control", "movimiento", "simulacion", "unitree", "brazo robotico"] },
-  { "tag": "time-series-forecasting", "label": "Series temporales", "icon": "📈",
-    "keywords": ["predecir", "prediccion", "forecast", "series temporales", "ventas", "demanda", "bolsa"] }
+ {
+  "tag": "text-generation",
+  "label": "Chat / LLM",
+  "icon": "💬",
+  "llm": true,
+  "keywords": [
+   "chat",
+   "llm",
+   "texto",
+   "escribir",
+   "redactar",
+   "asistente",
+   "razonamiento",
+   "reasoning",
+   "codigo",
+   "code",
+   "programar",
+   "programacion",
+   "coding",
+   "agente",
+   "agent",
+   "agentes",
+   "resumir",
+   "resumen",
+   "preguntas",
+   "responder",
+   "matematicas",
+   "math",
+   "tool use",
+   "herramientas",
+   "function calling",
+   "rag",
+   "chatbot",
+   "copiloto"
+  ],
+  "terms": [
+   "language model",
+   "llm",
+   "reasoning model",
+   "instruct",
+   "chatbot",
+   "code generation",
+   "coding agent"
+  ]
+ },
+ {
+  "tag": "image-text-to-text",
+  "label": "Visión + lenguaje",
+  "icon": "👁️",
+  "llm": true,
+  "keywords": [
+   "vision",
+   "vlm",
+   "imagen",
+   "foto",
+   "describir imagen",
+   "entender imagen",
+   "ocr",
+   "documento",
+   "documentos",
+   "pdf",
+   "factura",
+   "tabla",
+   "grafico",
+   "captura",
+   "screenshot",
+   "computer use",
+   "multimodal",
+   "leer texto"
+  ],
+  "terms": [
+   "vision-language",
+   "vlm",
+   "multimodal large language",
+   "visual question",
+   "document understanding",
+   "ocr",
+   "document parsing"
+  ]
+ },
+ {
+  "tag": "any-to-any",
+  "label": "Multimodal omni",
+  "icon": "🌀",
+  "llm": true,
+  "keywords": [
+   "omni",
+   "multimodal",
+   "audio y video",
+   "voz e imagen",
+   "any-to-any",
+   "conversacion por voz"
+  ],
+  "terms": []
+ },
+ {
+  "tag": "video-text-to-text",
+  "label": "Entender vídeo",
+  "icon": "🎞️",
+  "llm": true,
+  "keywords": [
+   "entender video",
+   "analizar video",
+   "resumir video",
+   "video qa",
+   "preguntas sobre video",
+   "vigilancia"
+  ],
+  "terms": [
+   "video understanding",
+   "video question",
+   "video llm",
+   "streaming video",
+   "video agent"
+  ]
+ },
+ {
+  "tag": "text-to-image",
+  "label": "Generar imágenes",
+  "icon": "🎨",
+  "keywords": [
+   "generar imagen",
+   "crear imagen",
+   "imagenes",
+   "ilustracion",
+   "arte",
+   "dibujo",
+   "diffusion",
+   "difusion",
+   "foto ia",
+   "logo",
+   "text-to-image",
+   "txt2img"
+  ],
+  "terms": [
+   "text-to-image",
+   "image generation",
+   "image synthesis",
+   "diffusion transformer"
+  ]
+ },
+ {
+  "tag": "image-to-image",
+  "label": "Editar imágenes",
+  "icon": "🖌️",
+  "keywords": [
+   "editar imagen",
+   "retocar",
+   "inpainting",
+   "outpainting",
+   "upscale",
+   "escalar",
+   "mejorar imagen",
+   "restaurar foto",
+   "estilo",
+   "edicion",
+   "img2img",
+   "relight",
+   "probador virtual"
+  ],
+  "terms": [
+   "image editing",
+   "inpainting",
+   "super-resolution",
+   "image restoration",
+   "relighting",
+   "virtual try-on",
+   "style transfer"
+  ]
+ },
+ {
+  "tag": "text-to-video",
+  "label": "Generar vídeo",
+  "icon": "🎬",
+  "keywords": [
+   "generar video",
+   "crear video",
+   "video ia",
+   "animacion",
+   "clip",
+   "text-to-video",
+   "cortometraje"
+  ],
+  "terms": [
+   "text-to-video",
+   "video generation",
+   "video diffusion",
+   "video synthesis"
+  ]
+ },
+ {
+  "tag": "image-to-video",
+  "label": "Animar imagen a vídeo",
+  "icon": "📽️",
+  "keywords": [
+   "animar imagen",
+   "animar foto",
+   "imagen a video",
+   "image-to-video",
+   "dar vida",
+   "movimiento"
+  ],
+  "terms": [
+   "image-to-video",
+   "image animation",
+   "talking head",
+   "portrait animation"
+  ]
+ },
+ {
+  "tag": "text-to-speech",
+  "label": "Texto a voz (TTS)",
+  "icon": "🗣️",
+  "keywords": [
+   "voz",
+   "tts",
+   "texto a voz",
+   "locucion",
+   "narrar",
+   "narrador",
+   "audiolibro",
+   "clonar voz",
+   "voice cloning",
+   "sintesis de voz",
+   "doblaje",
+   "hablar"
+  ],
+  "terms": [
+   "text-to-speech",
+   "tts",
+   "speech synthesis",
+   "voice cloning",
+   "zero-shot speech"
+  ]
+ },
+ {
+  "tag": "automatic-speech-recognition",
+  "label": "Voz a texto",
+  "icon": "🎙️",
+  "keywords": [
+   "transcribir",
+   "transcripcion",
+   "subtitulos",
+   "dictado",
+   "asr",
+   "speech to text",
+   "reuniones",
+   "audio a texto",
+   "whisper",
+   "podcast"
+  ],
+  "terms": [
+   "speech recognition",
+   "asr",
+   "transcription"
+  ]
+ },
+ {
+  "tag": "text-to-audio",
+  "label": "Música y audio",
+  "icon": "🎵",
+  "keywords": [
+   "musica",
+   "cancion",
+   "sonido",
+   "efectos de sonido",
+   "audio",
+   "componer",
+   "beat",
+   "sfx"
+  ],
+  "terms": [
+   "music generation",
+   "audio generation",
+   "sound effect",
+   "text-to-audio",
+   "text-to-music",
+   "foley"
+  ]
+ },
+ {
+  "tag": "audio-to-audio",
+  "label": "Procesar audio",
+  "icon": "🎚️",
+  "keywords": [
+   "separar voces",
+   "quitar ruido",
+   "denoise",
+   "cambiar voz",
+   "voice conversion",
+   "stems",
+   "limpiar audio"
+  ],
+  "terms": [
+   "speech enhancement",
+   "source separation",
+   "voice conversion"
+  ]
+ },
+ {
+  "tag": "translation",
+  "label": "Traducción",
+  "icon": "🌐",
+  "keywords": [
+   "traducir",
+   "traduccion",
+   "translation",
+   "idiomas",
+   "interprete",
+   "subtitulos traducidos",
+   "simultanea"
+  ],
+  "terms": [
+   "machine translation",
+   "simultaneous translation",
+   "speech-to-speech translation",
+   "speech translation"
+  ]
+ },
+ {
+  "tag": "image-to-3d",
+  "label": "Imagen a 3D",
+  "icon": "🧊",
+  "keywords": [
+   "3d",
+   "modelo 3d",
+   "imagen a 3d",
+   "malla",
+   "mesh",
+   "gaussian splatting",
+   "reconstruccion 3d",
+   "objeto 3d",
+   "fotogrametria"
+  ],
+  "terms": [
+   "image-to-3d",
+   "single-view 3d",
+   "3d reconstruction",
+   "gaussian splatting",
+   "3dgs",
+   "nerf",
+   "mesh generation",
+   "3d generation"
+  ]
+ },
+ {
+  "tag": "text-to-3d",
+  "label": "Texto a 3D",
+  "icon": "🏗️",
+  "keywords": [
+   "texto a 3d",
+   "generar 3d",
+   "escena 3d",
+   "habitacion 3d",
+   "assets 3d",
+   "mundo 3d"
+  ],
+  "terms": [
+   "text-to-3d",
+   "3d asset generation",
+   "3d scene generation",
+   "indoor scene",
+   "layout generation"
+  ]
+ },
+ {
+  "tag": "image-segmentation",
+  "label": "Segmentación / recorte",
+  "icon": "✂️",
+  "keywords": [
+   "quitar fondo",
+   "eliminar fondo",
+   "recortar",
+   "segmentar",
+   "segmentacion",
+   "mascara",
+   "matting",
+   "background removal",
+   "chroma"
+  ],
+  "terms": [
+   "segmentation",
+   "matting",
+   "background removal",
+   "video matting"
+  ]
+ },
+ {
+  "tag": "mask-generation",
+  "label": "Máscaras (SAM)",
+  "icon": "🎭",
+  "keywords": [
+   "sam",
+   "segment anything",
+   "mascaras",
+   "seleccionar objeto"
+  ],
+  "terms": []
+ },
+ {
+  "tag": "object-detection",
+  "label": "Detección de objetos",
+  "icon": "📦",
+  "keywords": [
+   "detectar objetos",
+   "deteccion",
+   "yolo",
+   "contar objetos",
+   "bounding box",
+   "camara",
+   "vigilancia",
+   "personas"
+  ],
+  "terms": [
+   "object detection",
+   "open-vocabulary detection",
+   "object tracking"
+  ]
+ },
+ {
+  "tag": "depth-estimation",
+  "label": "Profundidad",
+  "icon": "🌊",
+  "keywords": [
+   "profundidad",
+   "depth",
+   "mapa de profundidad",
+   "distancia"
+  ],
+  "terms": [
+   "depth estimation",
+   "monocular depth",
+   "stereo matching"
+  ]
+ },
+ {
+  "tag": "feature-extraction",
+  "label": "Embeddings",
+  "icon": "🧭",
+  "keywords": [
+   "embeddings",
+   "busqueda semantica",
+   "rag",
+   "vectores",
+   "similitud",
+   "recuperacion",
+   "buscador",
+   "retrieval"
+  ],
+  "terms": [
+   "embedding model",
+   "text embedding",
+   "retrieval model"
+  ]
+ },
+ {
+  "tag": "text-ranking",
+  "label": "Reranking",
+  "icon": "🏆",
+  "keywords": [
+   "rerank",
+   "reranker",
+   "ordenar resultados",
+   "relevancia",
+   "rag"
+  ],
+  "terms": []
+ },
+ {
+  "tag": "robotics",
+  "label": "Robótica",
+  "icon": "🤖",
+  "keywords": [
+   "robot",
+   "robotica",
+   "humanoide",
+   "manipulacion",
+   "vla",
+   "control",
+   "movimiento",
+   "simulacion",
+   "unitree",
+   "brazo robotico"
+  ],
+  "terms": [
+   "robot",
+   "robotic",
+   "manipulation",
+   "vision-language-action",
+   "vla",
+   "humanoid",
+   "embodied",
+   "sim-to-real",
+   "locomotion policy"
+  ]
+ },
+ {
+  "tag": "time-series-forecasting",
+  "label": "Series temporales",
+  "icon": "📈",
+  "keywords": [
+   "predecir",
+   "prediccion",
+   "forecast",
+   "series temporales",
+   "ventas",
+   "demanda",
+   "bolsa"
+  ],
+  "terms": []
+ },
+ {
+  "tag": "motion-generation",
+  "label": "Animación y movimiento",
+  "icon": "🕺",
+  "custom": true,
+  "keywords": [
+   "animacion",
+   "animar personaje",
+   "animaciones",
+   "movimiento",
+   "motion",
+   "mocap",
+   "captura de movimiento",
+   "rigging",
+   "retargeting",
+   "locomocion",
+   "videojuego",
+   "personaje",
+   "esqueleto",
+   "danza",
+   "gestos",
+   "pose",
+   "avatar animado",
+   "animacion de personajes",
+   "animar personajes"
+  ],
+  "terms": [
+   "motion generation",
+   "text-to-motion",
+   "human motion",
+   "character animation",
+   "motion synthesis",
+   "motion capture",
+   "mocap",
+   "motion retargeting",
+   "rigging",
+   "skinning",
+   "locomotion",
+   "dance generation",
+   "gesture generation",
+   "motion diffusion",
+   "physics-based character",
+   "smpl"
+  ],
+  "hfTags": [
+   "text-to-motion",
+   "motion-generation",
+   "character-animation",
+   "human-motion",
+   "smpl",
+   "mocap"
+  ],
+  "githubTopics": [
+   "motion-generation",
+   "text-to-motion",
+   "character-animation",
+   "motion-capture",
+   "human-motion-generation",
+   "motion-synthesis"
+  ]
+ },
+ {
+  "tag": "world-generation",
+  "label": "Mundos y entornos virtuales",
+  "icon": "🌍",
+  "custom": true,
+  "keywords": [
+   "mundo",
+   "mundos",
+   "entorno",
+   "entornos",
+   "escenario",
+   "nivel",
+   "niveles",
+   "videojuego",
+   "mundo virtual",
+   "world model",
+   "explorable",
+   "simulador",
+   "metaverso",
+   "escena interactiva",
+   "game engine",
+   "unreal",
+   "unity",
+   "mundo 3d",
+   "entorno 3d",
+   "escena explorable",
+   "mundo explorable",
+   "world model interactivo"
+  ],
+  "terms": [
+   "world model",
+   "world generation",
+   "interactive world",
+   "explorable",
+   "3d world",
+   "scene generation",
+   "game engine",
+   "game generation",
+   "interactive video generation",
+   "playable",
+   "open-world",
+   "virtual environment",
+   "4d scene",
+   "neural game"
+  ],
+  "hfTags": [
+   "world-model",
+   "world-models",
+   "interactive-video",
+   "game-generation"
+  ],
+  "githubTopics": [
+   "world-model",
+   "world-models",
+   "scene-generation",
+   "game-generation",
+   "interactive-video-generation"
+  ]
+ },
+ {
+  "tag": "terrain-generation",
+  "label": "Terreno y procedural",
+  "icon": "🏔️",
+  "custom": true,
+  "keywords": [
+   "terreno",
+   "terrenos",
+   "heightmap",
+   "mapa de altura",
+   "procedural",
+   "paisaje",
+   "paisajes",
+   "montana",
+   "planeta",
+   "bioma",
+   "relieve",
+   "geologia",
+   "ciudad procedural",
+   "terreno realista",
+   "generar terreno",
+   "mapa procedural"
+  ],
+  "terms": [
+   "terrain",
+   "heightmap",
+   "procedural generation",
+   "procedural content",
+   "landscape generation",
+   "digital elevation",
+   "erosion",
+   "procedural city",
+   "urban generation",
+   "biome",
+   "large-scale scene"
+  ],
+  "hfTags": [
+   "terrain",
+   "procedural-generation",
+   "heightmap"
+  ],
+  "githubTopics": [
+   "terrain-generation",
+   "procedural-generation",
+   "procedural-terrain",
+   "heightmap",
+   "procedural-content-generation"
+  ]
+ },
+ {
+  "tag": "texture-generation",
+  "label": "Texturas y materiales",
+  "icon": "🧱",
+  "custom": true,
+  "keywords": [
+   "textura",
+   "texturas",
+   "material",
+   "materiales",
+   "pbr",
+   "uv",
+   "shader",
+   "sprites",
+   "pixel art",
+   "tileset"
+  ],
+  "terms": [
+   "texture generation",
+   "texture synthesis",
+   "pbr material",
+   "material generation",
+   "svbrdf",
+   "uv texture",
+   "texturing",
+   "sprite",
+   "pixel art",
+   "tileable"
+  ],
+  "hfTags": [
+   "texture-generation",
+   "pbr",
+   "material-generation",
+   "pixel-art"
+  ],
+  "githubTopics": [
+   "texture-generation",
+   "pbr-materials",
+   "texture-synthesis",
+   "pixel-art"
+  ]
+ },
+ {
+  "tag": "avatar-generation",
+  "label": "Avatares y humanos digitales",
+  "icon": "🧑",
+  "custom": true,
+  "keywords": [
+   "avatar",
+   "avatares",
+   "humano digital",
+   "cara",
+   "rostro",
+   "cabeza",
+   "vtuber",
+   "lip sync",
+   "sincronizacion labial",
+   "talking head"
+  ],
+  "terms": [
+   "avatar",
+   "digital human",
+   "head avatar",
+   "gaussian avatar",
+   "talking head",
+   "lip sync",
+   "face reenactment",
+   "human reconstruction",
+   "clothed human",
+   "garment"
+  ],
+  "hfTags": [
+   "avatar",
+   "talking-head",
+   "lip-sync",
+   "digital-human"
+  ],
+  "githubTopics": [
+   "avatar",
+   "digital-human",
+   "talking-head",
+   "lip-sync",
+   "3d-avatar"
+  ]
+ },
+ {
+  "tag": "physics-simulation",
+  "label": "Simulación física",
+  "icon": "⚙️",
+  "custom": true,
+  "keywords": [
+   "fisica",
+   "simulacion",
+   "colisiones",
+   "fluidos",
+   "tela",
+   "particulas",
+   "destruccion",
+   "articulado",
+   "con fisicas",
+   "fisicas realistas",
+   "objeto con fisicas"
+  ],
+  "terms": [
+   "physics simulation",
+   "physically",
+   "simulation-ready",
+   "articulated object",
+   "differentiable simulation",
+   "fluid simulation",
+   "cloth simulation",
+   "physics-aware",
+   "digital twin"
+  ],
+  "hfTags": [
+   "physics",
+   "simulation",
+   "articulated-objects"
+  ],
+  "githubTopics": [
+   "physics-simulation",
+   "differentiable-simulation",
+   "articulated-objects"
+  ]
+ },
+ {
+  "tag": "agents",
+  "label": "Agentes y orquestación",
+  "icon": "🧑‍💼",
+  "custom": true,
+  "keywords": [
+   "agente",
+   "agentes",
+   "orquestar",
+   "multiagente",
+   "swarm",
+   "automatizar",
+   "workflow",
+   "computer use",
+   "navegador"
+  ],
+  "terms": [
+   "multi-agent",
+   "agent framework",
+   "agent orchestration",
+   "agentic",
+   "computer-use agent",
+   "gui agent",
+   "web agent",
+   "swarm"
+  ],
+  "hfTags": [
+   "agent",
+   "agents"
+  ],
+  "githubTopics": [
+   "multi-agent",
+   "agent-framework",
+   "ai-agents",
+   "agentic-ai",
+   "computer-use"
+  ]
+ }
 ]

@@ -105,14 +105,52 @@
     "minLikes": 80,
     "weight": 2.5
   },
-  "dailyPapers": {
-    "minUpvotes": 25,
-    "weight": 1.5
-  },
   "github": {
     "maxAgeDays": 10,
     "minStars": 300,
     "weight": 1
   },
-  "maxItemAgeDays": 4
+  "maxItemAgeDays": 4,
+  "research": {
+    "_comment": "Descubrimiento de investigación de nicho. aggregators: canales de YouTube cuyas descripciones enlazan proyectos (channelId). domainWeights: multiplica el interés de una tarea.",
+    "arxiv": {
+      "categories": [
+        "cs.CV",
+        "cs.GR",
+        "cs.RO",
+        "cs.SD",
+        "eess.AS",
+        "cs.CL",
+        "cs.LG",
+        "cs.AI",
+        "cs.MA",
+        "cs.HC",
+        "eess.IV"
+      ],
+      "maxResults": 1200
+    },
+    "aggregators": [
+      {
+        "name": "AI Search",
+        "channelId": "UCIgnGlGkVRhd4qNFcEwLL4A"
+      },
+      {
+        "name": "Two Minute Papers",
+        "channelId": "UCbfYPyITQ-7l4upoX8nvctg"
+      }
+    ],
+    "githubTopics": {
+      "maxAgeDays": 21,
+      "minStars": 15
+    },
+    "domainWeights": {
+      "motion-generation": 1.2,
+      "world-generation": 1.2,
+      "terrain-generation": 1.3,
+      "text-to-3d": 1.1,
+      "image-to-3d": 1.1
+    },
+    "minScoreToolbox": 14,
+    "maxAgeDaysNews": 14
+  }
 }

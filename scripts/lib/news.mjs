@@ -13,7 +13,7 @@ const CATEGORIES = ['Lanzamiento', 'Open Source', 'Investigación', 'Industria',
 const STOP = new Set(normalizeText('the a an and or of to in on for with by from is are new de la el los las un una y o en con por para del al que se su sus como más mas nuevo nueva its it this that how what why your you we our now ai ia'.replace(/ /g, ' ')).split(' '));
 const AI_RE = /\b(ai|llm|llms|agent|agents|agentic|model|models|diffusion|gpt|transformer|neural|inference|rag|machine learning|deep learning|vision|speech|tts|mcp|claude|openai|gemini|ollama|lora|multimodal|embedding|robot|robotics|copilot)\b/i;
 
-export async function updateNews(models = []) {
+export async function updateNews(models = [], research = []) {
   const cfg = await readJSON(path.join(CONFIG_DIR, 'sources.json'), {});
   const statePath = path.join(STATE_DIR, 'news-state.json');
   const state = await readJSON(statePath, { seen: {}, recent: [] });
@@ -23,9 +23,9 @@ export async function updateNews(models = []) {
   const groups = await Promise.all([
     collectFeeds(cfg, state),
     collectHFReleases(models, cfg.huggingFaceReleases || {}),
-    collectPapers(cfg.dailyPapers || {}),
     collectGitHub(cfg.github || {}),
   ]);
+  groups.push(researchCandidates(research, cfg.research || {}));
   let items = groups.flat();
   console.log(`· ${items.length} elementos recolectados`);
 
@@ -47,7 +47,17 @@ export async function updateNews(models = []) {
   console.log(`· ${clusters.length} temas, ${ranked.length} publicables; se redactan hasta ${ARTICLES_PER_RUN}`);
 
   // 3) Redacción
-  const chosen = ranked.slice(0, ARTICLES_PER_RUN);
+  const chosen = [];
+  const perType = {};
+  const cap = Math.max(1, Math.ceil(ARTICLES_PER_RUN / 2));
+  for (const c of ranked) {
+    if (chosen.length >= ARTICLES_PER_RUN) break;
+    const t = c.items[0].type === 'reddit' ? 'rss' : c.items[0].type;
+    if ((perType[t] || 0) >= cap) continue;
+    perType[t] = (perType[t] || 0) + 1;
+    chosen.push(c);
+  }
+  for (const c of ranked) if (chosen.length < ARTICLES_PER_RUN && !chosen.includes(c)) chosen.push(c);
   const modelsById = new Map(models.map((m) => [m.id, m]));
   const written = (await pool(chosen, 3, (c) => writeArticle(c, modelsById))).filter(Boolean);
 
@@ -147,6 +157,7 @@ function collectHtmlLinks(f, html, state) {
 function collectHFReleases(models, cfg) {
   const maxAge = cfg.maxAgeDays || 10;
   return models
+    .filter((m) => m.kind !== 'project')
     .filter((m) => (Date.now() - new Date(m.createdAt)) / 86400000 <= maxAge && (m.likes >= (cfg.minLikes || 80) || (m.watch && m.likes >= 20)))
     .filter((m) => !/(abliterat|obliterat|uncensor|unrestrict|nsfw|eros|heretic|merge|prism|jailbreak)/i.test(m.id))
     .map((m) => ({
@@ -164,23 +175,30 @@ function collectHFReleases(models, cfg) {
     }));
 }
 
-async function collectPapers(cfg) {
-  const list = (await fetchJSON('https://huggingface.co/api/daily_papers?limit=100')) || [];
-  return list
-    .filter((p) => (p.paper?.upvotes || 0) >= (cfg.minUpvotes || 25))
-    .map((p) => ({
-      type: 'paper',
-      source: 'Hugging Face Papers',
-      category: 'Investigación',
-      title: p.paper.title || p.title,
-      url: `https://huggingface.co/papers/${p.paper.id}`,
-      paperId: p.paper.id,
-      date: p.publishedAt || p.paper.publishedAt,
-      summary: p.paper.summary || '',
-      github: p.paper.githubRepo || null,
-      image: p.thumbnail || null,
-      score: (cfg.weight || 1.5) * Math.log10(p.paper.upvotes + 1) * 8,
-    }));
+/** Papers y proyectos de nicho que el radar de investigación considera destacables. */
+function researchCandidates(research, cfg) {
+  const maxAge = cfg.maxAgeDaysNews || 14;
+  return research
+    .filter((r) => r.title && (r.hasCode || r.mentions?.length || r.upvotes >= 25))
+    .map((r) => {
+      const links = [r.repo && `código: https://github.com/${r.repo}`, r.project && `proyecto: ${r.project}`, r.weights?.length && `pesos: ${r.weights.map((w) => 'https://huggingface.co/' + w).join(', ')}`].filter(Boolean).join(' · ');
+      return {
+        type: 'research',
+        source: r.source || 'arXiv',
+        category: r.kind === 'paper' ? 'Investigación' : 'Herramientas',
+        title: r.title,
+        name: r.name,
+        url: r.url,
+        repo: r.repo,
+        project: r.project,
+        modelId: (r.weights || [])[0],
+        date: r.published || r.firstSeen,
+        maxAge,
+        summary: `${r.summary || r.description || ''}${links ? '\n\nEnlaces: ' + links : ''}${r.stars ? `\nEstrellas en GitHub: ${r.stars}` : ''}${r.mentions?.length ? `\nMencionado en: ${r.mentions.join('; ')}` : ''}`,
+        image: r.image || (r.repo ? `https://opengraph.githubassets.com/1/${r.repo}` : null),
+        score: r.score,
+      };
+    });
 }
 
 async function collectGitHub(cfg) {
@@ -188,7 +206,7 @@ async function collectGitHub(cfg) {
   const headers = process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {};
   const res = await fetchJSON(`https://api.github.com/search/repositories?q=created:%3E${since}+stars:%3E${cfg.minStars || 150}&sort=stars&order=desc&per_page=60`, { headers, retries: 1 });
   return (res?.items || [])
-    .filter((r) => AI_RE.test(`${r.name} ${r.description || ''} ${(r.topics || []).join(' ')}`))
+    .filter((r) => AI_RE.test(`${r.name} ${r.description || ''} ${(r.topics || []).join(' ')}`) && !/awesome|curated (list|collection)/i.test(`${r.name} ${r.description || ''}`))
     .filter((r) => (r.description || '').replace(/[^぀-ヿ一-鿿]/g, '').length < (r.description || '').length * 0.2)
     .map((r) => ({
       type: 'github',
@@ -218,6 +236,9 @@ function distinctive(item) {
   const out = new Set();
   for (const m of t.matchAll(/([a-z][a-z]+)[\s-]?(\d+(?:\.\d+)*)\b/g)) if (!STOP.has(m[1]) && m[1].length > 2) out.add(m[1] + m[2]);
   for (const m of t.matchAll(/\b([a-z]*\d+[a-z][a-z0-9.-]*)\b/g)) if (m[1].length >= 4 && !/^\d+(b|m|k|gb|x)$/.test(m[1])) out.add(m[1]);
+  const named = item.title.match(/^([A-Za-z][\w.+-]{2,30}):\s/);
+  if (named && !STOP.has(normalizeText(named[1]))) out.add(normalizeText(named[1]).replace(/[^a-z0-9.]/g, ''));
+  if (item.name && /[A-Z].*[A-Z]|\d/.test(item.name) && item.name.length <= 30) out.add(normalizeText(item.name).replace(/[^a-z0-9.]/g, ''));
   if (item.modelId) out.add(normalizeText(item.modelId.split('/')[1]).replace(/[^a-z0-9.]/g, ''));
   if (item.repo) out.add(normalizeText(item.repo.split('/')[1]));
   return [...out].filter((x) => !/^(20\d\d|19\d\d)/.test(x));
@@ -257,6 +278,17 @@ async function gatherContext(item) {
   if (item.type === 'hf-model') {
     const md = await fetchText(`https://huggingface.co/${item.modelId}/raw/main/README.md`, { retries: 1 });
     if (md) text = stripMarkdown(md);
+  } else if (item.type === 'research') {
+    const parts = [item.summary || ''];
+    if (item.repo) {
+      const md = await fetchText(`https://raw.githubusercontent.com/${item.repo}/HEAD/README.md`, { retries: 1 });
+      if (md) parts.push('README:\n' + stripMarkdown(md).slice(0, 3500));
+    }
+    if (item.project) {
+      const html = await fetchText(item.project, { retries: 0, timeout: 15000 });
+      if (html) { const page = extractPage(html); parts.push('Página del proyecto:\n' + page.text.slice(0, 2500)); image = image || page.image; }
+    }
+    text = parts.join('\n\n');
   } else if (item.type === 'github') {
     const md = await fetchText(`https://raw.githubusercontent.com/${item.repo}/HEAD/README.md`, { retries: 1 });
     if (md) text = `${item.summary}\n\n${stripMarkdown(md)}`;
