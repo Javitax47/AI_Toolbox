@@ -229,11 +229,14 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "gh:Leonxlnx/procedural-alpine-lake": {},
   "black-forest-labs/flux-3-image-klein-comfy": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:danemadsen/nerthus": {},
+  "gh:Supra-3D/PhysAg3D": {
+    "readmeBench": []
+  },
   "vllm-sr/d3-turbo": {
     "evalsHF": [
       {
@@ -316,7 +319,8 @@
   "gh:Tencent-Hunyuan/Hy-Nomas": {
     "readmeBench": []
   },
-  "gh:5hadytru/so101_bench": {
+  "hyz317/HairDeck": {
+    "evalsHF": [],
     "readmeBench": []
   },
   "convaiinnovations/laya": {
@@ -394,14 +398,6 @@
     "readmeBench": []
   },
   "stabilityai/stable-audio-open-1.0": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "MiniMaxAI/MiniMax-H3": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "hyz317/HairDeck": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -499,20 +495,21 @@
       }
     ]
   },
-  "nvidia/personaplex-7b-v1": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "depth-anything/Depth-Anything-V2-Small-hf": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "OliviaRossi/Minimax-h3_Singularity-x-10Eros-Max_PRISM": {
+  "nvidia/personaplex-7b-v1": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "Comfy-Org/MOSS-Image": {
-    "evalsHF": [],
+  "gh:KaiserWhoLearns/ReasoningEffortLLM": {
+    "readmeBench": []
+  },
+  "gh:OpenSenseNova/SenseNova-Loop": {
+    "readmeBench": []
+  },
+  "gh:Tinaliu0123/scenebloom": {
     "readmeBench": []
   },
   "Qwen/Qwen-Image-2.1": {
@@ -571,27 +568,34 @@
   "gh:patch-gg/anymove": {
     "readmeBench": []
   },
-  "gh:Leonxlnx/procedural-alpine-lake": {},
   "FreedomIntelligence/BlenderLLM": {
     "evalsHF": [],
+    "readmeBench": []
+  },
+  "OliviaRossi/Minimax-h3_Singularity-x-10Eros-Max_PRISM": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "Comfy-Org/MOSS-Image": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:deepseek-ai/DeepInfer": {
     "readmeBench": []
   },
   "burner22/numbat": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:KaiserWhoLearns/ReasoningEffortLLM": {
-    "readmeBench": []
-  },
   "akatz-ai/MiniMax-H3-Character-Swap-LoRA": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "m-a-p/YuE2-3B": {
-    "evalsHF": [],
+  "gh:NVlabs/motionbricks": {
     "readmeBench": []
   },
-  "gh:tettethu/VibeGame": {
+  "m-a-p/YuE2-3B": {
+    "evalsHF": [],
     "readmeBench": []
   },
   "vllm-sr/d3-ultra": {
@@ -634,17 +638,11 @@
       }
     ]
   },
-  "gh:Shuyun-Wang/MatAnyone-E": {
-    "readmeBench": []
-  },
-  "briaai/RMBG-2.0": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "stabilityai/stable-audio-3-medium": {
     "evalsHF": [],
     "readmeBench": []
   },
+  "gh:danemadsen/nerthus": {},
   "gh:VAST-AI-Research/EdenLive": {
     "readmeBench": []
   },
@@ -653,6 +651,10 @@
     "readmeBench": []
   },
   "Comfy-Org/MiniMax-H3": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "pablodawson/MiniMax-H3-360-Orbit-LoRA": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -763,6 +765,10 @@
         "note": "Mistral Large 4 open-weight release announcement"
       }
     ],
+    "readmeBench": []
+  },
+  "briaai/RMBG-2.0": {
+    "evalsHF": [],
     "readmeBench": []
   },
   "LiquidAI/LFM3-1.7B": {
@@ -952,6 +958,31 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "h2oai/timeh2o-v1": {
+    "evalsHF": [
+      {
+        "name": "GIFT-Eval CRPS",
+        "value": 0.441,
+        "source": "model-index"
+      },
+      {
+        "name": "GIFT-Eval MASE",
+        "value": 0.654,
+        "source": "model-index"
+      },
+      {
+        "name": "fev-bench SQL skill score",
+        "value": 50.83,
+        "source": "model-index"
+      },
+      {
+        "name": "fev-bench MASE skill score",
+        "value": 39.95,
+        "source": "model-index"
+      }
+    ],
+    "readmeBench": []
+  },
   "LiquidAI/LFM3-VL-2B": {
     "evalsHF": [
       {
@@ -1120,34 +1151,6 @@
       }
     ]
   },
-  "h2oai/timeh2o-v1": {
-    "evalsHF": [
-      {
-        "name": "GIFT-Eval CRPS",
-        "value": 0.441,
-        "source": "model-index"
-      },
-      {
-        "name": "GIFT-Eval MASE",
-        "value": 0.654,
-        "source": "model-index"
-      },
-      {
-        "name": "fev-bench SQL skill score",
-        "value": 50.83,
-        "source": "model-index"
-      },
-      {
-        "name": "fev-bench MASE skill score",
-        "value": 39.95,
-        "source": "model-index"
-      }
-    ],
-    "readmeBench": []
-  },
-  "gh:rzc156/dreamforge": {
-    "readmeBench": []
-  },
   "MiniMaxAI/MiniMax-Music3": {
     "evalsHF": [],
     "readmeBench": []
@@ -1306,14 +1309,17 @@
       }
     ]
   },
-  "FastVideo/FastH3-Omni-Comfy": {
-    "evalsHF": [],
+  "gh:Ropedia/ropedia-w0": {
     "readmeBench": []
   },
   "pyannote/speaker-diarization-community-1": {
     "evalsHF": [],
     "readmeBench": []
   },
+  "gh:Shuyun-Wang/MatAnyone-E": {
+    "readmeBench": []
+  },
+  "gh:Cygnux-Labs/PCM-protocol": {},
   "Pika-Labs/Pika-H3-Flex": {
     "evalsHF": [],
     "readmeBench": []
@@ -1490,9 +1496,104 @@
       }
     ]
   },
-  "pollen-robotics/microduck-policies": {
+  "MiniMaxAI/MiniMax-H3": {
     "evalsHF": [],
     "readmeBench": []
+  },
+  "openjev/openjev": {
+    "evalsHF": [
+      {
+        "name": "typed-decisions · accuracy",
+        "value": 0.7275,
+        "source": "hf",
+        "note": "Typed Decisions benchmark run 2026-10-16 (results + leaderboard.md in bucket)"
+      },
+      {
+        "name": "typed-decisions · kl from gold",
+        "value": 0.5059,
+        "source": "hf",
+        "note": "Typed Decisions benchmark run 2026-10-16 (results + leaderboard.md in bucket)"
+      },
+      {
+        "name": "typed-decisions · brier",
+        "value": 0.1915,
+        "source": "hf",
+        "note": "Typed Decisions benchmark run 2026-10-16 (results + leaderboard.md in bucket)"
+      },
+      {
+        "name": "typed-decisions · ece",
+        "value": 0.1007,
+        "source": "hf",
+        "note": "Typed Decisions benchmark run 2026-10-16 (results + leaderboard.md in bucket)"
+      }
+    ],
+    "readmeBench": [
+      {
+        "name": "accuracy",
+        "value": 84,
+        "source": "ficha"
+      },
+      {
+        "name": "intent / routing / topic",
+        "value": 92.8,
+        "source": "ficha"
+      },
+      {
+        "name": "spam / hate",
+        "value": 80.4,
+        "source": "ficha"
+      },
+      {
+        "name": "legal",
+        "value": 78.9,
+        "source": "ficha"
+      },
+      {
+        "name": "ethics / policy judgement",
+        "value": 78.1,
+        "source": "ficha"
+      },
+      {
+        "name": "commonsense reasoning",
+        "value": 85.8,
+        "source": "ficha"
+      },
+      {
+        "name": "science / facts / claims",
+        "value": 82.5,
+        "source": "ficha"
+      },
+      {
+        "name": "reading + language",
+        "value": 89.2,
+        "source": "ficha"
+      },
+      {
+        "name": "desktop: next action from a screenshot",
+        "value": 88,
+        "source": "ficha"
+      },
+      {
+        "name": "web: next action on unseen websites",
+        "value": 87.4,
+        "source": "ficha"
+      },
+      {
+        "name": "web: next action on unseen domains",
+        "value": 84.5,
+        "source": "ficha"
+      },
+      {
+        "name": "answer flips when the options are shuffled",
+        "value": 2.3,
+        "source": "ficha"
+      },
+      {
+        "name": "tasks completed",
+        "value": 39,
+        "source": "ficha"
+      }
+    ]
   },
   "Qwen/Qwen3.8-Flash-Next": {
     "evalsHF": [
@@ -1666,106 +1767,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "openjev/openjev": {
-    "evalsHF": [
-      {
-        "name": "typed-decisions · accuracy",
-        "value": 0.7275,
-        "source": "hf",
-        "note": "Typed Decisions benchmark run 2026-10-16 (results + leaderboard.md in bucket)"
-      },
-      {
-        "name": "typed-decisions · kl from gold",
-        "value": 0.5059,
-        "source": "hf",
-        "note": "Typed Decisions benchmark run 2026-10-16 (results + leaderboard.md in bucket)"
-      },
-      {
-        "name": "typed-decisions · brier",
-        "value": 0.1915,
-        "source": "hf",
-        "note": "Typed Decisions benchmark run 2026-10-16 (results + leaderboard.md in bucket)"
-      },
-      {
-        "name": "typed-decisions · ece",
-        "value": 0.1007,
-        "source": "hf",
-        "note": "Typed Decisions benchmark run 2026-10-16 (results + leaderboard.md in bucket)"
-      }
-    ],
-    "readmeBench": [
-      {
-        "name": "accuracy",
-        "value": 84,
-        "source": "ficha"
-      },
-      {
-        "name": "intent / routing / topic",
-        "value": 92.8,
-        "source": "ficha"
-      },
-      {
-        "name": "spam / hate",
-        "value": 80.4,
-        "source": "ficha"
-      },
-      {
-        "name": "legal",
-        "value": 78.9,
-        "source": "ficha"
-      },
-      {
-        "name": "ethics / policy judgement",
-        "value": 78.1,
-        "source": "ficha"
-      },
-      {
-        "name": "commonsense reasoning",
-        "value": 85.8,
-        "source": "ficha"
-      },
-      {
-        "name": "science / facts / claims",
-        "value": 82.5,
-        "source": "ficha"
-      },
-      {
-        "name": "reading + language",
-        "value": 89.2,
-        "source": "ficha"
-      },
-      {
-        "name": "desktop: next action from a screenshot",
-        "value": 88,
-        "source": "ficha"
-      },
-      {
-        "name": "web: next action on unseen websites",
-        "value": 87.4,
-        "source": "ficha"
-      },
-      {
-        "name": "web: next action on unseen domains",
-        "value": 84.5,
-        "source": "ficha"
-      },
-      {
-        "name": "answer flips when the options are shuffled",
-        "value": 2.3,
-        "source": "ficha"
-      },
-      {
-        "name": "tasks completed",
-        "value": 39,
-        "source": "ficha"
-      }
-    ]
-  },
   "stabilityai/stable-audio-3-small-sfx": {
     "evalsHF": [],
     "readmeBench": []
   },
   "pyannote/speaker-diarization-3.1": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "FastVideo/FastH3-Omni-Comfy": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -1839,7 +1849,7 @@
       }
     ]
   },
-  "circlestone-labs/Anima": {
+  "black-forest-labs/FLUX.1-schnell": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -1847,14 +1857,10 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "black-forest-labs/FLUX.1-schnell": {
-    "evalsHF": [],
+  "gh:rzc156/dreamforge": {
     "readmeBench": []
   },
-  "gh:Ropedia/ropedia-w0": {
-    "readmeBench": []
-  },
-  "lightx2v/Minimax-h3-Turbo": {
+  "circlestone-labs/Anima": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -1875,19 +1881,11 @@
     ],
     "readmeBench": []
   },
-  "facebook/sam-3d-body-dinov3": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "tencent/Hy-SimulMT-30B-A3B-FP8": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "lerobot/smolvla_base": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "LiconStudio/Minimax-H3-VBVR": {
+  "pollen-robotics/microduck-policies": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -1899,6 +1897,10 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "LiconStudio/Minimax-H3-VBVR": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "drbaph/MiniMax-H3-Turbo-Lora-ComfyUI": {
     "evalsHF": [],
     "readmeBench": []
@@ -1907,11 +1909,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "kyutai/pocket-tts": {
+  "lightx2v/Minimax-h3-Turbo": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "Comfy-Org/Krea-2": {
+  "facebook/sam-3d-body-dinov3": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -2050,10 +2052,6 @@
         "source": "ficha"
       }
     ]
-  },
-  "conradlocke/krea2-identity-edit": {
-    "evalsHF": [],
-    "readmeBench": []
   },
   "Qwen/Qwen3.8-27B": {
     "evalsHF": [
@@ -2522,6 +2520,9 @@
       }
     ]
   },
+  "gh:cvlab-kaist/L3G-World": {
+    "readmeBench": []
+  },
   "Wan-AI/Wan2.1-T2V-14B": {
     "evalsHF": [],
     "readmeBench": []
@@ -2641,7 +2642,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "nvidia/GR00T-N1.7-3B": {
+  "lerobot/smolvla_base": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -2649,23 +2650,16 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "ACE-Step/Ace-Step1.5": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "krea/Krea-2-Raw": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "Alissonerdx/Minimax-H3-ComfyUI": {
+  "kyutai/pocket-tts": {
     "evalsHF": [],
     "readmeBench": []
   },
   "Wan-AI/Wan2.1-T2V-1.3B": {
     "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:Tencent/WeVisCut": {
     "readmeBench": []
   },
   "stabilityai/stable-diffusion-xl-base-1.0": {
@@ -2680,18 +2674,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "tencent/Hy-SimulMT-30B-A3B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "fishaudio/drama-3": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:kaibohex/muscle-supermimic": {
+  "dptech/Uni-3DAR": {
+    "evalsHF": [],
     "readmeBench": []
   },
-  "dptech/Uni-3DAR": {
+  "Comfy-Org/Krea-2": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -2705,6 +2696,30 @@
       }
     ],
     "readmeBench": []
+  },
+  "gh:Tencent-Hunyuan/Hy-SimulMT": {
+    "readmeBench": [
+      {
+        "name": "FLEURS",
+        "value": 90.3,
+        "source": "ficha"
+      },
+      {
+        "name": "CoVoST2",
+        "value": 75.5,
+        "source": "ficha"
+      },
+      {
+        "name": "ACL6060",
+        "value": 81.2,
+        "source": "ficha"
+      },
+      {
+        "name": "RealSI-Sentence",
+        "value": 84.7,
+        "source": "ficha"
+      }
+    ]
   },
   "tencent/HunyuanVideo": {
     "evalsHF": [],
@@ -2731,13 +2746,54 @@
       }
     ]
   },
-  "LBH-123-AI/Minimax_h3_latent_Upscaler": {
+  "conradlocke/krea2-identity-edit": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:Hugo-Dz/spritefusion-sprite-normals": {},
-  "gh:InfRec-Cardinal/The-Trinity": {
+  "nvidia/GR00T-N1.7-3B": {
+    "evalsHF": [],
     "readmeBench": []
+  },
+  "gh:tettethu/VibeGame": {
+    "readmeBench": []
+  },
+  "ACE-Step/Ace-Step1.5": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "tencent/Hy-SimulMT-30B-A3B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "RecursiveSI/flint": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "Attention",
+        "value": 35,
+        "source": "ficha"
+      },
+      {
+        "name": "Sliding window",
+        "value": 513,
+        "source": "ficha"
+      },
+      {
+        "name": "Attention heads",
+        "value": 32,
+        "source": "ficha"
+      },
+      {
+        "name": "Experts per MoE layer",
+        "value": 256,
+        "source": "ficha"
+      },
+      {
+        "name": "Vocabulary",
+        "value": 150.144,
+        "source": "ficha"
+      }
+    ]
   },
   "Qwen/Qwen3-Reranker-8B": {
     "evalsHF": [],
@@ -2774,40 +2830,7 @@
       }
     ]
   },
-  "gh:cvlab-kaist/L3G-World": {
-    "readmeBench": []
-  },
-  "RecursiveSI/flint": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "Attention",
-        "value": 35,
-        "source": "ficha"
-      },
-      {
-        "name": "Sliding window",
-        "value": 513,
-        "source": "ficha"
-      },
-      {
-        "name": "Attention heads",
-        "value": 32,
-        "source": "ficha"
-      },
-      {
-        "name": "Experts per MoE layer",
-        "value": 256,
-        "source": "ficha"
-      },
-      {
-        "name": "Vocabulary",
-        "value": 150.144,
-        "source": "ficha"
-      }
-    ]
-  },
-  "baidu/Unlimited-OCR-2": {
+  "Qwen/Qwen-Image-2.1-Turbo": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -2815,71 +2838,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "Qwen/Qwen-Image-2.1-Turbo": {
-    "evalsHF": [],
+  "gh:kaibohex/muscle-supermimic": {
     "readmeBench": []
   },
-  "lodestones/MOSS-Image-SFT-8-steps-dmd": {
+  "baidu/Unlimited-OCR-2": {
     "evalsHF": [],
-    "readmeBench": []
-  },
-  "SoMarkAI/OXR-1.0": {
-    "evalsHF": [
-      {
-        "name": "olmOCR-bench · overall",
-        "value": 87.84,
-        "source": "hf",
-        "note": null
-      },
-      {
-        "name": "olmOCR-bench · arxiv math",
-        "value": 92.76,
-        "source": "hf",
-        "note": null
-      },
-      {
-        "name": "olmOCR-bench · baseline",
-        "value": 97.35,
-        "source": "hf",
-        "note": null
-      },
-      {
-        "name": "olmOCR-bench · headers footers",
-        "value": 94.34,
-        "source": "hf",
-        "note": null
-      },
-      {
-        "name": "olmOCR-bench · long tiny text",
-        "value": 90.95,
-        "source": "hf",
-        "note": null
-      },
-      {
-        "name": "olmOCR-bench · multi column",
-        "value": 85.18,
-        "source": "hf",
-        "note": null
-      },
-      {
-        "name": "olmOCR-bench · old scans",
-        "value": 59.32,
-        "source": "hf",
-        "note": null
-      },
-      {
-        "name": "olmOCR-bench · old scans math",
-        "value": 89.74,
-        "source": "hf",
-        "note": null
-      },
-      {
-        "name": "olmOCR-bench · table tests",
-        "value": 93.05,
-        "source": "hf",
-        "note": null
-      }
-    ],
     "readmeBench": []
   },
   "Qwen/Qwen3.8-2.4T-A95B": {
@@ -3061,7 +3024,14 @@
       }
     ]
   },
+  "gh:InfRec-Cardinal/The-Trinity": {
+    "readmeBench": []
+  },
   "WarmBloodAban/Minimax-h3_Singularity": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "LBH-123-AI/Minimax_h3_latent_Upscaler": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -3091,12 +3061,70 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "nvidia/Kumo-Tabular": {
-    "evalsHF": [],
+  "gh:OpenSenseNova/SenseNova-6.8-Code2Video": {
     "readmeBench": []
   },
   "BreezeBlue/Breeze-TTS-2": {
     "evalsHF": [],
+    "readmeBench": []
+  },
+  "SoMarkAI/OXR-1.0": {
+    "evalsHF": [
+      {
+        "name": "olmOCR-bench · overall",
+        "value": 87.84,
+        "source": "hf",
+        "note": null
+      },
+      {
+        "name": "olmOCR-bench · arxiv math",
+        "value": 92.76,
+        "source": "hf",
+        "note": null
+      },
+      {
+        "name": "olmOCR-bench · baseline",
+        "value": 97.35,
+        "source": "hf",
+        "note": null
+      },
+      {
+        "name": "olmOCR-bench · headers footers",
+        "value": 94.34,
+        "source": "hf",
+        "note": null
+      },
+      {
+        "name": "olmOCR-bench · long tiny text",
+        "value": 90.95,
+        "source": "hf",
+        "note": null
+      },
+      {
+        "name": "olmOCR-bench · multi column",
+        "value": 85.18,
+        "source": "hf",
+        "note": null
+      },
+      {
+        "name": "olmOCR-bench · old scans",
+        "value": 59.32,
+        "source": "hf",
+        "note": null
+      },
+      {
+        "name": "olmOCR-bench · old scans math",
+        "value": 89.74,
+        "source": "hf",
+        "note": null
+      },
+      {
+        "name": "olmOCR-bench · table tests",
+        "value": 93.05,
+        "source": "hf",
+        "note": null
+      }
+    ],
     "readmeBench": []
   },
   "XiaomiMiMo/MiMo-V2.6-Pro-RL": {
@@ -3242,18 +3270,11 @@
       }
     ]
   },
-  "ZhengPeng7/BiRefNet": {
+  "lodestones/MOSS-Image-SFT-8-steps-dmd": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:SparrowPortray/horizon-free-capes": {},
-  "gh:kitlangton/scrawl": {},
-  "gh:Zfinix/eleven": {},
   "Alissonerdx/BFS-Best-Face-Swap": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Jojocodex/minimax-h3-spatial-physics-lora": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -3326,6 +3347,10 @@
         "note": "Artificial Analysis Terminal-Bench-Science leaderboard"
       }
     ],
+    "readmeBench": []
+  },
+  "ZhengPeng7/BiRefNet": {
+    "evalsHF": [],
     "readmeBench": []
   },
   "google/gemma-4-31B-it": {
@@ -3509,6 +3534,9 @@
       }
     ]
   },
+  "gh:baidu/Unlimited-OCR": {
+    "readmeBench": []
+  },
   "openbmb/VoxCPM2": {
     "evalsHF": [],
     "readmeBench": []
@@ -3612,7 +3640,10 @@
       }
     ]
   },
-  "gh:yalongwastaken/git-koi": {},
+  "Alissonerdx/Minimax-H3-ComfyUI": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice": {
     "evalsHF": [],
     "readmeBench": [
@@ -3637,11 +3668,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "Zhanli-Li/DataWorld-35B-A3B": {
+  "black-forest-labs/FLUX.2-klein-base-9b-fp8": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "black-forest-labs/FLUX.2-klein-base-9b-fp8": {
+  "Contrastive-LM/CLM-v0.1-8B": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -3649,7 +3680,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "OpenMOSS-Team/MOSS-Image-Base": {
+  "Zhanli-Li/DataWorld-35B-A3B": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -3657,11 +3688,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "lodestones/Kromoss": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Contrastive-LM/CLM-v0.1-8B": {
+  "stabilityai/stable-fast-3d": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -3715,7 +3742,11 @@
       }
     ]
   },
-  "stabilityai/stable-fast-3d": {
+  "OpenMOSS-Team/MOSS-Image-Base": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "nvidia/Kumo-Tabular": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -3773,18 +3804,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:jaisurya-dev-art/rigby2d": {},
-  "lerobot/pi05_base": {
-    "evalsHF": [
-      {
-        "name": "vlabench primitive ft lerobot video",
-        "value": 42,
-        "source": "hf",
-        "note": "VLA Model Leaderboard"
-      }
-    ],
+  "XHToken/Spark-X2.6-4B": {
+    "evalsHF": [],
     "readmeBench": []
   },
+  "gh:jaisurya-dev-art/rigby2d": {},
   "Qwen/Qwen3-Reranker-4B": {
     "evalsHF": [],
     "readmeBench": [
@@ -3820,6 +3844,10 @@
       }
     ]
   },
+  "Jojocodex/minimax-h3-spatial-physics-lora": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "Comfy-Org/Fibo-2.0": {
     "evalsHF": [],
     "readmeBench": []
@@ -3829,8 +3857,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:sloemo01/diorama": {},
-  "nvidia/Alpamayo-1.5-10B": {
+  "lodestones/Kromoss": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -3842,9 +3869,57 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "XHToken/Spark-X2.6-4B": {
-    "evalsHF": [],
+  "gh:5hadytru/so101_bench": {
     "readmeBench": []
+  },
+  "gh:hustvl/FVQ": {
+    "readmeBench": [
+      {
+        "name": "MMMU",
+        "value": 64.3,
+        "source": "ficha"
+      },
+      {
+        "name": "MMMU-Pro",
+        "value": 40.8,
+        "source": "ficha"
+      },
+      {
+        "name": "MathVista",
+        "value": 77.4,
+        "source": "ficha"
+      },
+      {
+        "name": "RealWorldQA",
+        "value": 72,
+        "source": "ficha"
+      },
+      {
+        "name": "MMStar",
+        "value": 68.5,
+        "source": "ficha"
+      },
+      {
+        "name": "OCRBench",
+        "value": 867,
+        "source": "ficha"
+      },
+      {
+        "name": "ChartQA",
+        "value": 83.9,
+        "source": "ficha"
+      },
+      {
+        "name": "DocVQA",
+        "value": 95.4,
+        "source": "ficha"
+      },
+      {
+        "name": "InfoVQA",
+        "value": 77.7,
+        "source": "ficha"
+      }
+    ]
   },
   "stabilityai/stable-diffusion-3.5-medium": {
     "evalsHF": [],
@@ -3868,6 +3943,18 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "lerobot/pi05_base": {
+    "evalsHF": [
+      {
+        "name": "vlabench primitive ft lerobot video",
+        "value": 42,
+        "source": "hf",
+        "note": "VLA Model Leaderboard"
+      }
+    ],
+    "readmeBench": []
+  },
+  "gh:patch-gg/crowdbricks": {},
   "stabilityai/stable-audio-3-small-music": {
     "evalsHF": [],
     "readmeBench": []
@@ -4076,6 +4163,9 @@
       }
     ]
   },
+  "gh:Tencent/WeVisCut": {
+    "readmeBench": []
+  },
   "Qwen/Qwen3-0.6B": {
     "evalsHF": [],
     "readmeBench": []
@@ -4162,54 +4252,9 @@
     ],
     "readmeBench": []
   },
-  "gh:hustvl/FVQ": {
-    "readmeBench": [
-      {
-        "name": "MMMU",
-        "value": 64.3,
-        "source": "ficha"
-      },
-      {
-        "name": "MMMU-Pro",
-        "value": 40.8,
-        "source": "ficha"
-      },
-      {
-        "name": "MathVista",
-        "value": 77.4,
-        "source": "ficha"
-      },
-      {
-        "name": "RealWorldQA",
-        "value": 72,
-        "source": "ficha"
-      },
-      {
-        "name": "MMStar",
-        "value": 68.5,
-        "source": "ficha"
-      },
-      {
-        "name": "OCRBench",
-        "value": 867,
-        "source": "ficha"
-      },
-      {
-        "name": "ChartQA",
-        "value": 83.9,
-        "source": "ficha"
-      },
-      {
-        "name": "DocVQA",
-        "value": 95.4,
-        "source": "ficha"
-      },
-      {
-        "name": "InfoVQA",
-        "value": 77.7,
-        "source": "ficha"
-      }
-    ]
+  "nvidia/Alpamayo-1.5-10B": {
+    "evalsHF": [],
+    "readmeBench": []
   },
   "CohereLabs/cohere-transcribe-03-2026": {
     "evalsHF": [
@@ -4349,18 +4394,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:patch-gg/crowdbricks": {},
-  "Qwen/Qwen3-8B": {
-    "evalsHF": [
-      {
-        "name": "ifstruct-v1.0",
-        "value": 79.75,
-        "source": "hf",
-        "note": "Liquid AI — IFStruct v1.0 blog (Qwen3-8B)"
-      }
-    ],
-    "readmeBench": []
-  },
   "Comfy-Org/Wan-2.2": {
     "evalsHF": [],
     "readmeBench": []
@@ -4393,11 +4426,23 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "briaai/RMBG-1.4": {
+  "Qwen/Qwen3-8B": {
+    "evalsHF": [
+      {
+        "name": "ifstruct-v1.0",
+        "value": 79.75,
+        "source": "hf",
+        "note": "Liquid AI — IFStruct v1.0 blog (Qwen3-8B)"
+      }
+    ],
+    "readmeBench": []
+  },
+  "gh:agentic-videogen/awesome-agentic-videogen": {},
+  "Qwen/Qwen-Image": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "Qwen/Qwen-Image": {
+  "briaai/RMBG-1.4": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -4417,15 +4462,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "shhivv/taiga-s1": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "neuphonic/neucodec": {
     "evalsHF": [],
     "readmeBench": []
   },
   "Lightricks/LTX-2.5-Diffusers": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "briaai/Fibo-2.0-dev": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -4572,15 +4617,14 @@
     ],
     "readmeBench": []
   },
+  "gh:ideogram-oss/ideogram-4": {
+    "readmeBench": []
+  },
   "Tongyi-MAI/Z-Image-Turbo": {
     "evalsHF": [],
     "readmeBench": []
   },
   "hustvl/yolos-small": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "nvidia/LocateAnything-3B": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -4886,27 +4930,16 @@
       }
     ]
   },
-  "PaddlePaddle/PP-DocLayoutV3": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "Supertone/supertonic-3": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "PrunaAI/P-Q-Image-2.1": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "allenai/MolmoAct2": {
+  "nvidia/LocateAnything-3B": {
     "evalsHF": [],
     "readmeBench": []
   },
   "google-t5/t5-base": {
     "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:yliu-cs/HuGe": {
     "readmeBench": []
   },
   "LiquidAI/LFM2.5-Audio-1.5B": {
@@ -5158,17 +5191,23 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:HexaFuture/EmbodiedLab": {
+  "PrunaAI/P-Q-Image-2.1": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "briaai/Fibo-2.0-dev": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "PaddlePaddle/PP-DocLayoutV3": {
+    "evalsHF": [],
     "readmeBench": []
   },
   "Anzhc/Anzhcs_YOLOs": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "lodestones/Chroma1-HD": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
+  "gh:Pouryaak/wobnimo": {},
   "briaai/Fibo-2.0-edit-turbo": {
     "evalsHF": [],
     "readmeBench": []
@@ -5178,10 +5217,6 @@
     "readmeBench": []
   },
   "black-forest-labs/flux-3-action-base": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "shhivv/taiga-s1": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -5231,12 +5266,24 @@
     ],
     "readmeBench": []
   },
-  "gh:jonwheatley/pixel-path": {},
+  "gh:inclusionAI/IDM": {
+    "readmeBench": []
+  },
+  "Cactus-Compute/whistle": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:YinsongYan/Omni-InteractScope": {
+    "readmeBench": []
+  },
+  "lodestones/Chroma1-HD": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "sesame/csm-1b": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:charolettebradford1361985svo-bit/stable-sprite-animation": {},
   "Qwen/Qwen-Image-Edit": {
     "evalsHF": [
       {
@@ -5270,10 +5317,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "Cactus-Compute/whistle": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "inclusionAI/Ming-3.0-audio-tiny": {
     "evalsHF": [],
     "readmeBench": []
@@ -5286,7 +5329,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "openbmb/MiniCPM-OCR-1.0": {
+  "Kijai/MiniMax-H3-experimental": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -5294,7 +5337,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "trydrama-neuralgarage/DRAMA": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "avaturn-live/avtr-1": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "openbmb/MiniCPM-OCR-1.0": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -5302,15 +5353,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "Kijai/MiniMax-H3-experimental": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "openvla/openvla-7b": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "chatrlabs/Qwen-Image-2.1-Uncensored-Omni-LoRA-v0.1": {
+  "allenai/MolmoAct2": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -5392,6 +5435,10 @@
       }
     ]
   },
+  "Diffuspace/Clover-35B-A3B-Preview": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "gh:Leonxlnx/napali": {},
   "givia/whisper-large-v3-turbo-persian": {
     "evalsHF": [
@@ -5454,14 +5501,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "openvla/openvla-7b": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "gh:twehrbein/ExMR": {
     "readmeBench": []
   },
   "RunDiffusion/Juggernaut-XL-v9": {
     "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:YinsongYan/Omni-InteractScope": {
     "readmeBench": []
   },
   "BAAI/bge-small-en-v1.5": {
@@ -10419,6 +10467,10 @@
     ],
     "readmeBench": []
   },
+  "agents-course/notebooks": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "Qwen/Qwen-Image-Edit-2511": {
     "evalsHF": [
       {
@@ -10437,10 +10489,6 @@
     "readmeBench": []
   },
   "black-forest-labs/FLUX.2-klein-9B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "trydrama-neuralgarage/DRAMA": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -10479,11 +10527,8 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "FusionCow/Sulphur-3": {
+  "chatrlabs/Qwen-Image-2.1-Uncensored-Omni-LoRA-v0.1": {
     "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:inclusionAI/IDM": {
     "readmeBench": []
   },
   "Qwen/Qwen3-Embedding-8B": {
@@ -10545,10 +10590,6 @@
         "source": "ficha"
       }
     ]
-  },
-  "pablodawson/MiniMax-H3-360-Orbit-LoRA": {
-    "evalsHF": [],
-    "readmeBench": []
   },
   "hi3d-official/Hi3Dv1.0": {
     "evalsHF": [],
@@ -10774,20 +10815,15 @@
       }
     ]
   },
-  "gh:PedroMarinhoDev/ComfyUI-Hy-Nomas": {
-    "readmeBench": []
-  },
   "stabilityai/stable-video-diffusion-img2vid-xt-1-1": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:Ideal-ljl/AeroBrain": {
-    "readmeBench": []
-  },
-  "Diffuspace/Clover-35B-A3B-Preview": {
+  "Semub/Seedance-2-AI-Video-Generator-free": {
     "evalsHF": [],
     "readmeBench": []
   },
+  "Comfy-Org/Flux-2-Dev": {},
   "Qwen/Qwen-Image-Edit-2509": {},
   "tencent/DepthCrafter": {
     "evalsHF": [],
@@ -10879,7 +10915,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "Comfy-Org/Flux-2-Dev": {},
+  "gh:charolettebradford1361985svo-bit/stable-sprite-animation": {},
   "leoxs22/manga-panel-detector-yolo26n": {
     "evalsHF": [],
     "readmeBench": []
@@ -10998,6 +11034,29 @@
         "source": "ficha"
       }
     ]
+  },
+  "gh:HexaFuture/EmbodiedLab": {
+    "readmeBench": []
+  },
+  "tencent/HY-MT1.5-1.8B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "alibaba-pai/MiniMax-H3-Acc-LoRAs": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "facebook/VGGT-Omega": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "Systran/faster-whisper-large-v3": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "NeoQuasar/Kronos-small": {
+    "evalsHF": [],
+    "readmeBench": []
   },
   "Qwen/Qwen2.5-VL-7B-Instruct": {
     "evalsHF": [
@@ -11318,53 +11377,6 @@
       }
     ]
   },
-  "tencent/HY-MT1.5-1.8B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "agents-course/notebooks": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "alibaba-pai/MiniMax-H3-Acc-LoRAs": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "lerobot/pi0_base": {
-    "evalsHF": [
-      {
-        "name": "vlabench primitive ft lerobot video",
-        "value": 44.5,
-        "source": "hf",
-        "note": "VLA Model Leaderboard"
-      }
-    ],
-    "readmeBench": []
-  },
-  "Semub/Seedance-2-AI-Video-Generator-free": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "tencent/Hy-SimulMT-30B-A3B-Interleave": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "facebook/VGGT-Omega": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Systran/faster-whisper-large-v3": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "NeoQuasar/Kronos-small": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "akhaliq/MOSS-Image-SFT-4-steps": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "ornith-ai/Ornith-1.5-35B-A3B": {
     "evalsHF": [
       {
@@ -11516,7 +11528,7 @@
     ],
     "readmeBench": []
   },
-  "gh:wanglu-cs/AskStream": {
+  "gh:PedroMarinhoDev/ComfyUI-Hy-Nomas": {
     "readmeBench": []
   },
   "theforecastingcompany/t0-gamma": {
@@ -11564,12 +11576,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:ZJU-OmniAI/Scene-Designer": {
-    "readmeBench": []
-  },
-  "gh:Tinaliu0123/scenebloom": {
-    "readmeBench": []
-  },
   "Comfy-Org/BiRefNet": {
     "evalsHF": [],
     "readmeBench": []
@@ -11586,13 +11592,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "audnai/penclaw-Kimi-K3.1-pro-unrestricted": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:JiongfanYang/SpecSlot": {
-    "readmeBench": []
-  },
   "tencent/Hy-MT2-30B-A3B": {
     "evalsHF": [],
     "readmeBench": []
@@ -11605,48 +11604,35 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "sensenova/SenseNova-Loop-9B-Preview": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "Distinct decoder layers",
-        "value": 32,
-        "source": "ficha"
-      },
-      {
-        "name": "Decoder layer executions",
-        "value": 56,
-        "source": "ficha"
-      },
-      {
-        "name": "mHC streams",
-        "value": 2,
-        "source": "ficha"
-      }
-    ]
-  },
-  "Comfy-Org/Flux-2-Klein-9B": {
+  "LiquidAI/LFM3-1.7B-Base": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:Tyrantwa70342ve/garage-resp": {
-    "readmeBench": []
-  },
-  "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8": {
+  "tencent/Hy-SimulMT-30B-A3B-Interleave": {
     "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "MMLU-20×57",
-        "value": 83.77,
-        "source": "ficha"
-      }
-    ]
+    "readmeBench": []
   },
   "ali-vilab/text-to-video-ms-1.7b": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:Supra-3D/PhysAg3D": {
+  "meta-llama/Llama-2-7b-hf": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "akhaliq/MOSS-Image-SFT-4-steps": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "lerobot/pi0_base": {
+    "evalsHF": [
+      {
+        "name": "vlabench primitive ft lerobot video",
+        "value": 44.5,
+        "source": "hf",
+        "note": "VLA Model Leaderboard"
+      }
+    ],
     "readmeBench": []
   },
   "Qwen/Qwen3-Omni-30B-A3B-Instruct": {
@@ -11962,6 +11948,33 @@
         "source": "ficha"
       }
     ]
+  },
+  "sensenova/SenseNova-Loop-9B-Preview": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "Distinct decoder layers",
+        "value": 32,
+        "source": "ficha"
+      },
+      {
+        "name": "Decoder layer executions",
+        "value": 56,
+        "source": "ficha"
+      },
+      {
+        "name": "mHC streams",
+        "value": 2,
+        "source": "ficha"
+      }
+    ]
+  },
+  "Comfy-Org/Flux-2-Klein-9B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:Tyrantwa70342ve/garage-resp": {
+    "readmeBench": []
   },
   "stabilityai/stable-audio-open-small": {
     "evalsHF": [],
@@ -12377,23 +12390,22 @@
       }
     ]
   },
-  "meta-llama/Llama-2-7b-hf": {
+  "dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8": {
     "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:y0urOy/JAM": {
     "readmeBench": [
       {
-        "name": "LIBERO",
-        "value": 98.15,
-        "source": "ficha"
-      },
-      {
-        "name": "LIBERO-Plus",
-        "value": 64.54,
+        "name": "MMLU-20×57",
+        "value": 83.77,
         "source": "ficha"
       }
     ]
+  },
+  "gh:ZJU-OmniAI/Scene-Designer": {
+    "readmeBench": []
+  },
+  "FusionCow/Sulphur-3": {
+    "evalsHF": [],
+    "readmeBench": []
   },
   "depth-anything/DA3METRIC-LARGE": {
     "evalsHF": [],
@@ -12681,17 +12693,14 @@
       }
     ]
   },
-  "gh:china-qijizhifeng/Web-Anything": {
-    "readmeBench": []
-  },
-  "gh:yunfeixie233/sensorimotor-alignment": {
-    "readmeBench": []
-  },
-  "SG161222/RealVisXL_V5.0": {
+  "ideogram-ai/ideogram-4-fp8": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:LucasJRamos/spritekiln": {},
+  "audnai/penclaw-Kimi-K3.1-pro-unrestricted": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "Efficient-Large-Model/Open-H3-Regenerate-2K": {
     "evalsHF": [],
     "readmeBench": []
@@ -12747,6 +12756,10 @@
       }
     ]
   },
+  "black-forest-labs/flux-3-action-so101": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "baidu/Unlimited-OCR": {
     "evalsHF": [
       {
@@ -12789,25 +12802,6 @@
     "readmeBench": []
   },
   "tencent/HY-World-2.0": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "mistralai/Mistral-7B-v0.1": {
-    "evalsHF": [
-      {
-        "name": "gpqa",
-        "value": 5.1569506726,
-        "source": "hf",
-        "note": "EvalEval"
-      }
-    ],
-    "readmeBench": []
-  },
-  "ideogram-ai/ideogram-4-fp8": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "LiquidAI/LFM3-1.7B-Base": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -12965,9 +12959,164 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "comfyanonymous/MOSS_image_MAX_ULTRA_hires_lora_test": {
+  "SG161222/RealVisXL_V5.0": {
     "evalsHF": [],
     "readmeBench": []
+  },
+  "OBLITERATUS/DeepSeek-V4.1-Flash-1017-obliterated": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "Full",
+        "value": 36,
+        "source": "ficha"
+      },
+      {
+        "name": "Partial",
+        "value": 121,
+        "source": "ficha"
+      },
+      {
+        "name": "None",
+        "value": 656,
+        "source": "ficha"
+      },
+      {
+        "name": "Unresolved",
+        "value": 25,
+        "source": "ficha"
+      },
+      {
+        "name": "Harmful assistance",
+        "value": 656,
+        "source": "ficha"
+      },
+      {
+        "name": "No harmful assistance",
+        "value": 157,
+        "source": "ficha"
+      },
+      {
+        "name": "Responsive to the request",
+        "value": 725,
+        "source": "ficha"
+      },
+      {
+        "name": "Safe alternative",
+        "value": 88,
+        "source": "ficha"
+      },
+      {
+        "name": "0 — No harmful assistance",
+        "value": 157,
+        "source": "ficha"
+      },
+      {
+        "name": "1 — Low expected impact",
+        "value": 21,
+        "source": "ficha"
+      },
+      {
+        "name": "3 — Serious harm",
+        "value": 375,
+        "source": "ficha"
+      },
+      {
+        "name": "4 — Severe or widespread harm",
+        "value": 78,
+        "source": "ficha"
+      },
+      {
+        "name": "0 — None",
+        "value": 157,
+        "source": "ficha"
+      },
+      {
+        "name": "1 — Conceptual",
+        "value": 27,
+        "source": "ficha"
+      },
+      {
+        "name": "3 — Specific steps; some essentials missing",
+        "value": 285,
+        "source": "ficha"
+      },
+      {
+        "name": "4 — Sufficiently concrete to enable the conduct",
+        "value": 174,
+        "source": "ficha"
+      },
+      {
+        "name": "Correct",
+        "value": 2202,
+        "source": "ficha"
+      },
+      {
+        "name": "Accuracy",
+        "value": 88.08,
+        "source": "ficha"
+      },
+      {
+        "name": "abstract_algebra",
+        "value": 79.55,
+        "source": "ficha"
+      },
+      {
+        "name": "anatomy",
+        "value": 88.64,
+        "source": "ficha"
+      },
+      {
+        "name": "astronomy",
+        "value": 95.45,
+        "source": "ficha"
+      },
+      {
+        "name": "business_ethics",
+        "value": 86.36,
+        "source": "ficha"
+      },
+      {
+        "name": "clinical_knowledge",
+        "value": 97.67,
+        "source": "ficha"
+      },
+      {
+        "name": "college_biology",
+        "value": 95.45,
+        "source": "ficha"
+      },
+      {
+        "name": "college_chemistry",
+        "value": 68.18,
+        "source": "ficha"
+      },
+      {
+        "name": "college_computer_science",
+        "value": 79.55,
+        "source": "ficha"
+      },
+      {
+        "name": "college_mathematics",
+        "value": 65.91,
+        "source": "ficha"
+      },
+      {
+        "name": "college_medicine",
+        "value": 88.64,
+        "source": "ficha"
+      },
+      {
+        "name": "college_physics",
+        "value": 95.45,
+        "source": "ficha"
+      },
+      {
+        "name": "computer_security",
+        "value": 84.09,
+        "source": "ficha"
+      }
+    ]
   },
   "moondream/parakeet-redux": {
     "evalsHF": [
@@ -13179,7 +13328,63 @@
       }
     ]
   },
+  "mistralai/Mistral-7B-v0.1": {
+    "evalsHF": [
+      {
+        "name": "gpqa",
+        "value": 5.1569506726,
+        "source": "hf",
+        "note": "EvalEval"
+      }
+    ],
+    "readmeBench": []
+  },
+  "ElectronGirl/anima-ref-adapter": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:china-qijizhifeng/Web-Anything": {
+    "readmeBench": []
+  },
+  "facebook/nllb-200-3.3B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "tencent/Hy-Nomas-Diffusers": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "Winnougan/Cobijada_Minimax-H3_Hybrid_Pruned_ComfyUI": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "comfyanonymous/MOSS_image_MAX_ULTRA_hires_lora_test": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "PramaLLC/BEN2": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "smhfacct/Minimax-H3-fl2va-ref2va-hybrid-models": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "Lightricks/LTX-2": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:Solvro/ml-wojtek-ued": {
+    "readmeBench": []
+  },
+  "depth-anything/DA3NESTED-GIANT-LARGE-1.1": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:Ideal-ljl/AeroBrain": {
+    "readmeBench": []
+  },
+  "morsetechlab/yolov11-license-plate-detection": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -13218,55 +13423,14 @@
       }
     ]
   },
-  "ElectronGirl/anima-ref-adapter": {
+  "gh:justin4ai/OmniShowcase": {
+    "readmeBench": []
+  },
+  "divagr1925/Qwen3.5-4B-Qwenputer": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "facebook/nllb-200-3.3B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "tencent/Hy-Nomas-Diffusers": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Winnougan/Cobijada_Minimax-H3_Hybrid_Pruned_ComfyUI": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "smhfacct/Minimax-H3-fl2va-ref2va-hybrid-models": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Lightricks/LTX-2": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "depth-anything/DA3NESTED-GIANT-LARGE-1.1": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Robot-Learning-Collective/VLA-0-Smol": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "morsetechlab/yolov11-license-plate-detection": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:Leonxlnx/golden-temple": {},
-  "lerobot/diffusion_pusht": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "black-forest-labs/flux-3-action-so101": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Xenova/modnet": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
+  "gh:AgenticOrgLab/AgenticUniversity": {},
   "nvidia/Real-time_RE-USE": {
     "evalsHF": [],
     "readmeBench": []
@@ -13296,10 +13460,15 @@
     ],
     "readmeBench": []
   },
+  "HuggingFaceBio/Carbon-X": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "Unbabel/wmt22-cometkiwi-da": {
     "evalsHF": [],
     "readmeBench": []
   },
+  "gh:Leonxlnx/golden-temple": {},
   "Kwaipilot/KAT-Coder-V2.5-Dev": {
     "evalsHF": [],
     "readmeBench": [
@@ -13640,161 +13809,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "OBLITERATUS/DeepSeek-V4.1-Flash-1017-obliterated": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "Full",
-        "value": 36,
-        "source": "ficha"
-      },
-      {
-        "name": "Partial",
-        "value": 121,
-        "source": "ficha"
-      },
-      {
-        "name": "None",
-        "value": 656,
-        "source": "ficha"
-      },
-      {
-        "name": "Unresolved",
-        "value": 25,
-        "source": "ficha"
-      },
-      {
-        "name": "Harmful assistance",
-        "value": 656,
-        "source": "ficha"
-      },
-      {
-        "name": "No harmful assistance",
-        "value": 157,
-        "source": "ficha"
-      },
-      {
-        "name": "Responsive to the request",
-        "value": 725,
-        "source": "ficha"
-      },
-      {
-        "name": "Safe alternative",
-        "value": 88,
-        "source": "ficha"
-      },
-      {
-        "name": "0 — No harmful assistance",
-        "value": 157,
-        "source": "ficha"
-      },
-      {
-        "name": "1 — Low expected impact",
-        "value": 21,
-        "source": "ficha"
-      },
-      {
-        "name": "3 — Serious harm",
-        "value": 375,
-        "source": "ficha"
-      },
-      {
-        "name": "4 — Severe or widespread harm",
-        "value": 78,
-        "source": "ficha"
-      },
-      {
-        "name": "0 — None",
-        "value": 157,
-        "source": "ficha"
-      },
-      {
-        "name": "1 — Conceptual",
-        "value": 27,
-        "source": "ficha"
-      },
-      {
-        "name": "3 — Specific steps; some essentials missing",
-        "value": 285,
-        "source": "ficha"
-      },
-      {
-        "name": "4 — Sufficiently concrete to enable the conduct",
-        "value": 174,
-        "source": "ficha"
-      },
-      {
-        "name": "Correct",
-        "value": 2202,
-        "source": "ficha"
-      },
-      {
-        "name": "Accuracy",
-        "value": 88.08,
-        "source": "ficha"
-      },
-      {
-        "name": "abstract_algebra",
-        "value": 79.55,
-        "source": "ficha"
-      },
-      {
-        "name": "anatomy",
-        "value": 88.64,
-        "source": "ficha"
-      },
-      {
-        "name": "astronomy",
-        "value": 95.45,
-        "source": "ficha"
-      },
-      {
-        "name": "business_ethics",
-        "value": 86.36,
-        "source": "ficha"
-      },
-      {
-        "name": "clinical_knowledge",
-        "value": 97.67,
-        "source": "ficha"
-      },
-      {
-        "name": "college_biology",
-        "value": 95.45,
-        "source": "ficha"
-      },
-      {
-        "name": "college_chemistry",
-        "value": 68.18,
-        "source": "ficha"
-      },
-      {
-        "name": "college_computer_science",
-        "value": 79.55,
-        "source": "ficha"
-      },
-      {
-        "name": "college_mathematics",
-        "value": 65.91,
-        "source": "ficha"
-      },
-      {
-        "name": "college_medicine",
-        "value": 88.64,
-        "source": "ficha"
-      },
-      {
-        "name": "college_physics",
-        "value": 95.45,
-        "source": "ficha"
-      },
-      {
-        "name": "computer_security",
-        "value": 84.09,
-        "source": "ficha"
-      }
-    ]
-  },
   "mistralai/Timestral-123M": {
     "evalsHF": [
       {
@@ -13830,31 +13844,7 @@
     ],
     "readmeBench": []
   },
-  "gh:alibaba-damo-academy/RynnWorld-Latent": {
-    "readmeBench": []
-  },
-  "nvidia/Cosmos3-H-Dreams": {},
-  "lerobot/FineART-VLA-subtask-midtrained": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "zerofata/G4-LuneLight-31B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "WAS/Minimax-h3_Singularity_v2_pruned": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "kyutai/mimi": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Wan-AI/Wan2.2-TI2V-5B-Diffusers": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "black-forest-labs/FLUX.2-klein-base-9B": {
+  "Xenova/modnet": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -13867,6 +13857,26 @@
         "note": null
       }
     ],
+    "readmeBench": []
+  },
+  "WAS/Minimax-h3_Singularity_v2_pruned": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "kyutai/mimi": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "InternScience/Sage-A1.5": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "Wan-AI/Wan2.2-TI2V-5B-Diffusers": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "black-forest-labs/FLUX.2-klein-base-9B": {
+    "evalsHF": [],
     "readmeBench": []
   },
   "Cloudflare/clef-flash": {
@@ -14077,9 +14087,42 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:justin4ai/OmniShowcase": {
-    "readmeBench": []
+  "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "AIME 2024 pass@1",
+        "value": 28.9,
+        "source": "ficha"
+      },
+      {
+        "name": "AIME 2024 cons@64",
+        "value": 52.7,
+        "source": "ficha"
+      },
+      {
+        "name": "MATH-500 pass@1",
+        "value": 83.9,
+        "source": "ficha"
+      },
+      {
+        "name": "GPQA Diamond pass@1",
+        "value": 33.8,
+        "source": "ficha"
+      },
+      {
+        "name": "LiveCodeBench pass@1",
+        "value": 16.9,
+        "source": "ficha"
+      },
+      {
+        "name": "CodeForces rating",
+        "value": 954,
+        "source": "ficha"
+      }
+    ]
   },
+  "gh:StopBanning/toaster": {},
   "LiquidAI/LFM2-Audio-1.5B": {
     "evalsHF": [],
     "readmeBench": [
@@ -14163,7 +14206,8 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "divagr1925/Qwen3.5-4B-Qwenputer": {
+  "gh:wang-zidu/BFSM": {},
+  "nvidia/omni-dreams-models": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -14228,43 +14272,9 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:NVlabs/motionbricks": {
-    "readmeBench": []
-  },
-  "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B": {
+  "zerofata/G4-LuneLight-31B": {
     "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "AIME 2024 pass@1",
-        "value": 28.9,
-        "source": "ficha"
-      },
-      {
-        "name": "AIME 2024 cons@64",
-        "value": 52.7,
-        "source": "ficha"
-      },
-      {
-        "name": "MATH-500 pass@1",
-        "value": 83.9,
-        "source": "ficha"
-      },
-      {
-        "name": "GPQA Diamond pass@1",
-        "value": 33.8,
-        "source": "ficha"
-      },
-      {
-        "name": "LiveCodeBench pass@1",
-        "value": 16.9,
-        "source": "ficha"
-      },
-      {
-        "name": "CodeForces rating",
-        "value": 954,
-        "source": "ficha"
-      }
-    ]
+    "readmeBench": []
   },
   "jinaai/jina-embeddings-v2-base-en": {
     "evalsHF": [
@@ -19221,11 +19231,6 @@
     ],
     "readmeBench": []
   },
-  "HuggingFaceBio/Carbon-X": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:StopBanning/toaster": {},
   "TinyLlama/TinyLlama-1.1B-Chat-v1.0": {
     "evalsHF": [],
     "readmeBench": []
@@ -19247,6 +19252,10 @@
     "readmeBench": []
   },
   "GeorgeQi/Paint3d_UVPos_Control": {},
+  "lerobot/diffusion_pusht": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "IndexTeam/Index-Translate-2B": {
     "evalsHF": [],
     "readmeBench": [
@@ -19377,11 +19386,15 @@
       }
     ]
   },
-  "perplexity-ai/pplx-decider-flash-v1.2": {},
-  "InternScience/Sage-A1.5": {
+  "Robot-Learning-Collective/VLA-0-Smol": {
     "evalsHF": [],
     "readmeBench": []
   },
+  "ibm-granite/granite-speech-5.0-2b": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "perplexity-ai/pplx-decider-flash-v1.2": {},
   "moondream/parakeet-ultra": {
     "evalsHF": [
       {
@@ -19592,9 +19605,6 @@
       }
     ]
   },
-  "gh:gokayfem/gaussian-splat-to-blender-nodes": {
-    "readmeBench": []
-  },
   "Wan-AI/Wan2.2-T2V-A14B": {
     "evalsHF": [],
     "readmeBench": []
@@ -19603,9 +19613,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:SonicloudTech/mouse-mcp": {},
   "NeoQuasar/Kronos-Tokenizer-base": {
     "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:alibaba-damo-academy/RynnWorld-Latent": {
     "readmeBench": []
   },
   "stabilityai/stable-video-diffusion-img2vid": {
@@ -19613,6 +19625,14 @@
     "readmeBench": []
   },
   "apple/Sharp": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "Qwen/Qwen3-TTS-12Hz-0.6B-Base": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "facebook/musicgen-small": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -19627,19 +19647,11 @@
     ],
     "readmeBench": []
   },
-  "Qwen/Qwen3-TTS-12Hz-0.6B-Base": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "facebook/musicgen-small": {
+  "speechbrain/sepformer-wsj02mix": {
     "evalsHF": [],
     "readmeBench": []
   },
   "tencent/HY-Motion-1.0": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "speechbrain/sepformer-wsj02mix": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -20135,61 +20147,10 @@
       }
     ]
   },
-  "ibm-granite/granite-speech-5.0-2b": {
-    "evalsHF": [],
+  "gh:NIRVANALAN/Holo4D": {
     "readmeBench": []
   },
-  "HuggingFaceVLA/smolvla_libero": {},
-  "speridlabs/iris-3b": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "GenEval",
-        "value": 0.798,
-        "source": "ficha"
-      },
-      {
-        "name": "DPG-Bench",
-        "value": 86.52,
-        "source": "ficha"
-      },
-      {
-        "name": "LongText-Bench (EN)",
-        "value": 0.857,
-        "source": "ficha"
-      },
-      {
-        "name": "OneIG-Bench (EN)",
-        "value": 0.54,
-        "source": "ficha"
-      },
-      {
-        "name": "Alignment",
-        "value": 0.863,
-        "source": "ficha"
-      },
-      {
-        "name": "Text",
-        "value": 0.889,
-        "source": "ficha"
-      },
-      {
-        "name": "Reasoning",
-        "value": 0.279,
-        "source": "ficha"
-      },
-      {
-        "name": "Style",
-        "value": 0.449,
-        "source": "ficha"
-      },
-      {
-        "name": "Diversity",
-        "value": 0.22,
-        "source": "ficha"
-      }
-    ]
-  },
+  "gh:SonicloudTech/mouse-mcp": {},
   "maya-research/maya1": {
     "evalsHF": [],
     "readmeBench": []
@@ -20202,16 +20163,32 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "nvidia/omni-dreams-models": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:OSMA-Bench/OSMA-Bench": {
+  "gh:DEEP-JLU/EvoTeam": {},
+  "gh:LucasJRamos/spritekiln": {},
+  "gh:gokayfem/gaussian-splat-to-blender-nodes": {
     "readmeBench": []
   },
   "meituan-longcat/LongCat-Video": {},
   "BAAI/bge-base-en-v1.5": {},
+  "gh:y0urOy/JAM": {
+    "readmeBench": [
+      {
+        "name": "LIBERO",
+        "value": 98.15,
+        "source": "ficha"
+      },
+      {
+        "name": "LIBERO-Plus",
+        "value": 64.54,
+        "source": "ficha"
+      }
+    ]
+  },
   "amazon/chronos-bolt-small": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "lerobot/FineART-VLA-subtask-midtrained": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -20277,7 +20254,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "TOTORONG/AD103_win_unlocker": {},
   "autotrust/JEV-27B-VL": {
     "evalsHF": [
       {
@@ -20318,6 +20294,11 @@
       }
     ]
   },
+  "ibm-granite/granite-speech-5.0-470m-turboctc": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:tudelft/rendering-free-event-nav": {},
   "microsoft/harrier-oss-v1-0.6b": {
     "evalsHF": [],
     "readmeBench": []
@@ -20354,6 +20335,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "nvidia/Cosmos3-H-Dreams": {},
   "jinaai/jina-reranker-v2-base-multilingual": {
     "evalsHF": [],
     "readmeBench": []
@@ -20483,11 +20465,12 @@
     ],
     "readmeBench": []
   },
+  "HuggingFaceVLA/smolvla_libero": {},
   "microsoft/harrier-oss-v1-270m": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:InfRec-Cardinal/AB-Attention": {
+  "gh:wanglu-cs/AskStream": {
     "readmeBench": []
   },
   "AuroraAI-Research/AuroraIMG2-50M-Preview": {
@@ -20530,13 +20513,6 @@
       }
     ]
   },
-  "gh:NIRVANALAN/Holo4D": {
-    "readmeBench": []
-  },
-  "sensenova/sensenova-roborsi-27b-preview": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "Qwen/Qwen3-Reranker-0.6B": {
     "evalsHF": [],
     "readmeBench": [
@@ -20568,6 +20544,56 @@
       {
         "name": "FollowIR",
         "value": 5.41,
+        "source": "ficha"
+      }
+    ]
+  },
+  "speridlabs/iris-3b": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "GenEval",
+        "value": 0.798,
+        "source": "ficha"
+      },
+      {
+        "name": "DPG-Bench",
+        "value": 86.52,
+        "source": "ficha"
+      },
+      {
+        "name": "LongText-Bench (EN)",
+        "value": 0.857,
+        "source": "ficha"
+      },
+      {
+        "name": "OneIG-Bench (EN)",
+        "value": 0.54,
+        "source": "ficha"
+      },
+      {
+        "name": "Alignment",
+        "value": 0.863,
+        "source": "ficha"
+      },
+      {
+        "name": "Text",
+        "value": 0.889,
+        "source": "ficha"
+      },
+      {
+        "name": "Reasoning",
+        "value": 0.279,
+        "source": "ficha"
+      },
+      {
+        "name": "Style",
+        "value": 0.449,
+        "source": "ficha"
+      },
+      {
+        "name": "Diversity",
+        "value": 0.22,
         "source": "ficha"
       }
     ]
@@ -20931,9 +20957,44 @@
       }
     ]
   },
-  "ibm-granite/granite-speech-5.0-470m-turboctc": {
+  "MemTensor/MemT-1.0-Nano": {
     "evalsHF": [],
     "readmeBench": []
+  },
+  "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "AIME 2024 pass@1",
+        "value": 72.6,
+        "source": "ficha"
+      },
+      {
+        "name": "AIME 2024 cons@64",
+        "value": 83.3,
+        "source": "ficha"
+      },
+      {
+        "name": "MATH-500 pass@1",
+        "value": 94.3,
+        "source": "ficha"
+      },
+      {
+        "name": "GPQA Diamond pass@1",
+        "value": 62.1,
+        "source": "ficha"
+      },
+      {
+        "name": "LiveCodeBench pass@1",
+        "value": 57.2,
+        "source": "ficha"
+      },
+      {
+        "name": "CodeForces rating",
+        "value": 1691,
+        "source": "ficha"
+      }
+    ]
   },
   "tencent/Hy-MT2-7B": {
     "evalsHF": [],
@@ -21008,62 +21069,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "vikhyatk/moondream2": {
-    "evalsHF": [
-      {
-        "name": "PBench",
-        "value": 44.7,
-        "source": "hf",
-        "note": "Community Evals"
-      }
-    ],
+  "TaoLiveAIGC/TBDub": {
+    "evalsHF": [],
     "readmeBench": []
   },
-  "gh:JusperLee/Falcon": {
-    "readmeBench": [
-      {
-        "name": "RealSSA SI-SNRi",
-        "value": 7.7,
-        "source": "ficha"
-      },
-      {
-        "name": "SDRi",
-        "value": 8.2,
-        "source": "ficha"
-      },
-      {
-        "name": "LRS2-2Mix SI-SNRi",
-        "value": 14.1,
-        "source": "ficha"
-      },
-      {
-        "name": "LRS3-2Mix SI-SNRi",
-        "value": 16.4,
-        "source": "ficha"
-      },
-      {
-        "name": "VoxCeleb2-2Mix SI-SNRi",
-        "value": 10.5,
-        "source": "ficha"
-      },
-      {
-        "name": "Real-world DNSMOS",
-        "value": 3.276,
-        "source": "ficha"
-      },
-      {
-        "name": "MACs (G)",
-        "value": 10.6,
-        "source": "ficha"
-      },
-      {
-        "name": "RAM (MB)",
-        "value": 125.3,
-        "source": "ficha"
-      }
-    ]
+  "gh:yliu-cs/HuGe": {
+    "readmeBench": []
   },
-  "gh:Solvro/ml-wojtek-ued": {
+  "gugujiji/novel-humanize-4b": {
+    "evalsHF": [],
     "readmeBench": []
   },
   "datalab-to/indra-ocr": {
@@ -21146,46 +21160,7 @@
       }
     ]
   },
-  "Dexmal/DM05": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "AIME 2024 pass@1",
-        "value": 72.6,
-        "source": "ficha"
-      },
-      {
-        "name": "AIME 2024 cons@64",
-        "value": 83.3,
-        "source": "ficha"
-      },
-      {
-        "name": "MATH-500 pass@1",
-        "value": 94.3,
-        "source": "ficha"
-      },
-      {
-        "name": "GPQA Diamond pass@1",
-        "value": 62.1,
-        "source": "ficha"
-      },
-      {
-        "name": "LiveCodeBench pass@1",
-        "value": 57.2,
-        "source": "ficha"
-      },
-      {
-        "name": "CodeForces rating",
-        "value": 1691,
-        "source": "ficha"
-      }
-    ]
-  },
-  "openbmb/MiniCPM-OCR-Jev": {
+  "elix3r/LTX-2.3-22b-AV-LoRA-talking-head": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -26388,24 +26363,23 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "elix3r/LTX-2.3-22b-AV-LoRA-talking-head": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "facebook/dinov3-vits16-pretrain-lvd1689m": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "TaoLiveAIGC/TBDub": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "tencent/WeVisOne-VL-4B": {
     "evalsHF": [],
     "readmeBench": []
   },
   "jinaai/jina-embeddings-v5-text-small": {
     "evalsHF": [],
+    "readmeBench": []
+  },
+  "vikhyatk/moondream2": {
+    "evalsHF": [
+      {
+        "name": "PBench",
+        "value": 44.7,
+        "source": "hf",
+        "note": "Community Evals"
+      }
+    ],
     "readmeBench": []
   },
   "unsloth/sam3.1": {
@@ -26538,26 +26512,15 @@
       }
     ]
   },
-  "LightOriginsHQ/LightNav-0": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "m-a-p/SheetSage2": {
     "evalsHF": [],
-    "readmeBench": []
-  },
-  "jimmycarter/krea2-turbo-bbox": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:norlab-ulaval/TACOS": {
     "readmeBench": []
   },
   "Alissonerdx/BFS-Best-Face-Swap-Video": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "akhaliq/MOSS-Image-Edit-HQ": {
+  "openbmb/MiniCPM-OCR-Jev": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -26577,12 +26540,27 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "XHToken/Spark-X2.6-1.7B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "LiheYoung/depth_anything_vitl14": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "MemTensor/MemT-1.0-Nano": {
-    "evalsHF": [],
+  "agentic-in/elephant-embeddings-v1-multimodal-large": {
+    "evalsHF": [
+      {
+        "name": "Internal cached validation set Eval loss",
+        "value": 0.389702,
+        "source": "model-index"
+      },
+      {
+        "name": "Internal cached validation set Eval top1",
+        "value": 0.861707,
+        "source": "model-index"
+      }
+    ],
     "readmeBench": []
   },
   "desert-ant-labs/clear": {
@@ -26593,15 +26571,14 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "huihui-ai/Huihui-Qwen3.8-27B-abliterated": {
+  "tencent/WeVisOne-VL-4B": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:Luo-Yihang/Mundo": {},
-  "gugujiji/novel-humanize-4b": {
-    "evalsHF": [],
+  "gh:norlab-ulaval/TACOS": {
     "readmeBench": []
   },
+  "TOTORONG/AD103_win_unlocker": {},
   "Phsoft-ai/Notesoop-STT-Ko-v1": {
     "evalsHF": [],
     "readmeBench": [
@@ -26627,19 +26604,13 @@
       }
     ]
   },
-  "nvidia/GEM-X": {
+  "sensenova/sensenova-roborsi-27b-preview": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "PerceptronAI/Isaac-0.5": {
+  "nvidia/GEM-X": {
     "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "Robot training scope",
-        "value": 35,
-        "source": "ficha"
-      }
-    ]
+    "readmeBench": []
   },
   "microsoft/phi-2": {
     "evalsHF": [],
@@ -26693,10 +26664,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "ZhengPeng7/BiRefNet_lite": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "2Noise/ChatTTS": {
     "evalsHF": [],
     "readmeBench": []
@@ -26713,11 +26680,22 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "lerobot/so101-tabletop-isaac": {
+  "huihui-ai/Huihui-Qwen3.8-27B-abliterated": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "RudySen/Krea2-realism-V2": {
+  "LightOriginsHQ/LightNav-0": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:OSMA-Bench/OSMA-Bench": {
+    "readmeBench": []
+  },
+  "FunAudioLLM/SenseVoiceSmall": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "ConwayResearch/Underdog-Bark-3.0": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -26852,10 +26830,51 @@
     ],
     "readmeBench": []
   },
-  "gh:MatrAIx-ai/PersonaCUABench": {
-    "readmeBench": []
+  "gh:JusperLee/Falcon": {
+    "readmeBench": [
+      {
+        "name": "RealSSA SI-SNRi",
+        "value": 7.7,
+        "source": "ficha"
+      },
+      {
+        "name": "SDRi",
+        "value": 8.2,
+        "source": "ficha"
+      },
+      {
+        "name": "LRS2-2Mix SI-SNRi",
+        "value": 14.1,
+        "source": "ficha"
+      },
+      {
+        "name": "LRS3-2Mix SI-SNRi",
+        "value": 16.4,
+        "source": "ficha"
+      },
+      {
+        "name": "VoxCeleb2-2Mix SI-SNRi",
+        "value": 10.5,
+        "source": "ficha"
+      },
+      {
+        "name": "Real-world DNSMOS",
+        "value": 3.276,
+        "source": "ficha"
+      },
+      {
+        "name": "MACs (G)",
+        "value": 10.6,
+        "source": "ficha"
+      },
+      {
+        "name": "RAM (MB)",
+        "value": 125.3,
+        "source": "ficha"
+      }
+    ]
   },
-  "nikopueringer/CorridorKey2.0": {
+  "ZhengPeng7/BiRefNet_lite": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -26863,7 +26882,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "sensenova/SenseNova-6.8-Code2Video": {
+  "Dexmal/DM05": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "jimmycarter/krea2-turbo-bbox": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -26993,104 +27016,19 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "FunAudioLLM/SenseVoiceSmall": {
+  "ibm-granite/granite-speech-5.0-470m-turboctc-nc": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "ConwayResearch/Underdog-Bark-3.0": {
+  "sensenova/SenseNova-6.8-Code2Video": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "ATH-MaaS/OvisOCR3": {
+  "Apexintelligence-AI/Apex-35B-V1.0": {
     "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "OmniDocBench1.6",
-        "value": 96.74,
-        "source": "ficha"
-      },
-      {
-        "name": "MDPBench",
-        "value": 88.8,
-        "source": "ficha"
-      },
-      {
-        "name": "PureDocBench",
-        "value": 82.31,
-        "source": "ficha"
-      },
-      {
-        "name": "Real5-OmniDocBench",
-        "value": 93.63,
-        "source": "ficha"
-      },
-      {
-        "name": "OCRBench",
-        "value": 88.8,
-        "source": "ficha"
-      },
-      {
-        "name": "OCRBench v2 EN",
-        "value": 65.9,
-        "source": "ficha"
-      },
-      {
-        "name": "OCRBench v2 ZH",
-        "value": 61.3,
-        "source": "ficha"
-      },
-      {
-        "name": "OCRBench KIE",
-        "value": 90.5,
-        "source": "ficha"
-      },
-      {
-        "name": "OCRBench v2 KIE",
-        "value": 83.01,
-        "source": "ficha"
-      },
-      {
-        "name": "CC-OCR KIE",
-        "value": 88.69,
-        "source": "ficha"
-      },
-      {
-        "name": "In-house KIE Bench",
-        "value": 77.73,
-        "source": "ficha"
-      },
-      {
-        "name": "DocFigCapBench Localization F1",
-        "value": 90.97,
-        "source": "ficha"
-      },
-      {
-        "name": "DocFigCapBench Caption Score",
-        "value": 6.93,
-        "source": "ficha"
-      },
-      {
-        "name": "CrossTabBench Relation F1 (P/R)",
-        "value": 97.07,
-        "source": "ficha"
-      },
-      {
-        "name": "CrossTabBench Reconstruction TEDS",
-        "value": 89.66,
-        "source": "ficha"
-      },
-      {
-        "name": "MPDocBench-Parse Truncated Table TEDS",
-        "value": 92.04,
-        "source": "ficha"
-      }
-    ]
+    "readmeBench": []
   },
   "nvidia/Cosmos-H-Surgical-Simulator": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "XHToken/Spark-X2.6-1.7B": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -27227,7 +27165,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "RLWRLD/RLDX-1-PT": {
+  "akhaliq/MOSS-Image-Edit-HQ": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -27250,73 +27188,23 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "ibm-granite/granite-speech-5.0-470m-turboctc-nc": {
+  "PerceptronAI/Isaac-0.5": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "Robot training scope",
+        "value": 35,
+        "source": "ficha"
+      }
+    ]
+  },
+  "TenStrip/10Eros-Max": {
     "evalsHF": [],
     "readmeBench": []
   },
   "pyannote/segmentation-3.0": {
     "evalsHF": [],
     "readmeBench": []
-  },
-  "microsoft/Florence-2-large": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "COCO Cap. test CIDEr",
-        "value": 135.6,
-        "source": "ficha"
-      },
-      {
-        "name": "NoCaps val CIDEr",
-        "value": 120.8,
-        "source": "ficha"
-      },
-      {
-        "name": "TextCaps val CIDEr",
-        "value": 72.8,
-        "source": "ficha"
-      },
-      {
-        "name": "COCO Det. val2017 mAP",
-        "value": 37.5,
-        "source": "ficha"
-      },
-      {
-        "name": "Flickr30k test R@1",
-        "value": 84.4,
-        "source": "ficha"
-      },
-      {
-        "name": "Refcoco val Accuracy",
-        "value": 56.3,
-        "source": "ficha"
-      },
-      {
-        "name": "Refcoco test-A Accuracy",
-        "value": 61.6,
-        "source": "ficha"
-      },
-      {
-        "name": "Refcoco test-B Accuracy",
-        "value": 51.4,
-        "source": "ficha"
-      },
-      {
-        "name": "Refcocog val Accuracy",
-        "value": 68,
-        "source": "ficha"
-      },
-      {
-        "name": "Refcocog test Accuracy",
-        "value": 67,
-        "source": "ficha"
-      },
-      {
-        "name": "Refcoco RES val mIoU",
-        "value": 35.8,
-        "source": "ficha"
-      }
-    ]
   },
   "lilylilith/QI_2.1_AnyAngle": {
     "evalsHF": [],
@@ -27538,6 +27426,106 @@
       }
     ]
   },
+  "ATH-MaaS/OvisOCR3": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "OmniDocBench1.6",
+        "value": 96.74,
+        "source": "ficha"
+      },
+      {
+        "name": "MDPBench",
+        "value": 88.8,
+        "source": "ficha"
+      },
+      {
+        "name": "PureDocBench",
+        "value": 82.31,
+        "source": "ficha"
+      },
+      {
+        "name": "Real5-OmniDocBench",
+        "value": 93.63,
+        "source": "ficha"
+      },
+      {
+        "name": "OCRBench",
+        "value": 88.8,
+        "source": "ficha"
+      },
+      {
+        "name": "OCRBench v2 EN",
+        "value": 65.9,
+        "source": "ficha"
+      },
+      {
+        "name": "OCRBench v2 ZH",
+        "value": 61.3,
+        "source": "ficha"
+      },
+      {
+        "name": "OCRBench KIE",
+        "value": 90.5,
+        "source": "ficha"
+      },
+      {
+        "name": "OCRBench v2 KIE",
+        "value": 83.01,
+        "source": "ficha"
+      },
+      {
+        "name": "CC-OCR KIE",
+        "value": 88.69,
+        "source": "ficha"
+      },
+      {
+        "name": "In-house KIE Bench",
+        "value": 77.73,
+        "source": "ficha"
+      },
+      {
+        "name": "DocFigCapBench Localization F1",
+        "value": 90.97,
+        "source": "ficha"
+      },
+      {
+        "name": "DocFigCapBench Caption Score",
+        "value": 6.93,
+        "source": "ficha"
+      },
+      {
+        "name": "CrossTabBench Relation F1 (P/R)",
+        "value": 97.07,
+        "source": "ficha"
+      },
+      {
+        "name": "CrossTabBench Reconstruction TEDS",
+        "value": 89.66,
+        "source": "ficha"
+      },
+      {
+        "name": "MPDocBench-Parse Truncated Table TEDS",
+        "value": 92.04,
+        "source": "ficha"
+      }
+    ]
+  },
+  "Octen/Octen-WebGR-4B": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "hit@1",
+        "value": 59.6,
+        "source": "ficha"
+      },
+      {
+        "name": "hit@10",
+        "value": 68.7,
+        "source": "ficha"
+      }
+    ]
+  },
   "Intel/dpt-large": {
     "evalsHF": [
       {
@@ -27651,7 +27639,14 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:sirioberati/Emotion-Control-Open-Source-Workflow": {},
+  "RudySen/Krea2-realism-V2": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "nikopueringer/CorridorKey2.0": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "Qwen/Qwen3.5-4B": {
     "evalsHF": [
       {
@@ -27968,6 +27963,24 @@
       }
     ]
   },
+  "gh:JiongfanYang/SpecSlot": {
+    "readmeBench": []
+  },
+  "Octen/Octen-WebGR-0.6B": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "hit@1",
+        "value": 56.5,
+        "source": "ficha"
+      },
+      {
+        "name": "hit@10",
+        "value": 64,
+        "source": "ficha"
+      }
+    ]
+  },
   "amazon/chronos-t5-small": {
     "evalsHF": [],
     "readmeBench": []
@@ -27975,6 +27988,94 @@
   "zai-org/cogvlm2-llama3-caption": {
     "evalsHF": [],
     "readmeBench": []
+  },
+  "Nanbeige/Nanbeige4.3-33B-Base": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "STEM Reasoning",
+        "value": 66.9,
+        "source": "ficha"
+      },
+      {
+        "name": "Mathematics &amp; Coding",
+        "value": 62,
+        "source": "ficha"
+      },
+      {
+        "name": "General Knowledge",
+        "value": 45.6,
+        "source": "ficha"
+      }
+    ]
+  },
+  "third-intelligence/Haas-ja-v1.0": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "KRAFTON/Raon-1-mini-preview": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "microsoft/Florence-2-large": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "COCO Cap. test CIDEr",
+        "value": 135.6,
+        "source": "ficha"
+      },
+      {
+        "name": "NoCaps val CIDEr",
+        "value": 120.8,
+        "source": "ficha"
+      },
+      {
+        "name": "TextCaps val CIDEr",
+        "value": 72.8,
+        "source": "ficha"
+      },
+      {
+        "name": "COCO Det. val2017 mAP",
+        "value": 37.5,
+        "source": "ficha"
+      },
+      {
+        "name": "Flickr30k test R@1",
+        "value": 84.4,
+        "source": "ficha"
+      },
+      {
+        "name": "Refcoco val Accuracy",
+        "value": 56.3,
+        "source": "ficha"
+      },
+      {
+        "name": "Refcoco test-A Accuracy",
+        "value": 61.6,
+        "source": "ficha"
+      },
+      {
+        "name": "Refcoco test-B Accuracy",
+        "value": 51.4,
+        "source": "ficha"
+      },
+      {
+        "name": "Refcocog val Accuracy",
+        "value": 68,
+        "source": "ficha"
+      },
+      {
+        "name": "Refcocog test Accuracy",
+        "value": 67,
+        "source": "ficha"
+      },
+      {
+        "name": "Refcoco RES val mIoU",
+        "value": 35.8,
+        "source": "ficha"
+      }
+    ]
   },
   "alibaba-pai/Wan2.2-VACE-Fun-A14B": {
     "evalsHF": [],
@@ -28135,26 +28236,6 @@
       }
     ]
   },
-  "exla-ai/openpie-0.6": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "Action MSE",
-        "value": 0.01,
-        "source": "ficha"
-      },
-      {
-        "name": "Value Correlation",
-        "value": 0.986,
-        "source": "ficha"
-      },
-      {
-        "name": "Advantage Gap",
-        "value": 0.07,
-        "source": "ficha"
-      }
-    ]
-  },
   "ServiceNow-AI/Apriel-Voice-27B-preview": {
     "evalsHF": [],
     "readmeBench": [
@@ -28175,11 +28256,14 @@
       }
     ]
   },
-  "Apexintelligence-AI/Apex-35B-V1.0": {
+  "RLWRLD/RLDX-1-PT": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:cathrynlavery/yap-studio": {},
+  "openbmb/MiniCPM5-1B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "kyutai/personaplex-rl-seamless": {
     "evalsHF": [],
     "readmeBench": []
@@ -28209,41 +28293,25 @@
     ],
     "readmeBench": []
   },
-  "third-intelligence/Haas-ja-v1.0": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "AutonLab/MOMENT-1-large": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:Tencent-Hunyuan/Hy-SimulMT": {
+  "gh:sirioberati/Emotion-Control-Open-Source-Workflow": {},
+  "tarteel-ai/whisper-base-ar-quran": {},
+  "MemTensor/MemT-1.0-Flash": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "HemmingwayAI/Hemmingway-1.5": {
+    "evalsHF": [],
     "readmeBench": [
       {
-        "name": "FLEURS",
-        "value": 90.3,
-        "source": "ficha"
-      },
-      {
-        "name": "CoVoST2",
-        "value": 75.5,
-        "source": "ficha"
-      },
-      {
-        "name": "ACL6060",
-        "value": 81.2,
-        "source": "ficha"
-      },
-      {
-        "name": "RealSI-Sentence",
-        "value": 84.7,
+        "name": "Passes AI detectors",
+        "value": 92,
         "source": "ficha"
       }
     ]
-  },
-  "tencent/WeVisOne-VL-2B": {
-    "evalsHF": [],
-    "readmeBench": []
   },
   "openbmb/MiniCPM5-2B": {
     "evalsHF": [],
@@ -28385,54 +28453,31 @@
       }
     ]
   },
-  "Octen/Octen-WebGR-4B": {
+  "samatv256/mini-Jev": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "exla-ai/openpie-0.6": {
     "evalsHF": [],
     "readmeBench": [
       {
-        "name": "hit@1",
-        "value": 59.6,
+        "name": "Action MSE",
+        "value": 0.01,
         "source": "ficha"
       },
       {
-        "name": "hit@10",
-        "value": 68.7,
+        "name": "Value Correlation",
+        "value": 0.986,
+        "source": "ficha"
+      },
+      {
+        "name": "Advantage Gap",
+        "value": 0.07,
         "source": "ficha"
       }
     ]
-  },
-  "openbmb/MiniCPM5-1B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "FastVideo/FastH3-Omni-FP8-Comfy": {
-    "evalsHF": [],
-    "readmeBench": []
   },
   "facebook/VGGT-1B-Commercial": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Nanbeige/Nanbeige4.3-33B-Base": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "STEM Reasoning",
-        "value": 66.9,
-        "source": "ficha"
-      },
-      {
-        "name": "Mathematics &amp; Coding",
-        "value": 62,
-        "source": "ficha"
-      },
-      {
-        "name": "General Knowledge",
-        "value": 45.6,
-        "source": "ficha"
-      }
-    ]
-  },
-  "gokaygokay/Krea-2-Realism-LoRA": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -28440,8 +28485,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "tarteel-ai/whisper-base-ar-quran": {},
-  "nvidia/NV-Segment-CT": {
+  "tencent/WeVisOne-VL-2B": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -28449,24 +28493,14 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "Cactus-Compute/needle3": {},
   "nlpai-lab/KURE-v1": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "Octen/Octen-WebGR-0.6B": {
+  "ConwayResearch/Underdog-Bark-3.0-Pro": {
     "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "hit@1",
-        "value": 56.5,
-        "source": "ficha"
-      },
-      {
-        "name": "hit@10",
-        "value": 64,
-        "source": "ficha"
-      }
-    ]
+    "readmeBench": []
   },
   "amazon/chronos-t5-tiny": {
     "evalsHF": [],
@@ -28480,14 +28514,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "datalab-to/surya-ocr-2.5": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "KRAFTON/Raon-1-mini-preview": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "meta-llama/Llama-3.2-1B-Instruct": {
     "evalsHF": [
       {
@@ -28497,10 +28523,6 @@
         "note": "EvalEval"
       }
     ],
-    "readmeBench": []
-  },
-  "dealignai/Gemma-4-31B-JANG_4M-CRACK": {
-    "evalsHF": [],
     "readmeBench": []
   },
   "AlayaLab/AlayaWorld": {
@@ -28598,7 +28620,8 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "MemTensor/MemT-1.0-Flash": {
+  "gh:safety-research/agentic-backdoor": {},
+  "nvidia/NV-Segment-CT": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -28606,19 +28629,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "GrootTeam/Groot-19B-A3B-261023": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "Misha24-10/F5-TTS_RUSSIAN": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "ConwayResearch/Underdog-Bark-3.0-Pro": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "TenStrip/10Eros-Max": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -28630,17 +28641,24 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "HemmingwayAI/Hemmingway-1.5": {
+  "gh:yunfeixie233/sensorimotor-alignment": {
+    "readmeBench": []
+  },
+  "dealignai/Gemma-4-31B-JANG_4M-CRACK": {
     "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "Passes AI detectors",
-        "value": 92,
-        "source": "ficha"
-      }
-    ]
+    "readmeBench": []
+  },
+  "gh:cathrynlavery/yap-studio": {},
+  "litert-community/Gemma3-1B-IT": {
+    "evalsHF": [],
+    "readmeBench": []
   },
   "tencent/Hunyuan3D-Omni": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:Intelligent-Interaction/CausGround": {},
+  "GrootTeam/Groot-19B-A3B-261023": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -28822,15 +28840,23 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "datalab-to/surya-ocr-2.5": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "IndexTeam/IndexTTS-2.5": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:george-nigmatulin/lob_impact": {
-    "readmeBench": []
-  },
   "FastVideo/FastWan2.2-TI2V-5B-FullAttn-Diffusers": {
     "evalsHF": [],
+    "readmeBench": []
+  },
+  "gokaygokay/Krea-2-Realism-LoRA": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:Wiselnn570/Co-Design-Bench": {
     "readmeBench": []
   },
   "mixedbread-ai/mxbai-rerank-base-v2": {
@@ -28852,39 +28878,20 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "agentic-in/elephant-embeddings-v1-multimodal-large": {
-    "evalsHF": [
-      {
-        "name": "Internal cached validation set Eval loss",
-        "value": 0.389702,
-        "source": "model-index"
-      },
-      {
-        "name": "Internal cached validation set Eval top1",
-        "value": 0.861707,
-        "source": "model-index"
-      }
-    ],
-    "readmeBench": []
-  },
-  "Cactus-Compute/needle3": {},
-  "akhaliq/Qwen-Image-2.1-Multiple-Angles-LoRA": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "facebook/detr-resnet-50-panoptic": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "samatv256/mini-Jev": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "ggerganov/whisper.cpp": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "litert-community/Gemma3-1B-IT": {
+  "akhaliq/Qwen-Image-2.1-Multiple-Angles-LoRA": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "XingChen-AGI/Xing4.0-29B-Intent": {},
+  "Moore2877/Qwen-Fixed-Chat-Templates-llamacpp": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "facebook/detr-resnet-50-panoptic": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -28919,11 +28926,8 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "allenai/GraspMolmo": {
+  "qnguyen3/QUAN-Transcribe-1.0": {
     "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:NUS-HPC-AI-Lab/WiD": {
     "readmeBench": []
   },
   "Davidsv/CourtSide-Computer-Vision-v1": {
@@ -28953,7 +28957,10 @@
     ],
     "readmeBench": []
   },
-  "gh:openai/math": {},
+  "inclusionAI/Ling-3.0-flash-Sante": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "facebook/sam2-hiera-large": {
     "evalsHF": [],
     "readmeBench": []
@@ -29139,6 +29146,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "gh:BoumedineBillal/esp32-pie-asr": {},
   "YuyaoTechnology/MatterSeek": {
     "evalsHF": [],
     "readmeBench": []
@@ -29147,8 +29155,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "qnguyen3/QUAN-Transcribe-1.0": {
-    "evalsHF": [],
+  "gh:MatrAIx-ai/PersonaCUABench": {
     "readmeBench": []
   },
   "Qwen/Qwen3.5-397B-A17B": {
@@ -29439,11 +29446,11 @@
       }
     ]
   },
-  "XingChen-AGI/Xing4.0-29B-Intent": {},
   "hpcai-tech/Open-Sora-v2": {
     "evalsHF": [],
     "readmeBench": []
   },
+  "gh:rtmandreyev/construct": {},
   "google/gemma-4-E2B": {
     "evalsHF": [],
     "readmeBench": [
@@ -29517,7 +29524,19 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "audnai/penclaw-GLM-5.3-abliterated": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "facebook/map-anything": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "allenai/GraspMolmo": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "nineninesix/tyger": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -29577,6 +29596,9 @@
         "source": "ficha"
       }
     ]
+  },
+  "gh:NUS-HPC-AI-Lab/WiD": {
+    "readmeBench": []
   },
   "lrzjason/Anything2Real": {
     "evalsHF": [],
@@ -29834,24 +29856,68 @@
       }
     ]
   },
-  "gh:hexuan21/MemoryTax": {
+  "gh:InfRec-Cardinal/AB-Attention": {
     "readmeBench": []
   },
-  "nineninesix/tyger": {
+  "HuggingFaceTB/SmolLM3-3B": {
     "evalsHF": [],
-    "readmeBench": []
-  },
-  "openbmb/MiniCPM-V-4.7-35B-A3B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "lvladikov/MOSS-PiD-SuperFast-HighRes": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "UntMods/Krea2_Chars_LoRA": {
-    "evalsHF": [],
-    "readmeBench": []
+    "readmeBench": [
+      {
+        "name": "High school math competition",
+        "value": 9.3,
+        "source": "ficha"
+      },
+      {
+        "name": "Math problem-solving",
+        "value": 72.8,
+        "source": "ficha"
+      },
+      {
+        "name": "Competitive programming",
+        "value": 15.2,
+        "source": "ficha"
+      },
+      {
+        "name": "Graduate-level reasoning",
+        "value": 35.7,
+        "source": "ficha"
+      },
+      {
+        "name": "Instruction following",
+        "value": 76.7,
+        "source": "ficha"
+      },
+      {
+        "name": "Alignment",
+        "value": 26.9,
+        "source": "ficha"
+      },
+      {
+        "name": "Tool Calling",
+        "value": 92.3,
+        "source": "ficha"
+      },
+      {
+        "name": "Multilingual Q&A",
+        "value": 53.5,
+        "source": "ficha"
+      },
+      {
+        "name": "Reasoning & Commonsense",
+        "value": 76.15,
+        "source": "ficha"
+      },
+      {
+        "name": "Knowledge & Understanding",
+        "value": 44.13,
+        "source": "ficha"
+      },
+      {
+        "name": "Coding & math",
+        "value": 30.48,
+        "source": "ficha"
+      }
+    ]
   },
   "Scicom-intl/voice-isolator-cpu": {
     "evalsHF": [],
@@ -29948,11 +30014,7 @@
       }
     ]
   },
-  "gh:galilai-group/prh-proof": {
-    "readmeBench": []
-  },
-  "lamm-mit/MetaMaterialsDiscovery": {},
-  "inclusionAI/Ling-3.0-flash-Sante": {
+  "google/gemma-3-270m": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -29976,203 +30038,31 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "audnai/penclaw-GLM-5.3-abliterated": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "Veda-Sparse/Minimax-H3-R2VA-Veda-Preview": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "allenai/MolmoAct2-Think": {
+  "lerobot/so101-tabletop-isaac": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "HuggingFaceTB/SmolLM3-3B": {
+  "akhaliq/nemotron-3.5-transcribe-mini-64e": {
     "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "High school math competition",
-        "value": 9.3,
-        "source": "ficha"
-      },
-      {
-        "name": "Math problem-solving",
-        "value": 72.8,
-        "source": "ficha"
-      },
-      {
-        "name": "Competitive programming",
-        "value": 15.2,
-        "source": "ficha"
-      },
-      {
-        "name": "Graduate-level reasoning",
-        "value": 35.7,
-        "source": "ficha"
-      },
-      {
-        "name": "Instruction following",
-        "value": 76.7,
-        "source": "ficha"
-      },
-      {
-        "name": "Alignment",
-        "value": 26.9,
-        "source": "ficha"
-      },
-      {
-        "name": "Tool Calling",
-        "value": 92.3,
-        "source": "ficha"
-      },
-      {
-        "name": "Multilingual Q&A",
-        "value": 53.5,
-        "source": "ficha"
-      },
-      {
-        "name": "Reasoning & Commonsense",
-        "value": 76.15,
-        "source": "ficha"
-      },
-      {
-        "name": "Knowledge & Understanding",
-        "value": 44.13,
-        "source": "ficha"
-      },
-      {
-        "name": "Coding & math",
-        "value": 30.48,
-        "source": "ficha"
-      }
-    ]
+    "readmeBench": []
   },
-  "IndexTeam/Index-Translate-9B": {
+  "UntMods/Krea2_Chars_LoRA": {
     "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "FLORES COMET-22",
-        "value": 0.8789,
-        "source": "ficha"
-      },
-      {
-        "name": "WMT24++ COMET-22",
-        "value": 0.8601,
-        "source": "ficha"
-      },
-      {
-        "name": "WMT26 Judge",
-        "value": 75.35,
-        "source": "ficha"
-      },
-      {
-        "name": "instTrans Quality",
-        "value": 0.6771,
-        "source": "ficha"
-      },
-      {
-        "name": "instTrans IFscore",
-        "value": 0.8209,
-        "source": "ficha"
-      },
-      {
-        "name": "IFMTBench XCOMET-XXL",
-        "value": 0.7957,
-        "source": "ficha"
-      },
-      {
-        "name": "IFMTBench IFscore",
-        "value": 0.876,
-        "source": "ficha"
-      },
-      {
-        "name": "MEME",
-        "value": 0.7387,
-        "source": "ficha"
-      },
-      {
-        "name": "FLORES_minor_pair COMET-22 ↑",
-        "value": 0.7992,
-        "source": "ficha"
-      },
-      {
-        "name": "FLORES_minor_pair XCOMET-XXL ↑",
-        "value": 0.6805,
-        "source": "ficha"
-      },
-      {
-        "name": "FLORES_minor_pair off-target ↓",
-        "value": 4,
-        "source": "ficha"
-      },
-      {
-        "name": "instTrans_minor Quality ↑",
-        "value": 0.5222,
-        "source": "ficha"
-      },
-      {
-        "name": "instTrans_minor IFscore ↑",
-        "value": 0.7725,
-        "source": "ficha"
-      },
-      {
-        "name": "instTrans_minor off-target ↓",
-        "value": 3.47,
-        "source": "ficha"
-      },
-      {
-        "name": "OPUS-Books",
-        "value": 0.801,
-        "source": "ficha"
-      },
-      {
-        "name": "Biomedical",
-        "value": 0.8674,
-        "source": "ficha"
-      },
-      {
-        "name": "MTNT",
-        "value": 0.8246,
-        "source": "ficha"
-      },
-      {
-        "name": "MuST-Cinema",
-        "value": 0.8979,
-        "source": "ficha"
-      },
-      {
-        "name": "GuoFeng",
-        "value": 0.8345,
-        "source": "ficha"
-      },
-      {
-        "name": "C-Eval",
-        "value": 69.6,
-        "source": "ficha"
-      },
-      {
-        "name": "GPQA-Diamond",
-        "value": 36.3,
-        "source": "ficha"
-      },
-      {
-        "name": "INCLUDE",
-        "value": 63.1,
-        "source": "ficha"
-      },
-      {
-        "name": "MMMLU",
-        "value": 66.6,
-        "source": "ficha"
-      }
-    ]
+    "readmeBench": []
   },
   "destined/hurston-1": {
     "evalsHF": [],
     "readmeBench": []
   },
   "tencent/WeVisCut": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "microsoft/bitnet-b1.58-2B-4T": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -30236,8 +30126,7 @@
       }
     ]
   },
-  "google/gemma-3-270m": {
-    "evalsHF": [],
+  "gh:george-nigmatulin/lob_impact": {
     "readmeBench": []
   },
   "jdopensource/JoyAI-Image-Edit-Plus-Diffusers": {
@@ -30269,16 +30158,16 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:modelflare-ai/AnyModelBot": {},
+  "gh:Currentliunderpass/forge-agent": {},
+  "openbmb/MiniCPM-V-4.7-35B-A3B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "lvladikov/MOSS-PiD-SuperFast-HighRes": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "Alissonerdx/CharacterSheet": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Moore2877/Qwen-Fixed-Chat-Templates-llamacpp": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "lightx2v/Qwen-Image-2.1-Lightning": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -30286,7 +30175,10 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:rtmandreyev/construct": {},
+  "Overworld/Waypoint-1.5-1B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "ashawkey/LGM": {
     "evalsHF": [],
     "readmeBench": []
@@ -30296,6 +30188,10 @@
     "readmeBench": []
   },
   "lmms-lab/LLaVA-NeXT-Video-7B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "allenai/MolmoAct2-Think": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -30362,22 +30258,15 @@
       }
     ]
   },
+  "Asirus/minimax_h3_ref2va_pruned_int8_convrot_taomate_8_step": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "dx8152/Qwen-Image-Edit-2511-Gaussian-Splash": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:ideogram-oss/ideogram-4": {
-    "readmeBench": []
-  },
-  "akhaliq/nemotron-3.5-transcribe-mini-64e": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "weya-ai/hush": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "microsoft/bitnet-b1.58-2B-4T": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -33721,7 +33610,6 @@
     ],
     "readmeBench": []
   },
-  "gh:kevinbadi/claude-codes-influencers": {},
   "kandinskylab/KVAE-Audio": {
     "evalsHF": [],
     "readmeBench": [
@@ -33811,7 +33699,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:Currentliunderpass/forge-agent": {},
   "dvchd/vifasttts-ngochuyen-small": {
     "evalsHF": [],
     "readmeBench": []
@@ -33820,362 +33707,131 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:Wiselnn570/Co-Design-Bench": {
-    "readmeBench": []
-  },
-  "huyvux3005/manga109-segmentation-bubble": {
+  "IndexTeam/Index-Translate-9B": {
     "evalsHF": [],
-    "readmeBench": []
+    "readmeBench": [
+      {
+        "name": "FLORES COMET-22",
+        "value": 0.8789,
+        "source": "ficha"
+      },
+      {
+        "name": "WMT24++ COMET-22",
+        "value": 0.8601,
+        "source": "ficha"
+      },
+      {
+        "name": "WMT26 Judge",
+        "value": 75.35,
+        "source": "ficha"
+      },
+      {
+        "name": "instTrans Quality",
+        "value": 0.6771,
+        "source": "ficha"
+      },
+      {
+        "name": "instTrans IFscore",
+        "value": 0.8209,
+        "source": "ficha"
+      },
+      {
+        "name": "IFMTBench XCOMET-XXL",
+        "value": 0.7957,
+        "source": "ficha"
+      },
+      {
+        "name": "IFMTBench IFscore",
+        "value": 0.876,
+        "source": "ficha"
+      },
+      {
+        "name": "MEME",
+        "value": 0.7387,
+        "source": "ficha"
+      },
+      {
+        "name": "FLORES_minor_pair COMET-22 ↑",
+        "value": 0.7992,
+        "source": "ficha"
+      },
+      {
+        "name": "FLORES_minor_pair XCOMET-XXL ↑",
+        "value": 0.6805,
+        "source": "ficha"
+      },
+      {
+        "name": "FLORES_minor_pair off-target ↓",
+        "value": 4,
+        "source": "ficha"
+      },
+      {
+        "name": "instTrans_minor Quality ↑",
+        "value": 0.5222,
+        "source": "ficha"
+      },
+      {
+        "name": "instTrans_minor IFscore ↑",
+        "value": 0.7725,
+        "source": "ficha"
+      },
+      {
+        "name": "instTrans_minor off-target ↓",
+        "value": 3.47,
+        "source": "ficha"
+      },
+      {
+        "name": "OPUS-Books",
+        "value": 0.801,
+        "source": "ficha"
+      },
+      {
+        "name": "Biomedical",
+        "value": 0.8674,
+        "source": "ficha"
+      },
+      {
+        "name": "MTNT",
+        "value": 0.8246,
+        "source": "ficha"
+      },
+      {
+        "name": "MuST-Cinema",
+        "value": 0.8979,
+        "source": "ficha"
+      },
+      {
+        "name": "GuoFeng",
+        "value": 0.8345,
+        "source": "ficha"
+      },
+      {
+        "name": "C-Eval",
+        "value": 69.6,
+        "source": "ficha"
+      },
+      {
+        "name": "GPQA-Diamond",
+        "value": 36.3,
+        "source": "ficha"
+      },
+      {
+        "name": "INCLUDE",
+        "value": 63.1,
+        "source": "ficha"
+      },
+      {
+        "name": "MMMLU",
+        "value": 66.6,
+        "source": "ficha"
+      }
+    ]
   },
   "jparedesDS/valorant-yolo11m": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "BAAI/AREX-2": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "Frontier-CS",
-        "value": 70.7,
-        "source": "ficha"
-      },
-      {
-        "name": "MLE-Lite",
-        "value": 81.8,
-        "source": "ficha"
-      },
-      {
-        "name": "BrowseComp",
-        "value": 84,
-        "source": "ficha"
-      },
-      {
-        "name": "HLE",
-        "value": 52.6,
-        "source": "ficha"
-      },
-      {
-        "name": "GAIA",
-        "value": 92.2,
-        "source": "ficha"
-      }
-    ]
-  },
-  "black-forest-labs/FLUX.1-dev": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "joe-gibbs/terrainsr": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "brain-bzh/reve-base": {
-    "evalsHF": [
-      {
-        "name": "TUAB",
-        "value": 0.8315,
-        "source": "model-index"
-      },
-      {
-        "name": "TUEV",
-        "value": 0.6759,
-        "source": "model-index"
-      },
-      {
-        "name": "PhysionetMI",
-        "value": 0.648,
-        "source": "model-index"
-      },
-      {
-        "name": "BCICIV2a",
-        "value": 0.6396,
-        "source": "model-index"
-      },
-      {
-        "name": "FACED",
-        "value": 0.5646,
-        "source": "model-index"
-      },
-      {
-        "name": "ISRUC",
-        "value": 0.7819,
-        "source": "model-index"
-      },
-      {
-        "name": "Mumtaz",
-        "value": 0.9644,
-        "source": "model-index"
-      },
-      {
-        "name": "MentalArithmetic",
-        "value": 0.766,
-        "source": "model-index"
-      },
-      {
-        "name": "BCI2020-3",
-        "value": 0.5635,
-        "source": "model-index"
-      },
-      {
-        "name": "TUAB-LP",
-        "value": 0.81,
-        "source": "model-index"
-      },
-      {
-        "name": "TUEV-LP",
-        "value": 0.592,
-        "source": "model-index"
-      },
-      {
-        "name": "PhysionetMI-LP",
-        "value": 0.537,
-        "source": "model-index"
-      },
-      {
-        "name": "BCICIV2a-LP",
-        "value": 0.517,
-        "source": "model-index"
-      },
-      {
-        "name": "ISRUC-LP",
-        "value": 0.697,
-        "source": "model-index"
-      },
-      {
-        "name": "Mumtaz-LP",
-        "value": 0.962,
-        "source": "model-index"
-      },
-      {
-        "name": "MentalArithmetic-LP",
-        "value": 0.74,
-        "source": "model-index"
-      },
-      {
-        "name": "BCII2020-3-LP",
-        "value": 0.39,
-        "source": "model-index"
-      }
-    ],
-    "readmeBench": []
-  },
-  "Overworld/Waypoint-1.5-1B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "egeorcun/lucida": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "ai4bharat/indictrans2-en-indic-1B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "jdopensource/JoyAI-VL-Interaction": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "depth-anything/DA3-BASE": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "nvidia/C-RADIOv4-H": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "Zero-Shot",
-        "value": 83.09,
-        "source": "ficha"
-      },
-      {
-        "name": "KNN",
-        "value": 86.68,
-        "source": "ficha"
-      },
-      {
-        "name": "ADE20k Semantic Segmentation (mIoU)",
-        "value": 55.2,
-        "source": "ficha"
-      },
-      {
-        "name": "Pascal VOC Semantic Segmentation (mIoU)",
-        "value": 87.24,
-        "source": "ficha"
-      }
-    ]
-  },
-  "inclusionAI/Ming-3.0-asr-tiny": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "inclusionAI/Ming-3.0-tts-tiny": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "seed-tts-eval-zh",
-        "value": 0.82,
-        "source": "ficha"
-      },
-      {
-        "name": "seed-tts-eval-en",
-        "value": 0.781,
-        "source": "ficha"
-      },
-      {
-        "name": "German",
-        "value": 0.325,
-        "source": "ficha"
-      },
-      {
-        "name": "Spanish",
-        "value": 0.791,
-        "source": "ficha"
-      },
-      {
-        "name": "French",
-        "value": 0.971,
-        "source": "ficha"
-      },
-      {
-        "name": "Korean",
-        "value": 0.797,
-        "source": "ficha"
-      },
-      {
-        "name": "Japanese",
-        "value": 3.47,
-        "source": "ficha"
-      },
-      {
-        "name": "Single",
-        "value": 2.8,
-        "source": "ficha"
-      },
-      {
-        "name": "Multi",
-        "value": 17.23,
-        "source": "ficha"
-      },
-      {
-        "name": "WSC-Eval-TTS-easy",
-        "value": 2.53,
-        "source": "ficha"
-      },
-      {
-        "name": "WSC-Eval-TTS-hard",
-        "value": 0.721,
-        "source": "ficha"
-      },
-      {
-        "name": "WSYue-TTS-eval-Base",
-        "value": 86.09,
-        "source": "ficha"
-      },
-      {
-        "name": "WSYue-TTS-eval-Coverage",
-        "value": 3.11,
-        "source": "ficha"
-      },
-      {
-        "name": "Text-Related",
-        "value": 98,
-        "source": "ficha"
-      },
-      {
-        "name": "Text-Unrelated",
-        "value": 82,
-        "source": "ficha"
-      },
-      {
-        "name": "APS",
-        "value": 85.1,
-        "source": "ficha"
-      },
-      {
-        "name": "DSD",
-        "value": 79.9,
-        "source": "ficha"
-      },
-      {
-        "name": "RP",
-        "value": 61.1,
-        "source": "ficha"
-      },
-      {
-        "name": "Volume",
-        "value": 93,
-        "source": "ficha"
-      },
-      {
-        "name": "Pitch",
-        "value": 78.7,
-        "source": "ficha"
-      },
-      {
-        "name": "WER ↓",
-        "value": 0.274,
-        "source": "ficha"
-      },
-      {
-        "name": "SIM ↑",
-        "value": 0.742,
-        "source": "ficha"
-      },
-      {
-        "name": "CER ↓",
-        "value": 2.03,
-        "source": "ficha"
-      },
-      {
-        "name": "cpSIM ↑",
-        "value": 0.561,
-        "source": "ficha"
-      },
-      {
-        "name": "UTMOS ↑",
-        "value": 2.12,
-        "source": "ficha"
-      }
-    ]
-  },
-  "Asirus/minimax_h3_ref2va_pruned_int8_convrot_taomate_8_step": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "openai/whisper-small": {
-    "evalsHF": [
-      {
-        "name": "LibriSpeech (clean) Test WER",
-        "value": 3.432213777886737,
-        "source": "model-index"
-      },
-      {
-        "name": "LibriSpeech (other) Test WER",
-        "value": 7.628304527060248,
-        "source": "model-index"
-      },
-      {
-        "name": "Common Voice 11.0 Test WER",
-        "value": 87.3,
-        "source": "model-index"
-      },
-      {
-        "name": "Common Voice 13.0 Wer",
-        "value": 125.69809089960707,
-        "source": "model-index"
-      }
-    ],
-    "readmeBench": []
-  },
-  "nvidia/GR00T-N1.7-SimplerEnv-Bridge": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:KhazP/librecorsa": {},
-  "ZhuYuhan/VideoJev-4B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
+  "gh:chatvia/chatvia": {},
   "nvidia/nemotron-labs-unified-asr-0.6b": {
     "evalsHF": [
       {
@@ -34397,6 +34053,412 @@
       }
     ]
   },
+  "gh:Keep-Tech/MoveBench": {
+    "readmeBench": []
+  },
+  "black-forest-labs/FLUX.1-dev": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "inclusionAI/Ming-3.0-asr-tiny": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "joe-gibbs/terrainsr": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "huyvux3005/manga109-segmentation-bubble": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "summerAIO/Qwen3.8-27B-Longbook27-v2": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "brain-bzh/reve-base": {
+    "evalsHF": [
+      {
+        "name": "TUAB",
+        "value": 0.8315,
+        "source": "model-index"
+      },
+      {
+        "name": "TUEV",
+        "value": 0.6759,
+        "source": "model-index"
+      },
+      {
+        "name": "PhysionetMI",
+        "value": 0.648,
+        "source": "model-index"
+      },
+      {
+        "name": "BCICIV2a",
+        "value": 0.6396,
+        "source": "model-index"
+      },
+      {
+        "name": "FACED",
+        "value": 0.5646,
+        "source": "model-index"
+      },
+      {
+        "name": "ISRUC",
+        "value": 0.7819,
+        "source": "model-index"
+      },
+      {
+        "name": "Mumtaz",
+        "value": 0.9644,
+        "source": "model-index"
+      },
+      {
+        "name": "MentalArithmetic",
+        "value": 0.766,
+        "source": "model-index"
+      },
+      {
+        "name": "BCI2020-3",
+        "value": 0.5635,
+        "source": "model-index"
+      },
+      {
+        "name": "TUAB-LP",
+        "value": 0.81,
+        "source": "model-index"
+      },
+      {
+        "name": "TUEV-LP",
+        "value": 0.592,
+        "source": "model-index"
+      },
+      {
+        "name": "PhysionetMI-LP",
+        "value": 0.537,
+        "source": "model-index"
+      },
+      {
+        "name": "BCICIV2a-LP",
+        "value": 0.517,
+        "source": "model-index"
+      },
+      {
+        "name": "ISRUC-LP",
+        "value": 0.697,
+        "source": "model-index"
+      },
+      {
+        "name": "Mumtaz-LP",
+        "value": 0.962,
+        "source": "model-index"
+      },
+      {
+        "name": "MentalArithmetic-LP",
+        "value": 0.74,
+        "source": "model-index"
+      },
+      {
+        "name": "BCII2020-3-LP",
+        "value": 0.39,
+        "source": "model-index"
+      }
+    ],
+    "readmeBench": []
+  },
+  "lightx2v/Qwen-Image-2.1-Lightning": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "BAAI/AREX-2": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "Frontier-CS",
+        "value": 70.7,
+        "source": "ficha"
+      },
+      {
+        "name": "MLE-Lite",
+        "value": 81.8,
+        "source": "ficha"
+      },
+      {
+        "name": "BrowseComp",
+        "value": 84,
+        "source": "ficha"
+      },
+      {
+        "name": "HLE",
+        "value": 52.6,
+        "source": "ficha"
+      },
+      {
+        "name": "GAIA",
+        "value": 92.2,
+        "source": "ficha"
+      }
+    ]
+  },
+  "georgexin/cointeract": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "egeorcun/lucida": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "ai4bharat/indictrans2-en-indic-1B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "jdopensource/JoyAI-VL-Interaction": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "depth-anything/DA3-BASE": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "nvidia/C-RADIOv4-H": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "Zero-Shot",
+        "value": 83.09,
+        "source": "ficha"
+      },
+      {
+        "name": "KNN",
+        "value": 86.68,
+        "source": "ficha"
+      },
+      {
+        "name": "ADE20k Semantic Segmentation (mIoU)",
+        "value": 55.2,
+        "source": "ficha"
+      },
+      {
+        "name": "Pascal VOC Semantic Segmentation (mIoU)",
+        "value": 87.24,
+        "source": "ficha"
+      }
+    ]
+  },
+  "inclusionAI/Ming-3.0-tts-tiny": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "seed-tts-eval-zh",
+        "value": 0.82,
+        "source": "ficha"
+      },
+      {
+        "name": "seed-tts-eval-en",
+        "value": 0.781,
+        "source": "ficha"
+      },
+      {
+        "name": "German",
+        "value": 0.325,
+        "source": "ficha"
+      },
+      {
+        "name": "Spanish",
+        "value": 0.791,
+        "source": "ficha"
+      },
+      {
+        "name": "French",
+        "value": 0.971,
+        "source": "ficha"
+      },
+      {
+        "name": "Korean",
+        "value": 0.797,
+        "source": "ficha"
+      },
+      {
+        "name": "Japanese",
+        "value": 3.47,
+        "source": "ficha"
+      },
+      {
+        "name": "Single",
+        "value": 2.8,
+        "source": "ficha"
+      },
+      {
+        "name": "Multi",
+        "value": 17.23,
+        "source": "ficha"
+      },
+      {
+        "name": "WSC-Eval-TTS-easy",
+        "value": 2.53,
+        "source": "ficha"
+      },
+      {
+        "name": "WSC-Eval-TTS-hard",
+        "value": 0.721,
+        "source": "ficha"
+      },
+      {
+        "name": "WSYue-TTS-eval-Base",
+        "value": 86.09,
+        "source": "ficha"
+      },
+      {
+        "name": "WSYue-TTS-eval-Coverage",
+        "value": 3.11,
+        "source": "ficha"
+      },
+      {
+        "name": "Text-Related",
+        "value": 98,
+        "source": "ficha"
+      },
+      {
+        "name": "Text-Unrelated",
+        "value": 82,
+        "source": "ficha"
+      },
+      {
+        "name": "APS",
+        "value": 85.1,
+        "source": "ficha"
+      },
+      {
+        "name": "DSD",
+        "value": 79.9,
+        "source": "ficha"
+      },
+      {
+        "name": "RP",
+        "value": 61.1,
+        "source": "ficha"
+      },
+      {
+        "name": "Volume",
+        "value": 93,
+        "source": "ficha"
+      },
+      {
+        "name": "Pitch",
+        "value": 78.7,
+        "source": "ficha"
+      },
+      {
+        "name": "WER ↓",
+        "value": 0.274,
+        "source": "ficha"
+      },
+      {
+        "name": "SIM ↑",
+        "value": 0.742,
+        "source": "ficha"
+      },
+      {
+        "name": "CER ↓",
+        "value": 2.03,
+        "source": "ficha"
+      },
+      {
+        "name": "cpSIM ↑",
+        "value": 0.561,
+        "source": "ficha"
+      },
+      {
+        "name": "UTMOS ↑",
+        "value": 2.12,
+        "source": "ficha"
+      }
+    ]
+  },
+  "openai/whisper-small": {
+    "evalsHF": [
+      {
+        "name": "LibriSpeech (clean) Test WER",
+        "value": 3.432213777886737,
+        "source": "model-index"
+      },
+      {
+        "name": "LibriSpeech (other) Test WER",
+        "value": 7.628304527060248,
+        "source": "model-index"
+      },
+      {
+        "name": "Common Voice 11.0 Test WER",
+        "value": 87.3,
+        "source": "model-index"
+      },
+      {
+        "name": "Common Voice 13.0 Wer",
+        "value": 125.69809089960707,
+        "source": "model-index"
+      }
+    ],
+    "readmeBench": []
+  },
+  "tencent/Hy-Memory-30B-A3B": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "Mem0",
+        "value": 54.02,
+        "source": "ficha"
+      },
+      {
+        "name": "Hy-Mem.",
+        "value": 60.55,
+        "source": "ficha"
+      },
+      {
+        "name": "MemOS",
+        "value": 50.51,
+        "source": "ficha"
+      },
+      {
+        "name": "EverMem.",
+        "value": 56.89,
+        "source": "ficha"
+      },
+      {
+        "name": "LoCoMo",
+        "value": 59.54,
+        "source": "ficha"
+      },
+      {
+        "name": "LME",
+        "value": 73,
+        "source": "ficha"
+      },
+      {
+        "name": "PM-v2",
+        "value": 51.62,
+        "source": "ficha"
+      },
+      {
+        "name": "Travel",
+        "value": 54.51,
+        "source": "ficha"
+      },
+      {
+        "name": "Shop.",
+        "value": 18.33,
+        "source": "ficha"
+      },
+      {
+        "name": "CMB",
+        "value": 67.13,
+        "source": "ficha"
+      }
+    ]
+  },
+  "ZhuYuhan/VideoJev-4B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "neuphonic/distill-neucodec": {
     "evalsHF": [],
     "readmeBench": []
@@ -34405,7 +34467,12 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "gh:KhazP/librecorsa": {},
   "cyun9286/PURE": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "funasr/paraformer-zh": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -34469,14 +34536,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:OpenSenseNova/SenseNova-6.8-Code2Video": {
-    "readmeBench": []
-  },
-  "gh:OpenSenseNova/SenseNova-Loop": {
-    "readmeBench": []
-  },
-  "gh:HKUDS/AutoSwarm": {},
-  "gh:sunblaze-ucb/exploitgym": {},
   "google/diffusiongemma-26B-A4B-it": {
     "evalsHF": [],
     "readmeBench": [
@@ -34537,11 +34596,34 @@
       }
     ]
   },
+  "Quran-Lab/zipformer_p-arabic-v3": {
+    "evalsHF": [
+      {
+        "name": "quranic-asr-benchmark (v1.1) Phoneme Error Rate, held-out studio reciters",
+        "value": 1.43,
+        "source": "model-index"
+      },
+      {
+        "name": "quranic-asr-benchmark (v1.1) Phoneme Error Rate, real phone audio",
+        "value": 3.65,
+        "source": "model-index"
+      },
+      {
+        "name": "quranic-asr-benchmark (v1.1) Phoneme Error Rate, unseen reciter",
+        "value": 9.1,
+        "source": "model-index"
+      }
+    ],
+    "readmeBench": []
+  },
   "qualcomm/YOLOv8-Detection": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:chatvia/chatvia": {},
+  "google/functiongemma-270m-it": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "ai-sage/Giga-Embeddings-instruct": {
     "evalsHF": [],
     "readmeBench": []
@@ -34554,18 +34636,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:Keep-Tech/MoveBench": {
-    "readmeBench": []
-  },
   "facebook/sam2.1-hiera-tiny": {
     "evalsHF": [],
     "readmeBench": []
   },
   "sayeed99/segformer_b3_clothes": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "georgexin/cointeract": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -34588,34 +34663,14 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:GradientSpaces/World-from-Motion": {
-    "readmeBench": []
-  },
-  "fastino/GLiDE": {
+  "nvidia/GR00T-N1.7-SimplerEnv-Bridge": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "lerobot/so101-tabletop-mujoco": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "tencent/Hy-SimulMT-30B-A3B-Interleave-FP8": {
-    "evalsHF": [],
+  "gh:galilai-group/prh-proof": {
     "readmeBench": []
   },
   "Jojocodex/minimax-h3-wushu-action-lora": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Dream-org/Dream-VLA-7B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "funasr/paraformer-zh": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "black-forest-labs/FLUX.2-dev": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -34623,41 +34678,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:simran-khanuja/t-dig": {
-    "readmeBench": []
-  },
-  "Quran-Lab/zipformer_p-arabic-v3": {
-    "evalsHF": [
-      {
-        "name": "quranic-asr-benchmark (v1.1) Phoneme Error Rate, held-out studio reciters",
-        "value": 1.43,
-        "source": "model-index"
-      },
-      {
-        "name": "quranic-asr-benchmark (v1.1) Phoneme Error Rate, real phone audio",
-        "value": 3.65,
-        "source": "model-index"
-      },
-      {
-        "name": "quranic-asr-benchmark (v1.1) Phoneme Error Rate, unseen reciter",
-        "value": 9.1,
-        "source": "model-index"
-      }
-    ],
-    "readmeBench": []
-  },
-  "summerAIO/Qwen3.8-27B-Longbook27-v2": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "google/functiongemma-270m-it": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "google/tipsv2-b14-dpt": {
     "evalsHF": [],
     "readmeBench": []
   },
+  "black-forest-labs/FLUX.2-dev": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:IQuestLab/WorkFactory": {},
   "kyutai/moshika-rl-seamless": {
     "evalsHF": [],
     "readmeBench": []
@@ -34813,60 +34842,13 @@
     ],
     "readmeBench": []
   },
-  "tencent/Hy-Memory-30B-A3B": {
+  "gh:composo-ai/DishwasherBench": {},
+  "fastino/GLiDE": {
     "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "Mem0",
-        "value": 54.02,
-        "source": "ficha"
-      },
-      {
-        "name": "Hy-Mem.",
-        "value": 60.55,
-        "source": "ficha"
-      },
-      {
-        "name": "MemOS",
-        "value": 50.51,
-        "source": "ficha"
-      },
-      {
-        "name": "EverMem.",
-        "value": 56.89,
-        "source": "ficha"
-      },
-      {
-        "name": "LoCoMo",
-        "value": 59.54,
-        "source": "ficha"
-      },
-      {
-        "name": "LME",
-        "value": 73,
-        "source": "ficha"
-      },
-      {
-        "name": "PM-v2",
-        "value": 51.62,
-        "source": "ficha"
-      },
-      {
-        "name": "Travel",
-        "value": 54.51,
-        "source": "ficha"
-      },
-      {
-        "name": "Shop.",
-        "value": 18.33,
-        "source": "ficha"
-      },
-      {
-        "name": "CMB",
-        "value": 67.13,
-        "source": "ficha"
-      }
-    ]
+    "readmeBench": []
+  },
+  "gh:EnVision-Research/LongChang": {
+    "readmeBench": []
   },
   "mistralai/Timestral-5M": {
     "evalsHF": [
@@ -34903,20 +34885,11 @@
     ],
     "readmeBench": []
   },
-  "stepfun-ai/GOT-OCR2_0": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "huawei-bayerlab/marigold-v2-0": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "CohereLabs/North-Small-Translate-1.0": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "drowzeys/keys-DeepSeek-V4.1-Flash-1017-Abliterated": {
-    "evalsHF": [],
+  "gh:hexuan21/MemoryTax": {
     "readmeBench": []
   },
   "nvidia/segformer-b2-finetuned-ade-512-512": {
@@ -34935,7 +34908,20 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "Dream-org/Dream-VLA-7B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "perplexity-ai/pplx-embed-v2-late-0.6b": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:DECRUX9812/hermes-plugin-gameforge": {},
+  "tencent/Hy-SimulMT-30B-A3B-Interleave-FP8": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "stepfun-ai/GOT-OCR2_0": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -34963,6 +34949,13 @@
     "readmeBench": []
   },
   "zai-org/CogVideoX1.5-5B-I2V": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:simran-khanuja/t-dig": {
+    "readmeBench": []
+  },
+  "drowzeys/keys-DeepSeek-V4.1-Flash-1017-Abliterated": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -35063,12 +35056,15 @@
     ],
     "readmeBench": []
   },
-  "gh:DECRUX9812/hermes-plugin-gameforge": {},
+  "mistralai/Voxtral-Mini-4B-Realtime-Arabic": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "XiaomiMiMo/MiMo-Audio-7B-Instruct": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "Kruk2/ltx-restore": {
+  "bodhan-ai/indic-transcribe-flex": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -35103,7 +35099,6 @@
       }
     ]
   },
-  "gh:hammerill/libfpv": {},
   "ai-forever/sbert_large_nlu_ru": {
     "evalsHF": [],
     "readmeBench": []
@@ -35188,15 +35183,8 @@
     ],
     "readmeBench": []
   },
-  "GroundingPI/GroundAnything-VLM": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "mistralai/Voxtral-Mini-4B-Realtime-Arabic": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "JOKER141/BUNNY_H3_Conditioning_Bridge": {},
+  "gh:kevinbadi/claude-codes-influencers": {},
   "nvidia/NLD-Uni": {
     "evalsHF": [],
     "readmeBench": []
@@ -35205,30 +35193,17 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "bodhan-ai/indic-transcribe-flex": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "paperinstruments/Ultramarine-1-Flash": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "MATLOWAI/MiniMax-H3-ORB360-CardSpin": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:hyeon9698/LOWN": {
-    "readmeBench": []
-  },
-  "gh:jinlabneurogenomics/distributed_agent": {},
-  "gh:inclusionAI/Zooming-without-Zooming-v2": {
-    "readmeBench": []
-  },
-  "ausboss/Qwen-Image-2.1-Consistency-LoRA": {
+  "CohereLabs/North-Small-Translate-1.0": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:EnVision-Research/LongChang": {
+  "gh:astding/mmaemu": {},
+  "ausboss/Qwen-Image-2.1-Consistency-LoRA": {
+    "evalsHF": [],
     "readmeBench": []
   },
   "Comfy-Org/Depth-Anything-3": {
@@ -35243,7 +35218,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:composo-ai/DishwasherBench": {},
   "ACE-Step/acestep-v15-xl-sft": {
     "evalsHF": [],
     "readmeBench": []
@@ -35424,11 +35398,19 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "paperinstruments/Ultramarine-1-Flash": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:sejong-rcv/ST-Pruner": {},
   "OpenYourMind/gemma-4-12B-it-abliterated-uncensored": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "xiaomi-research/MiLMMT-46-4B-v1.0": {
+  "gh:inclusionAI/Zooming-without-Zooming-v2": {
+    "readmeBench": []
+  },
+  "EleutherAI/gpt-j-6b": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -35471,7 +35453,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:deepseek-ai/DeepInfer": {
+  "gh:GradientSpaces/World-from-Motion": {
+    "readmeBench": []
+  },
+  "GroundingPI/GroundAnything-VLM": {
+    "evalsHF": [],
     "readmeBench": []
   },
   "facebook/dinov3-vith16plus-pretrain-lvd1689m": {
@@ -35486,7 +35472,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "EleutherAI/gpt-j-6b": {
+  "tiiuae/falcon-7b": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -35510,13 +35496,204 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "BlueRoseLabs/Silencio": {},
+  "vdo/stable-video-diffusion-img2vid-xt-1-1": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "fal/virtual-tryoff-lora": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "perplexity-ai/pplx-embed-v1-4b": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "Dimensions",
+        "value": 2560,
+        "source": "ficha"
+      }
+    ]
+  },
+  "meta-llama/Llama-2-7b": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "TLME/RVC-Umamusume": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "riffusion/riffusion-model-v1": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "xiaomi-research/MiLMMT-46-4B-v1.0": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "ai4bharat/indictrans2-indic-en-dist-200M": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "yanziang/InternVideo3-8B-Instruct": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "ACE-Step/acestep-v15-xl-base": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "hoidhxd/MiniMax-H3-x-Z-Image-hybrid": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "lamm-mit/MetaMaterialsDiscovery": {},
+  "h2oai/timeh2o-v1-tiny": {
+    "evalsHF": [
+      {
+        "name": "GIFT-Eval (univariate) CRPS",
+        "value": 0.489,
+        "source": "model-index"
+      },
+      {
+        "name": "GIFT-Eval (univariate) MASE",
+        "value": 0.674,
+        "source": "model-index"
+      },
+      {
+        "name": "fev-bench (univariate) SQL skill score",
+        "value": 37.87,
+        "source": "model-index"
+      },
+      {
+        "name": "fev-bench (univariate) MASE skill score",
+        "value": 29.05,
+        "source": "model-index"
+      }
+    ],
+    "readmeBench": []
+  },
+  "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "AIME 24",
+        "value": 86,
+        "source": "ficha"
+      },
+      {
+        "name": "AIME 25",
+        "value": 76.3,
+        "source": "ficha"
+      },
+      {
+        "name": "HMMT Feb 25",
+        "value": 61.5,
+        "source": "ficha"
+      },
+      {
+        "name": "GPQA Diamond",
+        "value": 61.1,
+        "source": "ficha"
+      },
+      {
+        "name": "LiveCodeBench (2408-2505)",
+        "value": 60.5,
+        "source": "ficha"
+      }
+    ]
+  },
+  "FastVideo/FastVideo-FastH3-8-Step-V2": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:jinlabneurogenomics/distributed_agent": {},
+  "ResembleAI/resemble-enhance": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "Overworld/Waypoint-1.5-1B-360P": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "NX-AI/TiRex-2": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "allenai/MolmoAct2-Pretrain": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "BlueRoseLabs/Silencio": {},
-  "vdo/stable-video-diffusion-img2vid-xt-1-1": {
+  "zaakirio/kokoro-ru": {
     "evalsHF": [],
+    "readmeBench": []
+  },
+  "APRIL-AIGC/T3-Video": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "MykolaL/DelineateAnything": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "litert-community/LFM3-Omni-2B-LiteRT": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "caveman-so/trim-1": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "Arm/neural-super-sampling": {},
+  "Edisoneh/InfiniSplat-v2": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:hammerill/libfpv": {},
+  "perplexity-ai/pplx-embed-v2-context-9b": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "IssacMosesD/Lunar-RVC-Model": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "owensong/Inflect-Mini-v3-Preview": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "Zigeng/SlimSAM-uniform-77": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "microsoft/phi-1_5": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "meta-llama/Meta-Llama-3-70B-Instruct": {
+    "evalsHF": [
+      {
+        "name": "MMLU-Pro",
+        "value": 56.2,
+        "source": "hf",
+        "note": "EvalEval"
+      }
+    ],
+    "readmeBench": []
+  },
+  "justdubit/justdubit": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "perplexity-ai/pplx-embed-v2-context-0.6b": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "stabilityai/sv3d": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:yepengliu/TTME": {
     "readmeBench": []
   },
   "LIN-linlin/4D-World-Models-Robotic-Manipulation": {
@@ -35588,175 +35765,7 @@
       }
     ]
   },
-  "fal/virtual-tryoff-lora": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "perplexity-ai/pplx-embed-v1-4b": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "Dimensions",
-        "value": 2560,
-        "source": "ficha"
-      }
-    ]
-  },
-  "TLME/RVC-Umamusume": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "riffusion/riffusion-model-v1": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "ai4bharat/indictrans2-indic-en-dist-200M": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "yanziang/InternVideo3-8B-Instruct": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "ACE-Step/acestep-v15-xl-base": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "hoidhxd/MiniMax-H3-x-Z-Image-hybrid": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "h2oai/timeh2o-v1-tiny": {
-    "evalsHF": [
-      {
-        "name": "GIFT-Eval (univariate) CRPS",
-        "value": 0.489,
-        "source": "model-index"
-      },
-      {
-        "name": "GIFT-Eval (univariate) MASE",
-        "value": 0.674,
-        "source": "model-index"
-      },
-      {
-        "name": "fev-bench (univariate) SQL skill score",
-        "value": 37.87,
-        "source": "model-index"
-      },
-      {
-        "name": "fev-bench (univariate) MASE skill score",
-        "value": 29.05,
-        "source": "model-index"
-      }
-    ],
-    "readmeBench": []
-  },
-  "MykolaL/DelineateAnything": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "AIME 24",
-        "value": 86,
-        "source": "ficha"
-      },
-      {
-        "name": "AIME 25",
-        "value": 76.3,
-        "source": "ficha"
-      },
-      {
-        "name": "HMMT Feb 25",
-        "value": 61.5,
-        "source": "ficha"
-      },
-      {
-        "name": "GPQA Diamond",
-        "value": 61.1,
-        "source": "ficha"
-      },
-      {
-        "name": "LiveCodeBench (2408-2505)",
-        "value": 60.5,
-        "source": "ficha"
-      }
-    ]
-  },
-  "FastVideo/FastVideo-FastH3-8-Step-V2": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "ResembleAI/resemble-enhance": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Overworld/Waypoint-1.5-1B-360P": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "tiiuae/falcon-7b": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "NX-AI/TiRex-2": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "KBlueLeaf/MOSS-Image-FP16-fixed": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "zaakirio/kokoro-ru": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "APRIL-AIGC/T3-Video": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "litert-community/LFM3-Omni-2B-LiteRT": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Arm/neural-super-sampling": {},
-  "Edisoneh/InfiniSplat-v2": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:baidu/Unlimited-OCR": {
-    "readmeBench": []
-  },
-  "meta-llama/Llama-2-7b": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "perplexity-ai/pplx-embed-v2-context-9b": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "IssacMosesD/Lunar-RVC-Model": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "owensong/Inflect-Mini-v3-Preview": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Zigeng/SlimSAM-uniform-77": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "perplexity-ai/pplx-embed-v2-context-0.6b": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "stabilityai/sv3d": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
+  "gh:nju-websoft/AgenticDS": {},
   "meta-llama/Llama-3.2-11B-Vision-Instruct": {
     "evalsHF": [],
     "readmeBench": []
@@ -35769,7 +35778,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "microsoft/phi-1_5": {
+  "tiiuae/falcon-40b": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -35802,7 +35811,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "KBlueLeaf/MOSS-Image-FP16-fixed": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "nvidia/vgg-ttt": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "lerobot/so101-tabletop-mujoco": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -35923,13 +35940,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:yepengliu/TTME": {
-    "readmeBench": []
-  },
-  "VictorButoi/flexray": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
+  "gh:morethanrealio/brambit": {},
   "Haodong082399/VPP2": {
     "evalsHF": [],
     "readmeBench": []
@@ -35939,21 +35950,6 @@
     "readmeBench": []
   },
   "xibushu/UniForge3D": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "meta-llama/Meta-Llama-3-70B-Instruct": {
-    "evalsHF": [
-      {
-        "name": "MMLU-Pro",
-        "value": 56.2,
-        "source": "hf",
-        "note": "EvalEval"
-      }
-    ],
-    "readmeBench": []
-  },
-  "tiiuae/falcon-40b": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -36010,8 +36006,12 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "gh:2020-qqtcg/HRP": {},
+  "VictorButoi/flexray": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "TK3105/UniAVC": {},
-  "gh:morethanrealio/brambit": {},
   "ConwayResearch/Underdog-Bark-3.0-Clean": {
     "evalsHF": [],
     "readmeBench": []
@@ -36027,15 +36027,22 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "CohereLabs/c4ai-command-r-v01": {
+    "evalsHF": [
+      {
+        "name": "MMLU-Pro",
+        "value": 37.9,
+        "source": "hf",
+        "note": "EvalEval"
+      }
+    ],
+    "readmeBench": []
+  },
   "MrTrusted/HY-Motion-1.0": {
     "evalsHF": [],
     "readmeBench": []
   },
   "Salesforce/moirai-1.0-R-small": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "justdubit/justdubit": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -36194,8 +36201,15 @@
     ],
     "readmeBench": []
   },
+  "Kruk2/ltx-restore": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "Minthy/MimiLens-Models": {
     "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:LUMIA-Group/habit-bench": {
     "readmeBench": []
   },
   "berryber09/FastH3-OmniRef-8step-pruned-w4a8": {},
@@ -36215,10 +36229,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "xiaomi-research/MiLMMT-46-1B-v1.0": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "Neleac/SpaceTimeGPT": {
     "evalsHF": [
       {
@@ -36234,6 +36244,31 @@
     "readmeBench": []
   },
   "slseanwu/MIDI-LLM_Llama-3.2-1B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "Patil/Krea-2-depth-controlnet": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "facebook/hyden-mogev2-metric-point": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:zhennan1/LongZero": {
+    "readmeBench": []
+  },
+  "nvidia/llama-nemotron-rerank-vl-1b-v2": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "Modality",
+        "value": 76.12,
+        "source": "ficha"
+      }
+    ]
+  },
+  "RTX2o/Seedance-2-AI-Video-Generator": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -36256,51 +36291,15 @@
       }
     ]
   },
-  "Patil/Krea-2-depth-controlnet": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "thuml/webarena-world-model-rlvr": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "facebook/hyden-mogev2-metric-point": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "BLM-Lab/Boundless-World-Model": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:LUMIA-Group/habit-bench": {
-    "readmeBench": []
-  },
-  "CohereLabs/c4ai-command-r-v01": {
-    "evalsHF": [
-      {
-        "name": "MMLU-Pro",
-        "value": 37.9,
-        "source": "hf",
-        "note": "EvalEval"
-      }
-    ],
-    "readmeBench": []
-  },
-  "nvidia/llama-nemotron-rerank-vl-1b-v2": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "Modality",
-        "value": 76.12,
-        "source": "ficha"
-      }
-    ]
-  },
   "alicangunduz/nefes-0.5": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:zhennan1/LongZero": {
+  "gh:AlphaBet-Agent/AlphaBet": {
+    "readmeBench": []
+  },
+  "FastVideo/FastH3-Omni-FP8-Comfy": {
+    "evalsHF": [],
     "readmeBench": []
   },
   "3DTopia/3DTopia": {
@@ -36311,11 +36310,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "netease-youdao/Confucius4-T3PO": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "bodhan-ai/indic-translate": {
+  "xiaomi-research/MiLMMT-46-1B-v1.0": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -36453,9 +36448,6 @@
   },
   "ausboss/Qwen-Image-2.1-Restore-LoRA": {
     "evalsHF": [],
-    "readmeBench": []
-  },
-  "gh:AlphaBet-Agent/AlphaBet": {
     "readmeBench": []
   },
   "meta-models/Muse-Glimmer-30B": {
@@ -36665,11 +36657,14 @@
       }
     ]
   },
+  "BLM-Lab/Boundless-World-Model": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "Vombit/yolo12n_cs2": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "Limbicnation/pixel-art-lora": {},
   "ali-vilab/text-to-video-ms-1.7b-legacy": {
     "evalsHF": [],
     "readmeBench": []
@@ -36694,7 +36689,8 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "Luffuly/streaming-code-world-model": {
+  "gh:facebookresearch/textseal": {},
+  "thuml/webarena-world-model-rlvr": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -36702,12 +36698,13 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "desert-ant-labs/voz": {},
   "meeeetxd/pocket-tts-gujarati": {
     "evalsHF": [],
     "readmeBench": []
   },
   "mohammedaly22/VoiceTut-TTS": {},
-  "Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled": {
+  "xai-org/grok-1": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -36719,7 +36716,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "desert-ant-labs/voz": {},
   "unsloth/embeddinggemma-2": {
     "evalsHF": [],
     "readmeBench": [
@@ -36745,8 +36741,7 @@
       }
     ]
   },
-  "facebook/mask2former-swin-tiny-ade-semantic": {
-    "evalsHF": [],
+  "gh:anitakriz/ar-bed": {
     "readmeBench": []
   },
   "openchat/openchat_3.5": {
@@ -36807,15 +36802,18 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "xai-org/grok-1": {
-    "evalsHF": [],
+  "tiiuae/falcon-7b-instruct": {
+    "evalsHF": [
+      {
+        "name": "gpqa",
+        "value": 2.466367713,
+        "source": "hf",
+        "note": "EvalEval"
+      }
+    ],
     "readmeBench": []
   },
   "Maikou/Michelangelo": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "caveman-so/trim-1": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -36823,7 +36821,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "xiaomi-research/MiLMMT-46-12B-v1.0": {
+  "netease-youdao/Confucius4-T3PO": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "bodhan-ai/indic-translate": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -36872,7 +36874,7 @@
       }
     ]
   },
-  "RTX2o/Seedance-2-AI-Video-Generator": {
+  "Luffuly/streaming-code-world-model": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -37068,7 +37070,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "StarVLA/VLAct_Qwen3_Pretrain": {
+  "facebook/mask2former-swin-tiny-ade-semantic": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -37076,10 +37078,21 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "desert-ant-labs/align": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "Within 50ms",
+        "value": 76,
+        "source": "ficha"
+      }
+    ]
+  },
   "kandinskylab/Kandinsky-6.0-Pro-5s-Diffusers": {
     "evalsHF": [],
     "readmeBench": []
   },
+  "Limbicnation/pixel-art-lora": {},
   "Wuli-art/MiniMax-H3-Turbo": {
     "evalsHF": [],
     "readmeBench": []
@@ -37088,18 +37101,136 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "tiiuae/falcon-7b-instruct": {
+  "gh:hannesill/m4": {},
+  "Jackrong/Qwen3.5-27B-Claude-4.6-Opus-Reasoning-Distilled": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "bigcode/starcoder": {
     "evalsHF": [
       {
-        "name": "gpqa",
-        "value": 2.466367713,
-        "source": "hf",
-        "note": "EvalEval"
+        "name": "HumanEval (Prompted)",
+        "value": 0.408,
+        "source": "model-index"
+      },
+      {
+        "name": "HumanEval",
+        "value": 0.336,
+        "source": "model-index"
+      },
+      {
+        "name": "MBPP",
+        "value": 0.527,
+        "source": "model-index"
+      },
+      {
+        "name": "DS-1000 (Overall Completion)",
+        "value": 0.26,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (C++)",
+        "value": 0.3155,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (C#)",
+        "value": 0.2101,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (D)",
+        "value": 0.1357,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (Go)",
+        "value": 0.1761,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (Java)",
+        "value": 0.3022,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (Julia)",
+        "value": 0.2302,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (JavaScript)",
+        "value": 0.3079,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (Lua)",
+        "value": 0.2389,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (PHP)",
+        "value": 0.2608,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (Perl)",
+        "value": 0.1734,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (Python)",
+        "value": 0.3357,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (R)",
+        "value": 0.155,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (Ruby)",
+        "value": 0.0124,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (Racket)",
+        "value": 0.0007,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (Rust)",
+        "value": 0.2184,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (Scala)",
+        "value": 0.2761,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (Bash)",
+        "value": 0.1046,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (Swift)",
+        "value": 0.2274,
+        "source": "model-index"
+      },
+      {
+        "name": "MultiPL-HumanEval (TypeScript)",
+        "value": 0.3229,
+        "source": "model-index"
       }
     ],
     "readmeBench": []
   },
   "huggingface/time-series-transformer-tourism-monthly": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "StarVLA/VLAct_Qwen3_Pretrain": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -37817,24 +37948,33 @@
       }
     ]
   },
+  "01-ai/Yi-34B": {
+    "evalsHF": [
+      {
+        "name": "MMLU-Pro",
+        "value": 43.03,
+        "source": "hf",
+        "note": "EvalEval"
+      }
+    ],
+    "readmeBench": [
+      {
+        "name": "Recommended GPU Example",
+        "value": 4,
+        "source": "ficha"
+      }
+    ]
+  },
   "facebook/maskformer-swin-base-coco": {
     "evalsHF": [],
     "readmeBench": []
   },
   "dronefreak/visdrone-yolo26n": {},
-  "desert-ant-labs/align": {
+  "xiaomi-research/MiLMMT-46-12B-v1.0": {
     "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "Within 50ms",
-        "value": 76,
-        "source": "ficha"
-      }
-    ]
-  },
-  "gh:anitakriz/ar-bed": {
     "readmeBench": []
   },
+  "mehdi-hf/nemotron-asr-streaming-farsi": {},
   "gh:worldbench/VITAL": {
     "readmeBench": [
       {
@@ -37849,122 +37989,28 @@
       }
     ]
   },
-  "bigcode/starcoder": {
+  "AuroraAI-Research/AuroraASR-1M": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "test-clean",
+        "value": 11.43,
+        "source": "ficha"
+      },
+      {
+        "name": "test-other",
+        "value": 26.5,
+        "source": "ficha"
+      }
+    ]
+  },
+  "tiiuae/falcon-40b-instruct": {
     "evalsHF": [
       {
-        "name": "HumanEval (Prompted)",
-        "value": 0.408,
-        "source": "model-index"
-      },
-      {
-        "name": "HumanEval",
-        "value": 0.336,
-        "source": "model-index"
-      },
-      {
-        "name": "MBPP",
-        "value": 0.527,
-        "source": "model-index"
-      },
-      {
-        "name": "DS-1000 (Overall Completion)",
-        "value": 0.26,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (C++)",
-        "value": 0.3155,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (C#)",
-        "value": 0.2101,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (D)",
-        "value": 0.1357,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (Go)",
-        "value": 0.1761,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (Java)",
-        "value": 0.3022,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (Julia)",
-        "value": 0.2302,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (JavaScript)",
-        "value": 0.3079,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (Lua)",
-        "value": 0.2389,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (PHP)",
-        "value": 0.2608,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (Perl)",
-        "value": 0.1734,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (Python)",
-        "value": 0.3357,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (R)",
-        "value": 0.155,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (Ruby)",
-        "value": 0.0124,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (Racket)",
-        "value": 0.0007,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (Rust)",
-        "value": 0.2184,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (Scala)",
-        "value": 0.2761,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (Bash)",
-        "value": 0.1046,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (Swift)",
-        "value": 0.2274,
-        "source": "model-index"
-      },
-      {
-        "name": "MultiPL-HumanEval (TypeScript)",
-        "value": 0.3229,
-        "source": "model-index"
+        "name": "gpqa",
+        "value": 8.2959641256,
+        "source": "hf",
+        "note": "EvalEval"
       }
     ],
     "readmeBench": []
@@ -37974,10 +38020,6 @@
     "readmeBench": []
   },
   "mfarre/Video-LLaVA-7B-hf-CinePile": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Embodied-AI-6/pi0.5": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -38008,7 +38050,6 @@
     ],
     "readmeBench": []
   },
-  "mehdi-hf/nemotron-asr-streaming-farsi": {},
   "moonshotai/Kimi-K2.7-Code": {
     "evalsHF": [
       {
@@ -38071,63 +38112,24 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "openbmb/MiniCPM-Llama3-V-2_5": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "01-ai/Yi-34B": {
-    "evalsHF": [
-      {
-        "name": "MMLU-Pro",
-        "value": 43.03,
-        "source": "hf",
-        "note": "EvalEval"
-      }
-    ],
-    "readmeBench": [
-      {
-        "name": "Recommended GPU Example",
-        "value": 4,
-        "source": "ficha"
-      }
-    ]
-  },
   "ACE-Step/acestep-5Hz-lm-0.6B": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "AuroraAI-Research/AuroraASR-1M": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "test-clean",
-        "value": 11.43,
-        "source": "ficha"
-      },
-      {
-        "name": "test-other",
-        "value": 26.5,
-        "source": "ficha"
-      }
-    ]
-  },
-  "jepa-world-models/h-jepa": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "wanglab/medsam-vit-base": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "tiiuae/falcon-40b-instruct": {
+  "mattshumer/Reflection-Llama-3.1-70B": {
     "evalsHF": [
       {
-        "name": "gpqa",
-        "value": 8.2959641256,
+        "name": "MMLU-Pro",
+        "value": 60.35,
         "source": "hf",
         "note": "EvalEval"
       }
     ],
+    "readmeBench": []
+  },
+  "microsoft/UserLM-8b": {},
+  "wanglab/medsam-vit-base": {
+    "evalsHF": [],
     "readmeBench": []
   },
   "facebook/dinov3-vitl16-chmv2-dpt-head": {
@@ -38142,9 +38144,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "NAMAA-Space/masrawy-english-to-egyptian-arabic-translator-v2.9": {},
   "OpenGVLab/InternVideo2-Chat-8B": {
     "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:npci/TauIndianBankBench": {
     "readmeBench": []
   },
   "Abdou/quran-asr-small": {
@@ -38263,7 +38267,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "microsoft/UserLM-2.0": {},
   "Quran-Lab/sawt-v6-pro": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "gh:hyeon9698/LOWN": {
+    "readmeBench": []
+  },
+  "openbmb/MiniCPM-Llama3-V-2_5": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -38285,14 +38297,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "infinith/UltraShape": {
+  "Embodied-AI-6/pi0.5": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "gh:npci/TauIndianBankBench": {
-    "readmeBench": []
-  },
-  "utkucoban/NanoDiffuser": {
+  "infinith/UltraShape": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -38366,6 +38375,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "gh:brain-lab-research/SimplexLoRA": {},
+  "jepa-world-models/h-jepa": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "birlaailabs/yug": {
     "evalsHF": [
       {
@@ -38385,6 +38399,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "microsoft/UserRepGen-4B": {},
   "styly-agents/Wan2-2-pixel-animate": {},
   "ACE-Step/acestep-v15-xl-turbo-diffusers": {
     "evalsHF": [],
@@ -38394,64 +38409,8 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "labqoat/qev-0.8b": {
+  "Edge0/Edge0-35B-A3B-preview": {
     "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "p50 ms",
-        "value": 3.5,
-        "source": "ficha"
-      },
-      {
-        "name": "BH",
-        "value": 77.1,
-        "source": "ficha"
-      },
-      {
-        "name": "BH ECE ↓",
-        "value": 0.063,
-        "source": "ficha"
-      },
-      {
-        "name": "JevBench",
-        "value": 85.1,
-        "source": "ficha"
-      },
-      {
-        "name": "suite",
-        "value": 61.7,
-        "source": "ficha"
-      },
-      {
-        "name": "JevExtra",
-        "value": 72,
-        "source": "ficha"
-      },
-      {
-        "name": "JevSpatial",
-        "value": 74.2,
-        "source": "ficha"
-      },
-      {
-        "name": "Rules-7",
-        "value": 63.7,
-        "source": "ficha"
-      }
-    ]
-  },
-  "OpenGalaxea/G05": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "mattshumer/Reflection-Llama-3.1-70B": {
-    "evalsHF": [
-      {
-        "name": "MMLU-Pro",
-        "value": 60.35,
-        "source": "hf",
-        "note": "EvalEval"
-      }
-    ],
     "readmeBench": []
   },
   "kandinskylab/Kandinsky-6.0-Lite-distill-5s-Diffusers": {},
@@ -38724,12 +38683,15 @@
       }
     ]
   },
-  "microsoft/UserLM-8b": {},
   "kandinskylab/Kandinsky-6.0-VSR-5s-Diffusers": {
     "evalsHF": [],
     "readmeBench": []
   },
   "ga642381/Mercury-T3": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "ai21labs/Jamba-v0.1": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -38741,11 +38703,57 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "Mitsua/elan-mt-bt-en-ja": {
+  "NAMAA-Space/masrawy-english-to-egyptian-arabic-translator-v2.9": {},
+  "llava-hf/LLaVA-NeXT-Video-34B-hf": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "llava-hf/LLaVA-NeXT-Video-34B-hf": {
+  "labqoat/qev-0.8b": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "p50 ms",
+        "value": 3.5,
+        "source": "ficha"
+      },
+      {
+        "name": "BH",
+        "value": 77.1,
+        "source": "ficha"
+      },
+      {
+        "name": "BH ECE ↓",
+        "value": 0.063,
+        "source": "ficha"
+      },
+      {
+        "name": "JevBench",
+        "value": 85.1,
+        "source": "ficha"
+      },
+      {
+        "name": "suite",
+        "value": 61.7,
+        "source": "ficha"
+      },
+      {
+        "name": "JevExtra",
+        "value": 72,
+        "source": "ficha"
+      },
+      {
+        "name": "JevSpatial",
+        "value": 74.2,
+        "source": "ficha"
+      },
+      {
+        "name": "Rules-7",
+        "value": 63.7,
+        "source": "ficha"
+      }
+    ]
+  },
+  "utkucoban/NanoDiffuser": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -38761,12 +38769,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "microsoft/UserLM-2.0": {},
-  "microsoft/OmniParser": {
+  "Zigeng/SlimSAM-uniform-50": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "Zigeng/SlimSAM-uniform-50": {
+  "krahets/Diffuman4D": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -38779,10 +38786,6 @@
     "readmeBench": []
   },
   "ausboss/Qwen-Image-2.1-Outpaint-LoRA": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Edge0/Edge0-35B-A3B-preview": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -39111,12 +39114,7 @@
       }
     ]
   },
-  "microsoft/UserRepGen-4B": {},
   "sxndypz/rvc-v2-models": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "ai21labs/Jamba-v0.1": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -39124,7 +39122,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "IndexTeam/Index-Nailong-9B": {
+  "Mitsua/elan-mt-bt-en-ja": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "OpenGalaxea/G05": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -39482,6 +39484,10 @@
       }
     ]
   },
+  "microsoft/OmniParser": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "vinvino02/glpn-kitti": {
     "evalsHF": [],
     "readmeBench": []
@@ -39498,9 +39504,8 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "InternRobotics/VL-LN-Bench-basemodel": {
-    "evalsHF": [],
-    "readmeBench": []
+  "yixue888/Coract_checkpoint": {
+    "evalsHF": []
   },
   "PaddlePaddle/PaddleOCR-VL": {
     "evalsHF": [
@@ -39765,6 +39770,10 @@
     ],
     "readmeBench": []
   },
+  "Chain-GPT/Solidity-LLM": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "tori29umai/rtdetrv4-x-manga109s_v2": {},
   "nagayama0706/video_generation_model": {
     "evalsHF": [],
@@ -39790,11 +39799,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "krahets/Diffuman4D": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "joeygambino/joyai-echo-ltx25-echoVid-comfy-native": {
+  "InternRobotics/VL-LN-Bench-basemodel": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -39810,70 +39815,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "ConwayResearch/Underdog-Poodle-4B": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "BFCL-V4, official harness",
-        "value": 65.3,
-        "source": "ficha"
-      },
-      {
-        "name": "IFEval (prompt-level, loose)",
-        "value": 85.4,
-        "source": "ficha"
-      },
-      {
-        "name": "IFBench (prompt-level, loose)",
-        "value": 38.7,
-        "source": "ficha"
-      },
-      {
-        "name": "Parallel calls (100 cases)",
-        "value": 77,
-        "source": "ficha"
-      },
-      {
-        "name": "WebWalkerQA (150 questions, LLM judge)",
-        "value": 31.1,
-        "source": "ficha"
-      },
-      {
-        "name": "Non-live AST",
-        "value": 86.1,
-        "source": "ficha"
-      },
-      {
-        "name": "Live",
-        "value": 79.1,
-        "source": "ficha"
-      },
-      {
-        "name": "Multi-turn",
-        "value": 82.3,
-        "source": "ficha"
-      },
-      {
-        "name": "Relevance detection",
-        "value": 81.3,
-        "source": "ficha"
-      },
-      {
-        "name": "Irrelevance detection",
-        "value": 82.6,
-        "source": "ficha"
-      }
-    ]
-  },
   "SanRiiiii/VitronEdit": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "bageldotcom/worlddit": {
+  "dphn/dolphin-2.5-mixtral-8x7b": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "xiaomi-research/MiLMMT-46-1B-v0.1": {
+  "IndexTeam/Index-Nailong-9B": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -39891,15 +39841,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "joeygambino/joyai-echo-ltx25-echoVid-comfy-native": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "Kim2091/2x-AnimeSharpV4": {
     "evalsHF": [],
     "readmeBench": []
   },
   "Qwen/Qwen2.5-Coder-32B-Instruct": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Chain-GPT/Solidity-LLM": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -40122,9 +40072,60 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "tarn59/UniMate-Weights": {
+  "ConwayResearch/Underdog-Poodle-4B": {
     "evalsHF": [],
-    "readmeBench": []
+    "readmeBench": [
+      {
+        "name": "BFCL-V4, official harness",
+        "value": 65.3,
+        "source": "ficha"
+      },
+      {
+        "name": "IFEval (prompt-level, loose)",
+        "value": 85.4,
+        "source": "ficha"
+      },
+      {
+        "name": "IFBench (prompt-level, loose)",
+        "value": 38.7,
+        "source": "ficha"
+      },
+      {
+        "name": "Parallel calls (100 cases)",
+        "value": 77,
+        "source": "ficha"
+      },
+      {
+        "name": "WebWalkerQA (150 questions, LLM judge)",
+        "value": 31.1,
+        "source": "ficha"
+      },
+      {
+        "name": "Non-live AST",
+        "value": 86.1,
+        "source": "ficha"
+      },
+      {
+        "name": "Live",
+        "value": 79.1,
+        "source": "ficha"
+      },
+      {
+        "name": "Multi-turn",
+        "value": 82.3,
+        "source": "ficha"
+      },
+      {
+        "name": "Relevance detection",
+        "value": 81.3,
+        "source": "ficha"
+      },
+      {
+        "name": "Irrelevance detection",
+        "value": 82.6,
+        "source": "ficha"
+      }
+    ]
   },
   "Quran-Lab/sawt-v4": {
     "evalsHF": [],
@@ -40138,6 +40139,14 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "DAGroup-PKU/ViGAR": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "tarn59/UniMate-Weights": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "declare-lab/tango2-full": {
     "evalsHF": [],
     "readmeBench": []
@@ -40146,11 +40155,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "theunlikely/Fibo-2.0-edit-turbo-ComfyUI": {
+  "inclusionAI/Ling-3.0-flash-Fin": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "BowenXue/UniAction": {
+  "theunlikely/Fibo-2.0-edit-turbo-ComfyUI": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -40174,15 +40183,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "DAGroup-PKU/ViGAR": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "kyutai/reki-2b": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "yokko123/ctp-core-penumbra-nnunet": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -40326,15 +40327,23 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "yokko123/ctp-core-penumbra-nnunet": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "bageldotcom/worlddit": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "bodhicitta/sam3": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "dphn/dolphin-2.5-mixtral-8x7b": {
+  "CohereLabs/c4ai-command-r-plus": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "xiaomi-research/MiLMMT-46-12B-v0.1": {
+  "xiaomi-research/MiLMMT-46-1B-v0.1": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -40358,16 +40367,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "gvecchio/StableMaterials": {},
   "Salesforce/moirai-1.1-R-base": {
     "evalsHF": [],
     "readmeBench": []
   },
   "DavidAU/support": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "inclusionAI/Ling-3.0-flash-Fin": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -40390,7 +40394,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "CohereLabs/c4ai-command-r-plus": {
+  "BowenXue/UniAction": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -40398,7 +40402,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "google/bert2bert_L-24_wmt_en_de": {
+  "xiaomi-research/MiLMMT-46-12B-v0.1": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -40467,10 +40471,6 @@
     "readmeBench": []
   },
   "inclusionAI/LemonDecider": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "Anthropic-ai/Claude-Audio": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -40572,6 +40572,7 @@
       }
     ]
   },
+  "gvecchio/StableMaterials": {},
   "haoz19/object-model-6layer": {
     "evalsHF": [],
     "readmeBench": []
@@ -40626,7 +40627,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "AlayaLab/FloodDiffusion": {
+  "TaoLiveAIGC/TaoMate": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -40639,6 +40640,14 @@
     "readmeBench": []
   },
   "autogluon/chronos-t5-base": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "google/bert2bert_L-24_wmt_en_de": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "AlayaLab/FloodDiffusion": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -40655,6 +40664,10 @@
     "readmeBench": []
   },
   "huaichang/PersonaLive": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "Anthropic-ai/Claude-Audio": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -40810,10 +40823,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "nvidia/SOMA-X": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "declare-lab/tango2": {
     "evalsHF": [],
     "readmeBench": []
@@ -40861,10 +40870,6 @@
       }
     ]
   },
-  "Keyven/AnomalyDetection-MVTech-Metal": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "FrancisRing/Prism": {
     "evalsHF": [],
     "readmeBench": []
@@ -40877,15 +40882,23 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "tiiuae/falcon-180B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "facebook/dpt-dinov2-small-nyu": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "diabolic6045/Sanskrit-qwen-7B-Translate-v2": {
+  "nvidia/SOMA-X": {
     "evalsHF": [],
     "readmeBench": []
   },
   "VAST-AI/AniGen": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "nvidia/GR00T-N1.7-LIBERO": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -40974,11 +40987,11 @@
     ],
     "readmeBench": []
   },
-  "ykilcher/totally-harmless-model": {
+  "Keyven/AnomalyDetection-MVTech-Metal": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "eloialonso/diamond": {
+  "ykilcher/totally-harmless-model": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -41046,6 +41059,10 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "OliviaRossi/TripleTrouble-V3": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "keras-io/timeseries_forecasting_for_weather": {
     "evalsHF": [],
     "readmeBench": []
@@ -41054,23 +41071,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "TaoLiveAIGC/TaoMate": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "PLUS-WAVE/InfiniSplat": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "nvidia/GR00T-N1.7-LIBERO": {
+  "huihui-ai/Huihui-Qwen-AgentWorld-35B-A3B-abliterated": {
     "evalsHF": [],
     "readmeBench": []
   },
   "1038lab/sam3": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "tiiuae/falcon-180B": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -41094,15 +41103,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "diabolic6045/Sanskrit-qwen-7B-Translate-v2": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "Vision-CAIR/LongVU_Llama3_2_1B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "HazelNam/CJEPA": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "OliviaRossi/TripleTrouble-V3": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -41172,6 +41177,10 @@
     "readmeBench": []
   },
   "eustlb/higgs-audio-v2-generation-3B-base": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "eloialonso/diamond": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -41428,15 +41437,7 @@
     "readmeBench": []
   },
   "drbaph/NovaSR": {},
-  "google/gemma-3n-E4B-it-litert-preview": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "declare-lab/tango-full": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "huihui-ai/Huihui-Qwen-AgentWorld-35B-A3B-abliterated": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -42569,13 +42570,61 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "HazelNam/CJEPA": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "black-forest-labs/FLUX.1-Kontext-dev": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "google/gemma-3n-E4B-it-litert-preview": {
     "evalsHF": [],
     "readmeBench": []
   },
   "SumantBobade/Image_To_3D_Generator": {
     "evalsHF": [],
     "readmeBench": []
+  },
+  "lightx2v/RealtimeWAM": {
+    "evalsHF": [],
+    "readmeBench": [
+      {
+        "name": "NVIDIA H100",
+        "value": 12.2,
+        "source": "ficha"
+      },
+      {
+        "name": "NVIDIA RTX 4090D",
+        "value": 27.2,
+        "source": "ficha"
+      },
+      {
+        "name": "`nvidia-smi` usage (GiB)",
+        "value": 24.84,
+        "source": "ficha"
+      },
+      {
+        "name": "Video NFE",
+        "value": 1,
+        "source": "ficha"
+      },
+      {
+        "name": "Action NFE",
+        "value": 1,
+        "source": "ficha"
+      },
+      {
+        "name": "RoboTwin 2.0 Clean ↑",
+        "value": 91.96,
+        "source": "ficha"
+      },
+      {
+        "name": "RoboTwin 2.0 Random ↑",
+        "value": 89.72,
+        "source": "ficha"
+      }
+    ]
   },
   "deepseek-ai/DeepSeek-V3.2-Exp": {
     "evalsHF": [
@@ -42659,10 +42708,6 @@
       }
     ]
   },
-  "spc819/Medal-S-V1.0": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "Qwen/Qwen3-235B-A22B": {
     "evalsHF": [
       {
@@ -42681,10 +42726,6 @@
     "readmeBench": []
   },
   "hilarl/siren-master": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "yuki-hahaha/AUGUstus": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -42873,10 +42914,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "Hemanth-thunder/indic-machine-translation-Lora-switch": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
   "drbaph/Woosh": {
     "evalsHF": [],
     "readmeBench": []
@@ -42939,7 +42976,15 @@
       }
     ]
   },
+  "spc819/Medal-S-V1.0": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "FX-FeiHou/MiniMax-H3-Remix": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "yuki-hahaha/AUGUstus": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -42963,46 +43008,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "lightx2v/RealtimeWAM": {
-    "evalsHF": [],
-    "readmeBench": [
-      {
-        "name": "NVIDIA H100",
-        "value": 12.2,
-        "source": "ficha"
-      },
-      {
-        "name": "NVIDIA RTX 4090D",
-        "value": 27.2,
-        "source": "ficha"
-      },
-      {
-        "name": "`nvidia-smi` usage (GiB)",
-        "value": 24.84,
-        "source": "ficha"
-      },
-      {
-        "name": "Video NFE",
-        "value": 1,
-        "source": "ficha"
-      },
-      {
-        "name": "Action NFE",
-        "value": 1,
-        "source": "ficha"
-      },
-      {
-        "name": "RoboTwin 2.0 Clean ↑",
-        "value": 91.96,
-        "source": "ficha"
-      },
-      {
-        "name": "RoboTwin 2.0 Random ↑",
-        "value": 89.72,
-        "source": "ficha"
-      }
-    ]
-  },
   "meta-llama/Llama-2-7b-chat-hf": {
     "evalsHF": [],
     "readmeBench": []
@@ -43013,6 +43018,71 @@
   },
   "research21/sam3.1": {
     "evalsHF": [],
+    "readmeBench": []
+  },
+  "Weyaxi/Einstein-v4-7B": {
+    "evalsHF": [
+      {
+        "name": "AI2 Reasoning Challenge (25-Shot) normalized accuracy",
+        "value": 64.68,
+        "source": "model-index"
+      },
+      {
+        "name": "HellaSwag (10-Shot) normalized accuracy",
+        "value": 83.75,
+        "source": "model-index"
+      },
+      {
+        "name": "MMLU (5-Shot)",
+        "value": 62.31,
+        "source": "model-index"
+      },
+      {
+        "name": "TruthfulQA (0-shot) mc2",
+        "value": 55.15,
+        "source": "model-index"
+      },
+      {
+        "name": "Winogrande (5-shot)",
+        "value": 76.24,
+        "source": "model-index"
+      },
+      {
+        "name": "GSM8k (5-shot)",
+        "value": 57.62,
+        "source": "model-index"
+      },
+      {
+        "name": "IFEval (0-Shot) strict accuracy",
+        "value": 47.08,
+        "source": "model-index"
+      },
+      {
+        "name": "BBH (3-Shot) normalized accuracy",
+        "value": 14.3,
+        "source": "model-index"
+      },
+      {
+        "name": "MATH Lvl 5 (4-Shot)",
+        "value": 1.74,
+        "source": "model-index"
+      },
+      {
+        "name": "GPQA (0-shot) acc_norm",
+        "value": 4.25,
+        "source": "model-index"
+      },
+      {
+        "name": "MuSR (0-shot) acc_norm",
+        "value": 19.02,
+        "source": "model-index"
+      },
+      {
+        "name": "MMLU-PRO (5-shot)",
+        "value": 13.99,
+        "source": "model-index"
+      }
+    ],
     "readmeBench": []
   },
   "nlpai-lab/RenderRank-2B": {
@@ -43099,11 +43169,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "Kukulauren/3D_medical_imaging_dental": {
+  "Hemanth-thunder/indic-machine-translation-Lora-switch": {
     "evalsHF": [],
     "readmeBench": []
   },
   "autogluon/chronos-t5-small": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "Kukulauren/3D_medical_imaging_dental": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -43610,71 +43684,6 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "Weyaxi/Einstein-v4-7B": {
-    "evalsHF": [
-      {
-        "name": "AI2 Reasoning Challenge (25-Shot) normalized accuracy",
-        "value": 64.68,
-        "source": "model-index"
-      },
-      {
-        "name": "HellaSwag (10-Shot) normalized accuracy",
-        "value": 83.75,
-        "source": "model-index"
-      },
-      {
-        "name": "MMLU (5-Shot)",
-        "value": 62.31,
-        "source": "model-index"
-      },
-      {
-        "name": "TruthfulQA (0-shot) mc2",
-        "value": 55.15,
-        "source": "model-index"
-      },
-      {
-        "name": "Winogrande (5-shot)",
-        "value": 76.24,
-        "source": "model-index"
-      },
-      {
-        "name": "GSM8k (5-shot)",
-        "value": 57.62,
-        "source": "model-index"
-      },
-      {
-        "name": "IFEval (0-Shot) strict accuracy",
-        "value": 47.08,
-        "source": "model-index"
-      },
-      {
-        "name": "BBH (3-Shot) normalized accuracy",
-        "value": 14.3,
-        "source": "model-index"
-      },
-      {
-        "name": "MATH Lvl 5 (4-Shot)",
-        "value": 1.74,
-        "source": "model-index"
-      },
-      {
-        "name": "GPQA (0-shot) acc_norm",
-        "value": 4.25,
-        "source": "model-index"
-      },
-      {
-        "name": "MuSR (0-shot) acc_norm",
-        "value": 19.02,
-        "source": "model-index"
-      },
-      {
-        "name": "MMLU-PRO (5-shot)",
-        "value": 13.99,
-        "source": "model-index"
-      }
-    ],
-    "readmeBench": []
-  },
   "vumichien/T2M-GPT": {
     "evalsHF": [],
     "readmeBench": []
@@ -43737,11 +43746,11 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "HKUSTAudio/Talker-T2AV": {
+  "veichta/zipsplat": {
     "evalsHF": [],
     "readmeBench": []
   },
-  "veichta/zipsplat": {
+  "HKUSTAudio/Talker-T2AV": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -43957,10 +43966,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "AdithyanAI/Mythos2.0-2B": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
+  "ValiantLabs/Qwen3-1.7B-ShiningValiant3": {},
   "dangvantuan/CrossEncoder-camembert-large": {
     "evalsHF": [],
     "readmeBench": []
@@ -44062,11 +44068,7 @@
     ],
     "readmeBench": []
   },
-  "ValiantLabs/Qwen3-1.7B-ShiningValiant3": {},
-  "OpenMOSS-Team/FRoM-W1": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
+  "ValiantLabs/Qwen3-4B-ShiningValiant3": {},
   "keras-io/deeplabv3p-resnet50": {
     "evalsHF": [],
     "readmeBench": []
@@ -44096,7 +44098,15 @@
       }
     ]
   },
-  "ValiantLabs/Qwen3-4B-ShiningValiant3": {},
+  "OpenMOSS-Team/FRoM-W1": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "agi-css/better-base": {},
+  "joyfox/JoyFox-LiveTalk-DH-1.3B": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "model-hub/stable-zero123": {
     "evalsHF": [],
     "readmeBench": []
@@ -44110,10 +44120,6 @@
     "readmeBench": []
   },
   "seungminh/zero123-pro_v1.0": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "joyfox/JoyFox-LiveTalk-DH-1.3B": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -44146,8 +44152,12 @@
     ],
     "readmeBench": []
   },
-  "agi-css/better-base": {},
+  "agi-css/socially-good-lm": {},
   "ChengsenWang/ChatTime-1-7B-Base": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
+  "AdithyanAI/Mythos2.0-2B": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -44407,7 +44417,6 @@
       }
     ]
   },
-  "agi-css/socially-good-lm": {},
   "pfnet/timesfm-1.0-200m-fin": {
     "evalsHF": [],
     "readmeBench": []
@@ -44452,7 +44461,7 @@
     "evalsHF": [],
     "readmeBench": []
   },
-  "CompVis/ZipMo": {
+  "JinhyukJang/lipforcing": {
     "evalsHF": [],
     "readmeBench": []
   },
@@ -44472,15 +44481,15 @@
     "evalsHF": [],
     "readmeBench": []
   },
+  "CompVis/ZipMo": {
+    "evalsHF": [],
+    "readmeBench": []
+  },
   "naver/trecdl22-crossencoder-rankT53b-repro": {
     "evalsHF": [],
     "readmeBench": []
   },
   "ONE-Lab/GUI-Vid": {
-    "evalsHF": [],
-    "readmeBench": []
-  },
-  "JinhyukJang/lipforcing": {
     "evalsHF": [],
     "readmeBench": []
   },
