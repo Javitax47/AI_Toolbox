@@ -11,13 +11,18 @@ const UA = 'RadarIA/1.0 (+https://github.com/; automated news & model index)';
 
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// Token de Hugging Face (opcional, de solo lectura): más cuota de peticiones y acceso a las fichas
+// de modelos restringidos cuyas condiciones haya aceptado la cuenta. Solo se envía a dominios de HF.
+const HF_HOST = /^https:\/\/([a-z-]+\.)?huggingface\.co\//;
+const hfAuth = (url) => (process.env.HF_TOKEN && HF_HOST.test(url) ? { Authorization: `Bearer ${process.env.HF_TOKEN}` } : {});
+
 export async function fetchText(url, { timeout = 20000, retries = 2, headers = {} } = {}) {
   let lastErr;
   for (let i = 0; i <= retries; i++) {
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), timeout);
     try {
-      const res = await fetch(url, { signal: ctrl.signal, headers: { 'User-Agent': UA, ...headers } });
+      const res = await fetch(url, { signal: ctrl.signal, headers: { 'User-Agent': UA, ...hfAuth(url), ...headers } });
       if (res.status >= 400 && res.status < 500 && res.status !== 429) return null;
       if (!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
       return await res.text();

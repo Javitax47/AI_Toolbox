@@ -86,14 +86,14 @@ Sin ninguna clave funciona en **modo plantilla**: resúmenes en inglés sacados 
 GROQ_API_KEY=gsk_... npm run update
 ```
 
-Otras variables: `MAX_ANALYZE_PER_RUN` (250 fichas por ejecución) y `MAX_TREE_PER_RUN` (100 listados de ficheros), repartidos entre ejecuciones para no superar el límite de peticiones de Hugging Face; `ARTICLES_PER_RUN` (5), `MIN_ARTICLE_SCORE` (16), `MAX_ENRICH_PER_RUN` (40), `SITE_URL` (para el RSS), `GITHUB_TOKEN` (más cuota para la API de GitHub; en Actions ya va incluido).
+Otras variables: `MAX_ANALYZE_PER_RUN` (250 fichas por ejecución) y `MAX_TREE_PER_RUN` (100 listados de ficheros), repartidos entre ejecuciones para no superar el límite de peticiones de Hugging Face; `ARTICLES_PER_RUN` (5), `MIN_ARTICLE_SCORE` (16), `MAX_ENRICH_PER_RUN` (40), `SITE_URL` (para el RSS), `GITHUB_TOKEN` (más cuota para la API de GitHub; en Actions ya va incluido), `HF_TOKEN` (token de Hugging Face de **solo lectura**, opcional: más cuota y acceso a las fichas de modelos restringidos cuyas condiciones hayas aceptado con tu cuenta).
 
 ### Producción (GitHub Pages, cada hora)
 
 1. Crea un repositorio en GitHub y sube este proyecto a la rama `main`.
 2. *Settings → Pages → Source*: **GitHub Actions**.
 3. *Settings → Secrets and variables → Actions*:
-   - Secrets: al menos uno de `GROQ_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY`.
+   - Secrets: al menos uno de `GROQ_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY`. Opcional: `HF_TOKEN`.
    - Variables opcionales: `GROQ_MODELS`, `GEMINI_MODELS`, `OPENROUTER_MODELS`, `LLM_DAILY_BUDGET`, `ARTICLES_PER_RUN`, `SITE_URL`.
 4. Lanza el workflow *Actualizar Radar IA* manualmente la primera vez (pestaña *Actions → Run workflow*). Después corre solo cada hora a los :07.
 

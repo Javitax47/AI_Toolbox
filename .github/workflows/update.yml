@@ -45,6 +45,8 @@ jobs:
           ARTICLES_PER_RUN: ${{ vars.ARTICLES_PER_RUN }}
           SITE_URL: ${{ vars.SITE_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Token de Hugging Face de solo lectura (opcional): más cuota y fichas de modelos restringidos
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: node scripts/update.mjs
 
       - name: Guardar datos en el repositorio
