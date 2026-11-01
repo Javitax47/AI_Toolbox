@@ -361,7 +361,7 @@ ELEMENTOS:
 ${batch.map((it, n) => `[${n}] ${it.title}\n${firstSentences(it.summary || it.description || '', 700)}`).join('\n\n')}
 
 Devuelve: {"items":[{"i":0,"puntuacion":7,"tareas":["tag"],"resumen":"una frase en español"}]}`,
-      { maxTokens: 2500, temperature: 0.2 }
+      { maxTokens: 2500, temperature: 0.2, kind: 'triage' }
     );
     for (const r of out?.items || []) {
       const it = batch[r.i];

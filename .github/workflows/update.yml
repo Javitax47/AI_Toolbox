@@ -30,6 +30,15 @@ jobs:
 
       - name: Actualizar modelos y noticias
         env:
+          # APIs gratuitas (todas opcionales; se usan en este orden y se salta a la siguiente al agotar cuota)
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GROQ_MODELS: ${{ vars.GROQ_MODELS }}
+          GEMINI_MODELS: ${{ vars.GEMINI_MODELS }}
+          OPENROUTER_MODELS: ${{ vars.OPENROUTER_MODELS }}
+          LLM_DAILY_BUDGET: ${{ vars.LLM_DAILY_BUDGET }}
+          # Endpoint propio (de pago u otro), opcional
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
           LLM_MODEL: ${{ vars.LLM_MODEL }}

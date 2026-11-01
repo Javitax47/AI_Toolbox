@@ -2,7 +2,7 @@
 // y los enriquece (una sola vez por modelo) con un resumen en español generado por LLM.
 import path from 'node:path';
 import { fetchJSON, fetchText, readJSON, writeJSON, pool, stripMarkdown, firstSentences, DATA_DIR, CONFIG_DIR } from './util.mjs';
-import { llmJSON, llmEnabled } from './llm.mjs';
+import { llmJSON, llmEnabled, llmBudgetLeft } from './llm.mjs';
 import { classify } from './research.mjs';
 
 const HF = 'https://huggingface.co/api/models';
@@ -140,11 +140,14 @@ export async function updateModels(research = []) {
 
   // 3) Enriquecimiento (resumen en español, casos de uso, benchmarks) solo para modelos nuevos
   const pending = [...byId.values()]
-    .filter((m) => m.lastSeen === now && m.enriched !== 'llm' && (llmEnabled || !m.enriched))
+    .filter((m) => m.lastSeen === now && m.enriched !== 'llm' && (!m.enriched || llmEnabled))
     .sort((a, b) => (b.watch - a.watch) || ((b.kind === 'project') - (a.kind === 'project')) || (b.trending - a.trending) || (b.likes - a.likes))
     .slice(0, MAX_ENRICH_PER_RUN);
   console.log(`· Enriqueciendo ${pending.length} modelos (LLM ${llmEnabled ? 'activado' : 'desactivado'})`);
-  await pool(pending, 4, async (m) => enrich(m, taskMap[m.task]));
+  // El LLM (cuota gratuita limitada) se reserva para los más relevantes; el resto recibe resumen básico
+  const llmSlots = await llmBudgetLeft('enrich');
+  const work = [...pending.slice(0, llmSlots), ...pending.slice(llmSlots).filter((m) => !m.enriched)];
+  await pool(work, 4, async (m, i) => enrich(m, taskMap[m.task], i < llmSlots));
 
   // 4) Estimaciones derivadas
   const all = [...byId.values()];
@@ -184,7 +187,7 @@ export async function updateModels(research = []) {
   return final;
 }
 
-async function enrich(m, task) {
+async function enrich(m, task, useLLM = true) {
   const readmeUrl = m.kind === 'project' ? `https://raw.githubusercontent.com/${m.id.slice(3)}/HEAD/README.md` : `https://huggingface.co/${m.id}/raw/main/README.md`;
   const readme = (await fetchText(readmeUrl, { retries: 1 })) || '';
   const plain = stripMarkdown(readme);
@@ -193,7 +196,7 @@ async function enrich(m, task) {
     .find((p) => p.length >= 80 && /[a-z]{3,}[^.]*\.\s|[a-z]\.$/.test(p) && !/^(try|docs|blog|paper|github|demo|license)\b/i.test(p));
   m.summary = firstSentences(para || '', 280) || m.summary || null;
 
-  const out = await llmJSON(
+  const out = useLLM && await llmJSON(
     'Eres analista de modelos de IA open source para una web en español. Respondes SOLO con un objeto JSON válido, sin texto adicional. No inventes datos que no aparezcan en la ficha.',
     `Modelo: ${m.id}
 Tarea Hugging Face: ${m.pipeline_tag || m.task} (${task?.label || 'desconocida'})
@@ -221,7 +224,7 @@ Devuelve este JSON:
   "vram_gb": número con la VRAM mínima en GB si la ficha la indica, si no null,
   "parametros_b": número de parámetros en miles de millones si la ficha lo indica, si no null
 }`,
-    { maxTokens: 1200 }
+    { maxTokens: 1200, kind: 'enrich' }
   );
   if (out) {
     m.summary = out.resumen || m.summary;
@@ -238,7 +241,7 @@ Devuelve este JSON:
     if (m.task === 'other' && typeof out.tarea === 'string' && /^[a-z0-9-]+$/.test(out.tarea)) m.task = out.tarea;
     m.enriched = 'llm';
   } else {
-    m.enriched = llmEnabled ? null : 'basic'; // si el LLM falló, se reintenta en la próxima ejecución
+    m.enriched = m.enriched || 'basic'; // con LLM disponible se reintenta en otra ejecución
     m.keywords = m.keywords || [];
   }
 }

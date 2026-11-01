@@ -14,7 +14,7 @@ scripts/update.mjs          orquestador (cron horario)
 ├─ lib/research.mjs         radar de investigación de nicho (ver abajo)
 ├─ lib/models.mjs           Hugging Face (por tarea y por dominio) + proyectos del radar → catálogo con estimaciones
 ├─ lib/news.mjs             RSS + páginas sin RSS + lanzamientos HF + radar + GitHub → agrupación por tema → artículo
-└─ lib/llm.mjs              cliente para cualquier API compatible con OpenAI (OpenRouter por defecto)
+└─ lib/llm.mjs              cadena de APIs gratuitas compatibles con OpenAI (Groq → Gemini → OpenRouter) con presupuesto diario
 config/tasks.json           tareas/dominios: palabras clave (ES) para buscar, términos (EN) para clasificar, etiquetas HF y topics GitHub
 config/sources.json         fuentes de noticias, agregadores, categorías de arXiv y umbrales
 config/watchlist.json       (opcional) modelos que siempre deben aparecer
@@ -47,21 +47,36 @@ npm run update      # descarga modelos y noticias
 npm run serve       # http://localhost:4321
 ```
 
-Sin `LLM_API_KEY` funciona en **modo plantilla**: resúmenes en inglés sacados de las fichas y artículos básicos. Con clave, los resúmenes y artículos se escriben en español y se descartan noticias irrelevantes.
+### LLM gratuito
+
+El LLM redacta los artículos en español, resume las fichas y hace el triaje de papers. Funciona con **APIs gratuitas** y encadena proveedores: si uno agota su cuota (HTTP 429) o falla, pasa al siguiente modelo o proveedor. Basta con una clave; cuantas más pongas, más margen tienes.
+
+| Variable | Proveedor | Modelos por defecto |
+|---|---|---|
+| `GROQ_API_KEY` | [Groq](https://console.groq.com/keys) (recomendado, plan gratuito sin tarjeta) | `openai/gpt-oss-120b`, `llama-3.3-70b-versatile`, `qwen/qwen3-32b`, `openai/gpt-oss-20b` |
+| `GEMINI_API_KEY` | [Google AI Studio](https://aistudio.google.com/apikey) | `gemini-2.5-flash`, `gemini-2.5-flash-lite` |
+| `OPENROUTER_API_KEY` | [OpenRouter](https://openrouter.ai/keys) | se descubren solos los modelos `:free` |
+| `LLM_API_KEY` + `LLM_BASE_URL` + `LLM_MODEL` | cualquier endpoint compatible con OpenAI | — |
+
+Los modelos se cambian con `GROQ_MODELS`, `GEMINI_MODELS`, `OPENROUTER_MODELS` (lista separada por comas). Los límites de los planes gratuitos cambian a menudo; si un modelo desaparece, el pipeline lo salta y lo verás en el log.
+
+Para no agotar la cuota, hay un **presupuesto diario** por tipo de tarea (`LLM_DAILY_BUDGET`, por defecto `article=40,triage=20,enrich=60`). Los artículos se reparten entre las horas que quedan del día, y lo que no se redacta por falta de cuota se reintenta más tarde. El consumo queda en `state/llm-usage.json`.
+
+Sin ninguna clave funciona en **modo plantilla**: resúmenes en inglés sacados de las fichas y artículos básicos.
 
 ```bash
-LLM_API_KEY=sk-or-... npm run update
+GROQ_API_KEY=gsk_... npm run update
 ```
 
-Variables opcionales: `LLM_BASE_URL` (por defecto `https://openrouter.ai/api/v1`), `LLM_MODEL` (por defecto `anthropic/claude-haiku-5.5`), `ARTICLES_PER_RUN` (5), `MIN_ARTICLE_SCORE` (16), `MAX_ENRICH_PER_RUN` (40), `SITE_URL` (para el RSS).
+Otras variables: `ARTICLES_PER_RUN` (5), `MIN_ARTICLE_SCORE` (16), `MAX_ENRICH_PER_RUN` (40), `SITE_URL` (para el RSS), `GITHUB_TOKEN` (más cuota para la API de GitHub; en Actions ya va incluido).
 
 ### Producción (GitHub Pages, cada hora)
 
 1. Crea un repositorio en GitHub y sube este proyecto a la rama `main`.
 2. *Settings → Pages → Source*: **GitHub Actions**.
 3. *Settings → Secrets and variables → Actions*:
-   - Secret `LLM_API_KEY` con tu clave de OpenRouter (u otro proveedor compatible).
-   - Variables opcionales: `LLM_MODEL`, `LLM_BASE_URL`, `ARTICLES_PER_RUN`, `SITE_URL`.
+   - Secrets: al menos uno de `GROQ_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY`.
+   - Variables opcionales: `GROQ_MODELS`, `GEMINI_MODELS`, `OPENROUTER_MODELS`, `LLM_DAILY_BUDGET`, `ARTICLES_PER_RUN`, `SITE_URL`.
 4. Lanza el workflow *Actualizar Radar IA* manualmente la primera vez (pestaña *Actions → Run workflow*). Después corre solo cada hora a los :07.
 
 El workflow guarda los datos generados en el repo (historial completo) y despliega `public/` en Pages.

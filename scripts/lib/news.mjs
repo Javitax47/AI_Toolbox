@@ -3,7 +3,7 @@
 import path from 'node:path';
 import { fetchJSON, fetchText, readJSON, writeJSON, writeText, pool, stripHtml, stripMarkdown, extractPage, firstSentences, slugify, normalizeText, DATA_DIR, STATE_DIR, CONFIG_DIR } from './util.mjs';
 import { parseFeed, decodeHtmlContent } from './rss.mjs';
-import { llmJSON, llmEnabled } from './llm.mjs';
+import { llmJSON, llmEnabled, llmBudgetLeft } from './llm.mjs';
 
 const ARTICLES_PER_RUN = Number(process.env.ARTICLES_PER_RUN || 5);
 const MIN_SCORE = Number(process.env.MIN_ARTICLE_SCORE || 16);
@@ -47,25 +47,31 @@ export async function updateNews(models = [], research = []) {
   console.log(`· ${clusters.length} temas, ${ranked.length} publicables; se redactan hasta ${ARTICLES_PER_RUN}`);
 
   // 3) Redacción
+  // Con cuota gratuita, el presupuesto diario se reparte entre las horas que quedan del día (UTC)
+  const hoursLeft = 24 - new Date().getUTCHours();
+  const perRun = llmEnabled ? Math.min(ARTICLES_PER_RUN, Math.ceil((await llmBudgetLeft('article')) / hoursLeft)) : ARTICLES_PER_RUN;
   const chosen = [];
   const perType = {};
   const cap = Math.max(1, Math.ceil(ARTICLES_PER_RUN / 2));
   for (const c of ranked) {
-    if (chosen.length >= ARTICLES_PER_RUN) break;
+    if (chosen.length >= perRun) break;
     const t = c.items[0].type === 'reddit' ? 'rss' : c.items[0].type;
     if ((perType[t] || 0) >= cap) continue;
     perType[t] = (perType[t] || 0) + 1;
     chosen.push(c);
   }
-  for (const c of ranked) if (chosen.length < ARTICLES_PER_RUN && !chosen.includes(c)) chosen.push(c);
+  for (const c of ranked) if (chosen.length < perRun && !chosen.includes(c)) chosen.push(c);
   const modelsById = new Map(models.map((m) => [m.id, m]));
-  const written = (await pool(chosen, 3, (c) => writeArticle(c, modelsById))).filter(Boolean);
+  const results = await pool(chosen, 3, (c) => writeArticle(c, modelsById));
+  const written = results.filter((r) => r && !r.discarded);
 
-  for (const c of chosen) for (const i of c.items) {
+  // Solo se marca como cubierto lo redactado o descartado; si el LLM falló, se reintenta en la próxima hora
+  for (const [n, c] of chosen.entries()) for (const i of results[n] ? c.items : []) {
     state.seen[key(i.url)] = new Date().toISOString();
     state.seen['t:' + titleKey(i.title)] = new Date().toISOString();
   }
   for (const a of written) {
+    if (index.articles.some((x) => x.slug === a.slug)) a.slug += '-' + Date.now().toString(36).slice(-4);
     const tokens = a._tokens || [];
     delete a._tokens;
     await writeJSON(path.join(DATA_DIR, 'articles', `${a.slug}.json`), a);
@@ -301,7 +307,7 @@ async function gatherContext(item) {
       date = page.date;
     }
   }
-  return { text: text.slice(0, 7000), image, date };
+  return { text: text.slice(0, 4500), image, date };
 }
 
 async function writeArticle(c, modelsById) {
@@ -314,7 +320,7 @@ async function writeArticle(c, modelsById) {
     if (ctx[n].date) it.date = ctx[n].date;
     if (ctx[n].date && (Date.now() - new Date(ctx[n].date)) / 86400000 > 7 && items.length === 1) {
       console.log(`  · antiguo, se omite: ${it.title}`);
-      return null;
+      return { discarded: true };
     }
   }
   const linkedModels = [...new Set(items.map((i) => i.modelId).filter(Boolean))];
@@ -348,10 +354,10 @@ Devuelve este JSON:
   "cuerpo": "artículo en Markdown de 350-700 palabras, con subtítulos ##. Incluye qué es, qué aporta frente a lo anterior, limitaciones, y si es open source una sección '## Cómo probarlo' con requisitos de hardware y enlaces de las fuentes",
   "modelos_hf": ["ids org/modelo de Hugging Face mencionados en las fuentes"]
 }`,
-    { maxTokens: 3000, temperature: 0.4 }
+    { maxTokens: 3000, temperature: 0.4, kind: 'article' }
   );
 
-  if (out?.descartar) { console.log(`  · descartado: ${lead.title}`); return null; }
+  if (out?.descartar) { console.log(`  · descartado: ${lead.title}`); return { discarded: true }; }
 
   const article = out && out.titulo && out.cuerpo
     ? {
