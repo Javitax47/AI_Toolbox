@@ -1,0 +1,16 @@
+{
+  "name": "radar-ia",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Toolbox de modelos open source + revista de noticias de IA, actualizados automáticamente.",
+  "scripts": {
+    "update": "node scripts/update.mjs",
+    "update:models": "node scripts/update.mjs --only=models",
+    "update:news": "node scripts/update.mjs --only=news",
+    "serve": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

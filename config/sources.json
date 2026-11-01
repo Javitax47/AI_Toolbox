@@ -1,0 +1,118 @@
+{
+  "_comment": "Fuentes de noticias. weight multiplica la relevancia. type: rss (por defecto) | reddit | html (páginas sin RSS: se detectan enlaces nuevos con linkPattern). Añade o quita libremente.",
+  "feeds": [
+    {
+      "name": "OpenAI",
+      "url": "https://openai.com/news/rss.xml",
+      "weight": 3,
+      "category": "Industria"
+    },
+    {
+      "name": "Google DeepMind",
+      "url": "https://deepmind.google/blog/rss.xml",
+      "weight": 3,
+      "category": "Investigación"
+    },
+    {
+      "name": "Google Research",
+      "url": "https://research.google/blog/rss/",
+      "weight": 2.5,
+      "category": "Investigación"
+    },
+    {
+      "name": "Google AI Blog",
+      "url": "https://blog.google/technology/ai/rss/",
+      "weight": 2.5,
+      "category": "Industria"
+    },
+    {
+      "name": "Anthropic",
+      "url": "https://www.anthropic.com/news",
+      "type": "html",
+      "linkPattern": "/news/[a-z0-9-]+",
+      "exclude": [
+        "/news/announcements"
+      ],
+      "weight": 3,
+      "category": "Industria"
+    },
+    {
+      "name": "Meta AI",
+      "url": "https://ai.meta.com/blog/",
+      "type": "html",
+      "linkPattern": "https://ai.meta.com/blog/[a-z0-9-]+/?",
+      "weight": 2.5,
+      "category": "Industria"
+    },
+    {
+      "name": "NVIDIA Blog",
+      "url": "https://blogs.nvidia.com/feed/",
+      "weight": 1.5,
+      "category": "Industria"
+    },
+    {
+      "name": "NVIDIA Developer",
+      "url": "https://developer.nvidia.com/blog/feed",
+      "weight": 1.5,
+      "category": "Herramientas"
+    },
+    {
+      "name": "Hugging Face Blog",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "weight": 2.5,
+      "category": "Open Source"
+    },
+    {
+      "name": "Microsoft Research",
+      "url": "https://www.microsoft.com/en-us/research/feed/",
+      "weight": 1.5,
+      "category": "Investigación"
+    },
+    {
+      "name": "The Decoder",
+      "url": "https://the-decoder.com/feed/",
+      "weight": 2,
+      "category": "Industria"
+    },
+    {
+      "name": "MarkTechPost",
+      "url": "https://www.marktechpost.com/feed/",
+      "weight": 1.5,
+      "category": "Investigación"
+    },
+    {
+      "name": "TechCrunch AI",
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+      "weight": 2,
+      "category": "Industria"
+    },
+    {
+      "name": "Simon Willison",
+      "url": "https://simonwillison.net/atom/everything/",
+      "weight": 1.5,
+      "category": "Herramientas"
+    },
+    {
+      "name": "r/LocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day",
+      "weight": 2,
+      "category": "Open Source",
+      "type": "reddit"
+    }
+  ],
+  "huggingFaceReleases": {
+    "maxAgeDays": 10,
+    "minLikes": 80,
+    "weight": 2.5
+  },
+  "dailyPapers": {
+    "minUpvotes": 25,
+    "weight": 1.5
+  },
+  "github": {
+    "maxAgeDays": 10,
+    "minStars": 300,
+    "weight": 1
+  },
+  "maxItemAgeDays": 4
+}
