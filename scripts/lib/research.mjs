@@ -72,8 +72,10 @@ export async function updateResearch(tasks) {
   if (missingArxiv.length) for (const e of await arxivById(missingArxiv)) upsert(e);
 
   // 3) Clasificación y señales
+  const valid = new Set(tasks.map((t) => t.tag));
   for (const it of Object.values(state.items)) {
-    if (!it.tasks?.length) it.tasks = classify(`${it.title || ''} ${it.summary || ''} ${(it.topics || []).join(' ')}`, tasks).slice(0, 3).map((x) => x.tag);
+    it.tasks = (it.tasks || []).filter((t) => valid.has(t));
+    if (!it.tasks.length) it.tasks = classify(`${it.title || ''} ${it.summary || ''} ${(it.topics || []).join(' ')}`, tasks).slice(0, 3).map((x) => x.tag);
     it.hasCode = Boolean(it.repo || it.weights?.length);
   }
 

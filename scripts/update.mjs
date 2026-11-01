@@ -1,7 +1,7 @@
 // Orquestador: radar de investigación → catálogo de modelos → revista.
-// Uso: node scripts/update.mjs [--only=models|news]
+// Uso: node scripts/update.mjs [--only=models|news] [--no-research]
 import path from 'node:path';
-import { readJSON, writeJSON, DATA_DIR, CONFIG_DIR } from './lib/util.mjs';
+import { readJSON, writeJSON, DATA_DIR, CONFIG_DIR, STATE_DIR } from './lib/util.mjs';
 import { updateResearch } from './lib/research.mjs';
 import { updateModels } from './lib/models.mjs';
 import { updateNews } from './lib/news.mjs';
@@ -12,7 +12,10 @@ const t0 = Date.now();
 console.log(`Radar IA · actualización ${new Date().toISOString()} · LLM: ${llmEnabled ? llmModel : 'sin proveedores configurados (modo plantilla)'}`);
 
 const tasks = await readJSON(path.join(CONFIG_DIR, 'tasks.json'), []);
-const research = await updateResearch(tasks);
+// --no-research reutiliza el radar guardado (útil para probar en local sin esperar a arXiv)
+const research = process.argv.includes('--no-research')
+  ? Object.values((await readJSON(path.join(STATE_DIR, 'research-state.json'), { items: {} })).items)
+  : await updateResearch(tasks);
 
 let models;
 if (only !== 'news') models = await updateModels(research);

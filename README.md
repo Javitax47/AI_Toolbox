@@ -2,7 +2,7 @@
 
 Web con dos secciones, 100 % automatizadas:
 
-- **Toolbox**: catálogo de modelos open source más recientes y en tendencia (Hugging Face), buscable describiendo tu problema en lenguaje natural ("quitar el fondo de un vídeo con 8 GB") y filtrable por hardware/VRAM, parámetros, velocidad de inferencia, calidad, licencia y fecha.
+- **Toolbox**: catálogo de modelos open source más recientes y en tendencia (Hugging Face), buscable describiendo tu problema en lenguaje natural ("quitar el fondo de un vídeo con 8 GB") y filtrable por hardware/VRAM, parámetros, velocidad de inferencia, licencia y fecha. Compara cada modelo con los de su tarea mediante benchmarks reales, oculta los que tienen una alternativa mejor y más ligera, y publica rankings por categoría.
 - **Revista**: artículos en español sobre lanzamientos, investigación y noticias de IA, redactados por un LLM a partir de las fuentes y actualizados cada hora.
 
 Sitio estático (sin build) + un pipeline Node sin dependencias, ejecutado cada hora por GitHub Actions, que publica en GitHub Pages.
@@ -12,7 +12,9 @@ Sitio estático (sin build) + un pipeline Node sin dependencias, ejecutado cada 
 ```
 scripts/update.mjs          orquestador (cron horario)
 ├─ lib/research.mjs         radar de investigación de nicho (ver abajo)
-├─ lib/models.mjs           Hugging Face (por tarea y por dominio) + proyectos del radar → catálogo con estimaciones
+├─ lib/models.mjs           Hugging Face (por tarea y por dominio) + proyectos del radar → catálogo
+├─ lib/evals.mjs            benchmarks (HF, model-index, tablas del README, LMArena), tamaño de pesos, requisitos declarados
+├─ lib/compare.mjs          puntuación relativa por tarea, rankings y modelos superados
 ├─ lib/news.mjs             RSS + páginas sin RSS + lanzamientos HF + radar + GitHub → agrupación por tema → artículo
 └─ lib/llm.mjs              cadena de APIs gratuitas compatibles con OpenAI (Groq → Gemini → OpenRouter) con presupuesto diario
 config/tasks.json           tareas/dominios: palabras clave (ES) para buscar, términos (EN) para clasificar, etiquetas HF y topics GitHub
@@ -33,17 +35,33 @@ La mayoría de lanzamientos interesantes (animación, mundos 3D, terreno, assets
 
 Cada hallazgo se sigue 30 días: estrellas (y su velocidad), votos, menciones y pesos publicados en Hugging Face (`arxiv:<id>`). Con LLM se hace además un triaje de interés práctico. Lo que supera el umbral entra en el toolbox como **proyecto de investigación** y en la revista.
 
-**Estimaciones** (marcadas como tales en la web):
-- VRAM = parámetros × bytes por peso (Q4 0,57 · Q8 1,07 · FP16 2) × 1,2 de margen. LLMs se evalúan en Q4; el resto en FP16.
-- Velocidad LLM = ancho de banda de la GPU de referencia × 0,6 / tamaño de los pesos activos (tok/s). Otros modelos: categoría por tamaño y tarea.
-- Calidad = 65 % puntuación del LLM a partir de los benchmarks de la ficha + 35 % tracción en la comunidad (likes, tendencia, descargas). Sin LLM solo cuenta la tracción.
+Solo entra lo que es IA: un proyecto sin paper ni pesos publicados tiene que demostrar en su README que es un sistema de aprendizaje automático (entrenamiento, checkpoints, inferencia…).
+
+### Comparar modelos (calidad relativa, rankings y "superados")
+
+La calidad no es un número absoluto, sino la **posición frente a los demás modelos de la misma tarea** (`scripts/lib/evals.mjs` + `scripts/lib/compare.mjs`):
+
+1. **Datos objetivos** de cada modelo, de varias fuentes:
+   - resultados de evaluación de Hugging Face (`.eval_results`) y `model-index` de la ficha;
+   - tablas de resultados del README (se localiza la columna o fila del propio modelo);
+   - Elo de **LMArena** (votos humanos a ciegas) para texto, WebDev, visión, imagen, edición y vídeo;
+   - con LLM, los benchmarks que el modelo de lenguaje extrae de la ficha.
+2. **Puntuación**: percentil del modelo en cada benchmark que publican al menos 3 modelos de su tarea, promediado (LMArena cuenta doble) y contraído hacia la media si publica pocos, para que nadie destaque solo por elegir dónde compararse.
+3. **Superado**: un modelo se marca así si otro de su tarea es igual o mejor en todos los benchmarks comunes y además igual o más ligero, o rinde prácticamente igual con al menos un 30 % menos de parámetros. No se aplica si el modelo superado tiene licencia permisiva y el otro no. La web los oculta por defecto.
+4. **Categorías sin benchmarks comunes** (animación, mundos, terreno…): se ordenan por popularidad (estrellas y su ritmo, likes, descargas) y la web lo indica.
+
+La pestaña **Rankings** muestra la clasificación de cada categoría y la ficha de cada modelo incluye una comparativa con sus competidores directos.
+
+**Hardware y velocidad**:
+- Memoria mínima: lo que declara la ficha > LLM cuantizado a 4 bits (parámetros × 0,57 × 1,2) > tamaño real de los pesos publicados (listado de ficheros del Hub) × 1,15. Siempre se indica de dónde sale.
+- Velocidad: en LLMs, estimación limitada por ancho de banda (tok/s en una GPU de referencia). En el resto, solo cuando la ficha da una cifra concreta (fps de inferencia, RTF, segundos por imagen); si no, aparece como "sin datos".
 
 ## Puesta en marcha
 
 ### Local
 
 ```bash
-npm run update      # descarga modelos y noticias
+npm run update      # descarga modelos y noticias (añade -- --no-research para saltarte arXiv/GitHub)
 npm run serve       # http://localhost:4321
 ```
 
@@ -68,7 +86,7 @@ Sin ninguna clave funciona en **modo plantilla**: resúmenes en inglés sacados 
 GROQ_API_KEY=gsk_... npm run update
 ```
 
-Otras variables: `ARTICLES_PER_RUN` (5), `MIN_ARTICLE_SCORE` (16), `MAX_ENRICH_PER_RUN` (40), `SITE_URL` (para el RSS), `GITHUB_TOKEN` (más cuota para la API de GitHub; en Actions ya va incluido).
+Otras variables: `MAX_ANALYZE_PER_RUN` (250 fichas por ejecución) y `MAX_TREE_PER_RUN` (100 listados de ficheros), repartidos entre ejecuciones para no superar el límite de peticiones de Hugging Face; `ARTICLES_PER_RUN` (5), `MIN_ARTICLE_SCORE` (16), `MAX_ENRICH_PER_RUN` (40), `SITE_URL` (para el RSS), `GITHUB_TOKEN` (más cuota para la API de GitHub; en Actions ya va incluido).
 
 ### Producción (GitHub Pages, cada hora)
 

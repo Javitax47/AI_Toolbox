@@ -1,0 +1,2665 @@
+{
+  "date": "2026-11-01",
+  "boards": {
+    "text": [
+      {
+        "name": "MiMo-V2.6-Pro",
+        "org": "xiaomi",
+        "rating": 1491,
+        "ci": 9,
+        "votes": 4037
+      },
+      {
+        "name": "Kimi K3 (Max)",
+        "org": "moonshot",
+        "rating": 1476,
+        "ci": 4,
+        "votes": 36780
+      },
+      {
+        "name": "GLM-5.3 (Max)",
+        "org": "zai",
+        "rating": 1474,
+        "ci": 5,
+        "votes": 26606
+      },
+      {
+        "name": "GLM-5.3-Flash",
+        "org": "zai",
+        "rating": 1473,
+        "ci": 5,
+        "votes": 41642
+      },
+      {
+        "name": "GLM-5.2 (Max)",
+        "org": "zai",
+        "rating": 1470,
+        "ci": 4,
+        "votes": 53702
+      },
+      {
+        "name": "DeepSeek-V4.1-Flash-20260910 (Max)",
+        "org": "deepseek",
+        "rating": 1465,
+        "ci": 6,
+        "votes": 13657
+      },
+      {
+        "name": "MiMo-V2.5-Pro",
+        "org": "xiaomi",
+        "rating": 1464,
+        "ci": 3,
+        "votes": 77728
+      },
+      {
+        "name": "GLM-5.1",
+        "org": "zai",
+        "rating": 1463,
+        "ci": 4,
+        "votes": 66771
+      },
+      {
+        "name": "Kimi K2.6",
+        "org": "moonshot",
+        "rating": 1456,
+        "ci": 4,
+        "votes": 39978
+      },
+      {
+        "name": "MiMo-V2.6-Flash",
+        "org": "xiaomi",
+        "rating": 1451,
+        "ci": 6,
+        "votes": 15312
+      },
+      {
+        "name": "DeepSeek-V4-Pro",
+        "org": "deepseek",
+        "rating": 1451,
+        "ci": 4,
+        "votes": 57572
+      },
+      {
+        "name": "DeepSeek-V4-Pro (High, 20260813)",
+        "org": "deepseek",
+        "rating": 1446,
+        "ci": 7,
+        "votes": 9787
+      },
+      {
+        "name": "GLM-5",
+        "org": "zai",
+        "rating": 1446,
+        "ci": 4,
+        "votes": 29255
+      },
+      {
+        "name": "NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)",
+        "org": "nvidia",
+        "rating": 1445,
+        "ci": 7,
+        "votes": 11563
+      },
+      {
+        "name": "DeepSeek-V4-Pro Preview (High)",
+        "org": "deepseek",
+        "rating": 1445,
+        "ci": 4,
+        "votes": 54870
+      },
+      {
+        "name": "Kimi K2.5 (Thinking)",
+        "org": "moonshot",
+        "rating": 1445,
+        "ci": 3,
+        "votes": 74682
+      },
+      {
+        "name": "Gemma 4 31B",
+        "org": "google",
+        "rating": 1443,
+        "ci": 7,
+        "votes": 6138
+      },
+      {
+        "name": "Inkling",
+        "org": "thinky",
+        "rating": 1443,
+        "ci": 4,
+        "votes": 45472
+      },
+      {
+        "name": "GLM-4.6",
+        "org": "zai",
+        "rating": 1440,
+        "ci": 4,
+        "votes": 35810
+      },
+      {
+        "name": "Hy3",
+        "org": "tencent",
+        "rating": 1439,
+        "ci": 6,
+        "votes": 13840
+      },
+      {
+        "name": "Qwen3.8-27B",
+        "org": "alibaba",
+        "rating": 1438,
+        "ci": 5,
+        "votes": 27779
+      },
+      {
+        "name": "Qwen3.5-397B-A17B",
+        "org": "alibaba",
+        "rating": 1438,
+        "ci": 3,
+        "votes": 97675
+      },
+      {
+        "name": "GLM-4.7",
+        "org": "zai",
+        "rating": 1435,
+        "ci": 6,
+        "votes": 12239
+      },
+      {
+        "name": "Gemma 4 26B A4B",
+        "org": "google",
+        "rating": 1434,
+        "ci": 7,
+        "votes": 6090
+      },
+      {
+        "name": "DeepSeek-V4-Flash",
+        "org": "deepseek",
+        "rating": 1432,
+        "ci": 4,
+        "votes": 51944
+      },
+      {
+        "name": "MiniMax-M3",
+        "org": "minimax",
+        "rating": 1431,
+        "ci": 4,
+        "votes": 68611
+      },
+      {
+        "name": "GLM-4.5",
+        "org": "zai",
+        "rating": 1430,
+        "ci": 5,
+        "votes": 23797
+      },
+      {
+        "name": "Mistral Large 3",
+        "org": "mistral",
+        "rating": 1428,
+        "ci": 3,
+        "votes": 88325
+      },
+      {
+        "name": "MiMo-V2.5",
+        "org": "xiaomi",
+        "rating": 1428,
+        "ci": 4,
+        "votes": 47327
+      },
+      {
+        "name": "DeepSeek-R1 (0528)",
+        "org": "deepseek",
+        "rating": 1428,
+        "ci": 6,
+        "votes": 18165
+      },
+      {
+        "name": "Beam 1.0 501B A23B",
+        "org": "reflection",
+        "rating": 1425,
+        "ci": 9,
+        "votes": 4233
+      },
+      {
+        "name": "DeepSeek-V3.2-Exp (Thinking)",
+        "org": "deepseek",
+        "rating": 1425,
+        "ci": 7,
+        "votes": 8991
+      },
+      {
+        "name": "DeepSeek-V3.2",
+        "org": "deepseek",
+        "rating": 1424,
+        "ci": 3,
+        "votes": 48095
+      },
+      {
+        "name": "DeepSeek-V4-Flash Preview (High)",
+        "org": "deepseek",
+        "rating": 1424,
+        "ci": 4,
+        "votes": 51763
+      },
+      {
+        "name": "LongCat-Flash-Chat",
+        "org": "meituan",
+        "rating": 1423,
+        "ci": 6,
+        "votes": 11167
+      },
+      {
+        "name": "DeepSeek-V3.2-Exp",
+        "org": "deepseek",
+        "rating": 1422,
+        "ci": 6,
+        "votes": 11996
+      },
+      {
+        "name": "Mistral Medium 3.5",
+        "org": "mistral",
+        "rating": 1421,
+        "ci": 6,
+        "votes": 11791
+      },
+      {
+        "name": "Kimi K2.5 (Instant)",
+        "org": "moonshot",
+        "rating": 1420,
+        "ci": 6,
+        "votes": 8371
+      },
+      {
+        "name": "Qwen3-VL-235B-A22B-Instruct",
+        "org": "alibaba",
+        "rating": 1420,
+        "ci": 7,
+        "votes": 11314
+      },
+      {
+        "name": "DeepSeek-V3.2 (Thinking)",
+        "org": "deepseek",
+        "rating": 1420,
+        "ci": 4,
+        "votes": 42033
+      },
+      {
+        "name": "DeepSeek-V3.1",
+        "org": "deepseek",
+        "rating": 1420,
+        "ci": 6,
+        "votes": 14606
+      },
+      {
+        "name": "Qwen3-235B-A22B-Instruct (2507)",
+        "org": "alibaba",
+        "rating": 1419,
+        "ci": 3,
+        "votes": 98081
+      },
+      {
+        "name": "DeepSeek-V3.1-Terminus (Thinking)",
+        "org": "deepseek",
+        "rating": 1419,
+        "ci": 10,
+        "votes": 3379
+      },
+      {
+        "name": "Qwen3.5-122B-A10B",
+        "org": "alibaba",
+        "rating": 1418,
+        "ci": 4,
+        "votes": 29712
+      },
+      {
+        "name": "DeepSeek-V3.1-Terminus",
+        "org": "deepseek",
+        "rating": 1417,
+        "ci": 10,
+        "votes": 3609
+      },
+      {
+        "name": "Qwen3-Next-80B-A3B-Instruct",
+        "org": "alibaba",
+        "rating": 1417,
+        "ci": 5,
+        "votes": 22753
+      },
+      {
+        "name": "DeepSeek-V3.1 (Thinking)",
+        "org": "deepseek",
+        "rating": 1417,
+        "ci": 7,
+        "votes": 11458
+      },
+      {
+        "name": "Qwen3-235B-A22B-Thinking (2507)",
+        "org": "alibaba",
+        "rating": 1415,
+        "ci": 7,
+        "votes": 8822
+      },
+      {
+        "name": "Kimi K2 Thinking Turbo",
+        "org": "moonshot",
+        "rating": 1414,
+        "ci": 3,
+        "votes": 63310
+      },
+      {
+        "name": "Inkling-Small",
+        "org": "thinky",
+        "rating": 1414,
+        "ci": 4,
+        "votes": 36999
+      },
+      {
+        "name": "MiMo-V2-Flash (Non-Thinking)",
+        "org": "xiaomi",
+        "rating": 1411,
+        "ci": 3,
+        "votes": 48060
+      },
+      {
+        "name": "Qwen3.5-27B",
+        "org": "alibaba",
+        "rating": 1409,
+        "ci": 4,
+        "votes": 28647
+      },
+      {
+        "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
+        "org": "nvidia",
+        "rating": 1405,
+        "ci": 9,
+        "votes": 4178
+      },
+      {
+        "name": "MiniMax-M2.7",
+        "org": "minimax",
+        "rating": 1405,
+        "ci": 3,
+        "votes": 89197
+      },
+      {
+        "name": "Step-3.5-Flash",
+        "org": "stepfun",
+        "rating": 1403,
+        "ci": 4,
+        "votes": 60305
+      },
+      {
+        "name": "Hy3 preview",
+        "org": "tencent",
+        "rating": 1401,
+        "ci": 7,
+        "votes": 6869
+      },
+      {
+        "name": "Qwen3-VL-235B-A22B-Thinking",
+        "org": "alibaba",
+        "rating": 1400,
+        "ci": 7,
+        "votes": 7862
+      },
+      {
+        "name": "MiMo-V2-Flash (Thinking)",
+        "org": "xiaomi",
+        "rating": 1395,
+        "ci": 6,
+        "votes": 11135
+      },
+      {
+        "name": "Qwen3.5-35B-A3B",
+        "org": "alibaba",
+        "rating": 1395,
+        "ci": 4,
+        "votes": 30427
+      },
+      {
+        "name": "Qwen3-235B-A22B (Non-Thinking)",
+        "org": "alibaba",
+        "rating": 1393,
+        "ci": 5,
+        "votes": 37472
+      },
+      {
+        "name": "MiniMax-M2.1 Preview",
+        "org": "minimax",
+        "rating": 1392,
+        "ci": 5,
+        "votes": 17222
+      },
+      {
+        "name": "Muse Glimmer",
+        "org": "meta",
+        "rating": 1389,
+        "ci": 10,
+        "votes": 3884
+      },
+      {
+        "name": "Qwen3-30B-A3B-Instruct (2507)",
+        "org": "alibaba",
+        "rating": 1384,
+        "ci": 5,
+        "votes": 23312
+      },
+      {
+        "name": "GLM-4.5-Air",
+        "org": "zai",
+        "rating": 1384,
+        "ci": 4,
+        "votes": 30652
+      },
+      {
+        "name": "Kimi K2 Preview (0905)",
+        "org": "moonshot",
+        "rating": 1380,
+        "ci": 6,
+        "votes": 11592
+      },
+      {
+        "name": "NVIDIA-Nemotron-3-Super-120B-A12B",
+        "org": "nvidia",
+        "rating": 1377,
+        "ci": 7,
+        "votes": 7870
+      },
+      {
+        "name": "GLM-4.6V",
+        "org": "zai",
+        "rating": 1376,
+        "ci": 11,
+        "votes": 2833
+      },
+      {
+        "name": "DeepSeek-V3 (0324)",
+        "org": "deepseek",
+        "rating": 1375,
+        "ci": 4,
+        "votes": 44977
+      },
+      {
+        "name": "DeepSeek-R1",
+        "org": "deepseek",
+        "rating": 1373,
+        "ci": 5,
+        "votes": 18524
+      },
+      {
+        "name": "Kimi K2 Preview (0711)",
+        "org": "moonshot",
+        "rating": 1371,
+        "ci": 5,
+        "votes": 27139
+      },
+      {
+        "name": "Qwen3-Next-80B-A3B-Thinking",
+        "org": "alibaba",
+        "rating": 1368,
+        "ci": 6,
+        "votes": 13476
+      },
+      {
+        "name": "Qwen3-235B-A22B",
+        "org": "alibaba",
+        "rating": 1366,
+        "ci": 5,
+        "votes": 25950
+      },
+      {
+        "name": "gpt-oss-120b",
+        "org": "openai",
+        "rating": 1365,
+        "ci": 4,
+        "votes": 30200
+      },
+      {
+        "name": "Granite 4.2 30B",
+        "org": "ibm",
+        "rating": 1361,
+        "ci": 10,
+        "votes": 3389
+      },
+      {
+        "name": "Ling-flash-2.0",
+        "org": "ant-group",
+        "rating": 1361,
+        "ci": 7,
+        "votes": 6952
+      },
+      {
+        "name": "MiniMax-M2.5",
+        "org": "minimax",
+        "rating": 1359,
+        "ci": 4,
+        "votes": 42783
+      },
+      {
+        "name": "Gemma 3 27B IT",
+        "org": "google",
+        "rating": 1358,
+        "ci": 4,
+        "votes": 46670
+      },
+      {
+        "name": "Qwen3-Coder-480B-A35B-Instruct",
+        "org": "alibaba",
+        "rating": 1357,
+        "ci": 5,
+        "votes": 25190
+      },
+      {
+        "name": "INTELLECT-3",
+        "org": "",
+        "rating": 1356,
+        "ci": 8,
+        "votes": 5435
+      },
+      {
+        "name": "GLM-4.7-Flash",
+        "org": "zai",
+        "rating": 1351,
+        "ci": 6,
+        "votes": 12008
+      },
+      {
+        "name": "Step-3",
+        "org": "stepfun",
+        "rating": 1350,
+        "ci": 7,
+        "votes": 6291
+      },
+      {
+        "name": "NVIDIA-Nemotron-3-Nano-30B-A3B (BF16)",
+        "org": "nvidia",
+        "rating": 1348,
+        "ci": 5,
+        "votes": 15761
+      },
+      {
+        "name": "MiniMax-M1",
+        "org": "minimax",
+        "rating": 1343,
+        "ci": 4,
+        "votes": 34293
+      },
+      {
+        "name": "Trinity Large Thinking",
+        "org": "",
+        "rating": 1340,
+        "ci": 5,
+        "votes": 30290
+      },
+      {
+        "name": "MiniMax-M2",
+        "org": "minimax",
+        "rating": 1340,
+        "ci": 8,
+        "votes": 6850
+      },
+      {
+        "name": "Qwen3-32B",
+        "org": "alibaba",
+        "rating": 1340,
+        "ci": 9,
+        "votes": 3926
+      },
+      {
+        "name": "Trinity Large Preview",
+        "org": "",
+        "rating": 1339,
+        "ci": 4,
+        "votes": 31233
+      },
+      {
+        "name": "Llama 3.3 Nemotron Super 49B v1.5",
+        "org": "nvidia",
+        "rating": 1338,
+        "ci": 10,
+        "votes": 3327
+      },
+      {
+        "name": "Mistral Small 3.2 (2506)",
+        "org": "mistral",
+        "rating": 1338,
+        "ci": 5,
+        "votes": 17462
+      },
+      {
+        "name": "Gemma 3 12B IT",
+        "org": "google",
+        "rating": 1334,
+        "ci": 9,
+        "votes": 3829
+      },
+      {
+        "name": "Ring-flash-2.0",
+        "org": "ant-group",
+        "rating": 1334,
+        "ci": 7,
+        "votes": 6987
+      },
+      {
+        "name": "GLM-4.5V",
+        "org": "zai",
+        "rating": 1333,
+        "ci": 8,
+        "votes": 4817
+      },
+      {
+        "name": "DeepSeek-V3",
+        "org": "deepseek",
+        "rating": 1332,
+        "ci": 5,
+        "votes": 21770
+      },
+      {
+        "name": "Command A (03-2025)",
+        "org": "cohere",
+        "rating": 1331,
+        "ci": 3,
+        "votes": 55763
+      },
+      {
+        "name": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B (NVFP4)",
+        "org": "nvidia",
+        "rating": 1331,
+        "ci": 5,
+        "votes": 24230
+      },
+      {
+        "name": "QwQ-32B",
+        "org": "alibaba",
+        "rating": 1329,
+        "ci": 4,
+        "votes": 25177
+      },
+      {
+        "name": "Llama 3.1 Nemotron Ultra 253B v1",
+        "org": "nvidia",
+        "rating": 1320,
+        "ci": 12,
+        "votes": 2549
+      },
+      {
+        "name": "Granite 4.2 8B",
+        "org": "ibm",
+        "rating": 1319,
+        "ci": 11,
+        "votes": 3251
+      },
+      {
+        "name": "Qwen3-30B-A3B",
+        "org": "alibaba",
+        "rating": 1317,
+        "ci": 5,
+        "votes": 26156
+      },
+      {
+        "name": "Olmo 3.1 32B Instruct",
+        "org": "allenai",
+        "rating": 1311,
+        "ci": 6,
+        "votes": 11805
+      },
+      {
+        "name": "Llama 3.3 Nemotron Super 49B v1",
+        "org": "nvidia",
+        "rating": 1308,
+        "ci": 12,
+        "votes": 2218
+      },
+      {
+        "name": "Gemma 3n E4B IT",
+        "org": "google",
+        "rating": 1306,
+        "ci": 5,
+        "votes": 22136
+      },
+      {
+        "name": "Olmo 3 32B Think",
+        "org": "allenai",
+        "rating": 1299,
+        "ci": 8,
+        "votes": 5827
+      },
+      {
+        "name": "DeepSeek-V2.5 (1210)",
+        "org": "deepseek",
+        "rating": 1294,
+        "ci": 8,
+        "votes": 6795
+      },
+      {
+        "name": "Granite 4.2 3B",
+        "org": "ibm",
+        "rating": 1293,
+        "ci": 11,
+        "votes": 3249
+      },
+      {
+        "name": "Athene V2 Chat",
+        "org": "",
+        "rating": 1291,
+        "ci": 5,
+        "votes": 24739
+      },
+      {
+        "name": "Gemma 3 4B IT",
+        "org": "google",
+        "rating": 1291,
+        "ci": 9,
+        "votes": 4171
+      },
+      {
+        "name": "Granite 4.1 8B",
+        "org": "ibm",
+        "rating": 1291,
+        "ci": 10,
+        "votes": 4177
+      },
+      {
+        "name": "Molmo 2 8B",
+        "org": "allenai",
+        "rating": 1287,
+        "ci": 21,
+        "votes": 822
+      },
+      {
+        "name": "gpt-oss-20b",
+        "org": "openai",
+        "rating": 1287,
+        "ci": 6,
+        "votes": 10416
+      },
+      {
+        "name": "Llama 4 Maverick 17B 128E Instruct",
+        "org": "meta",
+        "rating": 1287,
+        "ci": 4,
+        "votes": 39439
+      },
+      {
+        "name": "Llama 3.1 405B Instruct (BF16)",
+        "org": "meta",
+        "rating": 1284,
+        "ci": 4,
+        "votes": 41375
+      },
+      {
+        "name": "Llama 3.1 Nemotron 70B Instruct",
+        "org": "nvidia",
+        "rating": 1283,
+        "ci": 8,
+        "votes": 7140
+      },
+      {
+        "name": "Qwen-Max (0919)",
+        "org": "alibaba",
+        "rating": 1282,
+        "ci": 6,
+        "votes": 16478
+      },
+      {
+        "name": "Llama 3.1 405B Instruct (FP8)",
+        "org": "meta",
+        "rating": 1282,
+        "ci": 4,
+        "votes": 59656
+      },
+      {
+        "name": "Llama 4 Scout 17B 16E Instruct",
+        "org": "meta",
+        "rating": 1279,
+        "ci": 5,
+        "votes": 29823
+      },
+      {
+        "name": "Mistral Small 3.1 24B Instruct (2503)",
+        "org": "mistral",
+        "rating": 1277,
+        "ci": 5,
+        "votes": 32722
+      },
+      {
+        "name": "Llama 3.3 70B Instruct",
+        "org": "meta",
+        "rating": 1274,
+        "ci": 3,
+        "votes": 54493
+      },
+      {
+        "name": "Olmo 3.1 32B Think",
+        "org": "allenai",
+        "rating": 1271,
+        "ci": 7,
+        "votes": 8299
+      },
+      {
+        "name": "DeepSeek-V2.5",
+        "org": "deepseek",
+        "rating": 1271,
+        "ci": 5,
+        "votes": 24572
+      },
+      {
+        "name": "Qwen2.5-72B-Instruct",
+        "org": "alibaba",
+        "rating": 1269,
+        "ci": 4,
+        "votes": 39406
+      },
+      {
+        "name": "Mistral Large 2 (2407)",
+        "org": "mistral",
+        "rating": 1266,
+        "ci": 4,
+        "votes": 45459
+      },
+      {
+        "name": "Mistral Large (2411)",
+        "org": "mistral",
+        "rating": 1265,
+        "ci": 4,
+        "votes": 28073
+      },
+      {
+        "name": "Athene 70B (0725)",
+        "org": "",
+        "rating": 1265,
+        "ci": 6,
+        "votes": 19621
+      },
+      {
+        "name": "Llama 3.1 70B Instruct",
+        "org": "meta",
+        "rating": 1261,
+        "ci": 4,
+        "votes": 55240
+      },
+      {
+        "name": "Llama 3.1 Tulu 3 70B",
+        "org": "allenai",
+        "rating": 1256,
+        "ci": 10,
+        "votes": 2846
+      },
+      {
+        "name": "Granite-4.0-H-Small",
+        "org": "ibm",
+        "rating": 1241,
+        "ci": 8,
+        "votes": 5630
+      },
+      {
+        "name": "Jamba 1.5 Large",
+        "org": "",
+        "rating": 1237,
+        "ci": 7,
+        "votes": 8662
+      },
+      {
+        "name": "Mistral Small 24B Instruct (2501)",
+        "org": "mistral",
+        "rating": 1234,
+        "ci": 6,
+        "votes": 14681
+      },
+      {
+        "name": "Gemma 2 27B IT",
+        "org": "google",
+        "rating": 1231,
+        "ci": 3,
+        "votes": 75754
+      },
+      {
+        "name": "Qwen2.5-Coder-32B-Instruct",
+        "org": "alibaba",
+        "rating": 1230,
+        "ci": 8,
+        "votes": 5432
+      },
+      {
+        "name": "Command R+ (08-2024)",
+        "org": "cohere",
+        "rating": 1229,
+        "ci": 7,
+        "votes": 9866
+      },
+      {
+        "name": "Llama 3.1 Nemotron 51B Instruct",
+        "org": "nvidia",
+        "rating": 1228,
+        "ci": 10,
+        "votes": 3749
+      },
+      {
+        "name": "Gemma 2 9B IT SimPO",
+        "org": "",
+        "rating": 1227,
+        "ci": 7,
+        "votes": 10072
+      },
+      {
+        "name": "Nemotron-4 340B Instruct",
+        "org": "nvidia",
+        "rating": 1225,
+        "ci": 5,
+        "votes": 19659
+      },
+      {
+        "name": "Aya Expanse 32B",
+        "org": "cohere",
+        "rating": 1224,
+        "ci": 5,
+        "votes": 27124
+      },
+      {
+        "name": "Llama 3 70B Instruct",
+        "org": "meta",
+        "rating": 1221,
+        "ci": 4,
+        "votes": 156876
+      },
+      {
+        "name": "OLMo 2 32B Instruct (0325)",
+        "org": "allenai",
+        "rating": 1218,
+        "ci": 11,
+        "votes": 3334
+      },
+      {
+        "name": "Phi-4",
+        "org": "microsoft",
+        "rating": 1217,
+        "ci": 5,
+        "votes": 24126
+      },
+      {
+        "name": "Gemma 2 9B IT",
+        "org": "google",
+        "rating": 1207,
+        "ci": 4,
+        "votes": 54611
+      },
+      {
+        "name": "Command R+",
+        "org": "cohere",
+        "rating": 1204,
+        "ci": 4,
+        "votes": 77554
+      },
+      {
+        "name": "Qwen2-72B-Instruct",
+        "org": "alibaba",
+        "rating": 1203,
+        "ci": 5,
+        "votes": 37325
+      },
+      {
+        "name": "Llama 3.1 Tulu 3 8B",
+        "org": "allenai",
+        "rating": 1193,
+        "ci": 10,
+        "votes": 2896
+      },
+      {
+        "name": "DeepSeek-Coder-V2",
+        "org": "deepseek",
+        "rating": 1191,
+        "ci": 6,
+        "votes": 15147
+      },
+      {
+        "name": "Ministral 8B (2410)",
+        "org": "mistral",
+        "rating": 1191,
+        "ci": 9,
+        "votes": 4781
+      },
+      {
+        "name": "Command R (08-2024)",
+        "org": "cohere",
+        "rating": 1187,
+        "ci": 7,
+        "votes": 10140
+      },
+      {
+        "name": "Jamba 1.5 Mini",
+        "org": "",
+        "rating": 1187,
+        "ci": 7,
+        "votes": 8858
+      },
+      {
+        "name": "Llama 3.1 8B Instruct",
+        "org": "meta",
+        "rating": 1187,
+        "ci": 4,
+        "votes": 49605
+      },
+      {
+        "name": "Aya Expanse 8B",
+        "org": "cohere",
+        "rating": 1185,
+        "ci": 7,
+        "votes": 9818
+      },
+      {
+        "name": "Qwen1.5-110B-Chat",
+        "org": "alibaba",
+        "rating": 1175,
+        "ci": 6,
+        "votes": 26195
+      },
+      {
+        "name": "Yi 1.5 34B Chat",
+        "org": "",
+        "rating": 1173,
+        "ci": 5,
+        "votes": 24146
+      },
+      {
+        "name": "Qwen1.5-72B-Chat",
+        "org": "alibaba",
+        "rating": 1166,
+        "ci": 5,
+        "votes": 39302
+      },
+      {
+        "name": "Llama 3 8B Instruct",
+        "org": "meta",
+        "rating": 1166,
+        "ci": 4,
+        "votes": 104642
+      },
+      {
+        "name": "Command R",
+        "org": "cohere",
+        "rating": 1163,
+        "ci": 5,
+        "votes": 54036
+      },
+      {
+        "name": "Mixtral 8x22B Instruct v0.1",
+        "org": "mistral",
+        "rating": 1162,
+        "ci": 5,
+        "votes": 51416
+      },
+      {
+        "name": "QwQ-32B-Preview",
+        "org": "alibaba",
+        "rating": 1162,
+        "ci": 11,
+        "votes": 3231
+      },
+      {
+        "name": "InternLM2.5 20B Chat",
+        "org": "",
+        "rating": 1158,
+        "ci": 7,
+        "votes": 9901
+      },
+      {
+        "name": "Gemma 2 2B IT",
+        "org": "google",
+        "rating": 1156,
+        "ci": 4,
+        "votes": 46616
+      },
+      {
+        "name": "Granite 3.1 8B Instruct",
+        "org": "ibm",
+        "rating": 1150,
+        "ci": 11,
+        "votes": 3090
+      },
+      {
+        "name": "Zephyr ORPO 141B A35B v0.1",
+        "org": "",
+        "rating": 1144,
+        "ci": 11,
+        "votes": 4652
+      },
+      {
+        "name": "Phi-3 Medium 4K Instruct",
+        "org": "microsoft",
+        "rating": 1138,
+        "ci": 5,
+        "votes": 25055
+      },
+      {
+        "name": "Qwen1.5-32B-Chat",
+        "org": "alibaba",
+        "rating": 1137,
+        "ci": 6,
+        "votes": 21741
+      },
+      {
+        "name": "Starling LM 7B Beta",
+        "org": "",
+        "rating": 1132,
+        "ci": 7,
+        "votes": 16056
+      },
+      {
+        "name": "Mixtral 8x7B Instruct v0.1",
+        "org": "mistral",
+        "rating": 1132,
+        "ci": 4,
+        "votes": 73503
+      },
+      {
+        "name": "Yi 34B Chat",
+        "org": "",
+        "rating": 1128,
+        "ci": 7,
+        "votes": 15483
+      },
+      {
+        "name": "Qwen1.5-14B-Chat",
+        "org": "alibaba",
+        "rating": 1128,
+        "ci": 7,
+        "votes": 17839
+      },
+      {
+        "name": "Granite 3.1 2B Instruct",
+        "org": "ibm",
+        "rating": 1127,
+        "ci": 11,
+        "votes": 3188
+      },
+      {
+        "name": "Tulu 2 DPO 70B",
+        "org": "",
+        "rating": 1121,
+        "ci": 10,
+        "votes": 6535
+      },
+      {
+        "name": "WizardLM 70B",
+        "org": "microsoft",
+        "rating": 1119,
+        "ci": 9,
+        "votes": 8214
+      },
+      {
+        "name": "DBRX Instruct Preview",
+        "org": "",
+        "rating": 1119,
+        "ci": 6,
+        "votes": 32191
+      },
+      {
+        "name": "Llama 2 70B Chat",
+        "org": "meta",
+        "rating": 1115,
+        "ci": 5,
+        "votes": 38492
+      },
+      {
+        "name": "Nous Hermes 2 Mixtral 8x7B DPO",
+        "org": "",
+        "rating": 1112,
+        "ci": 12,
+        "votes": 3777
+      },
+      {
+        "name": "Phi-3 Small 8K Instruct",
+        "org": "microsoft",
+        "rating": 1110,
+        "ci": 6,
+        "votes": 17766
+      },
+      {
+        "name": "Llama 3.2 3B Instruct",
+        "org": "meta",
+        "rating": 1110,
+        "ci": 8,
+        "votes": 7936
+      },
+      {
+        "name": "Starling LM 7B Alpha",
+        "org": "",
+        "rating": 1108,
+        "ci": 8,
+        "votes": 10224
+      },
+      {
+        "name": "OpenChat 3.5 (0106)",
+        "org": "",
+        "rating": 1107,
+        "ci": 8,
+        "votes": 12637
+      },
+      {
+        "name": "Vicuna 33B",
+        "org": "",
+        "rating": 1105,
+        "ci": 6,
+        "votes": 22479
+      },
+      {
+        "name": "DeepSeek LLM 67B Chat",
+        "org": "deepseek",
+        "rating": 1105,
+        "ci": 12,
+        "votes": 4932
+      },
+      {
+        "name": "Snowflake Arctic Instruct",
+        "org": "",
+        "rating": 1101,
+        "ci": 6,
+        "votes": 32832
+      },
+      {
+        "name": "Llama 2 70B SteerLM Chat",
+        "org": "nvidia",
+        "rating": 1098,
+        "ci": 12,
+        "votes": 3585
+      },
+      {
+        "name": "OpenChat 3.5",
+        "org": "",
+        "rating": 1097,
+        "ci": 10,
+        "votes": 7968
+      },
+      {
+        "name": "Granite 3.0 8B Instruct",
+        "org": "ibm",
+        "rating": 1096,
+        "ci": 9,
+        "votes": 6638
+      },
+      {
+        "name": "Gemma 1.1 7B IT",
+        "org": "google",
+        "rating": 1094,
+        "ci": 6,
+        "votes": 23893
+      },
+      {
+        "name": "OpenHermes 2.5 Mistral 7B",
+        "org": "",
+        "rating": 1092,
+        "ci": 10,
+        "votes": 5006
+      },
+      {
+        "name": "Mistral 7B Instruct v0.2",
+        "org": "mistral",
+        "rating": 1090,
+        "ci": 7,
+        "votes": 19402
+      },
+      {
+        "name": "Llama 2 13B Chat",
+        "org": "meta",
+        "rating": 1084,
+        "ci": 7,
+        "votes": 19174
+      },
+      {
+        "name": "Qwen1.5-7B-Chat",
+        "org": "alibaba",
+        "rating": 1083,
+        "ci": 10,
+        "votes": 4737
+      },
+      {
+        "name": "SOLAR 10.7B Instruct v1.0",
+        "org": "upstage",
+        "rating": 1083,
+        "ci": 13,
+        "votes": 4155
+      },
+      {
+        "name": "Dolphin 2.2.1 Mistral 7B",
+        "org": "",
+        "rating": 1081,
+        "ci": 15,
+        "votes": 1679
+      },
+      {
+        "name": "Phi-3 Mini 4K Instruct (June 2024)",
+        "org": "microsoft",
+        "rating": 1080,
+        "ci": 6,
+        "votes": 12297
+      },
+      {
+        "name": "Granite 3.0 2B Instruct",
+        "org": "ibm",
+        "rating": 1080,
+        "ci": 8,
+        "votes": 6837
+      },
+      {
+        "name": "WizardLM 13B",
+        "org": "microsoft",
+        "rating": 1077,
+        "ci": 9,
+        "votes": 7044
+      },
+      {
+        "name": "Phi-3 Mini 4K Instruct",
+        "org": "microsoft",
+        "rating": 1073,
+        "ci": 6,
+        "votes": 20118
+      },
+      {
+        "name": "Zephyr 7B Beta",
+        "org": "",
+        "rating": 1069,
+        "ci": 9,
+        "votes": 11118
+      },
+      {
+        "name": "MPT 30B Chat",
+        "org": "",
+        "rating": 1069,
+        "ci": 12,
+        "votes": 2572
+      },
+      {
+        "name": "Code Llama 34B Instruct",
+        "org": "meta",
+        "rating": 1065,
+        "ci": 9,
+        "votes": 7366
+      },
+      {
+        "name": "Zephyr 7B Alpha",
+        "org": "",
+        "rating": 1058,
+        "ci": 16,
+        "votes": 1785
+      },
+      {
+        "name": "Vicuna 13B",
+        "org": "",
+        "rating": 1058,
+        "ci": 7,
+        "votes": 19367
+      },
+      {
+        "name": "Code Llama 70B Instruct",
+        "org": "meta",
+        "rating": 1057,
+        "ci": 18,
+        "votes": 1143
+      },
+      {
+        "name": "Gemma 7B IT",
+        "org": "google",
+        "rating": 1056,
+        "ci": 10,
+        "votes": 8925
+      },
+      {
+        "name": "Llama 3.2 1B Instruct",
+        "org": "meta",
+        "rating": 1055,
+        "ci": 8,
+        "votes": 8045
+      },
+      {
+        "name": "Falcon 180B Chat",
+        "org": "",
+        "rating": 1054,
+        "ci": 17,
+        "votes": 1295
+      },
+      {
+        "name": "Llama 2 7B Chat",
+        "org": "meta",
+        "rating": 1053,
+        "ci": 7,
+        "votes": 14148
+      },
+      {
+        "name": "Guanaco 33B",
+        "org": "",
+        "rating": 1053,
+        "ci": 12,
+        "votes": 2921
+      },
+      {
+        "name": "Qwen-14B-Chat",
+        "org": "alibaba",
+        "rating": 1051,
+        "ci": 11,
+        "votes": 4964
+      },
+      {
+        "name": "Phi-3 Mini 128K Instruct",
+        "org": "microsoft",
+        "rating": 1050,
+        "ci": 7,
+        "votes": 20685
+      },
+      {
+        "name": "SmolLM2 1.7B Instruct",
+        "org": "",
+        "rating": 1042,
+        "ci": 14,
+        "votes": 2199
+      },
+      {
+        "name": "StripedHyena Nous 7B",
+        "org": "",
+        "rating": 1038,
+        "ci": 11,
+        "votes": 5182
+      },
+      {
+        "name": "OLMo 7B Instruct",
+        "org": "allenai",
+        "rating": 1032,
+        "ci": 11,
+        "votes": 6328
+      },
+      {
+        "name": "Vicuna 7B",
+        "org": "",
+        "rating": 1031,
+        "ci": 9,
+        "votes": 6923
+      },
+      {
+        "name": "Mistral 7B Instruct",
+        "org": "mistral",
+        "rating": 1023,
+        "ci": 9,
+        "votes": 8977
+      },
+      {
+        "name": "Gemma 1.1 2B IT",
+        "org": "google",
+        "rating": 1022,
+        "ci": 8,
+        "votes": 10854
+      },
+      {
+        "name": "Gemma 2B IT",
+        "org": "google",
+        "rating": 1002,
+        "ci": 11,
+        "votes": 4780
+      },
+      {
+        "name": "Qwen1.5-4B-Chat",
+        "org": "alibaba",
+        "rating": 997,
+        "ci": 9,
+        "votes": 7597
+      },
+      {
+        "name": "Koala 13B",
+        "org": "",
+        "rating": 990,
+        "ci": 10,
+        "votes": 6965
+      },
+      {
+        "name": "ChatGLM3 6B",
+        "org": "",
+        "rating": 972,
+        "ci": 12,
+        "votes": 4658
+      },
+      {
+        "name": "GPT4All 13B Snoozy",
+        "org": "",
+        "rating": 956,
+        "ci": 15,
+        "votes": 1743
+      },
+      {
+        "name": "MPT 7B Chat",
+        "org": "",
+        "rating": 955,
+        "ci": 12,
+        "votes": 3924
+      },
+      {
+        "name": "RWKV-4 Raven 14B",
+        "org": "",
+        "rating": 948,
+        "ci": 11,
+        "votes": 4845
+      },
+      {
+        "name": "ChatGLM2 6B",
+        "org": "",
+        "rating": 939,
+        "ci": 13,
+        "votes": 2658
+      },
+      {
+        "name": "Alpaca 13B",
+        "org": "",
+        "rating": 933,
+        "ci": 11,
+        "votes": 5745
+      },
+      {
+        "name": "ChatGLM 6B",
+        "org": "",
+        "rating": 918,
+        "ci": 12,
+        "votes": 4914
+      },
+      {
+        "name": "OpenAssistant Pythia 12B",
+        "org": "",
+        "rating": 916,
+        "ci": 11,
+        "votes": 6310
+      },
+      {
+        "name": "FastChat-T5 3B",
+        "org": "",
+        "rating": 894,
+        "ci": 12,
+        "votes": 4203
+      },
+      {
+        "name": "StableLM Tuned Alpha 7B",
+        "org": "",
+        "rating": 867,
+        "ci": 13,
+        "votes": 3287
+      },
+      {
+        "name": "Dolly 2.0 12B",
+        "org": "",
+        "rating": 851,
+        "ci": 13,
+        "votes": 3412
+      },
+      {
+        "name": "LLaMA 13B",
+        "org": "meta",
+        "rating": 833,
+        "ci": 16,
+        "votes": 2391
+      }
+    ],
+    "webdev": [
+      {
+        "name": "DeepSeek-V4.1-Flash-20261017 (Max)",
+        "org": "deepseek",
+        "rating": 1665,
+        "ci": 8,
+        "votes": 7842
+      },
+      {
+        "name": "Kimi K3 (Max)",
+        "org": "moonshot",
+        "rating": 1656,
+        "ci": 6,
+        "votes": 21281
+      },
+      {
+        "name": "MiMo-V2.6-Flash",
+        "org": "xiaomi",
+        "rating": 1637,
+        "ci": 8,
+        "votes": 7068
+      },
+      {
+        "name": "Hy4 preview",
+        "org": "tencent",
+        "rating": 1631,
+        "ci": 10,
+        "votes": 4765
+      },
+      {
+        "name": "Qwen3.8-Flash-Next",
+        "org": "alibaba",
+        "rating": 1628,
+        "ci": 8,
+        "votes": 9703
+      },
+      {
+        "name": "MiMo-V2.6-Pro",
+        "org": "xiaomi",
+        "rating": 1625,
+        "ci": 8,
+        "votes": 6820
+      },
+      {
+        "name": "GLM-5.3 (Max)",
+        "org": "zai",
+        "rating": 1623,
+        "ci": 7,
+        "votes": 11150
+      },
+      {
+        "name": "DeepSeek-V4.1-Flash-20260910 (Max)",
+        "org": "deepseek",
+        "rating": 1619,
+        "ci": 11,
+        "votes": 3510
+      },
+      {
+        "name": "GLM-5.3-Flash",
+        "org": "zai",
+        "rating": 1607,
+        "ci": 6,
+        "votes": 21587
+      },
+      {
+        "name": "GLM-5.2 (Max)",
+        "org": "zai",
+        "rating": 1606,
+        "ci": 6,
+        "votes": 17817
+      },
+      {
+        "name": "Qwen3.8-27B",
+        "org": "alibaba",
+        "rating": 1590,
+        "ci": 6,
+        "votes": 18752
+      },
+      {
+        "name": "MiniMax-M3.1-Flash",
+        "org": "minimax",
+        "rating": 1582,
+        "ci": 12,
+        "votes": 3062
+      },
+      {
+        "name": "DeepSeek-V4-Pro (High, 20260813)",
+        "org": "deepseek",
+        "rating": 1582,
+        "ci": 9,
+        "votes": 4676
+      },
+      {
+        "name": "DeepSeek-V4-Flash (High)",
+        "org": "deepseek",
+        "rating": 1582,
+        "ci": 9,
+        "votes": 4927
+      },
+      {
+        "name": "Muse Spark Open (Max)",
+        "org": "meta",
+        "rating": 1526,
+        "ci": 15,
+        "votes": 1721
+      },
+      {
+        "name": "Kimi K2.6",
+        "org": "moonshot",
+        "rating": 1509,
+        "ci": 7,
+        "votes": 10119
+      },
+      {
+        "name": "GLM-5.1",
+        "org": "zai",
+        "rating": 1508,
+        "ci": 7,
+        "votes": 10647
+      },
+      {
+        "name": "Hy3",
+        "org": "tencent",
+        "rating": 1505,
+        "ci": 8,
+        "votes": 6844
+      },
+      {
+        "name": "MiniMax-M3",
+        "org": "minimax",
+        "rating": 1483,
+        "ci": 5,
+        "votes": 21032
+      },
+      {
+        "name": "MiMo-V2.5-Pro",
+        "org": "xiaomi",
+        "rating": 1480,
+        "ci": 5,
+        "votes": 22604
+      },
+      {
+        "name": "Kimi K2.7 Code",
+        "org": "moonshot",
+        "rating": 1474,
+        "ci": 9,
+        "votes": 4950
+      },
+      {
+        "name": "DeepSeek-V4-Pro Preview (High)",
+        "org": "deepseek",
+        "rating": 1464,
+        "ci": 6,
+        "votes": 13087
+      },
+      {
+        "name": "DeepSeek-V4-Pro",
+        "org": "deepseek",
+        "rating": 1447,
+        "ci": 6,
+        "votes": 13931
+      },
+      {
+        "name": "MiMo-V2.5",
+        "org": "xiaomi",
+        "rating": 1438,
+        "ci": 6,
+        "votes": 14837
+      },
+      {
+        "name": "Kimi K2.5 (Thinking)",
+        "org": "moonshot",
+        "rating": 1436,
+        "ci": 5,
+        "votes": 20008
+      },
+      {
+        "name": "Beam 1.0 501B A23B",
+        "org": "reflection",
+        "rating": 1436,
+        "ci": 13,
+        "votes": 2932
+      },
+      {
+        "name": "GLM-5",
+        "org": "zai",
+        "rating": 1436,
+        "ci": 8,
+        "votes": 7465
+      },
+      {
+        "name": "GLM-4.7",
+        "org": "zai",
+        "rating": 1435,
+        "ci": 12,
+        "votes": 3948
+      },
+      {
+        "name": "DeepSeek-V4-Flash Preview (High)",
+        "org": "deepseek",
+        "rating": 1430,
+        "ci": 7,
+        "votes": 10074
+      },
+      {
+        "name": "Inkling",
+        "org": "thinky",
+        "rating": 1415,
+        "ci": 6,
+        "votes": 17073
+      },
+      {
+        "name": "Inkling-Small",
+        "org": "thinky",
+        "rating": 1409,
+        "ci": 9,
+        "votes": 5295
+      },
+      {
+        "name": "Kimi K2.5 (Instant)",
+        "org": "moonshot",
+        "rating": 1406,
+        "ci": 12,
+        "votes": 3246
+      },
+      {
+        "name": "Qwen3.5-397B-A17B",
+        "org": "alibaba",
+        "rating": 1400,
+        "ci": 5,
+        "votes": 21096
+      },
+      {
+        "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
+        "org": "nvidia",
+        "rating": 1399,
+        "ci": 13,
+        "votes": 3193
+      },
+      {
+        "name": "MiniMax-M2.7",
+        "org": "minimax",
+        "rating": 1398,
+        "ci": 6,
+        "votes": 15890
+      },
+      {
+        "name": "MiniMax-M2.5",
+        "org": "minimax",
+        "rating": 1386,
+        "ci": 8,
+        "votes": 7594
+      },
+      {
+        "name": "MiniMax-M2.1 Preview",
+        "org": "minimax",
+        "rating": 1384,
+        "ci": 10,
+        "votes": 7573
+      },
+      {
+        "name": "Gemma 4 31B",
+        "org": "google",
+        "rating": 1369,
+        "ci": 6,
+        "votes": 15489
+      },
+      {
+        "name": "DeepSeek-V3.2 (Thinking)",
+        "org": "deepseek",
+        "rating": 1363,
+        "ci": 9,
+        "votes": 6860
+      },
+      {
+        "name": "Qwen3.5-122B-A10B",
+        "org": "alibaba",
+        "rating": 1360,
+        "ci": 8,
+        "votes": 8210
+      },
+      {
+        "name": "Gemma 4 26B A4B",
+        "org": "google",
+        "rating": 1359,
+        "ci": 17,
+        "votes": 1494
+      },
+      {
+        "name": "Qwen3.5-27B",
+        "org": "alibaba",
+        "rating": 1358,
+        "ci": 8,
+        "votes": 7767
+      },
+      {
+        "name": "Hy3 preview",
+        "org": "tencent",
+        "rating": 1357,
+        "ci": 17,
+        "votes": 1444
+      },
+      {
+        "name": "Muse Glimmer",
+        "org": "meta",
+        "rating": 1355,
+        "ci": 16,
+        "votes": 1632
+      },
+      {
+        "name": "Laguna M.1",
+        "org": "poolside",
+        "rating": 1349,
+        "ci": 9,
+        "votes": 5359
+      },
+      {
+        "name": "GLM-4.6",
+        "org": "zai",
+        "rating": 1341,
+        "ci": 11,
+        "votes": 6755
+      },
+      {
+        "name": "MiMo-V2-Flash (Non-Thinking)",
+        "org": "xiaomi",
+        "rating": 1331,
+        "ci": 10,
+        "votes": 5645
+      },
+      {
+        "name": "DeepSeek-V3.2",
+        "org": "deepseek",
+        "rating": 1326,
+        "ci": 8,
+        "votes": 9327
+      },
+      {
+        "name": "Kimi K2 Thinking Turbo",
+        "org": "moonshot",
+        "rating": 1322,
+        "ci": 7,
+        "votes": 13045
+      },
+      {
+        "name": "Laguna XS.2",
+        "org": "poolside",
+        "rating": 1302,
+        "ci": 11,
+        "votes": 4204
+      },
+      {
+        "name": "MiniMax-M2",
+        "org": "minimax",
+        "rating": 1297,
+        "ci": 11,
+        "votes": 6683
+      },
+      {
+        "name": "MiMo-V2-Flash (Thinking)",
+        "org": "xiaomi",
+        "rating": 1292,
+        "ci": 16,
+        "votes": 1681
+      },
+      {
+        "name": "Qwen3-Coder-480B-A35B-Instruct",
+        "org": "alibaba",
+        "rating": 1275,
+        "ci": 8,
+        "votes": 12675
+      },
+      {
+        "name": "DeepSeek-V3.2-Exp",
+        "org": "deepseek",
+        "rating": 1271,
+        "ci": 14,
+        "votes": 3968
+      },
+      {
+        "name": "Mistral Medium 3.5",
+        "org": "mistral",
+        "rating": 1264,
+        "ci": 15,
+        "votes": 2299
+      },
+      {
+        "name": "Qwen3.5-35B-A3B",
+        "org": "alibaba",
+        "rating": 1254,
+        "ci": 17,
+        "votes": 1612
+      },
+      {
+        "name": "Trinity Large Thinking",
+        "org": "",
+        "rating": 1238,
+        "ci": 20,
+        "votes": 1352
+      },
+      {
+        "name": "Mistral Large 3",
+        "org": "mistral",
+        "rating": 1233,
+        "ci": 25,
+        "votes": 838
+      },
+      {
+        "name": "Devstral 2",
+        "org": "mistral",
+        "rating": 1197,
+        "ci": 21,
+        "votes": 1182
+      },
+      {
+        "name": "Granite 4.1 8B",
+        "org": "ibm",
+        "rating": 1192,
+        "ci": 18,
+        "votes": 1766
+      }
+    ],
+    "vision": [
+      {
+        "name": "GLM-5.3-Flash",
+        "org": "zai",
+        "rating": 1294,
+        "ci": 6,
+        "votes": 16254
+      },
+      {
+        "name": "Kimi K2.6",
+        "org": "moonshot",
+        "rating": 1282,
+        "ci": 7,
+        "votes": 16368
+      },
+      {
+        "name": "DeepSeek-V4.1-Flash-20260910 (Max)",
+        "org": "deepseek",
+        "rating": 1278,
+        "ci": 10,
+        "votes": 4100
+      },
+      {
+        "name": "Gemma 4 31B",
+        "org": "google",
+        "rating": 1276,
+        "ci": 6,
+        "votes": 40219
+      },
+      {
+        "name": "Qwen3.8-27B",
+        "org": "alibaba",
+        "rating": 1269,
+        "ci": 8,
+        "votes": 7614
+      },
+      {
+        "name": "Kimi K2.5 (Thinking)",
+        "org": "moonshot",
+        "rating": 1269,
+        "ci": 6,
+        "votes": 28249
+      },
+      {
+        "name": "MiMo-V2.6-Pro",
+        "org": "xiaomi",
+        "rating": 1263,
+        "ci": 15,
+        "votes": 1754
+      },
+      {
+        "name": "Qwen3.5-397B-A17B",
+        "org": "alibaba",
+        "rating": 1262,
+        "ci": 5,
+        "votes": 32657
+      },
+      {
+        "name": "Gemma 4 26B A4B",
+        "org": "google",
+        "rating": 1260,
+        "ci": 6,
+        "votes": 23922
+      },
+      {
+        "name": "MiMo-V2.6-Flash",
+        "org": "xiaomi",
+        "rating": 1256,
+        "ci": 11,
+        "votes": 3618
+      },
+      {
+        "name": "Kimi K2.5 (Instant)",
+        "org": "moonshot",
+        "rating": 1254,
+        "ci": 11,
+        "votes": 4111
+      },
+      {
+        "name": "MiniMax-M3",
+        "org": "minimax",
+        "rating": 1251,
+        "ci": 6,
+        "votes": 19844
+      },
+      {
+        "name": "MiMo-V2.5",
+        "org": "xiaomi",
+        "rating": 1247,
+        "ci": 6,
+        "votes": 29381
+      },
+      {
+        "name": "Qwen3-VL-235B-A22B-Instruct",
+        "org": "alibaba",
+        "rating": 1247,
+        "ci": 7,
+        "votes": 12724
+      },
+      {
+        "name": "Qwen3.5-122B-A10B",
+        "org": "alibaba",
+        "rating": 1244,
+        "ci": 7,
+        "votes": 13236
+      },
+      {
+        "name": "Qwen3.5-27B",
+        "org": "alibaba",
+        "rating": 1241,
+        "ci": 5,
+        "votes": 30272
+      },
+      {
+        "name": "Inkling-Small",
+        "org": "thinky",
+        "rating": 1237,
+        "ci": 8,
+        "votes": 8074
+      },
+      {
+        "name": "Mistral Medium 3.5",
+        "org": "mistral",
+        "rating": 1222,
+        "ci": 9,
+        "votes": 5375
+      },
+      {
+        "name": "Mistral Large 3",
+        "org": "mistral",
+        "rating": 1220,
+        "ci": 8,
+        "votes": 9254
+      },
+      {
+        "name": "Qwen3-VL-235B-A22B-Thinking",
+        "org": "alibaba",
+        "rating": 1207,
+        "ci": 12,
+        "votes": 2387
+      },
+      {
+        "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
+        "org": "nvidia",
+        "rating": 1205,
+        "ci": 13,
+        "votes": 2509
+      },
+      {
+        "name": "Step-3",
+        "org": "stepfun",
+        "rating": 1176,
+        "ci": 12,
+        "votes": 3193
+      },
+      {
+        "name": "Gemma 3 27B IT",
+        "org": "google",
+        "rating": 1165,
+        "ci": 8,
+        "votes": 16982
+      },
+      {
+        "name": "GLM-4.6V",
+        "org": "zai",
+        "rating": 1164,
+        "ci": 14,
+        "votes": 2455
+      },
+      {
+        "name": "GLM-4.5V",
+        "org": "zai",
+        "rating": 1154,
+        "ci": 12,
+        "votes": 3243
+      },
+      {
+        "name": "Qwen2.5-VL-32B-Instruct",
+        "org": "alibaba",
+        "rating": 1152,
+        "ci": 15,
+        "votes": 1490
+      },
+      {
+        "name": "Mistral Small 3.2 (2506)",
+        "org": "mistral",
+        "rating": 1142,
+        "ci": 9,
+        "votes": 10843
+      },
+      {
+        "name": "Llama 4 Maverick 17B 128E Instruct",
+        "org": "meta",
+        "rating": 1142,
+        "ci": 9,
+        "votes": 6923
+      },
+      {
+        "name": "Mistral Small 3.1 24B Instruct (2503)",
+        "org": "mistral",
+        "rating": 1136,
+        "ci": 8,
+        "votes": 28490
+      },
+      {
+        "name": "Llama 4 Scout 17B 16E Instruct",
+        "org": "meta",
+        "rating": 1118,
+        "ci": 9,
+        "votes": 6446
+      },
+      {
+        "name": "Qwen2.5-VL-72B-Instruct",
+        "org": "alibaba",
+        "rating": 1107,
+        "ci": 11,
+        "votes": 3768
+      },
+      {
+        "name": "Pixtral Large (2411)",
+        "org": "mistral",
+        "rating": 1089,
+        "ci": 9,
+        "votes": 5423
+      },
+      {
+        "name": "Molmo 2 8B",
+        "org": "allenai",
+        "rating": 1081,
+        "ci": 20,
+        "votes": 1190
+      },
+      {
+        "name": "Qwen2-VL-72B",
+        "org": "alibaba",
+        "rating": 1047,
+        "ci": 10,
+        "votes": 5937
+      },
+      {
+        "name": "Molmo 72B (0924)",
+        "org": "allenai",
+        "rating": 1012,
+        "ci": 13,
+        "votes": 3048
+      },
+      {
+        "name": "Pixtral 12B (2409)",
+        "org": "mistral",
+        "rating": 1009,
+        "ci": 10,
+        "votes": 7511
+      },
+      {
+        "name": "InternVL2 26B",
+        "org": "",
+        "rating": 1005,
+        "ci": 13,
+        "votes": 5148
+      },
+      {
+        "name": "Llama 3.2 90B Vision Instruct",
+        "org": "meta",
+        "rating": 1000,
+        "ci": 9,
+        "votes": 8682
+      },
+      {
+        "name": "Aya Vision 32B",
+        "org": "cohere",
+        "rating": 996,
+        "ci": 22,
+        "votes": 847
+      },
+      {
+        "name": "Qwen2-VL-7B-Instruct",
+        "org": "alibaba",
+        "rating": 990,
+        "ci": 11,
+        "votes": 5766
+      },
+      {
+        "name": "Llama 3.2 11B Vision Instruct",
+        "org": "meta",
+        "rating": 966,
+        "ci": 11,
+        "votes": 4817
+      },
+      {
+        "name": "Molmo 7B-D (0924)",
+        "org": "allenai",
+        "rating": 959,
+        "ci": 14,
+        "votes": 2815
+      },
+      {
+        "name": "InternVL2 4B",
+        "org": "",
+        "rating": 941,
+        "ci": 13,
+        "votes": 3703
+      },
+      {
+        "name": "nvila-internal-15b-v1",
+        "org": "nvidia",
+        "rating": 940,
+        "ci": 20,
+        "votes": 1077
+      },
+      {
+        "name": "LLaVA 1.6 34B",
+        "org": "",
+        "rating": 936,
+        "ci": 12,
+        "votes": 4531
+      },
+      {
+        "name": "CogVLM2 Llama3 Chat 19B",
+        "org": "zai",
+        "rating": 928,
+        "ci": 15,
+        "votes": 1991
+      },
+      {
+        "name": "LLaVA-OneVision Qwen2 72B OV",
+        "org": "",
+        "rating": 923,
+        "ci": 18,
+        "votes": 1321
+      },
+      {
+        "name": "MiniCPM-V 2.6",
+        "org": "",
+        "rating": 912,
+        "ci": 16,
+        "votes": 1987
+      },
+      {
+        "name": "Phi-3.5 Vision Instruct",
+        "org": "microsoft",
+        "rating": 851,
+        "ci": 16,
+        "votes": 2592
+      },
+      {
+        "name": "Phi-3 Vision 128K Instruct",
+        "org": "microsoft",
+        "rating": 812,
+        "ci": 19,
+        "votes": 1401
+      }
+    ],
+    "text_to_image": [
+      {
+        "name": "Qwen-Image-2.1",
+        "org": "alibaba",
+        "rating": 1225,
+        "ci": 6,
+        "votes": 19604
+      },
+      {
+        "name": "Ideogram 4.0 (Quality)",
+        "org": "ideogram",
+        "rating": 1200,
+        "ci": 4,
+        "votes": 72865
+      },
+      {
+        "name": "Cosmos3-Super-Text2Image (Agentic)",
+        "org": "nvidia",
+        "rating": 1164,
+        "ci": 7,
+        "votes": 10803
+      },
+      {
+        "name": "HunyuanImage 3.0",
+        "org": "tencent",
+        "rating": 1151,
+        "ci": 3,
+        "votes": 180498
+      },
+      {
+        "name": "Cosmos3-Super-Text2Image",
+        "org": "nvidia",
+        "rating": 1151,
+        "ci": 6,
+        "votes": 18480
+      },
+      {
+        "name": "FLUX.2 [dev]",
+        "org": "bfl",
+        "rating": 1145,
+        "ci": 4,
+        "votes": 77975
+      },
+      {
+        "name": "Qwen-Image (2512)",
+        "org": "alibaba",
+        "rating": 1125,
+        "ci": 3,
+        "votes": 98272
+      },
+      {
+        "name": "HiDream-O1-Image",
+        "org": "hidream",
+        "rating": 1115,
+        "ci": 4,
+        "votes": 77624
+      },
+      {
+        "name": "Krea 2 Turbo",
+        "org": "krea",
+        "rating": 1114,
+        "ci": 4,
+        "votes": 63944
+      },
+      {
+        "name": "Z-Image-Turbo",
+        "org": "alibaba",
+        "rating": 1082,
+        "ci": 5,
+        "votes": 24963
+      },
+      {
+        "name": "FLUX.2 [klein] 9B",
+        "org": "bfl",
+        "rating": 1070,
+        "ci": 3,
+        "votes": 150695
+      },
+      {
+        "name": "Qwen-Image (Prompt Extend)",
+        "org": "alibaba",
+        "rating": 1061,
+        "ci": 3,
+        "votes": 716671
+      },
+      {
+        "name": "Qwen-Image",
+        "org": "alibaba",
+        "rating": 1057,
+        "ci": 3,
+        "votes": 84534
+      },
+      {
+        "name": "FLUX.2 [klein] 4B",
+        "org": "bfl",
+        "rating": 1030,
+        "ci": 3,
+        "votes": 152289
+      },
+      {
+        "name": "GLM-Image",
+        "org": "zai",
+        "rating": 1012,
+        "ci": 9,
+        "votes": 4854
+      },
+      {
+        "name": "FLUX.1 [dev] (FP8)",
+        "org": "bfl",
+        "rating": 969,
+        "ci": 4,
+        "votes": 49221
+      },
+      {
+        "name": "FLUX.1 Kontext [dev]",
+        "org": "bfl",
+        "rating": 942,
+        "ci": 4,
+        "votes": 216222
+      },
+      {
+        "name": "Stable Diffusion 3.5 Large",
+        "org": "",
+        "rating": 938,
+        "ci": 4,
+        "votes": 23396
+      },
+      {
+        "name": "BAGEL",
+        "org": "bytedance",
+        "rating": 897,
+        "ci": 6,
+        "votes": 12361
+      }
+    ],
+    "image_edit": [
+      {
+        "name": "Krea 3 Ultra",
+        "org": "krea",
+        "rating": 1411,
+        "ci": 11,
+        "votes": 2799
+      },
+      {
+        "name": "Qwen-Image-2.1",
+        "org": "alibaba",
+        "rating": 1362,
+        "ci": 6,
+        "votes": 39412
+      },
+      {
+        "name": "HunyuanImage 3.0 Instruct",
+        "org": "tencent",
+        "rating": 1302,
+        "ci": 3,
+        "votes": 331432
+      },
+      {
+        "name": "Qwen-Image-Edit",
+        "org": "alibaba",
+        "rating": 1241,
+        "ci": 3,
+        "votes": 2021753
+      },
+      {
+        "name": "Qwen-Image-Edit (2511)",
+        "org": "alibaba",
+        "rating": 1233,
+        "ci": 3,
+        "votes": 485084
+      },
+      {
+        "name": "FLUX.2 [klein] 9B",
+        "org": "bfl",
+        "rating": 1224,
+        "ci": 3,
+        "votes": 540682
+      },
+      {
+        "name": "FLUX.2 [dev]",
+        "org": "bfl",
+        "rating": 1224,
+        "ci": 4,
+        "votes": 254181
+      },
+      {
+        "name": "FLUX.2 [klein] 4B",
+        "org": "bfl",
+        "rating": 1187,
+        "ci": 3,
+        "votes": 541233
+      },
+      {
+        "name": "FLUX.1 Kontext [dev]",
+        "org": "bfl",
+        "rating": 1151,
+        "ci": 3,
+        "votes": 3639663
+      },
+      {
+        "name": "BAGEL",
+        "org": "bytedance",
+        "rating": 1027,
+        "ci": 6,
+        "votes": 13488
+      },
+      {
+        "name": "Step1X-Edit",
+        "org": "stepfun",
+        "rating": 996,
+        "ci": 5,
+        "votes": 155416
+      }
+    ],
+    "text_to_video": [
+      {
+        "name": "minimax-h3",
+        "org": "minimax",
+        "rating": 1460,
+        "ci": 9,
+        "votes": 11417
+      },
+      {
+        "name": "kandinsky-5.0-t2v-pro",
+        "org": "kandinsky",
+        "rating": 1175,
+        "ci": 21,
+        "votes": 2019
+      },
+      {
+        "name": "hunyuan-video-1.5",
+        "org": "tencent",
+        "rating": 1169,
+        "ci": 16,
+        "votes": 4292
+      },
+      {
+        "name": "ltx-2-19b",
+        "org": "",
+        "rating": 1154,
+        "ci": 8,
+        "votes": 75596
+      },
+      {
+        "name": "wan-v2.2-a14b",
+        "org": "alibaba",
+        "rating": 1132,
+        "ci": 15,
+        "votes": 10458
+      },
+      {
+        "name": "kandinsky-5.0-t2v-lite",
+        "org": "kandinsky",
+        "rating": 1113,
+        "ci": 18,
+        "votes": 1474
+      },
+      {
+        "name": "mochi-v1",
+        "org": "genmo",
+        "rating": 1007,
+        "ci": 17,
+        "votes": 5893
+      }
+    ],
+    "image_to_video": [
+      {
+        "name": "minimax-h3",
+        "org": "minimax",
+        "rating": 1495,
+        "ci": 5,
+        "votes": 57112
+      },
+      {
+        "name": "hunyuan-video-1.5",
+        "org": "tencent",
+        "rating": 1198,
+        "ci": 16,
+        "votes": 5462
+      },
+      {
+        "name": "wan-v2.2-a14b",
+        "org": "alibaba",
+        "rating": 1170,
+        "ci": 10,
+        "votes": 27054
+      },
+      {
+        "name": "ltx-2-19b",
+        "org": "",
+        "rating": 1159,
+        "ci": 5,
+        "votes": 262336
+      }
+    ]
+  }
+}

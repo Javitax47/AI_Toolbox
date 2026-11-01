@@ -29,7 +29,7 @@ export async function fetchText(url, { timeout = 20000, retries = 2, headers = {
     }
   }
   console.warn(`  ! fetch falló: ${url} (${lastErr?.message})`);
-  return null;
+  return undefined; // fallo transitorio (red, 429, 5xx); null = no existe
 }
 
 export async function fetchJSON(url, opts) {

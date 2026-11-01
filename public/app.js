@@ -3,7 +3,7 @@ const $ = (sel, el = document) => el.querySelector(sel);
 const app = $('#app');
 
 const S = {
-  models: [], tasks: [], taskMap: {}, articles: [], meta: {},
+  models: [], tasks: [], taskMap: {}, articles: [], meta: {}, boards: {}, byId: new Map(),
   filters: defaultFilters(),
   query: '',
   shown: 48,
@@ -11,14 +11,20 @@ const S = {
 };
 
 function defaultFilters() {
-  return { task: '', kind: '', maxVram: '', params: '', speed: 0, quality: 0, permissive: false, age: '', sort: 'relevance', quant: false };
+  return { task: '', kind: '', maxVram: '', params: '', speed: 0, hideDominated: true, evidence: false, permissive: false, age: '', sort: 'relevance', quant: false };
 }
 
 // ---------- utilidades ----------
 const esc = (s = '') => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const norm = (s = '') => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 const fmtNum = (n) => (n >= 1e6 ? (n / 1e6).toFixed(1) + 'M' : n >= 1e3 ? (n / 1e3).toFixed(1) + 'k' : String(n ?? 0));
-const fmtParams = (p) => (!p ? '?' : p >= 1e9 ? `${+(p / 1e9).toFixed(p < 1e10 ? 1 : 0)}B` : `${Math.round(p / 1e6)}M`);
+const fmtParams = (p) => (!p ? '—' : p >= 1e9 ? `${+(p / 1e9).toFixed(p < 1e10 ? 1 : 0)}B` : `${Math.round(p / 1e6)}M`);
+const paramsOf = (m) => (m.params ? (m.paramsApprox ? '≈' : '') + fmtParams(m.params) : '—');
+const fmtVal = (v) => (v == null ? '—' : Math.abs(v) >= 100 ? String(Math.round(v)) : String(+v.toFixed(2)));
+const bench = (m, key) => (m.benchmarks || []).find((b) => b.key === key);
+const hasEvidence = (m) => m.cmp && m.cmp.basis !== 'comunidad';
+const speedOf = (m) => (m.speed?.value ? `~${m.speed.value} tok/s` : m.speed?.text ? (m.speed.level >= 4 ? 'Tiempo real' : 'Declarada') : '—');
+const SOURCE = { hf: 'Hugging Face (eval results)', 'model-index': 'ficha (model-index)', ficha: 'ficha / README', arena: 'LMArena (votos humanos)' };
 const daysSince = (d) => (Date.now() - new Date(d)) / 86400000;
 const timeAgo = (d) => {
   const m = (Date.now() - new Date(d)) / 60000;
@@ -38,6 +44,8 @@ async function load() {
   const get = (p) => fetch(p, { cache: 'no-cache' }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
   const [models, tasks, articles, meta] = await Promise.all([get('data/models.json'), get('data/tasks.json'), get('data/articles.json'), get('data/meta.json')]);
   S.models = models?.models || [];
+  S.boards = models?.boards || {};
+  S.byId = new Map(S.models.map((m) => [m.id, m]));
   S.tasks = tasks || [];
   S.taskMap = Object.fromEntries(S.tasks.map((t) => [t.tag, t]));
   S.articles = articles?.articles || [];
@@ -96,7 +104,8 @@ function scoreModel(m, pq) {
   // si la consulta apunta a una tarea concreta, otras tareas solo entran con coincidencias fuertes
   if (pq.maxTask && !ts && hits < 2) return -1;
   if (pq.constraints.spanish && (m.languages || []).includes('es')) s += 8;
-  return s + m.quality * 0.25 + Math.min(15, m.trending / 20);
+  // Entre candidatos de la misma tarea pesa más el que rinde mejor frente a sus competidores
+  return s + (m.cmp?.score || 0) * (hasEvidence(m) ? 0.3 : 0.15) + Math.min(15, m.trending / 20) - (m.cmp?.dominatedBy?.length ? 15 : 0);
 }
 
 function filterModels() {
@@ -113,7 +122,8 @@ function filterModels() {
     if (maxVram != null && !(m.minVram != null && m.minVram <= maxVram)) return false;
     if (f.params) { const [lo, hi] = f.params.split('-').map(Number); const b = (m.params || 0) / 1e9; if (!m.params || b < lo || b >= hi) return false; }
     if (minSpeed && !(m.speed && m.speed.level >= minSpeed)) return false;
-    if (f.quality && m.quality < f.quality) return false;
+    if (f.hideDominated && m.cmp?.dominatedBy?.length) return false;
+    if (f.evidence && !hasEvidence(m)) return false;
     if (permissive && m.permissive !== true) return false;
     if (f.quant && !m.hasQuant) return false;
     if (f.age && daysSince(m.createdAt) > +f.age) return false;
@@ -121,7 +131,7 @@ function filterModels() {
   });
   const sorters = {
     relevance: (a, b) => b.s - a.s,
-    quality: (a, b) => b.m.quality - a.m.quality,
+    quality: (a, b) => (hasEvidence(b.m) - hasEvidence(a.m)) || (b.m.cmp?.score || 0) - (a.m.cmp?.score || 0),
     trending: (a, b) => b.m.trending - a.m.trending,
     newest: (a, b) => new Date(b.m.createdAt) - new Date(a.m.createdAt),
     vram: (a, b) => (a.m.minVram ?? 1e9) - (b.m.minVram ?? 1e9),
@@ -203,9 +213,6 @@ function renderToolbox() {
           <option value="2">Medio o más</option>
         </select>
       </label>
-      <label>Calidad mínima: <span id="qv">${S.filters.quality}</span>
-        <input type="range" min="0" max="90" step="5" data-f="quality" value="${S.filters.quality}" />
-      </label>
       <label>Publicado
         <select data-f="age">
           <option value="">En cualquier momento</option>
@@ -215,10 +222,12 @@ function renderToolbox() {
           <option value="365">Último año</option>
         </select>
       </label>
+      <label class="check"><input type="checkbox" data-f="hideDominated" ${S.filters.hideDominated ? 'checked' : ''}/> Ocultar modelos superados por otro mejor y más ligero</label>
+      <label class="check"><input type="checkbox" data-f="evidence" ${S.filters.evidence ? 'checked' : ''}/> Solo con benchmarks comparables</label>
       <label class="check"><input type="checkbox" data-f="permissive" ${S.filters.permissive ? 'checked' : ''}/> Licencia permisiva (uso comercial)</label>
       <label class="check"><input type="checkbox" data-f="quant" ${S.filters.quant ? 'checked' : ''}/> Con versiones cuantizadas</label>
       <button class="reset" id="reset">Restablecer filtros</button>
-      <p class="note">VRAM, velocidad y calidad son estimaciones automáticas. Calidad combina los benchmarks de la ficha (evaluados por IA) con la tracción en la comunidad.</p>
+      <p class="note">La posición de cada modelo se calcula frente a los demás de su categoría con los benchmarks que publican sus autores y el Elo de LMArena. Si una categoría no tiene benchmarks comunes, se ordena por popularidad (estrellas, likes, descargas) y se indica.</p>
     </aside>
     <div>
       <div class="result-bar">
@@ -228,7 +237,7 @@ function renderToolbox() {
           Ordenar:
           <select data-f="sort">
             <option value="relevance">Relevancia</option>
-            <option value="quality">Calidad</option>
+            <option value="quality">Mejor en su categoría</option>
             <option value="trending">Tendencia</option>
             <option value="newest">Más nuevos</option>
             <option value="vram">Menos VRAM</option>
@@ -245,8 +254,7 @@ function renderToolbox() {
     const k = el.dataset.f;
     if (el.type !== 'checkbox' && el.type !== 'range') el.value = String(S.filters[k]);
     el.addEventListener(el.type === 'range' ? 'input' : 'change', () => {
-      S.filters[k] = el.type === 'checkbox' ? el.checked : ['speed', 'quality'].includes(k) ? +el.value : el.value;
-      if (k === 'quality') $('#qv').textContent = el.value;
+      S.filters[k] = el.type === 'checkbox' ? el.checked : k === 'speed' ? +el.value : el.value;
       S.shown = 48;
       renderResults();
     });
@@ -286,75 +294,196 @@ function renderResults() {
   $('#more').hidden = list.length <= S.shown;
 }
 
+function rankLine(m) {
+  const c = m.cmp;
+  if (!c) return '';
+  if (c.dominatedBy?.length) {
+    const d = c.dominatedBy[0];
+    return `<div class="rank warn" title="${esc(d.reason)}">⚠ Superado por <b>${esc(d.name)}</b>: ${esc(d.reason)}</div>`;
+  }
+  if (hasEvidence(m)) {
+    const board = S.boards[m.task];
+    return `<div class="rank"><span>🏆 <b>#${c.rank}</b> de ${board?.evidenced ?? c.evidenced} con benchmarks en ${esc(taskLabel(m.task))}</span><div class="bar" title="Percentil medio en ${c.keys} benchmark${c.keys === 1 ? '' : 's'} frente a su categoría"><i style="width:${c.score}%"></i></div></div>`;
+  }
+  return `<div class="rank muted">Sin benchmarks comparables · popularidad: percentil ${c.score} en su categoría</div>`;
+}
+
 function modelCard(m) {
   const isNew = daysSince(m.createdAt) <= 7;
   const hasNews = S.articlesByModel[m.id]?.length;
+  const stats = isProject(m)
+    ? [['Estrellas', `★ ${fmtNum(m.likes)}`], ['Ritmo', m.starVelocity ? `${m.starVelocity} ★/día` : '—'], ['VRAM mín.', m.minVram != null ? `${m.minVram} GB` : '—', m.vramBasis]]
+    : [['Parámetros', paramsOf(m) + (m.activeParams ? ` <small>(${fmtParams(m.activeParams)} act.)</small>` : ''), m.paramsApprox ? 'Aproximado a partir del tamaño de los pesos' : ''],
+       ['VRAM mín.', m.minVram != null ? `${m.minVram} GB` : '—', m.vramBasis],
+       m.speed ? ['Velocidad', speedOf(m), m.speed.value ? `Estimación en ${m.speed.ref}` : m.speed.text] : ['Descargas', `⬇ ${fmtNum(m.downloads)}`]];
+  const extra = [
+    isNew && '<span class="badge new">Nuevo</span>',
+    m.trending >= 50 && '<span class="badge hot">🔥 Tendencia</span>',
+    hasNews && '<span class="badge news">📰 En la revista</span>',
+    isProject(m) && '<span class="badge news">🧪 Investigación</span>',
+    m.paper && !isProject(m) && '<span class="badge">📄 Paper</span>',
+    m.mentions?.length && `<span class="badge hot" title="${esc(m.mentions.join(' · '))}">📺 Destacado</span>`,
+    m.permissive && '<span class="badge">Uso comercial</span>',
+    m.hasQuant && '<span class="badge">Cuantizado</span>',
+  ].filter(Boolean);
   return `<a class="card" href="#/modelo/${encodeURI(m.id)}">
-    <div class="card-head">
-      <div><div class="card-title">${esc(m.name)}</div><div class="card-author">${esc(m.author)} · ${timeAgo(m.createdAt)}</div></div>
-      <span class="task-tag">${taskIcon(m.task)} ${esc(taskLabel(m.task))}</span>
-    </div>
+    <div class="card-top"><span class="task-tag">${taskIcon(m.task)} ${esc(taskLabel(m.task))}</span><span class="card-date">${timeAgo(m.createdAt)}</span></div>
+    <div><div class="card-title">${esc(m.name)}</div><div class="card-author">${esc(m.author)}${isProject(m) ? '' : ` · ♥ ${fmtNum(m.likes)}`}</div></div>
     <p>${esc(m.summary || 'Sin descripción disponible.')}</p>
-    <div class="stats">
-      ${isProject(m)
-        ? `<div class="stat"><span>Estrellas</span><b>★ ${fmtNum(m.likes)}</b></div>`
-        : `<div class="stat"><span>Parámetros</span><b>${fmtParams(m.params)}${m.activeParams ? ` <small>(${fmtParams(m.activeParams)} act.)</small>` : ''}</b></div>`}
-      <div class="stat" title="${esc(m.hwTier)}"><span>VRAM mín.</span><b>${m.minVram != null ? m.minVram + ' GB' : '?'}</b></div>
-      <div class="stat" title="${esc(m.speed?.ref || '')}"><span>Velocidad</span><b>${m.speed ? (m.speed.value ? `${m.speed.value} tok/s` : m.speed.label) : '?'}</b></div>
-    </div>
-    <div class="quality"><span>Calidad</span><div class="bar"><i style="width:${m.quality}%"></i></div><b>${m.quality}</b></div>
-    <div class="badges">
-      ${isNew ? '<span class="badge new">Nuevo</span>' : ''}
-      ${m.trending >= 50 ? '<span class="badge hot">🔥 Tendencia</span>' : ''}
-      ${hasNews ? '<span class="badge news">📰 En la revista</span>' : ''}
-      ${isProject(m) ? '<span class="badge news">🧪 Proyecto de investigación</span>' : ''}
-      ${m.paper && !isProject(m) ? '<span class="badge">📄 Con paper</span>' : ''}
-      ${m.mentions?.length ? `<span class="badge hot" title="${esc(m.mentions.join(' · '))}">📺 Destacado</span>` : ''}
-      ${tasksOf(m).slice(1).map((t) => `<span class="badge">${taskIcon(t)} ${esc(taskLabel(t))}</span>`).join('')}
-      ${m.license ? `<span class="badge">${esc(m.license)}</span>` : ''}
-      ${m.hasQuant ? '<span class="badge">Cuantizado</span>' : ''}
-      ${isProject(m) ? '' : `<span class="badge">♥ ${fmtNum(m.likes)}</span><span class="badge">⬇ ${fmtNum(m.downloads)}</span>`}
-    </div>
+    <div class="stats">${stats.map(([k, v, t]) => `<div class="stat"${t ? ` title="${esc(t)}"` : ''}><span>${k}</span><b>${v}</b></div>`).join('')}</div>
+    ${rankLine(m)}
+    ${extra.length ? `<div class="badges">${extra.join('')}</div>` : ''}
   </a>`;
 }
 
+/** Modelos de la misma tarea con los que compararse: los que lo superan + los mejores de tamaño parecido */
+function peersOf(m, n = 7) {
+  const same = S.models.filter((x) => x.task === m.task && x.id !== m.id);
+  const dom = (m.cmp?.dominatedBy || []).map((d) => S.byId.get(d.id)).filter(Boolean);
+  const shareKeys = (x) => (x.benchmarks || []).filter((b) => bench(m, b.key)).length;
+  const near = (x) => !m.params || !x.params || (x.params / m.params > 0.2 && x.params / m.params < 5);
+  const ranked = same.filter((x) => !dom.includes(x))
+    .sort((a, b) => (shareKeys(b) >= 2) - (shareKeys(a) >= 2) || near(b) - near(a) || (a.cmp?.rank || 1e9) - (b.cmp?.rank || 1e9));
+  return [m, ...dom, ...ranked].slice(0, n + 1);
+}
+
+function compareTable(m) {
+  const peers = peersOf(m);
+  if (peers.length < 2) return '';
+  // Columnas: benchmarks que comparte con más modelos del grupo
+  const count = {};
+  for (const p of peers) for (const b of p.benchmarks || []) if (bench(m, b.key)) count[b.key] = (count[b.key] || 0) + 1;
+  const keys = Object.keys(count).filter((k) => count[k] >= 2).sort((a, b) => count[b] - count[a]).slice(0, 6);
+  const best = {};
+  for (const k of keys) {
+    const vals = peers.map((p) => bench(p, k)).filter(Boolean);
+    best[k] = vals.length ? (vals[0].lower ? Math.min : Math.max)(...vals.map((b) => b.value)) : null;
+  }
+  const minVram = Math.min(...peers.map((p) => p.minVram ?? Infinity));
+  const verdict = (p) => {
+    if (p === m) return '<span class="badge">Este modelo</span>';
+    const d = m.cmp?.dominatedBy?.find((x) => x.id === p.id);
+    if (d) return `<span class="badge new" title="${esc(d.reason)}">Mejor opción</span>`;
+    if (p.cmp?.dominatedBy?.some((x) => x.id === m.id)) return '<span class="badge">Superado por este</span>';
+    return '';
+  };
+  const rows = peers.map((p) => `<tr class="${p === m ? 'self' : ''}">
+    <td><a href="#/modelo/${encodeURI(p.id)}">${esc(p.name)}</a><div class="note">${esc(p.author)}</div></td>
+    ${keys.map((k) => { const b = bench(p, k); return `<td class="${b && b.value === best[k] ? 'best' : ''}">${b ? fmtVal(b.value) : '—'}</td>`; }).join('')}
+    <td>${isProject(p) ? '★ ' + fmtNum(p.likes) : paramsOf(p)}</td>
+    <td class="${p.minVram === minVram ? 'best' : ''}">${p.minVram != null ? p.minVram + ' GB' : '—'}</td>
+    <td>${speedOf(p)}</td>
+    <td>${p.permissive ? 'Sí' : p.permissive === false ? 'No' : '?'}</td>
+    <td>${verdict(p)}</td></tr>`).join('');
+  return `<div class="panel"><h2>Comparativa con modelos de la misma tarea</h2>
+    ${keys.length ? '' : '<p class="note">Estos modelos no publican benchmarks en común con este; se comparan tamaño, memoria y licencia.</p>'}
+    <div class="table-wrap"><table class="cmp">
+      <tr><th>Modelo</th>${keys.map((k) => { const b = bench(m, k); return `<th title="${esc(SOURCE[b.source] || '')}">${esc(b.name)}${b.lower ? ' ↓' : ''}</th>`; }).join('')}<th>${isProject(m) ? 'Tamaño' : 'Parámetros'}</th><th>VRAM mín.</th><th>Velocidad</th><th>Uso comercial</th><th></th></tr>
+      ${rows}
+    </table></div>
+    <p class="note">En verde, el mejor valor de cada columna. ↓ = menos es mejor. Los benchmarks los declaran los autores de cada modelo y pueden usar configuraciones distintas.</p></div>`;
+}
+
 function renderModel(id) {
-  const m = S.models.find((x) => x.id === id);
+  const m = S.byId.get(id);
   if (!m) { app.innerHTML = `<p class="empty">Modelo no encontrado. <a href="#/toolbox">Volver al toolbox</a></p>`; return; }
   const arts = S.articlesByModel[m.id] || [];
+  const c = m.cmp || {};
+  const board = S.boards[m.task];
+  const position = hasEvidence(m)
+    ? `#${c.rank} de ${board?.evidenced ?? c.evidenced} con benchmarks`
+    : `Sin benchmarks comparables`;
   app.innerHTML = `<article class="detail">
     <a class="back" href="#/toolbox">← Toolbox</a>
     <div class="kicker">${taskIcon(m.task)} ${esc(taskLabel(m.task))} <time>publicado ${fmtDate(m.createdAt)}</time></div>
     <h1>${esc(m.name)}</h1>
     <p class="lead">${esc(m.summary || '')}</p>
-    <p><a class="btn" href="${esc(m.url)}" target="_blank" rel="noopener">${isProject(m) ? 'Ver código en GitHub ↗' : 'Ver en Hugging Face ↗'}</a>
+    <p class="actions"><a class="btn" href="${esc(m.url)}" target="_blank" rel="noopener">${isProject(m) ? 'Ver código en GitHub ↗' : 'Ver en Hugging Face ↗'}</a>
        ${m.paper ? `<a class="btn ghost" href="${esc(safeUrl(m.paper))}" target="_blank" rel="noopener">Paper ↗</a>` : ''}
        ${m.project ? `<a class="btn ghost" href="${esc(safeUrl(m.project))}" target="_blank" rel="noopener">Página del proyecto ↗</a>` : ''}
        ${m.code && !isProject(m) ? `<a class="btn ghost" href="${esc(safeUrl(m.code))}" target="_blank" rel="noopener">Código ↗</a>` : ''}
-       ${m.hasQuant ? `<a class="btn ghost" href="https://huggingface.co/models?other=base_model:quantized:${encodeURIComponent(m.id)}" target="_blank" rel="noopener">Versiones cuantizadas ↗</a>` : ''}</p>
+       ${m.hasQuant ? `<a class="btn ghost" href="https://huggingface.co/models?other=base_model:quantized:${encodeURIComponent(m.id)}" target="_blank" rel="noopener">Versiones cuantizadas ↗</a>` : ''}
+       <a class="btn ghost" href="#/rankings/${encodeURIComponent(m.task)}">Ranking de ${esc(taskLabel(m.task))}</a></p>
+    ${c.dominatedBy?.length ? `<div class="panel warn"><h2>⚠ Hay alternativas mejores</h2><ul>${c.dominatedBy.map((d) => `<li><a href="#/modelo/${encodeURI(d.id)}">${esc(d.name)}</a>: ${esc(d.reason)} (${d.shared} benchmarks en común)</li>`).join('')}</ul></div>` : ''}
     <div class="detail-stats">
-      <div class="stat"><span>Autor</span><b>${esc(m.author)}</b></div>
-      <div class="stat"><span>Parámetros</span><b>${fmtParams(m.params)}${m.activeParams ? ` (${fmtParams(m.activeParams)} activos)` : ''}</b></div>
-      <div class="stat"><span>Hardware mínimo</span><b>${esc(m.hwTier)}</b></div>
-      <div class="stat"><span>Velocidad est.</span><b>${m.speed ? (m.speed.value ? `~${m.speed.value} tok/s` : m.speed.label) : '?'}</b><span>${esc(m.speed?.ref || '')}</span></div>
-      <div class="stat"><span>Calidad</span><b>${m.quality}/100</b></div>
-      <div class="stat"><span>Licencia</span><b>${esc(m.license || '?')}</b></div>
-      <div class="stat"><span>${isProject(m) ? 'Estrellas GitHub' : 'Likes / descargas'}</span><b>${isProject(m) ? '★ ' + fmtNum(m.likes) : `${fmtNum(m.likes)} / ${fmtNum(m.downloads)}`}</b></div>
-      <div class="stat"><span>Categorías</span><b>${tasksOf(m).map((t) => esc(taskLabel(t))).join(' · ')}</b></div>
+      <div class="stat"><span>Posición en su categoría</span><b>${position}</b><span>${hasEvidence(m) ? `percentil medio ${c.score} en ${c.keys} benchmark${c.keys === 1 ? '' : 's'}` : `popularidad: percentil ${c.score}`}</span></div>
+      <div class="stat"><span>${isProject(m) ? 'Estrellas GitHub' : 'Parámetros'}</span><b>${isProject(m) ? '★ ' + fmtNum(m.likes) : paramsOf(m) + (m.activeParams ? ` (${fmtParams(m.activeParams)} activos)` : '')}</b><span>${isProject(m) ? (m.starVelocity ? m.starVelocity + ' ★/día' : '') : m.paramsApprox ? 'aprox. por tamaño de pesos' : ''}</span></div>
+      <div class="stat"><span>Memoria mínima</span><b>${m.minVram != null ? m.minVram + ' GB' : 'Sin datos'}</b><span>${esc(m.vramBasis || '')}</span></div>
+      <div class="stat"><span>Hardware</span><b>${esc(m.hwTier || 'Sin datos')}</b></div>
+      <div class="stat"><span>Velocidad</span><b>${m.speed?.value ? `~${m.speed.value} tok/s` : m.speed?.text ? esc(m.speed.text) : 'Sin datos'}</b><span>${m.speed?.value ? 'estimación en ' + esc(m.speed.ref) : m.speed ? 'según la ficha' : ''}</span></div>
+      <div class="stat"><span>Licencia</span><b>${esc(m.license || '?')}</b><span>${m.permissive ? 'permite uso comercial' : m.permissive === false ? 'revisa las condiciones' : ''}</span></div>
+      ${isProject(m) ? '' : `<div class="stat"><span>Likes / descargas</span><b>${fmtNum(m.likes)} / ${fmtNum(m.downloads)}</b></div>`}
     </div>
+    ${compareTable(m)}
+    ${m.benchmarks?.length ? `<div class="panel"><h2>Benchmarks (${m.benchmarks.length})</h2><div class="table-wrap"><table class="cmp">
+      <tr><th>Benchmark</th><th>Resultado</th><th>Fuente</th><th>Posición en la categoría</th></tr>
+      ${m.benchmarks.map((b) => {
+        const others = S.models.filter((x) => x.task === m.task && bench(x, b.key));
+        const better = others.filter((x) => (b.lower ? bench(x, b.key).value < b.value : bench(x, b.key).value > b.value)).length;
+        return `<tr><td>${esc(b.name)}${b.lower ? ' ↓' : ''}</td><td>${fmtVal(b.value)}${b.ci ? ` <small>±${b.ci}</small>` : ''}</td><td class="note" title="${esc(b.note || '')}">${esc(SOURCE[b.source] || b.source)}</td><td>${others.length >= 3 ? `${better + 1}.º de ${others.length}` : '<span class="note">pocos modelos lo publican</span>'}</td></tr>`;
+      }).join('')}
+    </table></div></div>` : ''}
     ${m.mentions?.length ? `<div class="panel"><h2>Destacado en</h2><ul>${m.mentions.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
     ${m.useCases?.length ? `<div class="panel"><h2>Casos de uso</h2><ul>${m.useCases.map((u) => `<li>${esc(u)}</li>`).join('')}</ul></div>` : ''}
-    ${m.vram ? `<div class="panel"><h2>Memoria estimada (VRAM / RAM unificada)</h2>
+    ${m.vram ? `<div class="panel"><h2>Memoria estimada por precisión</h2>
       <table class="vram"><tr><th>Precisión</th><th>Memoria</th></tr>
       <tr><td>4 bits (Q4 / AWQ)</td><td>${m.vram.q4} GB</td></tr>
       <tr><td>8 bits (Q8 / FP8)</td><td>${m.vram.q8} GB</td></tr>
       <tr><td>16 bits (FP16 / BF16)</td><td>${m.vram.fp16} GB</td></tr></table>
       ${m.hardwareNote ? `<p class="note">Según la ficha: ${esc(m.hardwareNote)}</p>` : ''}
-      ${m.speedNote ? `<p class="note">Velocidad según la ficha: ${esc(m.speedNote)}</p>` : ''}
-      <p class="note">Estimación: parámetros × bytes por peso × 1,2 de margen (contexto/activaciones). Contextos largos necesitan más.</p></div>` : ''}
-    ${m.benchmarks?.length ? `<div class="panel"><h2>Benchmarks declarados</h2><ul>${m.benchmarks.map((b) => `<li><b>${esc(b.name)}</b>: ${esc(b.value)}</li>`).join('')}</ul>${m.qualityReason ? `<p class="note">${esc(m.qualityReason)}</p>` : ''}</div>` : ''}
+      <p class="note">Parámetros × bytes por peso × 1,2 de margen (contexto y activaciones). Contextos largos o vídeo de alta resolución necesitan más.</p></div>` : ''}
     ${arts.length ? `<div class="panel"><h2>En la revista</h2><ul>${arts.map((a) => `<li><a href="#/articulo/${a.slug}">${esc(a.title)}</a></li>`).join('')}</ul></div>` : ''}
   </article>`;
+}
+
+// ---------- vistas: rankings ----------
+let rkHide = true;
+let rkVram = '';
+
+function renderRankings(task) {
+  const tasksWith = Object.keys(S.boards).filter((t) => S.boards[t].total >= 3 && t !== 'other')
+    .sort((a, b) => (S.boards[b].evidenced >= 3) - (S.boards[a].evidenced >= 3) || S.boards[b].evidenced - S.boards[a].evidenced || S.boards[b].total - S.boards[a].total);
+  task = task && S.boards[task] ? task : tasksWith[0];
+  const board = S.boards[task] || { keys: [], names: {} };
+  app.innerHTML = `
+    <div class="mag-head"><div><h1>Rankings</h1><p>Los mejores modelos open source de cada categoría según sus benchmarks y el Elo de LMArena. Si una categoría no tiene benchmarks comunes, se ordena por popularidad.</p></div></div>
+    <div class="cats">${tasksWith.map((t) => `<a class="task-chip ${t === task ? 'active' : ''}" href="#/rankings/${encodeURIComponent(t)}">${taskIcon(t)} ${esc(taskLabel(t))} <small>${S.boards[t].evidenced >= 3 ? S.boards[t].evidenced + ' con benchmarks' : S.boards[t].total}</small></a>`).join('')}</div>
+    <div class="rk-opts">
+      <label class="check"><input type="checkbox" id="rk-hide" ${rkHide ? 'checked' : ''}/> Ocultar modelos superados</label>
+      <label>Hardware <select id="rk-vram">
+        <option value="">Cualquiera</option><option value="8">≤ 8 GB</option><option value="16">≤ 16 GB</option><option value="24">≤ 24 GB</option><option value="48">≤ 48 GB</option><option value="80">≤ 80 GB</option>
+      </select></label>
+    </div>
+    <div id="rk"></div>`;
+  $('#rk-vram').value = rkVram;
+  $('#rk-hide').addEventListener('change', (e) => { rkHide = e.target.checked; draw(); });
+  $('#rk-vram').addEventListener('change', (e) => { rkVram = e.target.value; draw(); });
+  function draw() {
+    const list = S.models.filter((m) => m.task === task && (!rkHide || !m.cmp?.dominatedBy?.length) && (!rkVram || (m.minVram != null && m.minVram <= +rkVram)))
+      .sort((a, b) => (a.cmp?.rank || 1e9) - (b.cmp?.rank || 1e9));
+    const ev = list.filter(hasEvidence);
+    const rest = list.filter((m) => !hasEvidence(m));
+    const keys = board.keys || [];
+    const row = (m, i, withKeys) => `<tr onclick="location.hash='#/modelo/${encodeURI(m.id)}'">
+      <td class="num">${i + 1}</td>
+      <td><a href="#/modelo/${encodeURI(m.id)}">${esc(m.name)}</a><div class="note">${esc(m.author)} · ${timeAgo(m.createdAt)}</div></td>
+      <td><div class="score"><div class="bar"><i style="width:${m.cmp?.score || 0}%"></i></div><b>${m.cmp?.score ?? '—'}</b></div></td>
+      ${withKeys ? keys.map((k) => { const b = bench(m, k); return `<td>${b ? fmtVal(b.value) : '<span class="note">—</span>'}</td>`; }).join('') : ''}
+      <td>${isProject(m) ? '★ ' + fmtNum(m.likes) : paramsOf(m)}</td>
+      <td>${m.minVram != null ? m.minVram + ' GB' : '—'}</td>
+      <td>${speedOf(m)}</td>
+      <td>${m.permissive ? '✓' : m.permissive === false ? '✗' : '?'}</td></tr>`;
+    const head = (withKeys, label) => `<tr><th>#</th><th>Modelo</th><th>${label}</th>${withKeys ? keys.map((k) => `<th title="Publicado por ${board.names[k]?.n} modelos">${esc(board.names[k]?.name || k)}${board.names[k]?.lower ? ' ↓' : ''}</th>`).join('') : ''}<th>Tamaño</th><th>VRAM mín.</th><th>Velocidad</th><th title="Licencia permisiva">Comercial</th></tr>`;
+    $('#rk').innerHTML = `
+      ${ev.length ? `<h2 class="rk-h">Con benchmarks comparables (${ev.length})</h2>
+        <div class="table-wrap"><table class="cmp rk">${head(true, 'Puntuación')}${ev.map((m, i) => row(m, i, true)).join('')}</table></div>
+        <p class="note">Puntuación = percentil medio en los benchmarks que publica cada modelo frente al resto de su categoría (LMArena cuenta doble). Un benchmark solo entra si lo publican al menos 3 modelos.</p>` : ''}
+      ${rest.length ? `<h2 class="rk-h">${ev.length ? 'Sin benchmarks comparables' : 'Ordenados por popularidad'} (${rest.length})</h2>
+        ${ev.length ? '' : '<p class="note">En esta categoría los autores no publican benchmarks comunes. El orden refleja estrellas de GitHub, likes y descargas, no una medida de calidad.</p>'}
+        <div class="table-wrap"><table class="cmp rk">${head(false, 'Popularidad')}${rest.slice(0, 60).map((m, i) => row(m, i, false)).join('')}</table></div>` : ''}
+      ${list.length ? '' : '<p class="empty">Ningún modelo cumple esos filtros.</p>'}`;
+  }
+  draw();
 }
 
 // ---------- vistas: revista ----------
@@ -469,12 +598,13 @@ function markdown(md = '') {
 // ---------- router ----------
 function route() {
   const h = decodeURI(location.hash.slice(1)) || '/toolbox';
-  const tab = h.startsWith('/revista') || h.startsWith('/articulo') ? 'revista' : 'toolbox';
+  const tab = h.startsWith('/revista') || h.startsWith('/articulo') ? 'revista' : h.startsWith('/rankings') ? 'rankings' : 'toolbox';
   document.querySelectorAll('.tabs a').forEach((a) => a.classList.toggle('active', a.dataset.tab === tab));
-  document.title = tab === 'revista' ? 'Revista — Radar IA' : 'Radar IA — Toolbox open source y revista de IA';
+  document.title = tab === 'revista' ? 'Revista — Radar IA' : tab === 'rankings' ? 'Rankings — Radar IA' : 'Radar IA — Toolbox open source y revista de IA';
   window.scrollTo(0, 0);
   if (h.startsWith('/articulo/')) return renderArticle(h.slice('/articulo/'.length));
   if (h.startsWith('/modelo/')) return renderModel(h.slice('/modelo/'.length));
+  if (tab === 'rankings') return renderRankings(h.split('/')[2] || '');
   if (tab === 'revista') return renderMagazine();
   return renderToolbox();
 }
