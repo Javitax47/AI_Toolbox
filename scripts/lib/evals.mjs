@@ -1,9 +1,10 @@
 // Datos objetivos de cada modelo para poder compararlos:
 //  - benchmarks: resultados de evaluación de Hugging Face (.eval_results), model-index de la ficha,
-//    tablas de resultados del README y puntuaciones Elo de LMArena (votos humanos a ciegas)
+//    tablas de resultados del README y clasificaciones independientes (LMArena, Epoch AI, Artificial Analysis)
 //  - tamaño real de los pesos publicados (para modelos sin metadatos de parámetros)
 //  - velocidad y requisitos de memoria cuando la ficha los declara
 import path from 'node:path';
+import zlib from 'node:zlib';
 import { fetchJSON, readJSON, writeJSON, STATE_DIR } from './util.mjs';
 
 // ---------- nombres de benchmark ----------
@@ -69,7 +70,7 @@ const prettyDataset = (s) => String(s).split('/').pop().replace(/^open-asr-leade
 
 const SUFFIX = /[-_](instruct|it|chat|base|hf|diffusers|preview|fp8|bf16|fp16|thinking|reasoning|release|official|v\d+(\.\d+)?|\d{4})$/i;
 
-function nameVariants(repoName) {
+export function nameVariants(repoName) {
   const v = [norm(repoName)];
   let n = repoName;
   for (let i = 0; i < 3 && SUFFIX.test(n); i++) { n = n.replace(SUFFIX, ''); v.push(norm(n)); }
@@ -192,26 +193,49 @@ export async function weightsSize(id) {
   return bytes > 1e6 ? +(bytes / 1e9).toFixed(2) : null;
 }
 
-// ---------- LMArena (votaciones humanas a ciegas) ----------
+// ---------- Clasificaciones independientes ----------
+// A diferencia de los benchmarks que declara cada autor, aquí un tercero evalúa a todos los modelos
+// con el mismo método, así que son comparables entre sí:
+//  - LMArena: Elo por votos humanos a ciegas (CC BY 4.0, sin clave)
+//  - Epoch AI: Epoch Capabilities Index, que combina decenas de benchmarks de LLM (CC BY 4.0, sin clave)
+//  - Artificial Analysis: índice de inteligencia de LLM y arenas de imagen, vídeo, voz y música
+//    (plan gratuito con clave AA_API_KEY, 100 peticiones/día; exige citar la fuente)
+// Las claves de estas clasificaciones empiezan por "x-" para distinguirlas de las declaradas.
 
-const ARENA_BOARDS = {
-  text: { key: 'arena-text', label: 'LMArena texto', tasks: ['text-generation', 'image-text-to-text', 'any-to-any'] },
-  webdev: { key: 'arena-webdev', label: 'LMArena WebDev', tasks: ['text-generation', 'image-text-to-text', 'any-to-any'] },
-  vision: { key: 'arena-vision', label: 'LMArena visión', tasks: ['image-text-to-text', 'any-to-any', 'video-text-to-text'] },
-  text_to_image: { key: 'arena-t2i', label: 'LMArena texto→imagen', tasks: ['text-to-image'] },
-  image_edit: { key: 'arena-edit', label: 'LMArena edición', tasks: ['image-to-image', 'text-to-image'] },
-  text_to_video: { key: 'arena-t2v', label: 'LMArena texto→vídeo', tasks: ['text-to-video'] },
-  image_to_video: { key: 'arena-i2v', label: 'LMArena imagen→vídeo', tasks: ['image-to-video', 'text-to-video'] },
+const LLM_TASKS = ['text-generation', 'image-text-to-text', 'any-to-any'];
+const BOARDS = {
+  // LMArena
+  'arena:text': { key: 'x-arena-text', label: 'LMArena texto', tasks: LLM_TASKS, tol: 12 },
+  'arena:webdev': { key: 'x-arena-webdev', label: 'LMArena WebDev', tasks: LLM_TASKS, tol: 12 },
+  'arena:vision': { key: 'x-arena-vision', label: 'LMArena visión', tasks: ['image-text-to-text', 'any-to-any', 'video-text-to-text'], tol: 12 },
+  'arena:text_to_image': { key: 'x-arena-t2i', label: 'LMArena texto→imagen', tasks: ['text-to-image'], tol: 12 },
+  'arena:image_edit': { key: 'x-arena-edit', label: 'LMArena edición', tasks: ['image-to-image', 'text-to-image'], tol: 12 },
+  'arena:text_to_video': { key: 'x-arena-t2v', label: 'LMArena texto→vídeo', tasks: ['text-to-video'], tol: 12 },
+  'arena:image_to_video': { key: 'x-arena-i2v', label: 'LMArena imagen→vídeo', tasks: ['image-to-video', 'text-to-video'], tol: 12 },
+  // Epoch AI
+  'epoch:eci': { key: 'x-epoch-eci', label: 'Epoch Capabilities Index', tasks: LLM_TASKS, tol: 2 },
+  // Artificial Analysis (solo con AA_API_KEY)
+  'aa:language': { key: 'x-aa-intel', label: 'AA Intelligence Index', tasks: LLM_TASKS, tol: 1.5 },
+  'aa:text-to-image': { key: 'x-aa-t2i', label: 'AA texto→imagen', tasks: ['text-to-image'], tol: 12 },
+  'aa:image-editing': { key: 'x-aa-edit', label: 'AA edición de imagen', tasks: ['image-to-image', 'text-to-image'], tol: 12 },
+  'aa:text-to-video': { key: 'x-aa-t2v', label: 'AA texto→vídeo', tasks: ['text-to-video'], tol: 12 },
+  'aa:image-to-video': { key: 'x-aa-i2v', label: 'AA imagen→vídeo', tasks: ['image-to-video', 'text-to-video'], tol: 12 },
+  'aa:text-to-speech': { key: 'x-aa-tts', label: 'AA texto a voz', tasks: ['text-to-speech'], tol: 12 },
+  'aa:speech-to-text': { key: 'x-aa-wer', label: 'AA WER (error de transcripción)', tasks: ['automatic-speech-recognition'], tol: 0.004, lower: true },
+  'aa:music/instrumental': { key: 'x-aa-music', label: 'AA música', tasks: ['text-to-audio'], tol: 12 },
 };
-const ARENA_FILE = path.join(STATE_DIR, 'arena.json');
+export const BOARD_SOURCES = {
+  arena: { name: 'LMArena', url: 'https://lmarena.ai/leaderboard' },
+  epoch: { name: 'Epoch AI', url: 'https://epoch.ai/benchmarks' },
+  aa: { name: 'Artificial Analysis', url: 'https://artificialanalysis.ai/' },
+};
+
+const BOARDS_FILE = path.join(STATE_DIR, 'leaderboards.json');
 const DS = 'https://datasets-server.huggingface.co/rows?dataset=lmarena-ai/leaderboard-dataset';
 
-export async function loadArena() {
-  const today = new Date().toISOString().slice(0, 10);
-  const cached = await readJSON(ARENA_FILE, null);
-  if (cached?.date === today && Object.keys(cached.boards || {}).length) return cached;
-  const boards = {};
-  for (const config of Object.keys(ARENA_BOARDS)) {
+async function loadLMArena() {
+  const out = {};
+  for (const config of ['text', 'webdev', 'vision', 'text_to_image', 'image_edit', 'text_to_video', 'image_to_video']) {
     const rows = [];
     for (let offset = 0; offset < 2000; offset += 100) {
       const page = await fetchJSON(`${DS}&config=${config}&split=latest&offset=${offset}&length=100`, { retries: 2 });
@@ -220,31 +244,85 @@ export async function loadArena() {
       rows.push(...overall);
       if (r.length < 100 || !overall.length) break;
     }
-    if (rows.length) boards[config] = rows.filter((x) => !/proprietary/i.test(x.license || ''))
-      .map((x) => ({ name: x.model_name, org: x.organization, rating: Math.round(x.rating), ci: Math.round((x.rating_upper - x.rating_lower) / 2), votes: x.vote_count }));
+    if (rows.length) out['arena:' + config] = rows.filter((x) => !/proprietary/i.test(x.license || ''))
+      .map((x) => ({ name: x.model_name, value: Math.round(x.rating), ci: Math.round((x.rating_upper - x.rating_lower) / 2), note: `${Math.round(x.vote_count)} votos` }));
   }
-  if (!Object.keys(boards).length) return cached || { date: null, boards: {} };
-  const out = { date: today, boards };
-  await writeJSON(ARENA_FILE, out, true);
-  console.log(`· LMArena: ${Object.entries(boards).map(([k, v]) => `${k} ${v.length}`).join(', ')} modelos abiertos`);
   return out;
 }
 
-/** Índice nombre normalizado → entradas de arena, para casar con repos de Hugging Face */
-export function arenaIndex(arena) {
+async function loadEpoch() {
+  const res = await fetch('https://epoch.ai/data/benchmark_data.zip', { signal: AbortSignal.timeout(60000) }).catch(() => null);
+  if (!res?.ok) return {};
+  const csv = unzipFile(Buffer.from(await res.arrayBuffer()), /eci_scores\.csv$/);
+  if (!csv) return {};
+  const rows = parseCSV(csv);
+  return {
+    'epoch:eci': rows.filter((r) => /open/i.test(r['Accessibility group'] || '') && r.eci)
+      .map((r) => ({ name: r.Model, alt: r['Display name'], value: +(+r.eci).toFixed(1), ci: +((+r.eci_ci_high - +r.eci_ci_low) / 2).toFixed(1), note: r.Organization })),
+  };
+}
+
+async function loadArtificialAnalysis() {
+  const key = process.env.AA_API_KEY;
+  if (!key) return {};
+  const out = {};
+  for (const id of Object.keys(BOARDS).filter((k) => k.startsWith('aa:'))) {
+    const ep = id.slice(3);
+    const base = ep === 'language' ? 'language' : `media/${ep}`;
+    const data = [];
+    for (let page = 1; page <= 3; page++) {
+      const res = await fetch(`https://artificialanalysis.ai/api/v2/${base}/models/free?page=${page}`, { headers: { 'x-api-key': key }, signal: AbortSignal.timeout(30000) }).catch(() => null);
+      if (!res?.ok) { if (res) console.warn(`  ! Artificial Analysis ${ep}: HTTP ${res.status}`); break; }
+      const j = await res.json();
+      data.push(...(j.data || []));
+      if (!j.pagination?.has_more) break;
+    }
+    const rows = data.map((d) => {
+      const value = ep === 'language' ? d.evaluations?.artificial_analysis_intelligence_index : ep === 'speech-to-text' ? d.aa_wer_index : d.elo;
+      return value == null ? null : { name: d.name, alt: d.slug, value: ep === 'speech-to-text' ? value : +(+value).toFixed(1), ci: d.ci_95 || null, note: d.model_creator?.name || null };
+    }).filter(Boolean);
+    if (rows.length) out[id] = rows;
+  }
+  return out;
+}
+
+/** Descarga (una vez al día) todas las clasificaciones independientes */
+export async function loadLeaderboards() {
+  const today = new Date().toISOString().slice(0, 10);
+  const cached = await readJSON(BOARDS_FILE, null);
+  if (cached?.date === today && Object.keys(cached.boards || {}).length) return cached;
+  const fresh = { ...(await loadLMArena()), ...(await loadEpoch()), ...(await loadArtificialAnalysis()) };
+  // Si una fuente falla hoy se conserva la última versión buena
+  const boards = { ...(cached?.boards || {}), ...fresh };
+  const out = { date: today, boards };
+  await writeJSON(BOARDS_FILE, out, true);
+  console.log(`· Clasificaciones independientes: ${Object.entries(boards).map(([k, v]) => `${k} ${v.length}`).join(', ')}`);
+  return out;
+}
+
+const VARIANT_RE = /\((max|high|low|medium|minimal|xhigh|thinking|non-thinking|reasoning|non-reasoning|instruct|agentic|quality|fast|preview|beta)\)/gi;
+
+/** Formas normalizadas de un nombre de clasificación ("GLM-5.3 (Max)" → glm53) */
+export function boardVariants(n) {
+  const plain = n.replace(VARIANT_RE, '').replace(/-?20d{6}/g, '').replace(/,.*$/, '');
+  return [...new Set([norm(plain), norm(plain.replace(/(.*?)/g, ''))])].filter((k) => k.length >= 4);
+}
+
+/** Índice nombre normalizado → entradas, para casar con repos de Hugging Face */
+export function leaderboardIndex(lb) {
   const idx = new Map();
-  for (const [config, rows] of Object.entries(arena.boards || {})) {
-    const b = ARENA_BOARDS[config];
+  for (const [id, rows] of Object.entries(lb.boards || {})) {
+    const b = BOARDS[id];
     if (!b) continue;
     for (const r of rows) {
-      const plain = r.name.replace(/\((max|high|low|medium|thinking|non-thinking|reasoning|instruct|agentic|quality|fast)\)/gi, '').replace(/-?20\d{6}/g, '');
-      const keys = new Set([norm(plain), norm(plain.replace(/\(.*?\)/g, ''))]);
+      const keys = new Set([r.name, r.alt].filter(Boolean).flatMap(boardVariants));
       for (const k of keys) {
-        if (k.length < 4) continue;
         const list = idx.get(k) || [];
         const prev = list.find((e) => e.key === b.key);
-        if (!prev) list.push({ key: b.key, label: b.label, tasks: b.tasks, rating: r.rating, ci: r.ci, votes: r.votes, arenaName: r.name });
-        else if (r.rating > prev.rating) Object.assign(prev, { rating: r.rating, ci: r.ci, arenaName: r.name });
+        const better = (x, y) => (b.lower ? x < y : x > y);
+        const entry = { key: b.key, label: b.label, tasks: b.tasks, tol: b.tol, lower: Boolean(b.lower), source: id.split(':')[0], value: r.value, ci: r.ci, note: [r.name, r.note].filter(Boolean).join(' · ') };
+        if (!prev) list.push(entry);
+        else if (better(r.value, prev.value)) Object.assign(prev, entry); // variantes (Max, Thinking…): la mejor
         idx.set(k, list);
       }
     }
@@ -252,26 +330,67 @@ export function arenaIndex(arena) {
   return idx;
 }
 
-// Reempaquetadores (ComfyUI, conversiones): no son el modelo original evaluado en la arena
-const REPACK = /^(comfy-org|unsloth|lmstudio-community|mlx-community|bartowski|city96|kijai|second-state|gaianet)$/i;
+// Reempaquetadores (ComfyUI, conversiones): no son el modelo original evaluado
+export const REPACK = /^(comfy-org|unsloth|lmstudio-community|mlx-community|bartowski|city96|kijai|second-state|gaianet)$/i;
 
-export function arenaFor(m, idx) {
+export function leaderboardsFor(m, idx) {
   if (REPACK.test(m.author || '')) return [];
   for (const v of nameVariants(m.name)) {
     const hits = idx.get(v);
     if (hits) return hits.filter((h) => h.tasks.includes(m.task))
-      .map((h) => ({ name: h.label, value: h.rating, source: 'arena', ci: h.ci, note: `${h.arenaName} · ${Math.round(h.votes)} votos` }));
+      .map((h) => ({ key: h.key, name: h.label, value: h.value, source: h.source, ci: h.ci, tol: h.tol, lower: h.lower, note: h.note }));
   }
   return [];
 }
 
-/** Une benchmarks de varias fuentes sin duplicar (prioridad: arena > HF > model-index > ficha > LLM) */
+// ---------- utilidades: ZIP y CSV sin dependencias ----------
+
+function unzipFile(buf, nameRe) {
+  // Directorio central: firma 0x06054b50 al final del archivo
+  let eocd = buf.length - 22;
+  while (eocd >= 0 && buf.readUInt32LE(eocd) !== 0x06054b50) eocd--;
+  if (eocd < 0) return null;
+  let p = buf.readUInt32LE(eocd + 16);
+  const count = buf.readUInt16LE(eocd + 10);
+  for (let i = 0; i < count; i++) {
+    const method = buf.readUInt16LE(p + 10), size = buf.readUInt32LE(p + 20);
+    const nameLen = buf.readUInt16LE(p + 28), extraLen = buf.readUInt16LE(p + 30), commentLen = buf.readUInt16LE(p + 32);
+    const local = buf.readUInt32LE(p + 42);
+    const name = buf.toString('utf8', p + 46, p + 46 + nameLen);
+    if (nameRe.test(name)) {
+      const start = local + 30 + buf.readUInt16LE(local + 26) + buf.readUInt16LE(local + 28);
+      const data = buf.subarray(start, start + size);
+      return (method === 8 ? zlib.inflateRawSync(data) : data).toString('utf8');
+    }
+    p += 46 + nameLen + extraLen + commentLen;
+  }
+  return null;
+}
+
+function parseCSV(text) {
+  const rows = [];
+  let row = [], cell = '', q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) {
+      if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; } else if (c === '"') q = false; else cell += c;
+    } else if (c === '"') q = true;
+    else if (c === ',') { row.push(cell); cell = ''; }
+    else if (c === '\n' || c === '\r') { if (c === '\r' && text[i + 1] === '\n') i++; row.push(cell); rows.push(row); row = []; cell = ''; }
+    else cell += c;
+  }
+  if (cell || row.length) { row.push(cell); rows.push(row); }
+  const [head, ...body] = rows;
+  return body.filter((r) => r.length === head.length).map((r) => Object.fromEntries(head.map((h, i) => [h, r[i]])));
+}
+
+/** Une benchmarks de varias fuentes sin duplicar (prioridad: clasificaciones independientes > HF > model-index > ficha > LLM) */
 export function mergeBenchmarks(...lists) {
   const out = new Map();
   for (const list of lists) for (const b of list || []) {
-    const key = b.source === 'arena' ? norm(b.name) : benchKey(b.name);
+    const key = b.key || benchKey(b.name);
     if (!key || out.has(key) || b.value == null) continue;
-    out.set(key, { key, name: b.name, value: b.value, source: b.source, ...(b.ci ? { ci: b.ci } : {}), ...(b.note ? { note: b.note } : {}), ...(lowerIsBetter(b.name) ? { lower: true } : {}) });
+    out.set(key, { key, name: b.name, value: b.value, source: b.source, ...(b.ci ? { ci: b.ci } : {}), ...(b.tol ? { tol: b.tol } : {}), ...(b.note ? { note: b.note } : {}), ...((b.lower ?? lowerIsBetter(b.name)) ? { lower: true } : {}) });
   }
   return [...out.values()].slice(0, 30);
 }

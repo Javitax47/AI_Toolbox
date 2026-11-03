@@ -24,7 +24,7 @@ const fmtVal = (v) => (v == null ? '—' : Math.abs(v) >= 100 ? String(Math.roun
 const bench = (m, key) => (m.benchmarks || []).find((b) => b.key === key);
 const hasEvidence = (m) => m.cmp && m.cmp.basis !== 'comunidad';
 const speedOf = (m) => (m.speed?.value ? `~${m.speed.value} tok/s` : m.speed?.text ? (m.speed.level >= 4 ? 'Tiempo real' : 'Declarada') : '—');
-const SOURCE = { hf: 'Hugging Face (eval results)', 'model-index': 'ficha (model-index)', ficha: 'ficha / README', arena: 'LMArena (votos humanos)' };
+const SOURCE = { hf: 'Hugging Face (eval results)', 'model-index': 'ficha (model-index)', ficha: 'ficha / README', arena: 'LMArena (votos humanos a ciegas)', epoch: 'Epoch AI (evaluación independiente)', aa: 'Artificial Analysis (evaluación independiente)' };
 const daysSince = (d) => (Date.now() - new Date(d)) / 86400000;
 const timeAgo = (d) => {
   const m = (Date.now() - new Date(d)) / 60000;
@@ -466,7 +466,7 @@ function renderRankings(task) {
     const keys = board.keys || [];
     const row = (m, i, withKeys) => `<tr onclick="location.hash='#/modelo/${encodeURI(m.id)}'">
       <td class="num">${i + 1}</td>
-      <td><a href="#/modelo/${encodeURI(m.id)}">${esc(m.name)}</a><div class="note">${esc(m.author)} · ${timeAgo(m.createdAt)}</div></td>
+      <td><a href="#/modelo/${encodeURI(m.id)}">${esc(m.name)}</a><div class="note">${esc(m.author)} · ${timeAgo(m.createdAt)}${withKeys && m.cmp?.basis === 'benchmarks' ? ' · <span class="trust mid">declarados</span>' : ''}</div></td>
       <td><div class="score"><div class="bar"><i style="width:${m.cmp?.score || 0}%"></i></div><b>${m.cmp?.score ?? '—'}</b></div></td>
       ${withKeys ? keys.map((k) => { const b = bench(m, k); return `<td>${b ? fmtVal(b.value) : '<span class="note">—</span>'}</td>`; }).join('') : ''}
       <td>${isProject(m) ? '★ ' + fmtNum(m.likes) : paramsOf(m)}</td>
@@ -477,11 +477,93 @@ function renderRankings(task) {
     $('#rk').innerHTML = `
       ${ev.length ? `<h2 class="rk-h">Con benchmarks comparables (${ev.length})</h2>
         <div class="table-wrap"><table class="cmp rk">${head(true, 'Puntuación')}${ev.map((m, i) => row(m, i, true)).join('')}</table></div>
-        <p class="note">Puntuación = percentil medio en los benchmarks que publica cada modelo frente al resto de su categoría (LMArena cuenta doble). Un benchmark solo entra si lo publican al menos 3 modelos.</p>` : ''}
+        <p class="note">Primero los modelos con evaluación independiente (Epoch AI, LMArena…), ordenados solo con esos datos; después los que solo tienen benchmarks declarados por sus autores (marcados). Puntuación = percentil medio frente al resto de la categoría.</p>` : ''}
       ${rest.length ? `<h2 class="rk-h">${ev.length ? 'Sin benchmarks comparables' : 'Ordenados por popularidad'} (${rest.length})</h2>
         ${ev.length ? '' : '<p class="note">En esta categoría los autores no publican benchmarks comunes. El orden refleja estrellas de GitHub, likes y descargas, no una medida de calidad.</p>'}
         <div class="table-wrap"><table class="cmp rk">${head(false, 'Popularidad')}${rest.slice(0, 60).map((m, i) => row(m, i, false)).join('')}</table></div>` : ''}
       ${list.length ? '' : '<p class="empty">Ningún modelo cumple esos filtros.</p>'}`;
+  }
+  draw();
+}
+
+// ---------- vistas: cheatsheet ----------
+const CHEAT_GROUPS = [
+  ['Texto, código y razonamiento', ['text-generation', 'translation', 'feature-extraction', 'text-ranking', 'agents']],
+  ['Visión y multimodal', ['image-text-to-text', 'any-to-any', 'video-text-to-text', 'object-detection', 'image-segmentation', 'mask-generation', 'depth-estimation']],
+  ['Imagen y vídeo', ['text-to-image', 'image-to-image', 'text-to-video', 'image-to-video', 'avatar-generation']],
+  ['Voz, audio y música', ['automatic-speech-recognition', 'text-to-speech', 'text-to-audio', 'audio-to-audio']],
+  ['3D, juegos y mundos', ['image-to-3d', 'text-to-3d', 'motion-generation', 'world-generation', 'terrain-generation', 'physics-simulation']],
+  ['Robótica y datos', ['robotics', 'time-series-forecasting']],
+];
+const BASIS = {
+  independiente: ['Evaluación independiente', 'good'],
+  benchmarks: ['Benchmarks declarados', 'mid'],
+  comunidad: ['Solo popularidad', 'low'],
+};
+let csHw = '';
+let csCommercial = false;
+
+function sourcesOf(list) {
+  const s = new Set();
+  for (const m of list) for (const b of m.benchmarks || []) if (b.key?.startsWith('x-')) s.add({ arena: 'LMArena', epoch: 'Epoch AI', aa: 'Artificial Analysis' }[b.source]);
+  return [...s].filter(Boolean);
+}
+
+function cheatPicks(task) {
+  const all = S.models.filter((m) => m.task === task && (!csCommercial || m.permissive));
+  const pool = all.filter((m) => !m.cmp?.dominatedBy?.length).sort((a, b) => (a.cmp?.rank || 1e9) - (b.cmp?.rank || 1e9));
+  if (!pool.length) return null;
+  const best = pool[0];
+  const tier = best.cmp?.basis;
+  const sameTier = pool.filter((m) => m.cmp?.basis === tier);
+  const limit = csHw ? +csHw : 24;
+  const local = pool.find((m) => m.minVram != null && m.minVram <= limit);
+  // El más ligero que sigue estando en la mitad alta de su categoría
+  const light = sameTier.filter((m) => m.minVram != null && (m.cmp?.score ?? 0) >= 50).sort((a, b) => a.minVram - b.minVram)[0];
+  const fresh = pool.filter((m) => daysSince(m.createdAt) <= 45)[0];
+  return { best, local, light, fresh, tier, n: all.length, sources: sourcesOf(sameTier) };
+}
+
+function pickCell(label, m, hint) {
+  if (!m) return `<div class="pick empty"><span>${label}</span><b>—</b><small>${hint || 'sin candidatos'}</small></div>`;
+  const meta = [m.minVram != null ? `${m.minVram} GB` : null, isProject(m) ? `★ ${fmtNum(m.likes)}` : m.params ? paramsOf(m) : null, m.speed?.value ? `~${m.speed.value} tok/s` : null, m.permissive ? 'comercial' : null].filter(Boolean).join(' · ');
+  return `<a class="pick" href="#/modelo/${encodeURI(m.id)}"><span>${label}</span><b>${esc(m.name)}</b><small>${esc(m.author)}${meta ? ' · ' + meta : ''}</small></a>`;
+}
+
+function renderCheatsheet() {
+  app.innerHTML = `
+    <div class="mag-head"><div><h1>AI models cheatsheet</h1><p>Qué modelo abierto usar para cada tarea, de un vistazo. Se excluyen los modelos superados por otro mejor y más ligero, y cada fila indica cuánto puedes fiarte del orden.</p></div></div>
+    <div class="rk-opts">
+      <label>Mi hardware <select id="cs-hw">
+        <option value="">Sin especificar (local = ≤ 24 GB)</option><option value="4">Portátil / ≤ 4 GB</option><option value="8">GPU 8 GB</option><option value="12">GPU 12 GB</option><option value="16">GPU 16 GB / Mac 16 GB</option><option value="24">GPU 24 GB</option><option value="48">48 GB</option><option value="80">80 GB</option>
+      </select></label>
+      <label class="check"><input type="checkbox" id="cs-com" ${csCommercial ? 'checked' : ''}/> Solo licencias que permiten uso comercial</label>
+    </div>
+    <div class="legend">${Object.values(BASIS).map(([t, c]) => `<span class="trust ${c}">${t}</span>`).join('')}</div>
+    <div id="cs"></div>
+    <p class="note">Evaluación independiente: un tercero mide a todos los modelos igual (Epoch AI, LMArena${S.meta.aa ? ', Artificial Analysis' : ''}). Benchmarks declarados: cifras de los propios autores. Solo popularidad: no hay datos de calidad comparables; el orden refleja estrellas, likes y descargas.</p>`;
+  $('#cs-hw').value = csHw;
+  $('#cs-hw').addEventListener('change', (e) => { csHw = e.target.value; draw(); });
+  $('#cs-com').addEventListener('change', (e) => { csCommercial = e.target.checked; draw(); });
+  function draw() {
+    const localLabel = csHw ? `En ${csHw} GB` : 'En local (≤ 24 GB)';
+    $('#cs').innerHTML = CHEAT_GROUPS.map(([title, tags]) => {
+      const rows = tags.map((t) => [t, cheatPicks(t)]).filter(([, p]) => p);
+      if (!rows.length) return '';
+      return `<section class="cs-group"><h2>${esc(title)}</h2>${rows.map(([t, p]) => {
+        const [trust, cls] = BASIS[p.tier] || BASIS.comunidad;
+        return `<div class="cs-row">
+          <div class="cs-task"><a href="#/rankings/${encodeURIComponent(t)}">${taskIcon(t)} ${esc(taskLabel(t))}</a>
+            <span class="trust ${cls}" title="${esc(p.sources.join(', '))}">${trust}${p.sources.length ? ' · ' + esc(p.sources.join(', ')) : ''}</span>
+            <small>${p.n} modelos · <a href="#/rankings/${encodeURIComponent(t)}">ver ranking</a></small></div>
+          <div class="cs-picks">
+            ${pickCell(p.tier === 'comunidad' ? '🔥 Más popular' : '🏆 Mejor', p.best)}
+            ${pickCell('💻 ' + localLabel, p.local, 'ninguno cabe')}
+            ${pickCell(p.tier === 'comunidad' ? '🪶 Más ligero (popular)' : '🪶 Más ligero que rinde bien', p.light)}
+            ${pickCell('🆕 Novedad destacada', p.fresh, 'nada nuevo en 45 días')}
+          </div></div>`;
+      }).join('')}</section>`;
+    }).join('');
   }
   draw();
 }
@@ -598,13 +680,14 @@ function markdown(md = '') {
 // ---------- router ----------
 function route() {
   const h = decodeURI(location.hash.slice(1)) || '/toolbox';
-  const tab = h.startsWith('/revista') || h.startsWith('/articulo') ? 'revista' : h.startsWith('/rankings') ? 'rankings' : 'toolbox';
+  const tab = h.startsWith('/revista') || h.startsWith('/articulo') ? 'revista' : h.startsWith('/rankings') ? 'rankings' : h.startsWith('/cheatsheet') ? 'cheatsheet' : 'toolbox';
   document.querySelectorAll('.tabs a').forEach((a) => a.classList.toggle('active', a.dataset.tab === tab));
-  document.title = tab === 'revista' ? 'Revista — Radar IA' : tab === 'rankings' ? 'Rankings — Radar IA' : 'Radar IA — Toolbox open source y revista de IA';
+  document.title = tab === 'revista' ? 'Revista — Radar IA' : tab === 'rankings' ? 'Rankings — Radar IA' : tab === 'cheatsheet' ? 'AI models cheatsheet — Radar IA' : 'Radar IA — Toolbox open source y revista de IA';
   window.scrollTo(0, 0);
   if (h.startsWith('/articulo/')) return renderArticle(h.slice('/articulo/'.length));
   if (h.startsWith('/modelo/')) return renderModel(h.slice('/modelo/'.length));
   if (tab === 'rankings') return renderRankings(h.split('/')[2] || '');
+  if (tab === 'cheatsheet') return renderCheatsheet();
   if (tab === 'revista') return renderMagazine();
   return renderToolbox();
 }

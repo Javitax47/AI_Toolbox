@@ -41,16 +41,20 @@ Solo entra lo que es IA: un proyecto sin paper ni pesos publicados tiene que dem
 
 La calidad no es un número absoluto, sino la **posición frente a los demás modelos de la misma tarea** (`scripts/lib/evals.mjs` + `scripts/lib/compare.mjs`):
 
-1. **Datos objetivos** de cada modelo, de varias fuentes:
-   - resultados de evaluación de Hugging Face (`.eval_results`) y `model-index` de la ficha;
-   - tablas de resultados del README (se localiza la columna o fila del propio modelo);
-   - Elo de **LMArena** (votos humanos a ciegas) para texto, WebDev, visión, imagen, edición y vídeo;
-   - con LLM, los benchmarks que el modelo de lenguaje extrae de la ficha.
-2. **Puntuación**: percentil del modelo en cada benchmark que publican al menos 3 modelos de su tarea, promediado (LMArena cuenta doble) y contraído hacia la media si publica pocos, para que nadie destaque solo por elegir dónde compararse.
+1. **Datos**, en dos niveles de fiabilidad:
+   - **Evaluación independiente** (un tercero mide a todos con el mismo método; se descarga una vez al día):
+     - [Epoch AI](https://epoch.ai/benchmarks) — Epoch Capabilities Index de LLM (CC BY 4.0, sin clave);
+     - [LMArena](https://lmarena.ai/leaderboard) — Elo por votos humanos a ciegas en texto, WebDev, visión, imagen, edición y vídeo (CC BY 4.0, sin clave);
+     - [Artificial Analysis](https://artificialanalysis.ai/) — índice de inteligencia de LLM y arenas de imagen, edición, vídeo, voz (TTS), transcripción (WER) y música. **Opcional**: requiere una clave gratuita (`AA_API_KEY`, 100 peticiones/día; se usan ~10) y citar la fuente.
+     Los modelos de estas clasificaciones que no aparecen en los listados del Hub se buscan por nombre y se añaden al catálogo (`state/leaderboard-hf-ids.json`).
+   - **Benchmarks declarados** por los autores: resultados de evaluación de Hugging Face (`.eval_results`), `model-index`, tablas del README y, con LLM, los que extrae de la ficha.
+2. **Puntuación**: percentil del modelo en cada clasificación. Si tiene evaluación independiente, solo cuenta esa; si no, se usan los benchmarks declarados que publican al menos 3 modelos de su tarea, con contracción hacia la media para que nadie destaque solo por elegir dónde compararse. El ranking pone primero a los evaluados de forma independiente.
 3. **Superado**: un modelo se marca así si otro de su tarea es igual o mejor en todos los benchmarks comunes y además igual o más ligero, o rinde prácticamente igual con al menos un 30 % menos de parámetros. No se aplica si el modelo superado tiene licencia permisiva y el otro no. La web los oculta por defecto.
 4. **Categorías sin benchmarks comunes** (animación, mundos, terreno…): se ordenan por popularidad (estrellas y su ritmo, likes, descargas) y la web lo indica.
 
-La pestaña **Rankings** muestra la clasificación de cada categoría y la ficha de cada modelo incluye una comparativa con sus competidores directos.
+La pestaña **Cheatsheet** resume, por tarea, el mejor modelo, el mejor que cabe en tu hardware, el más ligero que rinde bien y la novedad destacada, con la fiabilidad del dato. **Rankings** muestra la clasificación completa de cada categoría y la ficha de cada modelo incluye una comparativa con sus competidores directos.
+
+No existe una fuente gratuita única que cubra todo: hay evaluaciones independientes y actuales para LLM, visión, imagen, vídeo y (con Artificial Analysis) voz y música; para 3D, animación, mundos, robótica o segmentación solo hay cifras de los autores o popularidad, y la web lo indica.
 
 **Hardware y velocidad**:
 - Memoria mínima: lo que declara la ficha > LLM cuantizado a 4 bits (parámetros × 0,57 × 1,2) > tamaño real de los pesos publicados (listado de ficheros del Hub) × 1,15. Siempre se indica de dónde sale.
@@ -93,7 +97,7 @@ Otras variables: `MAX_ANALYZE_PER_RUN` (250 fichas por ejecución) y `MAX_TREE_P
 1. Crea un repositorio en GitHub y sube este proyecto a la rama `main`.
 2. *Settings → Pages → Source*: **GitHub Actions**.
 3. *Settings → Secrets and variables → Actions*:
-   - Secrets: al menos uno de `GROQ_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY`. Opcional: `HF_TOKEN`.
+   - Secrets: al menos uno de `GROQ_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY`. Opcionales: `HF_TOKEN`, `AA_API_KEY`.
    - Variables opcionales: `GROQ_MODELS`, `GEMINI_MODELS`, `OPENROUTER_MODELS`, `LLM_DAILY_BUDGET`, `ARTICLES_PER_RUN`, `SITE_URL`.
 4. Lanza el workflow *Actualizar Radar IA* manualmente la primera vez (pestaña *Actions → Run workflow*). Después corre solo cada hora a los :07.
 

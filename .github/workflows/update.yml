@@ -47,6 +47,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Token de Hugging Face de solo lectura (opcional): más cuota y fichas de modelos restringidos
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          # Artificial Analysis (opcional, plan gratuito): clasificaciones independientes de LLM, imagen, vídeo, voz y música
+          AA_API_KEY: ${{ secrets.AA_API_KEY }}
         run: node scripts/update.mjs
 
       - name: Guardar datos en el repositorio

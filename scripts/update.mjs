@@ -24,5 +24,5 @@ else models = (await readJSON(path.join(DATA_DIR, 'models.json'), { models: [] }
 if (only !== 'models') await updateNews(models, research);
 
 await saveLLMUsage();
-await writeJSON(path.join(DATA_DIR, 'meta.json'), { updatedAt: new Date().toISOString(), llm: llmEnabled });
+await writeJSON(path.join(DATA_DIR, 'meta.json'), { updatedAt: new Date().toISOString(), llm: llmEnabled, aa: Boolean(process.env.AA_API_KEY) });
 console.log(`Listo en ${((Date.now() - t0) / 1000).toFixed(1)} s`);

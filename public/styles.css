@@ -160,6 +160,26 @@ table.rk td.num { color: var(--muted); font-variant-numeric: tabular-nums; }
 .rk-h { font-size: 17px; margin: 22px 0 8px; }
 a.task-chip:hover { text-decoration: none; }
 
+/* Cheatsheet */
+.legend { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 8px; }
+.trust { display: inline-block; font-size: 11.5px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--chip); color: var(--muted); }
+.trust.good { background: color-mix(in srgb, var(--accent-2) 16%, transparent); color: var(--accent-2); }
+.trust.mid { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); }
+.trust.low { background: color-mix(in srgb, var(--warn) 14%, transparent); color: var(--warn); }
+.cs-group h2 { font: 700 22px/1.2 var(--serif); margin: 28px 0 10px; }
+.cs-row { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+.cs-task { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.cs-task > a { font-weight: 700; color: var(--text); }
+.cs-task small { color: var(--muted); font-size: 12px; }
+.cs-picks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.pick { display: flex; flex-direction: column; gap: 2px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; color: inherit; min-width: 0; }
+.pick:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); text-decoration: none; }
+.pick span { font-size: 11.5px; color: var(--muted); }
+.pick b { font-size: 14px; overflow-wrap: anywhere; }
+.pick small { font-size: 12px; color: var(--muted); overflow-wrap: anywhere; }
+.pick.empty { opacity: .55; }
+@media (max-width: 900px) { .cs-row { grid-template-columns: 1fr; } .cs-picks { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
 /* Revista */
 .mag-head { padding: 40px 0 10px; display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; }
 .mag-head h1 { font: 700 clamp(32px, 5vw, 52px)/1 var(--serif); margin: 0; letter-spacing: -.02em; }

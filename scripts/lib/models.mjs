@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fetchJSON, fetchText, readJSON, writeJSON, pool, stripMarkdown, firstSentences, DATA_DIR, CONFIG_DIR, STATE_DIR } from './util.mjs';
 import { llmJSON, llmEnabled, llmBudgetLeft } from './llm.mjs';
 import { classify } from './research.mjs';
-import { structuredEvals, readmeBenchmarks, readmeFacts, weightsSize, loadArena, arenaIndex, arenaFor, mergeBenchmarks } from './evals.mjs';
+import { structuredEvals, readmeBenchmarks, readmeFacts, weightsSize, loadLeaderboards, leaderboardIndex, leaderboardsFor, mergeBenchmarks, nameVariants, boardVariants, REPACK } from './evals.mjs';
 import { compareModels } from './compare.mjs';
 
 const HF = 'https://huggingface.co/api/models';
@@ -18,6 +18,8 @@ const MAX_ENRICH_PER_RUN = Number(process.env.MAX_ENRICH_PER_RUN || 40);
 const MAX_ANALYZE_PER_RUN = Number(process.env.MAX_ANALYZE_PER_RUN || 250);
 const MAX_TREE_PER_RUN = Number(process.env.MAX_TREE_PER_RUN || 100);
 const EVALS_FILE = path.join(STATE_DIR, 'model-evals.json');
+const RESOLVE_FILE = path.join(STATE_DIR, 'leaderboard-hf-ids.json');
+const MAX_RESOLVE_PER_RUN = Number(process.env.MAX_RESOLVE_PER_RUN || 60);
 const FACTS_VERSION = 5; // subir para volver a analizar todas las fichas
 
 const QUANT_RE = /(gguf|[-_.]awq|gptq|[-_]mlx|mlx[-_]|exl2|exl3|[-_]int[48]\b|bnb|[-_][2-8]bit|onnx|fp8[-_]dynamic|nvfp4|[-_]q[2-8]_)/i;
@@ -66,6 +68,36 @@ export async function updateModels(research = []) {
   }));
   lists.push(singles.filter((m) => m && m.id));
 
+  // 1b) Modelos de las clasificaciones independientes que no han salido en los listados: se buscan en el Hub
+  const leaderboards = await loadLeaderboards();
+  const resolved = await readJSON(RESOLVE_FILE, {});
+  const seen = new Set(lists.flatMap((l) => (l || []).flatMap((m) => nameVariants(m.id.split('/')[1]))));
+  for (const m of byId.values()) for (const v of nameVariants(m.name)) seen.add(v);
+  const lbNames = [...new Set(Object.values(leaderboards.boards).flat().map((r) => r.name))];
+  const toResolve = lbNames.filter((n) => resolved[n] === undefined && !boardVariants(n).some((v) => seen.has(v))).slice(0, MAX_RESOLVE_PER_RUN);
+  await pool(toResolve, 4, async (n) => {
+    const variants = boardVariants(n);
+    const q = n.replace(/\(.*?\)|,.*$/g, '').trim();
+    const queries = [...new Set([q.replace(/\s+/g, '-'), q.replace(/\s+/g, ''), q.split(/\s+/).slice(0, 2).join('-')])];
+    let hit;
+    for (const query of queries) {
+      const list = await fetchJSON(`${HF}?search=${encodeURIComponent(query)}&sort=likes&limit=8`, { retries: 1 });
+      if (list === undefined) return; // límite de peticiones: se reintenta otro día
+      hit = (list || []).find((m) => !REPACK.test(m.id.split('/')[0]) && !QUANT_RE.test(m.id) && nameVariants(m.id.split('/')[1]).some((v) => variants.includes(v)));
+      if (hit) break;
+    }
+    resolved[n] = hit?.id || null;
+  });
+  await writeJSON(RESOLVE_FILE, resolved, true);
+  // Los resueltos que aún no están en el catálogo se descargan; los demás se refrescan por turnos
+  const resolvedIds = [...new Set(Object.values(resolved).filter(Boolean))];
+  const missing = resolvedIds.filter((id) => !byId.has(id) && !lists.some((l) => (l || []).some((m) => m.id === id)));
+  const refresh = resolvedIds.filter((id) => byId.has(id)).sort((a, b) => new Date(byId.get(a).lastSeen) - new Date(byId.get(b).lastSeen)).slice(0, 30);
+  const fromBoards = await pool([...missing, ...refresh], 4, (id) => fetchJSON(`${HF}/${id}?${EXPAND}`, { retries: 1 }));
+  lists.push(fromBoards.filter((m) => m && m.id));
+  const boardIds = new Set(resolvedIds);
+  if (toResolve.length || missing.length) console.log(`· Clasificaciones → Hub: ${toResolve.length} nombres buscados, ${missing.length} modelos añadidos`);
+
   const raw = new Map();
   const quantBases = new Set();
   for (const list of lists) for (const m of list || []) {
@@ -75,7 +107,7 @@ export async function updateModels(research = []) {
     if (quantOf.length || tags.includes('gguf') || QUANT_RE.test(m.id)) continue;
     if (tags.includes('not-for-all-audiences')) continue;
     if (tags.some((t) => t.startsWith('base_model:adapter:')) && (m.likes || 0) < 50) continue;
-    if ((m.likes || 0) < 5 && !watchIds.has(m.id) && !researchByWeight.has(m.id)) continue;
+    if ((m.likes || 0) < 5 && !watchIds.has(m.id) && !researchByWeight.has(m.id) && !boardIds.has(m.id)) continue;
     raw.set(m.id, m);
   }
   console.log(`· ${raw.size} modelos candidatos (${quantBases.size} con cuantizaciones detectadas)`);
@@ -222,11 +254,10 @@ export async function updateModels(research = []) {
     m.tasks = [...new Set([m.task, ...m.domainHint])].slice(0, 3);
   }
 
-  // 5) Benchmarks (todas las fuentes) + LMArena
-  const arena = await loadArena();
-  const aidx = arenaIndex(arena);
+  // 5) Benchmarks: clasificaciones independientes + declarados por los autores
+  const lbIdx = leaderboardIndex(leaderboards);
   for (const m of all) {
-    m.benchmarks = mergeBenchmarks(m.kind === 'model' ? arenaFor(m, aidx) : [], m.evalsHF, m.readmeBench, m.benchLLM);
+    m.benchmarks = mergeBenchmarks(m.kind === 'model' ? leaderboardsFor(m, lbIdx) : [], m.evalsHF, m.readmeBench, m.benchLLM);
     Object.assign(m, estimate(m, taskMap[m.task]));
   }
   const boards = compareModels(all);
@@ -244,12 +275,13 @@ export async function updateModels(research = []) {
   const grouped = {};
   for (const m of all) {
     const stale = (Date.now() - new Date(m.lastSeen)) / 86400000 > 120;
-    if (stale && !m.watch && m.likes < 1000) continue;
+    if (stale && !m.watch && m.likes < 1000 && m.cmp.basis !== 'independiente') continue;
     (grouped[m.kind === 'project' ? 'project:' + m.task : m.task] ||= []).push(m);
   }
   const final = [];
   for (const [task, list] of Object.entries(grouped)) {
-    list.sort((a, b) => (b.watch - a.watch) || (b.relevance - a.relevance));
+    // Los evaluados por terceros se conservan siempre: son la base de las comparativas
+    list.sort((a, b) => (b.watch - a.watch) || ((b.cmp.basis === 'independiente') - (a.cmp.basis === 'independiente')) || (b.relevance - a.relevance));
     final.push(...list.slice(0, task === 'other' ? 40 : TASK_CAP[task] || PER_TASK_CAP));
   }
   final.sort((a, b) => b.relevance - a.relevance);
