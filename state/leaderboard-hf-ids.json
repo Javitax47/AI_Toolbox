@@ -255,5 +255,10 @@
   "StarCoder 2 3B": null,
   "DeepSeek Coder 1.3B": null,
   "Mistral Large 4 Preview": null,
-  "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)": null
+  "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)": null,
+  "Wan 2.2 A14B": "Rin247/Wan2.2-A14B-Diffusers",
+  "LTX-2 19B": null,
+  "Mochi 1": "genmo/mochi-1-preview",
+  "Kandinsky 5.0 Video Pro": null,
+  "Kandinsky 5.0 Video Lite": null
 }

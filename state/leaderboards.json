@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "boards": {
     "arena:text": [
       {
@@ -2215,43 +2215,43 @@
     ],
     "arena:text_to_video": [
       {
-        "name": "minimax-h3",
-        "value": 1460,
-        "ci": 9,
-        "note": "11417 votos"
-      },
-      {
-        "name": "kandinsky-5.0-t2v-pro",
-        "value": 1175,
-        "ci": 21,
-        "note": "2019 votos"
-      },
-      {
-        "name": "hunyuan-video-1.5",
-        "value": 1169,
-        "ci": 16,
-        "note": "4292 votos"
-      },
-      {
-        "name": "ltx-2-19b",
-        "value": 1154,
+        "name": "MiniMax H3",
+        "value": 1456,
         "ci": 8,
-        "note": "75596 votos"
+        "note": "28443 votos"
       },
       {
-        "name": "wan-v2.2-a14b",
+        "name": "Kandinsky 5.0 Video Pro",
+        "value": 1176,
+        "ci": 21,
+        "note": "2026 votos"
+      },
+      {
+        "name": "HunyuanVideo 1.5",
+        "value": 1168,
+        "ci": 16,
+        "note": "4334 votos"
+      },
+      {
+        "name": "LTX-2 19B",
+        "value": 1156,
+        "ci": 7,
+        "note": "93054 votos"
+      },
+      {
+        "name": "Wan 2.2 A14B",
         "value": 1132,
         "ci": 15,
         "note": "10458 votos"
       },
       {
-        "name": "kandinsky-5.0-t2v-lite",
+        "name": "Kandinsky 5.0 Video Lite",
         "value": 1113,
         "ci": 18,
         "note": "1474 votos"
       },
       {
-        "name": "mochi-v1",
+        "name": "Mochi 1",
         "value": 1007,
         "ci": 17,
         "note": "5893 votos"
@@ -2259,28 +2259,28 @@
     ],
     "arena:image_to_video": [
       {
-        "name": "minimax-h3",
-        "value": 1495,
+        "name": "MiniMax H3",
+        "value": 1493,
         "ci": 5,
-        "note": "57112 votos"
+        "note": "120401 votos"
       },
       {
-        "name": "hunyuan-video-1.5",
-        "value": 1198,
+        "name": "HunyuanVideo 1.5",
+        "value": 1199,
         "ci": 16,
-        "note": "5462 votos"
+        "note": "5507 votos"
       },
       {
-        "name": "wan-v2.2-a14b",
-        "value": 1170,
+        "name": "Wan 2.2 A14B",
+        "value": 1171,
         "ci": 10,
         "note": "27054 votos"
       },
       {
-        "name": "ltx-2-19b",
-        "value": 1159,
+        "name": "LTX-2 19B",
+        "value": 1161,
         "ci": 5,
-        "note": "262336 votos"
+        "note": "313742 votos"
       }
     ],
     "epoch:eci": [
