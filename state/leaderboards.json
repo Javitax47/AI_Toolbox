@@ -1,414 +1,420 @@
 {
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "boards": {
     "arena:text": [
       {
         "name": "MiMo-V2.6-Pro",
         "value": 1491,
         "ci": 9,
-        "note": "4037 votos"
-      },
-      {
-        "name": "Kimi K3 (Max)",
-        "value": 1476,
-        "ci": 4,
-        "note": "36780 votos"
+        "note": "4189 votos"
       },
       {
         "name": "GLM-5.3 (Max)",
-        "value": 1474,
+        "value": 1476,
         "ci": 5,
-        "note": "26606 votos"
+        "note": "30776 votos"
+      },
+      {
+        "name": "Kimi K3 (Max)",
+        "value": 1475,
+        "ci": 4,
+        "note": "40814 votos"
       },
       {
         "name": "GLM-5.3-Flash",
-        "value": 1473,
-        "ci": 5,
-        "note": "41642 votos"
+        "value": 1472,
+        "ci": 4,
+        "note": "49824 votos"
       },
       {
         "name": "GLM-5.2 (Max)",
-        "value": 1470,
+        "value": 1469,
         "ci": 4,
-        "note": "53702 votos"
-      },
-      {
-        "name": "DeepSeek-V4.1-Flash-20260910 (Max)",
-        "value": 1465,
-        "ci": 6,
-        "note": "13657 votos"
+        "note": "55345 votos"
       },
       {
         "name": "MiMo-V2.5-Pro",
         "value": 1464,
         "ci": 3,
-        "note": "77728 votos"
+        "note": "78014 votos"
+      },
+      {
+        "name": "DeepSeek-V4.1-Flash-20260910 (Max)",
+        "value": 1463,
+        "ci": 6,
+        "note": "13976 votos"
       },
       {
         "name": "GLM-5.1",
         "value": 1463,
-        "ci": 4,
-        "note": "66771 votos"
+        "ci": 3,
+        "note": "68317 votos"
       },
       {
         "name": "Kimi K2.6",
         "value": 1456,
         "ci": 4,
-        "note": "39978 votos"
+        "note": "39930 votos"
       },
       {
         "name": "MiMo-V2.6-Flash",
-        "value": 1451,
-        "ci": 6,
-        "note": "15312 votos"
+        "value": 1452,
+        "ci": 5,
+        "note": "21207 votos"
       },
       {
         "name": "DeepSeek-V4-Pro",
         "value": 1451,
         "ci": 4,
-        "note": "57572 votos"
-      },
-      {
-        "name": "DeepSeek-V4-Pro (High, 20260813)",
-        "value": 1446,
-        "ci": 7,
-        "note": "9787 votos"
+        "note": "57481 votos"
       },
       {
         "name": "GLM-5",
         "value": 1446,
         "ci": 4,
-        "note": "29255 votos"
+        "note": "29233 votos"
       },
       {
-        "name": "NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)",
+        "name": "DeepSeek-V4-Pro (High, 20260813)",
         "value": 1445,
         "ci": 7,
-        "note": "11563 votos"
+        "note": "9758 votos"
       },
       {
         "name": "DeepSeek-V4-Pro Preview (High)",
         "value": 1445,
         "ci": 4,
-        "note": "54870 votos"
+        "note": "54746 votos"
       },
       {
         "name": "Kimi K2.5 (Thinking)",
         "value": 1445,
         "ci": 3,
-        "note": "74682 votos"
+        "note": "74560 votos"
       },
       {
-        "name": "Gemma 4 31B",
-        "value": 1443,
+        "name": "NVIDIA-Nemotron-3-Ultra-550B-A55B (NVFP4)",
+        "value": 1445,
         "ci": 7,
-        "note": "6138 votos"
+        "note": "11534 votos"
       },
       {
         "name": "Inkling",
         "value": 1443,
         "ci": 4,
-        "note": "45472 votos"
+        "note": "50175 votos"
+      },
+      {
+        "name": "Gemma 4 31B",
+        "value": 1443,
+        "ci": 7,
+        "note": "6141 votos"
       },
       {
         "name": "GLM-4.6",
         "value": 1440,
         "ci": 4,
-        "note": "35810 votos"
+        "note": "35786 votos"
       },
       {
         "name": "Hy3",
         "value": 1439,
         "ci": 6,
-        "note": "13840 votos"
-      },
-      {
-        "name": "Qwen3.8-27B",
-        "value": 1438,
-        "ci": 5,
-        "note": "27779 votos"
+        "note": "15173 votos"
       },
       {
         "name": "Qwen3.5-397B-A17B",
         "value": 1438,
         "ci": 3,
-        "note": "97675 votos"
+        "note": "99308 votos"
+      },
+      {
+        "name": "Qwen3.8-27B",
+        "value": 1437,
+        "ci": 5,
+        "note": "32347 votos"
       },
       {
         "name": "GLM-4.7",
-        "value": 1435,
+        "value": 1436,
         "ci": 6,
-        "note": "12239 votos"
+        "note": "12236 votos"
       },
       {
         "name": "Gemma 4 26B A4B",
         "value": 1434,
         "ci": 7,
-        "note": "6090 votos"
+        "note": "6091 votos"
       },
       {
         "name": "DeepSeek-V4-Flash",
         "value": 1432,
         "ci": 4,
-        "note": "51944 votos"
-      },
-      {
-        "name": "MiniMax-M3",
-        "value": 1431,
-        "ci": 4,
-        "note": "68611 votos"
+        "note": "51862 votos"
       },
       {
         "name": "GLM-4.5",
         "value": 1430,
         "ci": 5,
-        "note": "23797 votos"
+        "note": "23789 votos"
       },
       {
         "name": "Mistral Large 3",
         "value": 1428,
         "ci": 3,
-        "note": "88325 votos"
+        "note": "89964 votos"
+      },
+      {
+        "name": "MiniMax-M3",
+        "value": 1428,
+        "ci": 4,
+        "note": "73158 votos"
       },
       {
         "name": "MiMo-V2.5",
         "value": 1428,
         "ci": 4,
-        "note": "47327 votos"
+        "note": "47257 votos"
       },
       {
         "name": "DeepSeek-R1 (0528)",
         "value": 1428,
         "ci": 6,
-        "note": "18165 votos"
-      },
-      {
-        "name": "Beam 1.0 501B A23B",
-        "value": 1425,
-        "ci": 9,
-        "note": "4233 votos"
+        "note": "18160 votos"
       },
       {
         "name": "DeepSeek-V3.2-Exp (Thinking)",
         "value": 1425,
         "ci": 7,
-        "note": "8991 votos"
+        "note": "8990 votos"
+      },
+      {
+        "name": "Beam 1.0 501B A23B",
+        "value": 1425,
+        "ci": 9,
+        "note": "4335 votos"
       },
       {
         "name": "DeepSeek-V3.2",
         "value": 1424,
         "ci": 3,
-        "note": "48095 votos"
+        "note": "48062 votos"
       },
       {
         "name": "DeepSeek-V4-Flash Preview (High)",
         "value": 1424,
         "ci": 4,
-        "note": "51763 votos"
+        "note": "51692 votos"
       },
       {
         "name": "LongCat-Flash-Chat",
         "value": 1423,
         "ci": 6,
-        "note": "11167 votos"
+        "note": "11161 votos"
       },
       {
         "name": "DeepSeek-V3.2-Exp",
         "value": 1422,
         "ci": 6,
-        "note": "11996 votos"
+        "note": "11989 votos"
       },
       {
         "name": "Mistral Medium 3.5",
         "value": 1421,
         "ci": 6,
-        "note": "11791 votos"
+        "note": "11771 votos"
       },
       {
         "name": "Kimi K2.5 (Instant)",
         "value": 1420,
         "ci": 6,
-        "note": "8371 votos"
+        "note": "8375 votos"
       },
       {
         "name": "Qwen3-VL-235B-A22B-Instruct",
         "value": 1420,
         "ci": 7,
-        "note": "11314 votos"
+        "note": "11310 votos"
       },
       {
         "name": "DeepSeek-V3.2 (Thinking)",
         "value": 1420,
         "ci": 4,
-        "note": "42033 votos"
+        "note": "42016 votos"
       },
       {
         "name": "DeepSeek-V3.1",
         "value": 1420,
         "ci": 6,
-        "note": "14606 votos"
+        "note": "14603 votos"
       },
       {
         "name": "Qwen3-235B-A22B-Instruct (2507)",
         "value": 1419,
         "ci": 3,
-        "note": "98081 votos"
+        "note": "98029 votos"
       },
       {
         "name": "DeepSeek-V3.1-Terminus (Thinking)",
         "value": 1419,
         "ci": 10,
-        "note": "3379 votos"
+        "note": "3378 votos"
       },
       {
         "name": "Qwen3.5-122B-A10B",
         "value": 1418,
         "ci": 4,
-        "note": "29712 votos"
+        "note": "29687 votos"
       },
       {
         "name": "DeepSeek-V3.1-Terminus",
         "value": 1417,
         "ci": 10,
-        "note": "3609 votos"
+        "note": "3607 votos"
       },
       {
         "name": "Qwen3-Next-80B-A3B-Instruct",
         "value": 1417,
         "ci": 5,
-        "note": "22753 votos"
+        "note": "22745 votos"
       },
       {
         "name": "DeepSeek-V3.1 (Thinking)",
         "value": 1417,
         "ci": 7,
-        "note": "11458 votos"
+        "note": "11451 votos"
       },
       {
         "name": "Qwen3-235B-A22B-Thinking (2507)",
         "value": 1415,
         "ci": 7,
-        "note": "8822 votos"
+        "note": "8820 votos"
       },
       {
         "name": "Kimi K2 Thinking Turbo",
         "value": 1414,
         "ci": 3,
-        "note": "63310 votos"
+        "note": "63279 votos"
       },
       {
         "name": "Inkling-Small",
         "value": 1414,
         "ci": 4,
-        "note": "36999 votos"
+        "note": "38888 votos"
       },
       {
         "name": "MiMo-V2-Flash (Non-Thinking)",
         "value": 1411,
         "ci": 3,
-        "note": "48060 votos"
+        "note": "48035 votos"
+      },
+      {
+        "name": "Mistral Large 4",
+        "value": 1411,
+        "ci": 10,
+        "note": "4685 votos"
       },
       {
         "name": "Qwen3.5-27B",
         "value": 1409,
         "ci": 4,
-        "note": "28647 votos"
-      },
-      {
-        "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
-        "value": 1405,
-        "ci": 9,
-        "note": "4178 votos"
+        "note": "28608 votos"
       },
       {
         "name": "MiniMax-M2.7",
         "value": 1405,
         "ci": 3,
-        "note": "89197 votos"
+        "note": "90861 votos"
+      },
+      {
+        "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
+        "value": 1404,
+        "ci": 9,
+        "note": "4298 votos"
       },
       {
         "name": "Step-3.5-Flash",
         "value": 1403,
         "ci": 4,
-        "note": "60305 votos"
+        "note": "60264 votos"
       },
       {
         "name": "Hy3 preview",
         "value": 1401,
         "ci": 7,
-        "note": "6869 votos"
+        "note": "6853 votos"
       },
       {
         "name": "Qwen3-VL-235B-A22B-Thinking",
-        "value": 1400,
+        "value": 1401,
         "ci": 7,
-        "note": "7862 votos"
+        "note": "7860 votos"
       },
       {
         "name": "MiMo-V2-Flash (Thinking)",
         "value": 1395,
         "ci": 6,
-        "note": "11135 votos"
+        "note": "11131 votos"
       },
       {
         "name": "Qwen3.5-35B-A3B",
         "value": 1395,
         "ci": 4,
-        "note": "30427 votos"
+        "note": "30403 votos"
       },
       {
         "name": "Qwen3-235B-A22B (Non-Thinking)",
         "value": 1393,
         "ci": 5,
-        "note": "37472 votos"
+        "note": "37464 votos"
       },
       {
         "name": "MiniMax-M2.1 Preview",
         "value": 1392,
         "ci": 5,
-        "note": "17222 votos"
+        "note": "17224 votos"
       },
       {
         "name": "Muse Glimmer",
-        "value": 1389,
+        "value": 1388,
         "ci": 10,
-        "note": "3884 votos"
+        "note": "3867 votos"
       },
       {
         "name": "Qwen3-30B-A3B-Instruct (2507)",
         "value": 1384,
         "ci": 5,
-        "note": "23312 votos"
+        "note": "23314 votos"
       },
       {
         "name": "GLM-4.5-Air",
         "value": 1384,
         "ci": 4,
-        "note": "30652 votos"
+        "note": "30643 votos"
       },
       {
         "name": "Kimi K2 Preview (0905)",
         "value": 1380,
         "ci": 6,
-        "note": "11592 votos"
+        "note": "11589 votos"
       },
       {
         "name": "NVIDIA-Nemotron-3-Super-120B-A12B",
         "value": 1377,
         "ci": 7,
-        "note": "7870 votos"
+        "note": "7872 votos"
       },
       {
         "name": "GLM-4.6V",
-        "value": 1376,
+        "value": 1377,
         "ci": 11,
-        "note": "2833 votos"
+        "note": "2835 votos"
       },
       {
         "name": "DeepSeek-V3 (0324)",
         "value": 1375,
         "ci": 4,
-        "note": "44977 votos"
+        "note": "44964 votos"
       },
       {
         "name": "DeepSeek-R1",
@@ -420,67 +426,67 @@
         "name": "Kimi K2 Preview (0711)",
         "value": 1371,
         "ci": 5,
-        "note": "27139 votos"
+        "note": "27126 votos"
       },
       {
         "name": "Qwen3-Next-80B-A3B-Thinking",
         "value": 1368,
         "ci": 6,
-        "note": "13476 votos"
+        "note": "13469 votos"
       },
       {
         "name": "Qwen3-235B-A22B",
         "value": 1366,
         "ci": 5,
-        "note": "25950 votos"
+        "note": "25945 votos"
       },
       {
         "name": "gpt-oss-120b",
         "value": 1365,
         "ci": 4,
-        "note": "30200 votos"
-      },
-      {
-        "name": "Granite 4.2 30B",
-        "value": 1361,
-        "ci": 10,
-        "note": "3389 votos"
+        "note": "30189 votos"
       },
       {
         "name": "Ling-flash-2.0",
         "value": 1361,
         "ci": 7,
-        "note": "6952 votos"
+        "note": "6949 votos"
+      },
+      {
+        "name": "Granite 4.2 30B",
+        "value": 1361,
+        "ci": 10,
+        "note": "3381 votos"
       },
       {
         "name": "MiniMax-M2.5",
         "value": 1359,
         "ci": 4,
-        "note": "42783 votos"
+        "note": "42742 votos"
       },
       {
         "name": "Gemma 3 27B IT",
         "value": 1358,
         "ci": 4,
-        "note": "46670 votos"
+        "note": "46653 votos"
       },
       {
         "name": "Qwen3-Coder-480B-A35B-Instruct",
         "value": 1357,
         "ci": 5,
-        "note": "25190 votos"
+        "note": "25184 votos"
       },
       {
         "name": "INTELLECT-3",
         "value": 1356,
         "ci": 8,
-        "note": "5435 votos"
+        "note": "5431 votos"
       },
       {
         "name": "GLM-4.7-Flash",
         "value": 1351,
         "ci": 6,
-        "note": "12008 votos"
+        "note": "12006 votos"
       },
       {
         "name": "Step-3",
@@ -492,25 +498,19 @@
         "name": "NVIDIA-Nemotron-3-Nano-30B-A3B (BF16)",
         "value": 1348,
         "ci": 5,
-        "note": "15761 votos"
+        "note": "15754 votos"
       },
       {
         "name": "MiniMax-M1",
         "value": 1343,
         "ci": 4,
-        "note": "34293 votos"
+        "note": "34294 votos"
       },
       {
         "name": "Trinity Large Thinking",
         "value": 1340,
         "ci": 5,
-        "note": "30290 votos"
-      },
-      {
-        "name": "MiniMax-M2",
-        "value": 1340,
-        "ci": 8,
-        "note": "6850 votos"
+        "note": "30259 votos"
       },
       {
         "name": "Qwen3-32B",
@@ -519,10 +519,16 @@
         "note": "3926 votos"
       },
       {
+        "name": "MiniMax-M2",
+        "value": 1340,
+        "ci": 8,
+        "note": "6849 votos"
+      },
+      {
         "name": "Trinity Large Preview",
         "value": 1339,
         "ci": 4,
-        "note": "31233 votos"
+        "note": "31224 votos"
       },
       {
         "name": "Llama 3.3 Nemotron Super 49B v1.5",
@@ -534,7 +540,7 @@
         "name": "Mistral Small 3.2 (2506)",
         "value": 1338,
         "ci": 5,
-        "note": "17462 votos"
+        "note": "17457 votos"
       },
       {
         "name": "Gemma 3 12B IT",
@@ -552,7 +558,7 @@
         "name": "GLM-4.5V",
         "value": 1333,
         "ci": 8,
-        "note": "4817 votos"
+        "note": "4819 votos"
       },
       {
         "name": "DeepSeek-V3",
@@ -564,19 +570,19 @@
         "name": "Command A (03-2025)",
         "value": 1331,
         "ci": 3,
-        "note": "55763 votos"
+        "note": "55754 votos"
       },
       {
         "name": "NVIDIA-Nemotron-3.5-Lightning-30B-A3B (NVFP4)",
         "value": 1331,
         "ci": 5,
-        "note": "24230 votos"
+        "note": "26056 votos"
       },
       {
         "name": "QwQ-32B",
         "value": 1329,
         "ci": 4,
-        "note": "25177 votos"
+        "note": "25174 votos"
       },
       {
         "name": "Llama 3.1 Nemotron Ultra 253B v1",
@@ -588,19 +594,19 @@
         "name": "Granite 4.2 8B",
         "value": 1319,
         "ci": 11,
-        "note": "3251 votos"
+        "note": "3249 votos"
       },
       {
         "name": "Qwen3-30B-A3B",
         "value": 1317,
         "ci": 5,
-        "note": "26156 votos"
+        "note": "26159 votos"
       },
       {
         "name": "Olmo 3.1 32B Instruct",
         "value": 1311,
         "ci": 6,
-        "note": "11805 votos"
+        "note": "11804 votos"
       },
       {
         "name": "Llama 3.3 Nemotron Super 49B v1",
@@ -612,13 +618,13 @@
         "name": "Gemma 3n E4B IT",
         "value": 1306,
         "ci": 5,
-        "note": "22136 votos"
+        "note": "22135 votos"
       },
       {
         "name": "Olmo 3 32B Think",
         "value": 1299,
         "ci": 8,
-        "note": "5827 votos"
+        "note": "5825 votos"
       },
       {
         "name": "DeepSeek-V2.5 (1210)",
@@ -629,8 +635,8 @@
       {
         "name": "Granite 4.2 3B",
         "value": 1293,
-        "ci": 11,
-        "note": "3249 votos"
+        "ci": 12,
+        "note": "3238 votos"
       },
       {
         "name": "Athene V2 Chat",
@@ -646,13 +652,13 @@
       },
       {
         "name": "Granite 4.1 8B",
-        "value": 1291,
+        "value": 1290,
         "ci": 10,
-        "note": "4177 votos"
+        "note": "4167 votos"
       },
       {
         "name": "Molmo 2 8B",
-        "value": 1287,
+        "value": 1288,
         "ci": 21,
         "note": "822 votos"
       },
@@ -660,13 +666,13 @@
         "name": "gpt-oss-20b",
         "value": 1287,
         "ci": 6,
-        "note": "10416 votos"
+        "note": "10417 votos"
       },
       {
         "name": "Llama 4 Maverick 17B 128E Instruct",
         "value": 1287,
         "ci": 4,
-        "note": "39439 votos"
+        "note": "39436 votos"
       },
       {
         "name": "Llama 3.1 405B Instruct (BF16)",
@@ -696,25 +702,25 @@
         "name": "Llama 4 Scout 17B 16E Instruct",
         "value": 1279,
         "ci": 5,
-        "note": "29823 votos"
+        "note": "29818 votos"
       },
       {
         "name": "Mistral Small 3.1 24B Instruct (2503)",
         "value": 1277,
         "ci": 5,
-        "note": "32722 votos"
+        "note": "32710 votos"
       },
       {
         "name": "Llama 3.3 70B Instruct",
         "value": 1274,
         "ci": 3,
-        "note": "54493 votos"
+        "note": "54491 votos"
       },
       {
         "name": "Olmo 3.1 32B Think",
-        "value": 1271,
+        "value": 1272,
         "ci": 7,
-        "note": "8299 votos"
+        "note": "8281 votos"
       },
       {
         "name": "DeepSeek-V2.5",
@@ -762,7 +768,7 @@
         "name": "Granite-4.0-H-Small",
         "value": 1241,
         "ci": 8,
-        "note": "5630 votos"
+        "note": "5629 votos"
       },
       {
         "name": "Jamba 1.5 Large",
@@ -952,7 +958,7 @@
       },
       {
         "name": "Granite 3.1 8B Instruct",
-        "value": 1150,
+        "value": 1149,
         "ci": 11,
         "note": "3090 votos"
       },
@@ -1042,7 +1048,7 @@
       },
       {
         "name": "Llama 3.2 3B Instruct",
-        "value": 1110,
+        "value": 1109,
         "ci": 8,
         "note": "7936 votos"
       },
@@ -1150,7 +1156,7 @@
       },
       {
         "name": "WizardLM 13B",
-        "value": 1077,
+        "value": 1076,
         "ci": 9,
         "note": "7044 votos"
       },
@@ -1367,356 +1373,368 @@
     ],
     "arena:webdev": [
       {
+        "name": "Kimi K3.1 Pro (Max)",
+        "value": 1684,
+        "ci": 10,
+        "note": "4595 votos"
+      },
+      {
         "name": "DeepSeek-V4.1-Flash-20261017 (Max)",
         "value": 1665,
-        "ci": 8,
-        "note": "7842 votos"
+        "ci": 7,
+        "note": "13670 votos"
       },
       {
         "name": "Kimi K3 (Max)",
-        "value": 1656,
+        "value": 1657,
         "ci": 6,
-        "note": "21281 votos"
+        "note": "22846 votos"
       },
       {
         "name": "MiMo-V2.6-Flash",
-        "value": 1637,
+        "value": 1636,
         "ci": 8,
-        "note": "7068 votos"
+        "note": "8904 votos"
       },
       {
         "name": "Hy4 preview",
         "value": 1631,
         "ci": 10,
-        "note": "4765 votos"
+        "note": "4781 votos"
       },
       {
         "name": "Qwen3.8-Flash-Next",
-        "value": 1628,
-        "ci": 8,
-        "note": "9703 votos"
+        "value": 1625,
+        "ci": 7,
+        "note": "11274 votos"
       },
       {
         "name": "MiMo-V2.6-Pro",
-        "value": 1625,
+        "value": 1624,
         "ci": 8,
-        "note": "6820 votos"
+        "note": "8647 votos"
       },
       {
         "name": "GLM-5.3 (Max)",
-        "value": 1623,
+        "value": 1621,
         "ci": 7,
-        "note": "11150 votos"
+        "note": "12658 votos"
       },
       {
         "name": "DeepSeek-V4.1-Flash-20260910 (Max)",
         "value": 1619,
         "ci": 11,
-        "note": "3510 votos"
+        "note": "3520 votos"
       },
       {
         "name": "GLM-5.3-Flash",
         "value": 1607,
         "ci": 6,
-        "note": "21587 votos"
+        "note": "24186 votos"
       },
       {
         "name": "GLM-5.2 (Max)",
         "value": 1606,
         "ci": 6,
-        "note": "17817 votos"
+        "note": "18533 votos"
       },
       {
         "name": "Qwen3.8-27B",
         "value": 1590,
         "ci": 6,
-        "note": "18752 votos"
+        "note": "21065 votos"
       },
       {
         "name": "MiniMax-M3.1-Flash",
         "value": 1582,
-        "ci": 12,
-        "note": "3062 votos"
-      },
-      {
-        "name": "DeepSeek-V4-Pro (High, 20260813)",
-        "value": 1582,
-        "ci": 9,
-        "note": "4676 votos"
+        "ci": 10,
+        "note": "4601 votos"
       },
       {
         "name": "DeepSeek-V4-Flash (High)",
         "value": 1582,
         "ci": 9,
-        "note": "4927 votos"
+        "note": "4940 votos"
+      },
+      {
+        "name": "DeepSeek-V4-Pro (High, 20260813)",
+        "value": 1582,
+        "ci": 9,
+        "note": "4713 votos"
+      },
+      {
+        "name": "Mistral Large 4",
+        "value": 1560,
+        "ci": 17,
+        "note": "1300 votos"
       },
       {
         "name": "Muse Spark Open (Max)",
         "value": 1526,
-        "ci": 15,
-        "note": "1721 votos"
+        "ci": 14,
+        "note": "1986 votos"
       },
       {
         "name": "Kimi K2.6",
         "value": 1509,
         "ci": 7,
-        "note": "10119 votos"
+        "note": "10161 votos"
       },
       {
         "name": "GLM-5.1",
         "value": 1508,
         "ci": 7,
-        "note": "10647 votos"
+        "note": "10724 votos"
       },
       {
         "name": "Hy3",
         "value": 1505,
         "ci": 8,
-        "note": "6844 votos"
+        "note": "7434 votos"
       },
       {
         "name": "MiniMax-M3",
-        "value": 1483,
+        "value": 1484,
         "ci": 5,
-        "note": "21032 votos"
+        "note": "21776 votos"
       },
       {
         "name": "MiMo-V2.5-Pro",
         "value": 1480,
         "ci": 5,
-        "note": "22604 votos"
+        "note": "22757 votos"
       },
       {
         "name": "Kimi K2.7 Code",
-        "value": 1474,
+        "value": 1473,
         "ci": 9,
-        "note": "4950 votos"
+        "note": "4979 votos"
       },
       {
         "name": "DeepSeek-V4-Pro Preview (High)",
         "value": 1464,
         "ci": 6,
-        "note": "13087 votos"
+        "note": "13169 votos"
       },
       {
         "name": "DeepSeek-V4-Pro",
         "value": 1447,
         "ci": 6,
-        "note": "13931 votos"
+        "note": "14007 votos"
       },
       {
         "name": "MiMo-V2.5",
         "value": 1438,
         "ci": 6,
-        "note": "14837 votos"
+        "note": "14937 votos"
+      },
+      {
+        "name": "Beam 1.0 501B A23B",
+        "value": 1437,
+        "ci": 13,
+        "note": "2960 votos"
       },
       {
         "name": "Kimi K2.5 (Thinking)",
         "value": 1436,
         "ci": 5,
-        "note": "20008 votos"
-      },
-      {
-        "name": "Beam 1.0 501B A23B",
-        "value": 1436,
-        "ci": 13,
-        "note": "2932 votos"
+        "note": "20097 votos"
       },
       {
         "name": "GLM-5",
-        "value": 1436,
+        "value": 1435,
         "ci": 8,
-        "note": "7465 votos"
+        "note": "7493 votos"
       },
       {
         "name": "GLM-4.7",
         "value": 1435,
         "ci": 12,
-        "note": "3948 votos"
+        "note": "4010 votos"
       },
       {
         "name": "DeepSeek-V4-Flash Preview (High)",
         "value": 1430,
         "ci": 7,
-        "note": "10074 votos"
+        "note": "10125 votos"
       },
       {
         "name": "Inkling",
         "value": 1415,
         "ci": 6,
-        "note": "17073 votos"
+        "note": "17828 votos"
       },
       {
         "name": "Inkling-Small",
-        "value": 1409,
+        "value": 1408,
         "ci": 9,
-        "note": "5295 votos"
+        "note": "5350 votos"
       },
       {
         "name": "Kimi K2.5 (Instant)",
-        "value": 1406,
+        "value": 1405,
         "ci": 12,
-        "note": "3246 votos"
+        "note": "3262 votos"
       },
       {
         "name": "Qwen3.5-397B-A17B",
         "value": 1400,
         "ci": 5,
-        "note": "21096 votos"
+        "note": "21194 votos"
       },
       {
         "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
         "value": 1399,
-        "ci": 13,
-        "note": "3193 votos"
+        "ci": 11,
+        "note": "4801 votos"
       },
       {
         "name": "MiniMax-M2.7",
         "value": 1398,
         "ci": 6,
-        "note": "15890 votos"
+        "note": "15972 votos"
       },
       {
         "name": "MiniMax-M2.5",
         "value": 1386,
         "ci": 8,
-        "note": "7594 votos"
+        "note": "7625 votos"
       },
       {
         "name": "MiniMax-M2.1 Preview",
         "value": 1384,
         "ci": 10,
-        "note": "7573 votos"
+        "note": "7642 votos"
       },
       {
         "name": "Gemma 4 31B",
-        "value": 1369,
+        "value": 1370,
         "ci": 6,
-        "note": "15489 votos"
+        "note": "16546 votos"
       },
       {
         "name": "DeepSeek-V3.2 (Thinking)",
-        "value": 1363,
+        "value": 1362,
         "ci": 9,
-        "note": "6860 votos"
+        "note": "6920 votos"
       },
       {
         "name": "Qwen3.5-122B-A10B",
         "value": 1360,
         "ci": 8,
-        "note": "8210 votos"
+        "note": "8252 votos"
       },
       {
         "name": "Gemma 4 26B A4B",
         "value": 1359,
         "ci": 17,
-        "note": "1494 votos"
+        "note": "1501 votos"
       },
       {
         "name": "Qwen3.5-27B",
         "value": 1358,
         "ci": 8,
-        "note": "7767 votos"
+        "note": "7802 votos"
       },
       {
         "name": "Hy3 preview",
         "value": 1357,
         "ci": 17,
-        "note": "1444 votos"
+        "note": "1453 votos"
       },
       {
         "name": "Muse Glimmer",
         "value": 1355,
         "ci": 16,
-        "note": "1632 votos"
+        "note": "1653 votos"
       },
       {
         "name": "Laguna M.1",
         "value": 1349,
         "ci": 9,
-        "note": "5359 votos"
+        "note": "5407 votos"
       },
       {
         "name": "GLM-4.6",
         "value": 1341,
         "ci": 11,
-        "note": "6755 votos"
+        "note": "6784 votos"
       },
       {
         "name": "MiMo-V2-Flash (Non-Thinking)",
-        "value": 1331,
+        "value": 1330,
         "ci": 10,
-        "note": "5645 votos"
+        "note": "5693 votos"
       },
       {
         "name": "DeepSeek-V3.2",
         "value": 1326,
         "ci": 8,
-        "note": "9327 votos"
+        "note": "9379 votos"
       },
       {
         "name": "Kimi K2 Thinking Turbo",
         "value": 1322,
         "ci": 7,
-        "note": "13045 votos"
+        "note": "13098 votos"
       },
       {
         "name": "Laguna XS.2",
-        "value": 1302,
+        "value": 1303,
         "ci": 11,
-        "note": "4204 votos"
+        "note": "4249 votos"
       },
       {
         "name": "MiniMax-M2",
         "value": 1297,
         "ci": 11,
-        "note": "6683 votos"
+        "note": "6720 votos"
       },
       {
         "name": "MiMo-V2-Flash (Thinking)",
         "value": 1292,
         "ci": 16,
-        "note": "1681 votos"
+        "note": "1683 votos"
       },
       {
         "name": "Qwen3-Coder-480B-A35B-Instruct",
-        "value": 1275,
+        "value": 1274,
         "ci": 8,
-        "note": "12675 votos"
+        "note": "12718 votos"
       },
       {
         "name": "DeepSeek-V3.2-Exp",
         "value": 1271,
         "ci": 14,
-        "note": "3968 votos"
+        "note": "3969 votos"
       },
       {
         "name": "Mistral Medium 3.5",
         "value": 1264,
         "ci": 15,
-        "note": "2299 votos"
+        "note": "2319 votos"
       },
       {
         "name": "Qwen3.5-35B-A3B",
         "value": 1254,
         "ci": 17,
-        "note": "1612 votos"
+        "note": "1619 votos"
       },
       {
         "name": "Trinity Large Thinking",
-        "value": 1238,
+        "value": 1237,
         "ci": 20,
-        "note": "1352 votos"
+        "note": "1357 votos"
       },
       {
         "name": "Mistral Large 3",
-        "value": 1233,
-        "ci": 25,
+        "value": 1230,
+        "ci": 26,
         "note": "838 votos"
       },
       {
         "name": "Devstral 2",
-        "value": 1197,
+        "value": 1196,
         "ci": 21,
         "note": "1182 votos"
       },
@@ -1724,159 +1742,165 @@
         "name": "Granite 4.1 8B",
         "value": 1192,
         "ci": 18,
-        "note": "1766 votos"
+        "note": "1782 votos"
       }
     ],
     "arena:vision": [
       {
         "name": "GLM-5.3-Flash",
-        "value": 1294,
-        "ci": 6,
-        "note": "16254 votos"
+        "value": 1295,
+        "ci": 5,
+        "note": "32368 votos"
       },
       {
         "name": "Kimi K2.6",
         "value": 1282,
         "ci": 7,
-        "note": "16368 votos"
+        "note": "16343 votos"
       },
       {
         "name": "DeepSeek-V4.1-Flash-20260910 (Max)",
-        "value": 1278,
+        "value": 1279,
         "ci": 10,
-        "note": "4100 votos"
+        "note": "4349 votos"
       },
       {
         "name": "Gemma 4 31B",
-        "value": 1276,
-        "ci": 6,
-        "note": "40219 votos"
-      },
-      {
-        "name": "Qwen3.8-27B",
-        "value": 1269,
-        "ci": 8,
-        "note": "7614 votos"
+        "value": 1279,
+        "ci": 5,
+        "note": "41989 votos"
       },
       {
         "name": "Kimi K2.5 (Thinking)",
         "value": 1269,
         "ci": 6,
-        "note": "28249 votos"
+        "note": "28183 votos"
+      },
+      {
+        "name": "Qwen3.8-27B",
+        "value": 1267,
+        "ci": 8,
+        "note": "9736 votos"
       },
       {
         "name": "MiMo-V2.6-Pro",
-        "value": 1263,
-        "ci": 15,
-        "note": "1754 votos"
+        "value": 1266,
+        "ci": 14,
+        "note": "1854 votos"
       },
       {
         "name": "Qwen3.5-397B-A17B",
-        "value": 1262,
+        "value": 1263,
         "ci": 5,
-        "note": "32657 votos"
+        "note": "33974 votos"
+      },
+      {
+        "name": "MiMo-V2.6-Flash",
+        "value": 1260,
+        "ci": 9,
+        "note": "6920 votos"
       },
       {
         "name": "Gemma 4 26B A4B",
         "value": 1260,
         "ci": 6,
-        "note": "23922 votos"
-      },
-      {
-        "name": "MiMo-V2.6-Flash",
-        "value": 1256,
-        "ci": 11,
-        "note": "3618 votos"
+        "note": "23881 votos"
       },
       {
         "name": "Kimi K2.5 (Instant)",
         "value": 1254,
         "ci": 11,
-        "note": "4111 votos"
+        "note": "4110 votos"
       },
       {
         "name": "MiniMax-M3",
-        "value": 1251,
+        "value": 1249,
         "ci": 6,
-        "note": "19844 votos"
+        "note": "21478 votos"
       },
       {
         "name": "MiMo-V2.5",
-        "value": 1247,
+        "value": 1248,
         "ci": 6,
-        "note": "29381 votos"
+        "note": "29727 votos"
       },
       {
         "name": "Qwen3-VL-235B-A22B-Instruct",
         "value": 1247,
         "ci": 7,
-        "note": "12724 votos"
+        "note": "12726 votos"
       },
       {
         "name": "Qwen3.5-122B-A10B",
         "value": 1244,
         "ci": 7,
-        "note": "13236 votos"
+        "note": "13220 votos"
+      },
+      {
+        "name": "Mistral Large 4",
+        "value": 1244,
+        "ci": 14,
+        "note": "2041 votos"
       },
       {
         "name": "Qwen3.5-27B",
-        "value": 1241,
+        "value": 1240,
         "ci": 5,
-        "note": "30272 votos"
+        "note": "31672 votos"
       },
       {
         "name": "Inkling-Small",
-        "value": 1237,
+        "value": 1236,
         "ci": 8,
-        "note": "8074 votos"
+        "note": "9438 votos"
       },
       {
         "name": "Mistral Medium 3.5",
         "value": 1222,
         "ci": 9,
-        "note": "5375 votos"
+        "note": "5366 votos"
       },
       {
         "name": "Mistral Large 3",
-        "value": 1220,
-        "ci": 8,
-        "note": "9254 votos"
+        "value": 1221,
+        "ci": 7,
+        "note": "10360 votos"
+      },
+      {
+        "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
+        "value": 1214,
+        "ci": 9,
+        "note": "5714 votos"
       },
       {
         "name": "Qwen3-VL-235B-A22B-Thinking",
         "value": 1207,
         "ci": 12,
-        "note": "2387 votos"
-      },
-      {
-        "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
-        "value": 1205,
-        "ci": 13,
-        "note": "2509 votos"
+        "note": "2382 votos"
       },
       {
         "name": "Step-3",
         "value": 1176,
         "ci": 12,
-        "note": "3193 votos"
+        "note": "3189 votos"
       },
       {
         "name": "Gemma 3 27B IT",
-        "value": 1165,
+        "value": 1164,
         "ci": 8,
-        "note": "16982 votos"
+        "note": "16963 votos"
       },
       {
         "name": "GLM-4.6V",
-        "value": 1164,
+        "value": 1163,
         "ci": 14,
-        "note": "2455 votos"
+        "note": "2451 votos"
       },
       {
         "name": "GLM-4.5V",
         "value": 1154,
         "ci": 12,
-        "note": "3243 votos"
+        "note": "3239 votos"
       },
       {
         "name": "Qwen2.5-VL-32B-Instruct",
@@ -1888,25 +1912,25 @@
         "name": "Mistral Small 3.2 (2506)",
         "value": 1142,
         "ci": 9,
-        "note": "10843 votos"
+        "note": "10833 votos"
       },
       {
         "name": "Llama 4 Maverick 17B 128E Instruct",
         "value": 1142,
         "ci": 9,
-        "note": "6923 votos"
+        "note": "6921 votos"
       },
       {
         "name": "Mistral Small 3.1 24B Instruct (2503)",
         "value": 1136,
         "ci": 8,
-        "note": "28490 votos"
+        "note": "28467 votos"
       },
       {
         "name": "Llama 4 Scout 17B 16E Instruct",
         "value": 1118,
         "ci": 9,
-        "note": "6446 votos"
+        "note": "6439 votos"
       },
       {
         "name": "Qwen2.5-VL-72B-Instruct",
@@ -2034,37 +2058,37 @@
         "name": "Qwen-Image-2.1",
         "value": 1227,
         "ci": 6,
-        "note": "19378 votos"
+        "note": "19390 votos"
       },
       {
         "name": "Ideogram 4.0 (Quality)",
         "value": 1199,
         "ci": 4,
-        "note": "77424 votos"
+        "note": "80646 votos"
       },
       {
         "name": "Cosmos3-Super-Text2Image (Agentic)",
         "value": 1165,
         "ci": 7,
-        "note": "10750 votos"
+        "note": "10751 votos"
       },
       {
         "name": "Cosmos3-Super-Text2Image",
         "value": 1151,
         "ci": 6,
-        "note": "18370 votos"
+        "note": "18368 votos"
       },
       {
         "name": "HunyuanImage 3.0",
         "value": 1151,
         "ci": 3,
-        "note": "180461 votos"
+        "note": "180470 votos"
       },
       {
         "name": "FLUX.2 [dev]",
         "value": 1145,
         "ci": 4,
-        "note": "77924 votos"
+        "note": "77923 votos"
       },
       {
         "name": "Qwen-Image (2512)",
@@ -2076,43 +2100,43 @@
         "name": "HiDream-O1-Image",
         "value": 1115,
         "ci": 4,
-        "note": "79970 votos"
+        "note": "79992 votos"
       },
       {
         "name": "Krea 2 Turbo",
         "value": 1115,
         "ci": 4,
-        "note": "67389 votos"
+        "note": "67417 votos"
       },
       {
         "name": "Z-Image-Turbo",
         "value": 1082,
         "ci": 5,
-        "note": "24923 votos"
+        "note": "24920 votos"
       },
       {
         "name": "FLUX.2 [klein] 9B",
         "value": 1070,
         "ci": 3,
-        "note": "150686 votos"
+        "note": "150684 votos"
       },
       {
         "name": "Qwen-Image (Prompt Extend)",
         "value": 1061,
         "ci": 3,
-        "note": "716605 votos"
+        "note": "716616 votos"
       },
       {
         "name": "Qwen-Image",
         "value": 1057,
         "ci": 3,
-        "note": "84535 votos"
+        "note": "84534 votos"
       },
       {
         "name": "FLUX.2 [klein] 4B",
         "value": 1030,
         "ci": 3,
-        "note": "152284 votos"
+        "note": "152286 votos"
       },
       {
         "name": "GLM-Image",
@@ -2130,7 +2154,7 @@
         "name": "FLUX.1 Kontext [dev]",
         "value": 941,
         "ci": 4,
-        "note": "216218 votos"
+        "note": "216216 votos"
       },
       {
         "name": "Stable Diffusion 3.5 Large",
@@ -2150,55 +2174,55 @@
         "name": "Krea 3 Ultra",
         "value": 1411,
         "ci": 11,
-        "note": "2918 votos"
+        "note": "2924 votos"
       },
       {
         "name": "Qwen-Image-2.1",
         "value": 1364,
         "ci": 6,
-        "note": "41482 votos"
+        "note": "41522 votos"
       },
       {
         "name": "HunyuanImage 3.0 Instruct",
         "value": 1302,
         "ci": 3,
-        "note": "331417 votos"
+        "note": "331407 votos"
       },
       {
         "name": "Qwen-Image-Edit",
         "value": 1241,
         "ci": 3,
-        "note": "2021532 votos"
+        "note": "2021513 votos"
       },
       {
         "name": "Qwen-Image-Edit (2511)",
         "value": 1233,
         "ci": 3,
-        "note": "484921 votos"
+        "note": "484888 votos"
       },
       {
         "name": "FLUX.2 [klein] 9B",
         "value": 1224,
         "ci": 3,
-        "note": "540673 votos"
+        "note": "540656 votos"
       },
       {
         "name": "FLUX.2 [dev]",
         "value": 1224,
         "ci": 4,
-        "note": "254033 votos"
+        "note": "254036 votos"
       },
       {
         "name": "FLUX.2 [klein] 4B",
         "value": 1187,
         "ci": 3,
-        "note": "541193 votos"
+        "note": "541169 votos"
       },
       {
         "name": "FLUX.1 Kontext [dev]",
         "value": 1150,
         "ci": 3,
-        "note": "3639585 votos"
+        "note": "3639566 votos"
       },
       {
         "name": "BAGEL",
@@ -2216,9 +2240,9 @@
     "arena:text_to_video": [
       {
         "name": "MiniMax H3",
-        "value": 1456,
+        "value": 1457,
         "ci": 8,
-        "note": "28443 votos"
+        "note": "28943 votos"
       },
       {
         "name": "Kandinsky 5.0 Video Pro",
@@ -2236,7 +2260,7 @@
         "name": "LTX-2 19B",
         "value": 1156,
         "ci": 7,
-        "note": "93054 votos"
+        "note": "93052 votos"
       },
       {
         "name": "Wan 2.2 A14B",
@@ -2262,13 +2286,13 @@
         "name": "MiniMax H3",
         "value": 1493,
         "ci": 5,
-        "note": "120401 votos"
+        "note": "121819 votos"
       },
       {
         "name": "HunyuanVideo 1.5",
         "value": 1199,
         "ci": 16,
-        "note": "5507 votos"
+        "note": "5508 votos"
       },
       {
         "name": "Wan 2.2 A14B",
@@ -2280,7 +2304,7 @@
         "name": "LTX-2 19B",
         "value": 1161,
         "ci": 5,
-        "note": "313742 votos"
+        "note": "313751 votos"
       }
     ],
     "epoch:eci": [
