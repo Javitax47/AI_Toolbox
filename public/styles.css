@@ -180,6 +180,10 @@ a.task-chip:hover { text-decoration: none; }
 .pick.empty { opacity: .55; }
 @media (max-width: 900px) { .cs-row { grid-template-columns: 1fr; } .cs-picks { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
+table.rk tr.ref td { color: var(--muted); background: color-mix(in srgb, var(--chip) 60%, transparent); font-style: italic; }
+table.rk tr.ref { cursor: default; }
+.cs-ref { grid-column: 1 / -1; margin: 2px 0 0; font-size: 12.5px; color: var(--muted); }
+
 /* Revista */
 .mag-head { padding: 40px 0 10px; display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; }
 .mag-head h1 { font: 700 clamp(32px, 5vw, 52px)/1 var(--serif); margin: 0; letter-spacing: -.02em; }

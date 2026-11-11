@@ -22,6 +22,17 @@ const fmtParams = (p) => (!p ? '—' : p >= 1e9 ? `${+(p / 1e9).toFixed(p < 1e10
 const paramsOf = (m) => (m.params ? (m.paramsApprox ? '≈' : '') + fmtParams(m.params) : '—');
 const fmtVal = (v) => (v == null ? '—' : Math.abs(v) >= 100 ? String(Math.round(v)) : String(+v.toFixed(2)));
 const bench = (m, key) => (m.benchmarks || []).find((b) => b.key === key);
+/** Modelos cerrados de referencia de una tarea, agrupados por nombre: [{name, org, vals: {key: value}}] */
+function closedRefs(task) {
+  const by = new Map();
+  for (const r of S.references?.[task] || []) {
+    const base = r.name.replace(/\s*\((high|xhigh|max|medium|low|thinking)\)/i, '');
+    const e = by.get(base) || { name: base, org: r.org, vals: {}, best: r };
+    e.vals[r.key] = Math.max(e.vals[r.key] ?? -Infinity, r.value);
+    by.set(base, e);
+  }
+  return [...by.values()];
+}
 const hasEvidence = (m) => m.cmp && m.cmp.basis !== 'comunidad';
 const speedOf = (m) => (m.speed?.value ? `~${m.speed.value} tok/s` : m.speed?.text ? (m.speed.level >= 4 ? 'Tiempo real' : 'Declarada') : '—');
 const SOURCE = { hf: 'Hugging Face (eval results)', 'model-index': 'ficha (model-index)', ficha: 'ficha / README', arena: 'LMArena (votos humanos a ciegas)', epoch: 'Epoch AI (evaluación independiente)', aa: 'Artificial Analysis (evaluación independiente)' };
@@ -45,6 +56,7 @@ async function load() {
   const [models, tasks, articles, meta] = await Promise.all([get('data/models.json'), get('data/tasks.json'), get('data/articles.json'), get('data/meta.json')]);
   S.models = models?.models || [];
   S.boards = models?.boards || {};
+  S.references = models?.references || {};
   S.byId = new Map(S.models.map((m) => [m.id, m]));
   S.tasks = tasks || [];
   S.taskMap = Object.fromEntries(S.tasks.map((t) => [t.tag, t]));
@@ -462,6 +474,10 @@ function renderRankings(task) {
     const list = S.models.filter((m) => m.task === task && (!rkHide || !m.cmp?.dominatedBy?.length) && (!rkVram || (m.minVram != null && m.minVram <= +rkVram)))
       .sort((a, b) => (a.cmp?.rank || 1e9) - (b.cmp?.rank || 1e9));
     const ev = list.filter(hasEvidence);
+    // Referencia: los mejores modelos cerrados en las mismas clasificaciones independientes (no compiten en el ranking)
+    const refs = closedRefs(task).filter((r) => (board.keys || []).some((k) => r.vals[k] != null));
+    const refRows = refs.map((r) => `<tr class="ref"><td class="num">🔒</td><td>${esc(r.name)}<div class="note">${esc(r.org || '')} · cerrado, solo referencia</div></td><td></td>
+      ${(board.keys || []).map((k) => `<td>${r.vals[k] != null ? fmtVal(r.vals[k]) : '<span class="note">—</span>'}</td>`).join('')}<td colspan="4" class="note">sin pesos públicos</td></tr>`).join('');
     const rest = list.filter((m) => !hasEvidence(m));
     const keys = board.keys || [];
     const row = (m, i, withKeys) => `<tr onclick="location.hash='#/modelo/${encodeURI(m.id)}'">
@@ -476,7 +492,7 @@ function renderRankings(task) {
     const head = (withKeys, label) => `<tr><th>#</th><th>Modelo</th><th>${label}</th>${withKeys ? keys.map((k) => `<th title="Publicado por ${board.names[k]?.n} modelos">${esc(board.names[k]?.name || k)}${board.names[k]?.lower ? ' ↓' : ''}</th>`).join('') : ''}<th>Tamaño</th><th>VRAM mín.</th><th>Velocidad</th><th title="Licencia permisiva">Comercial</th></tr>`;
     $('#rk').innerHTML = `
       ${ev.length ? `<h2 class="rk-h">Con benchmarks comparables (${ev.length})</h2>
-        <div class="table-wrap"><table class="cmp rk">${head(true, 'Puntuación')}${ev.map((m, i) => row(m, i, true)).join('')}</table></div>
+        <div class="table-wrap"><table class="cmp rk">${head(true, 'Puntuación')}${refRows}${ev.map((m, i) => row(m, i, true)).join('')}</table></div>
         <p class="note">Primero los modelos con evaluación independiente (Epoch AI, LMArena…), ordenados solo con esos datos; después los que solo tienen benchmarks declarados por sus autores (marcados). Puntuación = percentil medio frente al resto de la categoría.</p>` : ''}
       ${rest.length ? `<h2 class="rk-h">${ev.length ? 'Sin benchmarks comparables' : 'Ordenados por popularidad'} (${rest.length})</h2>
         ${ev.length ? '' : '<p class="note">En esta categoría los autores no publican benchmarks comunes. El orden refleja estrellas de GitHub, likes y descargas, no una medida de calidad.</p>'}
@@ -530,6 +546,16 @@ function pickCell(label, m, hint) {
   return `<a class="pick" href="#/modelo/${encodeURI(m.id)}"><span>${label}</span><b>${esc(m.name)}</b><small>${esc(m.author)}${meta ? ' · ' + meta : ''}</small></a>`;
 }
 
+/** "El mejor cerrado saca X puntos al mejor abierto" en la misma clasificación */
+function refLine(task) {
+  const ref = (S.references?.[task] || [])[0];
+  if (!ref) return '';
+  const open = S.models.filter((m) => m.task === task).map((m) => ({ m, b: bench(m, ref.key) })).filter((x) => x.b)
+    .sort((a, b) => (ref.lower ? a.b.value - b.b.value : b.b.value - a.b.value))[0];
+  const gap = open ? (ref.lower ? open.b.value - ref.value : ref.value - open.b.value) : null;
+  return `<p class="cs-ref">🔒 Referencia cerrada: <b>${esc(ref.name)}</b>${ref.org ? ' (' + esc(ref.org) + ')' : ''} — ${esc(ref.label)} ${fmtVal(ref.value)}${open ? ` · mejor abierto: <a href="#/modelo/${encodeURI(open.m.id)}">${esc(open.m.name)}</a> ${fmtVal(open.b.value)} (${gap > 0 ? 'a ' + fmtVal(gap) + ' puntos' : 'por delante'})` : ''}</p>`;
+}
+
 function renderCheatsheet() {
   app.innerHTML = `
     <div class="mag-head"><div><h1>AI models cheatsheet</h1><p>Qué modelo abierto usar para cada tarea, de un vistazo. Se excluyen los modelos superados por otro mejor y más ligero, y cada fila indica cuánto puedes fiarte del orden.</p></div></div>
@@ -561,7 +587,7 @@ function renderCheatsheet() {
             ${pickCell('💻 ' + localLabel, p.local, 'ninguno cabe')}
             ${pickCell(p.tier === 'comunidad' ? '🪶 Más ligero (popular)' : '🪶 Más ligero que rinde bien', p.light)}
             ${pickCell('🆕 Novedad destacada', p.fresh, 'nada nuevo en 45 días')}
-          </div></div>`;
+          </div>${refLine(t)}</div>`;
       }).join('')}</section>`;
     }).join('');
   }

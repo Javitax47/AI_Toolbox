@@ -176,11 +176,34 @@ async function callLLM(system, user, { maxTokens = 2500, temperature = 0.3, kind
 }
 
 function parseJSONLoose(text) {
-  const clean = text.replace(/<think>[\s\S]*?<\/think>/g, '');
-  const fenced = clean.match(/```(?:json)?\s*([\s\S]*?)```/);
-  const candidate = fenced ? fenced[1] : clean;
-  const start = candidate.indexOf('{');
-  const end = candidate.lastIndexOf('}');
-  if (start < 0 || end <= start) return null;
-  try { return JSON.parse(candidate.slice(start, end + 1)); } catch { return null; }
+  const clean = text.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+  // Primero el objeto completo: un artículo puede llevar bloques ``` dentro de "cuerpo",
+  // así que el bloque de código solo se busca si el texto no es JSON directamente
+  const fenced = clean.match(/^```(?:json)?\s*([\s\S]*?)```\s*$/);
+  for (const candidate of [clean, fenced?.[1]].filter(Boolean)) {
+    const start = candidate.indexOf('{');
+    const end = candidate.lastIndexOf('}');
+    if (start < 0 || end <= start) continue;
+    const slice = candidate.slice(start, end + 1);
+    try { return JSON.parse(slice); } catch {}
+    // Saltos de línea sin escapar dentro de cadenas (frecuente en textos largos)
+    try { return JSON.parse(escapeControlInStrings(slice)); } catch {}
+  }
+  return null;
+}
+
+function escapeControlInStrings(s) {
+  let out = '', inStr = false, esc = false;
+  for (const c of s) {
+    if (inStr) {
+      if (esc) esc = false;
+      else if (c === '\\') esc = true;
+      else if (c === '"') inStr = false;
+      else if (c === '\n') { out += '\\n'; continue; }
+      else if (c === '\r') continue;
+      else if (c === '\t') { out += '\\t'; continue; }
+    } else if (c === '"') inStr = true;
+    out += c;
+  }
+  return out;
 }

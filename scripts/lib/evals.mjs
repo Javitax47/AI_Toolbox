@@ -231,6 +231,7 @@ export const BOARD_SOURCES = {
 };
 
 const BOARDS_FILE = path.join(STATE_DIR, 'leaderboards.json');
+const BOARDS_VERSION = 2; // 2: incluye modelos cerrados (open: false)
 const DS = 'https://datasets-server.huggingface.co/rows?dataset=lmarena-ai/leaderboard-dataset';
 
 async function loadLMArena() {
@@ -244,8 +245,9 @@ async function loadLMArena() {
       rows.push(...overall);
       if (r.length < 100 || !overall.length) break;
     }
-    if (rows.length) out['arena:' + config] = rows.filter((x) => !/proprietary/i.test(x.license || ''))
-      .map((x) => ({ name: x.model_name, value: Math.round(x.rating), ci: Math.round((x.rating_upper - x.rating_lower) / 2), note: `${Math.round(x.vote_count)} votos` }));
+    // Se guardan también los cerrados: no entran en el catálogo, pero sirven de referencia
+    if (rows.length) out['arena:' + config] = rows
+      .map((x) => ({ open: !/proprietary/i.test(x.license || ''), org: x.organization, name: x.model_name, value: Math.round(x.rating), ci: Math.round((x.rating_upper - x.rating_lower) / 2), note: `${Math.round(x.vote_count)} votos` }));
   }
   return out;
 }
@@ -257,8 +259,8 @@ async function loadEpoch() {
   if (!csv) return {};
   const rows = parseCSV(csv);
   return {
-    'epoch:eci': rows.filter((r) => /open/i.test(r['Accessibility group'] || '') && r.eci)
-      .map((r) => ({ name: r.Model, alt: r['Display name'], value: +(+r.eci).toFixed(1), ci: +((+r.eci_ci_high - +r.eci_ci_low) / 2).toFixed(1), note: r.Organization })),
+    'epoch:eci': rows.filter((r) => r.eci)
+      .map((r) => ({ open: /open/i.test(r['Accessibility group'] || ''), org: r.Organization, name: r.Model, alt: r['Display name'], value: +(+r.eci).toFixed(1), ci: +((+r.eci_ci_high - +r.eci_ci_low) / 2).toFixed(1), note: r.Organization })),
   };
 }
 
@@ -290,17 +292,30 @@ async function loadArtificialAnalysis() {
 export async function loadLeaderboards() {
   const today = new Date().toISOString().slice(0, 10);
   const cached = await readJSON(BOARDS_FILE, null);
-  if (cached?.date === today && Object.keys(cached.boards || {}).length) return cached;
+  if (cached?.date === today && cached.v === BOARDS_VERSION && Object.keys(cached.boards || {}).length) return cached;
   const fresh = { ...(await loadLMArena()), ...(await loadEpoch()), ...(await loadArtificialAnalysis()) };
   // Si una fuente falla hoy se conserva la última versión buena
-  const boards = { ...(cached?.boards || {}), ...fresh };
-  const out = { date: today, boards };
+  const boards = { ...(cached?.v === BOARDS_VERSION ? cached.boards : {}), ...fresh };
+  const out = { date: today, v: BOARDS_VERSION, boards };
   await writeJSON(BOARDS_FILE, out, true);
   console.log(`· Clasificaciones independientes: ${Object.entries(boards).map(([k, v]) => `${k} ${v.length}`).join(', ')}`);
   return out;
 }
 
 const VARIANT_RE = /\((max|high|low|medium|minimal|xhigh|thinking|non-thinking|reasoning|non-reasoning|instruct|agentic|quality|fast|preview|beta)\)/gi;
+
+/** Mejores modelos cerrados de cada clasificación, como referencia frente a los abiertos */
+export function closedReferences(lb, perBoard = 3) {
+  const out = {};
+  for (const [id, rows] of Object.entries(lb.boards || {})) {
+    const b = BOARDS[id];
+    if (!b) continue;
+    const top = rows.filter((r) => r.open === false && r.value != null)
+      .sort((x, y) => (b.lower ? x.value - y.value : y.value - x.value)).slice(0, perBoard);
+    for (const r of top) (out[b.tasks[0]] ||= []).push({ name: r.name, org: r.org || null, key: b.key, label: b.label, value: r.value, lower: Boolean(b.lower), source: id.split(':')[0] });
+  }
+  return out;
+}
 
 /** Formas normalizadas de un nombre de clasificación ("GLM-5.3 (Max)" → glm53) */
 export function boardVariants(n) {
@@ -315,6 +330,7 @@ export function leaderboardIndex(lb) {
     const b = BOARDS[id];
     if (!b) continue;
     for (const r of rows) {
+      if (r.open === false) continue; // los cerrados no se casan con repos del Hub
       const keys = new Set([r.name, r.alt].filter(Boolean).flatMap(boardVariants));
       for (const k of keys) {
         const list = idx.get(k) || [];

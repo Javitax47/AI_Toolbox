@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fetchJSON, fetchText, readJSON, writeJSON, pool, stripMarkdown, firstSentences, DATA_DIR, CONFIG_DIR, STATE_DIR } from './util.mjs';
 import { llmJSON, llmEnabled, llmBudgetLeft } from './llm.mjs';
 import { classify } from './research.mjs';
-import { structuredEvals, readmeBenchmarks, readmeFacts, weightsSize, loadLeaderboards, leaderboardIndex, leaderboardsFor, mergeBenchmarks, nameVariants, boardVariants, REPACK } from './evals.mjs';
+import { structuredEvals, readmeBenchmarks, readmeFacts, weightsSize, loadLeaderboards, leaderboardIndex, leaderboardsFor, closedReferences, mergeBenchmarks, nameVariants, boardVariants, REPACK } from './evals.mjs';
 import { compareModels } from './compare.mjs';
 
 const HF = 'https://huggingface.co/api/models';
@@ -75,7 +75,7 @@ export async function updateModels(research = []) {
   const resolved = await readJSON(RESOLVE_FILE, {});
   const seen = new Set(lists.flatMap((l) => (l || []).flatMap((m) => nameVariants(m.id.split('/')[1]))));
   for (const m of byId.values()) for (const v of nameVariants(m.name)) seen.add(v);
-  const lbNames = [...new Set(Object.values(leaderboards.boards).flat().map((r) => r.name))];
+  const lbNames = [...new Set(Object.values(leaderboards.boards).flat().filter((r) => r.open !== false).map((r) => r.name))];
   const toResolve = lbNames.filter((n) => resolved[n] === undefined && !boardVariants(n).some((v) => seen.has(v))).slice(0, MAX_RESOLVE_PER_RUN);
   await pool(toResolve, 4, async (n) => {
     const variants = boardVariants(n);
@@ -295,7 +295,7 @@ export async function updateModels(research = []) {
   // Datos de trabajo que no necesita la web
   const slim = final.map(({ evalsHF, readmeBench, benchLLM, ...m }) => m);
 
-  await writeJSON(path.join(DATA_DIR, 'models.json'), { updatedAt: now, count: slim.length, boards, models: slim });
+  await writeJSON(path.join(DATA_DIR, 'models.json'), { updatedAt: now, count: slim.length, boards, references: closedReferences(leaderboards), models: slim });
   await writeJSON(path.join(DATA_DIR, 'tasks.json'), tasks.map(({ tag, label, icon, keywords, llm }) => ({ tag, label, icon, keywords, llm: Boolean(llm) })));
   console.log(`✓ ${final.length} modelos en el toolbox · ${final.filter((m) => m.cmp.basis !== 'comunidad').length} con benchmarks · ${final.filter((m) => m.cmp.dominatedBy.length).length} superados por otro`);
   // Se guardan también los datos de trabajo en el estado para no repetir análisis
