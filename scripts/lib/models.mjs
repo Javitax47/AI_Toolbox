@@ -15,6 +15,7 @@ const PER_TASK_LIMIT = 60;
 const PER_TASK_CAP = 120;
 const TASK_CAP = { 'text-generation': 260, 'image-text-to-text': 160 };
 const MAX_ENRICH_PER_RUN = Number(process.env.MAX_ENRICH_PER_RUN || 40);
+const MAX_LLM_ENRICH_PER_RUN = Number(process.env.MAX_LLM_ENRICH_PER_RUN || 8);
 const MAX_ANALYZE_PER_RUN = Number(process.env.MAX_ANALYZE_PER_RUN || 250);
 const MAX_TREE_PER_RUN = Number(process.env.MAX_TREE_PER_RUN || 100);
 const EVALS_FILE = path.join(STATE_DIR, 'model-evals.json');
@@ -232,7 +233,8 @@ export async function updateModels(research = []) {
     .filter((m) => m.enriched !== 'llm' && (!m.enriched || llmEnabled))
     .sort((a, b) => (b.watch - a.watch) || ((b.kind === 'project') - (a.kind === 'project')) || (b.trending - a.trending) || (b.likes - a.likes))
     .slice(0, MAX_ENRICH_PER_RUN);
-  const llmSlots = await llmBudgetLeft('enrich');
+  // Pocas fichas con LLM por ejecución: la cuota por minuto se reserva sobre todo para los artículos
+  const llmSlots = Math.min(MAX_LLM_ENRICH_PER_RUN, await llmBudgetLeft('enrich'));
   const work = [...pending.slice(0, llmSlots), ...pending.slice(llmSlots).filter((m) => !m.enriched)];
   console.log(`· Enriqueciendo ${work.length} modelos (LLM ${llmEnabled ? 'activado' : 'desactivado'})`);
   await pool(work, 4, async (m, i) => enrich(m, taskMap[m.task], await getReadme(m), i < llmSlots));

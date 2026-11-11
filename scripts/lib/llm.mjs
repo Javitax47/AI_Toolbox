@@ -94,7 +94,15 @@ async function resolveModels(p) {
   return p.models;
 }
 
-export async function llmJSON(system, user, { maxTokens = 2500, temperature = 0.3, kind = 'article' } = {}) {
+// Los planes gratuitos limitan los tokens por minuto (Groq: 8000): las llamadas se hacen de una en una
+let queue = Promise.resolve();
+export function llmJSON(...args) {
+  const run = queue.then(() => callLLM(...args));
+  queue = run.catch(() => {});
+  return run;
+}
+
+async function callLLM(system, user, { maxTokens = 2500, temperature = 0.3, kind = 'article' } = {}) {
   if (!llmEnabled) return null;
   const u = await loadUsage();
   if ((u.calls[kind] || 0) >= (BUDGET[kind] ?? 20)) return null;
@@ -130,7 +138,7 @@ export async function llmJSON(system, user, { maxTokens = 2500, temperature = 0.
         }
         const errText = res.ok ? '' : (await res.text()).replace(/\s+/g, ' ');
         // Límite por minuto (TPM/RPM): se espera y se reintenta el mismo modelo; el límite diario agota el modelo
-        if (res.status === 429 && !/per day|\(TPD\)|\(RPD\)/i.test(errText) && (retries[id] || 0) < 2) {
+        if (res.status === 429 && !/per day|\(TPD\)|\(RPD\)/i.test(errText) && (retries[id] || 0) < 4) {
           const wait = Math.min(65, Number(res.headers.get('retry-after')) || Number(errText.match(/try again in ([\d.]+)s/i)?.[1]) || 20);
           retries[id] = (retries[id] || 0) + 1;
           console.warn(`  · LLM ${id}: límite por minuto, espero ${Math.ceil(wait)} s`);
@@ -147,6 +155,7 @@ export async function llmJSON(system, user, { maxTokens = 2500, temperature = 0.
         }
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
+        retries[id] = 0; // los reintentos por minuto cuentan por llamada, no por ejecución
         const json = parseJSONLoose(data.choices?.[0]?.message?.content || '');
         u.calls[kind] = (u.calls[kind] || 0) + 1;
         u.byModel[id] = (u.byModel[id] || 0) + 1;
