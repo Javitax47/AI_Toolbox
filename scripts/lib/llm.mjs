@@ -22,8 +22,8 @@ const PROVIDERS = [
     models: list(process.env.LLM_MODEL, ['openrouter/auto']), maxChars: 60000,
   },
   process.env.GROQ_API_KEY && {
-    name: 'groq', base: 'https://api.groq.com/openai/v1', key: process.env.GROQ_API_KEY,
-    models: list(process.env.GROQ_MODELS, GROQ_DEFAULT), defaults: GROQ_DEFAULT, maxChars: 24000,
+    name: 'groq', base: process.env.GROQ_BASE || 'https://api.groq.com/openai/v1', key: process.env.GROQ_API_KEY,
+    models: list(process.env.GROQ_MODELS, GROQ_DEFAULT), defaults: GROQ_DEFAULT, discover: true, maxChars: 14000, // plan gratuito: pocos tokens por minuto
   },
   process.env.GEMINI_API_KEY && {
     name: 'gemini', base: 'https://generativelanguage.googleapis.com/v1beta/openai', key: process.env.GEMINI_API_KEY,
@@ -46,6 +46,7 @@ let usage = null;
 const exhausted = new Set(); // "proveedor/modelo" sin cuota en esta ejecución
 const disabled = new Set(); // proveedores con clave inválida
 const badReplies = {}; // respuestas sin JSON por modelo; a la segunda se deja de usar en esta ejecución
+const retries = {}; // reintentos por límite por minuto
 
 async function loadUsage() {
   if (usage) return usage;
@@ -67,6 +68,21 @@ export async function llmBudgetLeft(kind) {
 }
 
 async function resolveModels(p) {
+  if (p.discover && !p.discovered) {
+    // Los catálogos cambian (Groq retira modelos): se cruzan los preferidos con los disponibles
+    p.discovered = true;
+    try {
+      const res = await fetch(`${p.base}/models`, { headers: { Authorization: `Bearer ${p.key}` }, signal: AbortSignal.timeout(20000) });
+      const ids = ((await res.json()).data || []).map((m) => m.id);
+      if (ids.length) {
+        const chat = ids.filter((id) => !/(whisper|tts|guard|orpheus|playai|distil|compound|embed)/i.test(id));
+        const keep = p.models.filter((m) => ids.includes(m));
+        const extra = chat.filter((id) => !keep.includes(id) && /(gpt-oss|llama|qwen|kimi|deepseek|mistral|gemma)/i.test(id));
+        p.models = [...keep, ...extra].slice(0, 6);
+        console.log(`  · LLM ${p.name}: ${p.models.join(', ')}`);
+      }
+    } catch {}
+  }
   if (p.models) return p.models;
   // OpenRouter: elige modelos gratuitos con contexto suficiente
   try {
@@ -112,8 +128,18 @@ export async function llmJSON(system, user, { maxTokens = 2500, temperature = 0.
           disabled.add(p.name);
           break;
         }
+        const errText = res.ok ? '' : (await res.text()).replace(/\s+/g, ' ');
+        // Límite por minuto (TPM/RPM): se espera y se reintenta el mismo modelo; el límite diario agota el modelo
+        if (res.status === 429 && !/per day|\(TPD\)|\(RPD\)/i.test(errText) && (retries[id] || 0) < 2) {
+          const wait = Math.min(65, Number(res.headers.get('retry-after')) || Number(errText.match(/try again in ([\d.]+)s/i)?.[1]) || 20);
+          retries[id] = (retries[id] || 0) + 1;
+          console.warn(`  · LLM ${id}: límite por minuto, espero ${Math.ceil(wait)} s`);
+          await new Promise((r) => setTimeout(r, Math.ceil(wait) * 1000));
+          mi--;
+          continue;
+        }
         if (res.status === 429 || res.status === 413 || res.status === 404 || res.status === 400) {
-          console.warn(`  ! LLM ${id}: HTTP ${res.status} (${(await res.text()).slice(0, 120).replace(/\s+/g, ' ')}), se prueba el siguiente`);
+          console.warn(`  ! LLM ${id}: HTTP ${res.status} (${errText.slice(0, 300)}), se prueba el siguiente`);
           exhausted.add(id);
           // Un nombre mal escrito en *_MODELS no debe dejar la web sin LLM: se añaden los modelos por defecto
           if (res.status === 404 && p.defaults) for (const d of p.defaults) if (!models.includes(d)) models.push(d);
