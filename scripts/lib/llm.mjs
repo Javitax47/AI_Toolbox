@@ -23,7 +23,7 @@ const PROVIDERS = [
   },
   process.env.GROQ_API_KEY && {
     name: 'groq', base: process.env.GROQ_BASE || 'https://api.groq.com/openai/v1', key: process.env.GROQ_API_KEY,
-    models: list(process.env.GROQ_MODELS, GROQ_DEFAULT), defaults: GROQ_DEFAULT, discover: true, maxChars: 14000, // plan gratuito: pocos tokens por minuto
+    models: list(process.env.GROQ_MODELS, GROQ_DEFAULT), defaults: GROQ_DEFAULT, discover: true, jsonMode: true, maxChars: 14000, // plan gratuito: pocos tokens por minuto
   },
   process.env.GEMINI_API_KEY && {
     name: 'gemini', base: 'https://generativelanguage.googleapis.com/v1beta/openai', key: process.env.GEMINI_API_KEY,
@@ -124,6 +124,8 @@ async function callLLM(system, user, { maxTokens = 2500, temperature = 0.3, kind
         ],
       };
       if (/gpt-oss/.test(model)) body.reasoning_effort = 'low';
+      // Modo JSON: evita respuestas truncadas o con texto alrededor del objeto
+      if (p.jsonMode) body.response_format = { type: 'json_object' };
       try {
         const res = await fetch(`${p.base}/chat/completions`, {
           method: 'POST',
@@ -138,7 +140,7 @@ async function callLLM(system, user, { maxTokens = 2500, temperature = 0.3, kind
         }
         const errText = res.ok ? '' : (await res.text()).replace(/\s+/g, ' ');
         // Límite por minuto (TPM/RPM): se espera y se reintenta el mismo modelo; el límite diario agota el modelo
-        if (res.status === 429 && !/per day|\(TPD\)|\(RPD\)/i.test(errText) && (retries[id] || 0) < 4) {
+        if (res.status === 429 && !/per day|\(TPD\)|\(RPD\)|too large/i.test(errText) && (retries[id] || 0) < 4) {
           const wait = Math.min(65, Number(res.headers.get('retry-after')) || Number(errText.match(/try again in ([\d.]+)s/i)?.[1]) || 20);
           retries[id] = (retries[id] || 0) + 1;
           console.warn(`  · LLM ${id}: límite por minuto, espero ${Math.ceil(wait)} s`);
@@ -160,7 +162,7 @@ async function callLLM(system, user, { maxTokens = 2500, temperature = 0.3, kind
         u.calls[kind] = (u.calls[kind] || 0) + 1;
         u.byModel[id] = (u.byModel[id] || 0) + 1;
         if (json) return json;
-        console.warn(`  ! LLM ${id}: respuesta sin JSON válido`);
+        console.warn(`  ! LLM ${id}: respuesta sin JSON válido (fin: ${data.choices?.[0]?.finish_reason}, ${(data.choices?.[0]?.message?.content || '').length} caracteres)`);
         badReplies[id] = (badReplies[id] || 0) + 1;
         if (badReplies[id] >= 2) exhausted.add(id);
         if ((u.calls[kind] || 0) >= (BUDGET[kind] ?? 20)) return null;
