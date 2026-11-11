@@ -211,7 +211,7 @@ function researchCandidates(research, cfg) {
         date: r.published || r.firstSeen,
         maxAge,
         summary: `${r.summary || r.description || ''}${links ? '\n\nEnlaces: ' + links : ''}${r.stars ? `\nEstrellas en GitHub: ${r.stars}` : ''}${r.mentions?.length ? `\nMencionado en: ${r.mentions.join('; ')}` : ''}`,
-        image: r.image || (r.repo ? `https://opengraph.githubassets.com/1/${r.repo}` : null),
+        image: r.image || null, // si no hay, se busca en la página del proyecto o el README al redactar
         score: r.score,
       };
     });
@@ -235,7 +235,7 @@ async function collectGitHub(cfg) {
       maxAge: cfg.maxAgeDays || 10,
       summary: r.description || '',
       stars: r.stargazers_count,
-      image: `https://opengraph.githubassets.com/1/${r.full_name}`,
+      image: null,
       score: (cfg.weight || 1) * Math.log10(r.stargazers_count + 1) * 5,
     }));
 }
@@ -287,6 +287,21 @@ const titleKey = (t) => tokens(t).slice(0, 8).join(' ');
 
 // ---------- Redacción ----------
 
+// Primera imagen de verdad del README (figura, teaser, demo), sin badges ni logos.
+// Se sirve desde raw.githubusercontent.com: las tarjetas de opengraph.githubassets.com dan 429
+// cuando el navegador carga muchas a la vez.
+export function readmeImage(md, repo) {
+  const urls = [...md.matchAll(/!\[[^\]]*\]\(\s*<?([^)\s>]+)/g), ...md.matchAll(/<img[^>]+src=["']([^"']+)["']/gi)]
+    .sort((a, b) => a.index - b.index).map((m) => m[1]);
+  for (let u of urls) {
+    if (/shields\.io|badge|codecov|star-history|contrib\.rocks|visitor|hits\.|komarev|\/workflows\/|logo|icon|avatar|\.svg(\?|$)/i.test(u)) continue;
+    if (!/^https?:/i.test(u)) u = `https://raw.githubusercontent.com/${repo}/HEAD/${u.replace(/^\.?\//, '')}`;
+    u = u.replace(/^https:\/\/github\.com\/([^/]+\/[^/]+)\/(?:blob|raw)\//, 'https://raw.githubusercontent.com/$1/');
+    if (/\.(png|jpe?g|gif|webp)(\?|$)/i.test(u) || /user-attachments|githubusercontent\.com\/.*\/assets\//i.test(u)) return u;
+  }
+  return null;
+}
+
 async function gatherContext(item) {
   let text = item.summary || '';
   let image = item.image || null;
@@ -296,18 +311,20 @@ async function gatherContext(item) {
     if (md) text = stripMarkdown(md);
   } else if (item.type === 'research') {
     const parts = [item.summary || ''];
+    let md = null;
     if (item.repo) {
-      const md = await fetchText(`https://raw.githubusercontent.com/${item.repo}/HEAD/README.md`, { retries: 1 });
+      md = await fetchText(`https://raw.githubusercontent.com/${item.repo}/HEAD/README.md`, { retries: 1 });
       if (md) parts.push('README:\n' + stripMarkdown(md).slice(0, 3500));
     }
     if (item.project) {
       const html = await fetchText(item.project, { retries: 0, timeout: 15000 });
       if (html) { const page = extractPage(html); parts.push('Página del proyecto:\n' + page.text.slice(0, 2500)); image = image || page.image; }
     }
+    if (!image && md) image = readmeImage(md, item.repo);
     text = parts.join('\n\n');
   } else if (item.type === 'github') {
     const md = await fetchText(`https://raw.githubusercontent.com/${item.repo}/HEAD/README.md`, { retries: 1 });
-    if (md) text = `${item.summary}\n\n${stripMarkdown(md)}`;
+    if (md) { text = `${item.summary}\n\n${stripMarkdown(md)}`; image = image || readmeImage(md, item.repo); }
   } else if (item.type === 'rss') {
     const html = await fetchText(item.url, { retries: 1, timeout: 15000 });
     if (html) {
@@ -388,7 +405,9 @@ Devuelve este JSON:
   return {
     slug,
     date,
-    image: ctx.map((x) => x.image).find(Boolean) || null,
+    // Sin imagen en las fuentes: la tarjeta del modelo en Hugging Face, si el artículo trata de uno
+    // Solo la imagen de la fuente principal: las secundarias del mismo tema pueden ser de otra cosa
+    image: ctx[0].image || (article.modelIds?.[0] ? `https://cdn-thumbnails.huggingface.co/social-thumbnails/models/${article.modelIds[0]}.png` : null),
     ...article,
     sources: items.map((i) => ({ title: i.title, url: i.url, source: i.source })),
     _tokens: c.tokens,

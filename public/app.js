@@ -620,7 +620,8 @@ function renderMagazine() {
 }
 
 function thumb(a) {
-  return `<div class="thumb">${a.image ? `<img src="${esc(a.image)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : ''}<span>${CAT_ICON[a.category] || '📰'}</span></div>`;
+  // Sin imagen real no hay recuadro: la tarjeta pasa a ser solo texto (también si la imagen no carga)
+  return a.image ? `<div class="thumb"><img src="${esc(a.image)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.art-card, .feat-main, .article')?.classList.add('noimg'); this.parentElement.remove()"></div>` : '';
 }
 
 function renderMagList() {
@@ -628,13 +629,13 @@ function renderMagList() {
   const list = S.articles.filter((a) => (!magCat || a.category === magCat) && (!q || norm(`${a.title} ${a.dek} ${(a.tags || []).join(' ')}`).includes(q)));
   if (!list.length) { $('#mag').innerHTML = `<p class="empty">Aún no hay artículos${magCat || q ? ' con ese filtro' : ''}.</p>`; return; }
   const kicker = (a) => `<div class="kicker">${esc(a.category)} <time datetime="${a.date}">${timeAgo(a.date)}</time></div>`;
-  const card = (a, h = 'h3') => `<a class="art-card" href="#/articulo/${a.slug}">${thumb(a)}<div>${kicker(a)}<${h}>${esc(a.title)}</${h}><p>${esc(a.dek)}</p></div></a>`;
+  const card = (a, h = 'h3') => `<a class="art-card${a.image ? '' : ' noimg'}" href="#/articulo/${a.slug}">${thumb(a)}<div>${kicker(a)}<${h}>${esc(a.title)}</${h}><p>${esc(a.dek)}</p></div></a>`;
   const [main, ...rest] = list;
   const side = rest.slice(0, 3);
   $('#mag').innerHTML = `
     <section class="featured">
-      <a class="feat-main" href="#/articulo/${main.slug}">${thumb(main)}${kicker(main)}<h2>${esc(main.title)}</h2><p>${esc(main.dek)}</p></a>
-      <div class="feat-side">${side.map((a) => `<a class="art-card" href="#/articulo/${a.slug}">${thumb(a)}<div>${kicker(a)}<h3>${esc(a.title)}</h3></div></a>`).join('')}</div>
+      <a class="feat-main${main.image ? '' : ' noimg'}" href="#/articulo/${main.slug}">${thumb(main)}${kicker(main)}<h2>${esc(main.title)}</h2><p>${esc(main.dek)}</p></a>
+      <div class="feat-side">${side.map((a) => `<a class="art-card${a.image ? '' : ' noimg'}" href="#/articulo/${a.slug}">${thumb(a)}<div>${kicker(a)}<h3>${esc(a.title)}</h3></div></a>`).join('')}</div>
     </section>
     <section class="art-grid">${rest.slice(3).map((a) => card(a)).join('')}</section>`;
 }

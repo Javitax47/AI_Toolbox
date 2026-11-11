@@ -194,7 +194,7 @@ table.rk tr.ref { cursor: default; }
 .feat-main, .art-card { color: inherit; display: block; }
 .feat-main:hover, .art-card:hover { text-decoration: none; }
 .feat-main:hover h2, .art-card:hover h3 { color: var(--accent); }
-.thumb { aspect-ratio: 16/9; border-radius: var(--radius); background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 35%, var(--card)), color-mix(in srgb, var(--accent-2) 25%, var(--card))); overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 42px; }
+.thumb { aspect-ratio: 16/9; border-radius: var(--radius); background: var(--chip); overflow: hidden; }
 .thumb img { width: 100%; height: 100%; object-fit: cover; }
 .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin: 12px 0 4px; display: flex; gap: 10px; }
 .kicker time { color: var(--muted); font-weight: 500; }
@@ -202,7 +202,12 @@ table.rk tr.ref { cursor: default; }
 .feat-main p, .art-card p { color: var(--muted); margin: 0; }
 .feat-side { display: flex; flex-direction: column; gap: 18px; }
 .feat-side .art-card { display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: start; }
-.feat-side .thumb { aspect-ratio: 4/3; font-size: 24px; }
+.feat-side .thumb { aspect-ratio: 4/3; }
+/* Tarjetas sin imagen: solo texto, con una línea de acento en lugar de un recuadro de relleno */
+.art-card.noimg > div, .feat-main.noimg { border-top: 3px solid var(--accent); padding-top: 4px; }
+.feat-side .art-card.noimg { grid-template-columns: 1fr; }
+.feat-main.noimg h2 { font-size: clamp(28px, 3.6vw, 42px); }
+.feat-main.noimg p { font-size: 17px; }
 .feat-side .kicker { margin-top: 0; }
 .art-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px 22px; padding-bottom: 48px; }
 .art-card h3 { font: 700 20px/1.25 var(--serif); margin: 2px 0 6px; }
@@ -245,4 +250,3 @@ table.rk tr.ref { cursor: default; }
   .feat-side .art-card { grid-template-columns: 90px 1fr; }
   .prose { font-size: 16.5px; }
 }
-.thumb:has(img) span { display: none; }
