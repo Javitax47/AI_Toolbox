@@ -90,7 +90,7 @@ Sin ninguna clave funciona en **modo plantilla**: resúmenes en inglés sacados 
 GROQ_API_KEY=gsk_... npm run update
 ```
 
-Otras variables: `MAX_ANALYZE_PER_RUN` (250 fichas por ejecución) y `MAX_TREE_PER_RUN` (100 listados de ficheros), repartidos entre ejecuciones para no superar el límite de peticiones de Hugging Face; `ARTICLES_PER_RUN` (5), `MIN_ARTICLE_SCORE` (16), `MAX_ENRICH_PER_RUN` (40), `SITE_URL` (para el RSS), `GITHUB_TOKEN` (más cuota para la API de GitHub; en Actions ya va incluido), `HF_TOKEN` (token de Hugging Face de **solo lectura**, opcional: más cuota y acceso a las fichas de modelos restringidos cuyas condiciones hayas aceptado con tu cuenta).
+Otras variables: `RUN_INTERVAL_HOURS` (4; cada cuántas horas corre realmente el workflow, porque GitHub retrasa el cron, para repartir el presupuesto de artículos), `MAX_ANALYZE_PER_RUN` (250 fichas por ejecución) y `MAX_TREE_PER_RUN` (100 listados de ficheros), repartidos entre ejecuciones para no superar el límite de peticiones de Hugging Face; `ARTICLES_PER_RUN` (5), `MIN_ARTICLE_SCORE` (16), `MAX_ENRICH_PER_RUN` (40), `SITE_URL` (para el RSS), `GITHUB_TOKEN` (más cuota para la API de GitHub; en Actions ya va incluido), `HF_TOKEN` (token de Hugging Face de **solo lectura**, opcional: más cuota y acceso a las fichas de modelos restringidos cuyas condiciones hayas aceptado con tu cuenta).
 
 ### Producción (GitHub Pages, cada hora)
 

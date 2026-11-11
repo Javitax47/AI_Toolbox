@@ -12,8 +12,8 @@ const EXPAND = ['safetensors', 'pipeline_tag', 'likes', 'downloads', 'createdAt'
   .map((e) => `expand[]=${e}`).join('&');
 
 const PER_TASK_LIMIT = 60;
-const PER_TASK_CAP = 90;
-const TASK_CAP = { 'text-generation': 160, 'image-text-to-text': 120 };
+const PER_TASK_CAP = 120;
+const TASK_CAP = { 'text-generation': 260, 'image-text-to-text': 160 };
 const MAX_ENRICH_PER_RUN = Number(process.env.MAX_ENRICH_PER_RUN || 40);
 const MAX_ANALYZE_PER_RUN = Number(process.env.MAX_ANALYZE_PER_RUN || 250);
 const MAX_TREE_PER_RUN = Number(process.env.MAX_TREE_PER_RUN || 100);
@@ -29,7 +29,6 @@ const DTYPE_BYTES = { F64: 8, F32: 4, BF16: 2, F16: 2, F8_E4M3: 1, F8_E5M2: 1, I
 export async function updateModels(research = []) {
   const tasks = await readJSON(path.join(CONFIG_DIR, 'tasks.json'), []);
   const rcfg = (await readJSON(path.join(CONFIG_DIR, 'sources.json'), {})).research || {};
-  const customTasks = tasks.filter((t) => t.custom);
   const taskMap = Object.fromEntries(tasks.map((t) => [t.tag, t]));
   const watch = (await readJSON(path.join(CONFIG_DIR, 'watchlist.json'), { searches: [] })).searches;
   const prev = await readJSON(path.join(DATA_DIR, 'models.json'), { models: [] });
@@ -42,7 +41,9 @@ export async function updateModels(research = []) {
     `${HF}?sort=trendingScore&limit=300&${EXPAND}`,
     `${HF}?sort=createdAt&limit=500&${EXPAND}`,
     ...tasks.filter((t) => !t.custom).map((t) => `${HF}?pipeline_tag=${t.tag}&sort=trendingScore&limit=${PER_TASK_LIMIT}&${EXPAND}`),
-    ...tasks.filter((t) => !t.custom).map((t) => `${HF}?pipeline_tag=${t.tag}&sort=likes30d&limit=25&${EXPAND}`),
+    // Likes del último mes: recoge lanzamientos de hace semanas que ya no son tendencia ni novedad (p. ej. TwIL-8B)
+    `${HF}?sort=likes30d&limit=400&${EXPAND}`,
+    ...tasks.filter((t) => !t.custom).map((t) => `${HF}?pipeline_tag=${t.tag}&sort=likes30d&limit=80&${EXPAND}`),
     // LLMs consolidados (los que aparecen en clasificaciones aunque ya no sean tendencia)
     `${HF}?pipeline_tag=text-generation&sort=likes&limit=120&${EXPAND}`,
     `${HF}?pipeline_tag=image-text-to-text&sort=likes&limit=60&${EXPAND}`,
@@ -104,7 +105,11 @@ export async function updateModels(research = []) {
     const tags = m.tags || [];
     const quantOf = tags.filter((t) => t.startsWith('base_model:quantized:')).map((t) => t.split(':').slice(2).join(':'));
     quantOf.forEach((b) => quantBases.add(b));
-    if (quantOf.length || tags.includes('gguf') || QUANT_RE.test(m.id)) continue;
+    // Algunos repos originales incluyen también GGUF y se etiquetan como cuantizados (p. ej. TwIL-8B):
+    // si publican pesos completos en 16/32 bits, son el modelo original y se conservan
+    const p = m.safetensors?.parameters || {};
+    const fullPrecision = m.safetensors?.total > 0 && (p.BF16 || 0) + (p.F16 || 0) + (p.F32 || 0) >= 0.8 * m.safetensors.total;
+    if (QUANT_RE.test(m.id) || ((quantOf.length || tags.includes('gguf')) && !fullPrecision)) continue;
     if (tags.includes('not-for-all-audiences')) continue;
     if (tags.some((t) => t.startsWith('base_model:adapter:')) && (m.likes || 0) < 50) continue;
     if ((m.likes || 0) < 5 && !watchIds.has(m.id) && !researchByWeight.has(m.id) && !boardIds.has(m.id)) continue;
@@ -248,7 +253,7 @@ export async function updateModels(research = []) {
     if (custom && !taskMap[m.task]?.llm) m.task = custom; // (un LLM etiquetado "agent" sigue siendo un LLM)
     else if (!taskMap[m.task] && m.domainHint.length) m.task = m.domainHint[0];
     if (m.task === 'other' || (!taskMap[m.task] && m.kind === 'project')) {
-      const guess = classify(`${m.name.replace(/[-_]/g, ' ')} ${(m.tags || []).join(' ')} ${m.summary || ''}`, m.kind === 'project' ? tasks : customTasks)[0];
+      const guess = classify(`${m.name.replace(/[-_]/g, ' ')} ${(m.tags || []).join(' ')} ${m.summary || ''}`, tasks)[0]; // sin pipeline tag (p. ej. nvidia/strata): se clasifica con todas las tareas
       m.task = guess?.tag || 'other';
     }
     m.tasks = [...new Set([m.task, ...m.domainHint])].slice(0, 3);

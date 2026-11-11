@@ -6,6 +6,7 @@ import { parseFeed, decodeHtmlContent } from './rss.mjs';
 import { llmJSON, llmEnabled, llmBudgetLeft } from './llm.mjs';
 
 const ARTICLES_PER_RUN = Number(process.env.ARTICLES_PER_RUN || 5);
+const RUN_INTERVAL_HOURS = Number(process.env.RUN_INTERVAL_HOURS || 4);
 const MIN_SCORE = Number(process.env.MIN_ARTICLE_SCORE || 16);
 const INDEX_LIMIT = 400;
 const CATEGORIES = ['Lanzamiento', 'Open Source', 'Investigación', 'Industria', 'Herramientas', 'Negocio'];
@@ -17,6 +18,7 @@ export async function updateNews(models = [], research = []) {
   const cfg = await readJSON(path.join(CONFIG_DIR, 'sources.json'), {});
   const statePath = path.join(STATE_DIR, 'news-state.json');
   const state = await readJSON(statePath, { seen: {}, recent: [] });
+  state.attempts ||= {};
   const index = await readJSON(path.join(DATA_DIR, 'articles.json'), { articles: [] });
 
   // 1) Recolección
@@ -49,7 +51,9 @@ export async function updateNews(models = [], research = []) {
   // 3) Redacción
   // Con cuota gratuita, el presupuesto diario se reparte entre las horas que quedan del día (UTC)
   const hoursLeft = 24 - new Date().getUTCHours();
-  const perRun = llmEnabled ? Math.min(ARTICLES_PER_RUN, Math.ceil((await llmBudgetLeft('article')) / hoursLeft)) : ARTICLES_PER_RUN;
+  // GitHub Actions no garantiza la frecuencia del cron (en la práctica, cada 4-8 h): se reparte por ejecuciones esperadas
+  const runsLeft = Math.max(1, hoursLeft / RUN_INTERVAL_HOURS);
+  const perRun = llmEnabled ? Math.min(ARTICLES_PER_RUN, Math.ceil((await llmBudgetLeft('article')) / runsLeft)) : ARTICLES_PER_RUN;
   const chosen = [];
   const perType = {};
   const cap = Math.max(1, Math.ceil(ARTICLES_PER_RUN / 2));
@@ -62,10 +66,15 @@ export async function updateNews(models = [], research = []) {
   }
   for (const c of ranked) if (chosen.length < perRun && !chosen.includes(c)) chosen.push(c);
   const modelsById = new Map(models.map((m) => [m.id, m]));
-  const results = await pool(chosen, 3, (c) => writeArticle(c, modelsById));
+  const results = await pool(chosen, 3, (c) => writeArticle(c, modelsById, state.attempts[key(c.items[0].url)]?.n || 0));
   const written = results.filter((r) => r && !r.discarded);
 
   // Solo se marca como cubierto lo redactado o descartado; si el LLM falló, se reintenta en la próxima hora
+  for (const [n, c] of chosen.entries()) {
+    const k = key(c.items[0].url);
+    if (!results[n]) state.attempts[k] = { n: (state.attempts[k]?.n || 0) + 1, date: new Date().toISOString() };
+    else delete state.attempts[k];
+  }
   for (const [n, c] of chosen.entries()) for (const i of results[n] ? c.items : []) {
     state.seen[key(i.url)] = new Date().toISOString();
     state.seen['t:' + titleKey(i.title)] = new Date().toISOString();
@@ -85,6 +94,7 @@ export async function updateNews(models = [], research = []) {
   const cutoff = Date.now() - 30 * 86400000;
   state.seen = Object.fromEntries(Object.entries(state.seen).filter(([, d]) => new Date(d) > cutoff));
   state.recent = state.recent.filter((r) => new Date(r.date) > cutoff);
+  state.attempts = Object.fromEntries(Object.entries(state.attempts).filter(([, a]) => new Date(a.date) > cutoff));
   index.articles.sort((a, b) => new Date(b.date) - new Date(a.date));
   index.articles = index.articles.slice(0, INDEX_LIMIT);
   index.updatedAt = new Date().toISOString();
@@ -310,7 +320,7 @@ async function gatherContext(item) {
   return { text: text.slice(0, 4500), image, date };
 }
 
-async function writeArticle(c, modelsById) {
+async function writeArticle(c, modelsById, attempts = 0) {
   const items = c.items.sort((a, b) => b.score - a.score).slice(0, 3);
   const ctx = await Promise.all(items.map(gatherContext));
   const lead = items[0];
@@ -370,7 +380,7 @@ Devuelve este JSON:
         modelIds: [...new Set([...linkedModels, ...(out.modelos_hf || []).filter((id) => modelsById.has(id))])],
         generated: 'llm',
       }
-    : fallbackArticle(items, ctx, linkedModels, modelsById);
+    : fallbackArticle(items, ctx, linkedModels, modelsById, attempts);
   if (!article) return null;
 
   const slug = `${date.slice(0, 10)}-${slugify(article.title)}`;
@@ -385,8 +395,9 @@ Devuelve este JSON:
   };
 }
 
-function fallbackArticle(items, ctx, linkedModels, modelsById) {
-  if (llmEnabled) return null; // con LLM configurado preferimos esperar a la próxima ejecución
+function fallbackArticle(items, ctx, linkedModels, modelsById, attempts = 0) {
+  // Con LLM se espera a la siguiente ejecución, pero no indefinidamente: tras 2 fallos se publica la versión básica
+  if (llmEnabled && attempts < 2) return null;
   const lead = items[0];
   const m = linkedModels.length ? modelsById.get(linkedModels[0]) : null;
   const text = ctx[0].text || lead.summary || '';

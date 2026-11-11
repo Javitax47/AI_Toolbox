@@ -13,6 +13,9 @@ import { readJSON, writeJSON, STATE_DIR } from './util.mjs';
 
 const list = (v, def) => (v ? v.split(',').map((s) => s.trim()).filter(Boolean) : def);
 
+const GROQ_DEFAULT = ['openai/gpt-oss-120b', 'llama-3.3-70b-versatile', 'qwen/qwen3-32b', 'openai/gpt-oss-20b'];
+const GEMINI_DEFAULT = ['gemini-2.5-flash', 'gemini-2.5-flash-lite'];
+
 const PROVIDERS = [
   process.env.LLM_API_KEY && {
     name: 'custom', base: process.env.LLM_BASE_URL || 'https://openrouter.ai/api/v1', key: process.env.LLM_API_KEY,
@@ -20,11 +23,11 @@ const PROVIDERS = [
   },
   process.env.GROQ_API_KEY && {
     name: 'groq', base: 'https://api.groq.com/openai/v1', key: process.env.GROQ_API_KEY,
-    models: list(process.env.GROQ_MODELS, ['openai/gpt-oss-120b', 'llama-3.3-70b-versatile', 'qwen/qwen3-32b', 'openai/gpt-oss-20b']), maxChars: 24000,
+    models: list(process.env.GROQ_MODELS, GROQ_DEFAULT), defaults: GROQ_DEFAULT, maxChars: 24000,
   },
   process.env.GEMINI_API_KEY && {
     name: 'gemini', base: 'https://generativelanguage.googleapis.com/v1beta/openai', key: process.env.GEMINI_API_KEY,
-    models: list(process.env.GEMINI_MODELS, ['gemini-2.5-flash', 'gemini-2.5-flash-lite']), maxChars: 60000,
+    models: list(process.env.GEMINI_MODELS, GEMINI_DEFAULT), defaults: GEMINI_DEFAULT, maxChars: 60000,
   },
   process.env.OPENROUTER_API_KEY && {
     name: 'openrouter', base: 'https://openrouter.ai/api/v1', key: process.env.OPENROUTER_API_KEY,
@@ -82,7 +85,9 @@ export async function llmJSON(system, user, { maxTokens = 2500, temperature = 0.
 
   for (const p of PROVIDERS) {
     if (disabled.has(p.name)) continue;
-    for (const model of await resolveModels(p)) {
+    const models = await resolveModels(p);
+    for (let mi = 0; mi < models.length; mi++) {
+      const model = models[mi];
       const id = `${p.name}/${model}`;
       if (exhausted.has(id)) continue;
       const body = {
@@ -110,6 +115,8 @@ export async function llmJSON(system, user, { maxTokens = 2500, temperature = 0.
         if (res.status === 429 || res.status === 413 || res.status === 404 || res.status === 400) {
           console.warn(`  ! LLM ${id}: HTTP ${res.status} (${(await res.text()).slice(0, 120).replace(/\s+/g, ' ')}), se prueba el siguiente`);
           exhausted.add(id);
+          // Un nombre mal escrito en *_MODELS no debe dejar la web sin LLM: se añaden los modelos por defecto
+          if (res.status === 404 && p.defaults) for (const d of p.defaults) if (!models.includes(d)) models.push(d);
           continue;
         }
         if (!res.ok) throw new Error(`HTTP ${res.status}`);

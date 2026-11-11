@@ -275,7 +275,9 @@ async function collectAggregators(aggs, state) {
         .filter((u) => !SKIP_DOMAINS.test(u))
         .slice(0, a.maxLinks || 60);
       const mention = `${a.name}: ${v.title}`;
-      const resolved = await pool(links, 5, (u) => resolveLink(u, mention, v.date));
+      // Las descripciones listan "Nombre https://…": el nombre sirve cuando la página no se deja leer
+      const labels = Object.fromEntries([...v.desc.matchAll(/^\s*(.{2,60}?)\s+(https?:\/\/\S+)\s*$/gm)].map((m) => [m[2].replace(/[.,;)]+$/, ''), m[1].trim()]));
+      const resolved = await pool(links, 5, (u) => resolveLink(u, mention, v.date, labels[u]));
       out.push(...resolved.filter(Boolean));
       console.log(`  · ${a.name} «${v.title.slice(0, 60)}»: ${resolved.filter(Boolean).length}/${links.length} enlaces útiles`);
     }
@@ -283,7 +285,7 @@ async function collectAggregators(aggs, state) {
   return out;
 }
 
-async function resolveLink(url, mention, date) {
+async function resolveLink(url, mention, date, label) {
   const base = { mentions: [mention], published: date };
   const ax = url.match(/arxiv\.org\/(?:abs|pdf)\/(\d{4}\.\d{4,5})/) || url.match(/huggingface\.co\/papers\/(\d{4}\.\d{4,5})/);
   if (ax) return { ...base, kind: 'paper', arxivId: ax[1], url: `https://arxiv.org/abs/${ax[1]}`, source: 'arXiv' };
@@ -296,7 +298,8 @@ async function resolveLink(url, mention, date) {
   if (hf) return { ...base, kind: 'model', hfId: hf[1], weights: [hf[1]], name: hf[1].split('/')[1], title: hf[1], url: `https://huggingface.co/${hf[1]}`, source: 'Hugging Face' };
   // Página de proyecto o noticia: busca dentro enlaces a paper / código
   const html = await fetchText(url, { retries: 0, timeout: 15000 });
-  if (!html) return null;
+  // Blogs de empresa (OpenAI, Google, Meta…) suelen bloquear a los robots: se conserva el anuncio con su nombre
+  if (!html) return label ? { ...base, kind: 'web', title: label, name: label, url, project: url, summary: `${label} (${mention})`, source: new URL(url).hostname.replace(/^www\./, '') } : null;
   const title = stripHtml(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '').slice(0, 160);
   const desc = decodeEntities(html.match(/<meta[^>]+(?:name|property)=["'](?:og:)?description["'][^>]+content=["']([^"']+)["']/i)?.[1] || '');
   const links = extractLinks(html);
