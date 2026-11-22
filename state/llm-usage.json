@@ -1,11 +1,11 @@
 {
-  "date": "2026-11-21",
+  "date": "2026-11-22",
   "calls": {
-    "triage": 4,
-    "enrich": 28,
-    "article": 20
+    "triage": 1,
+    "enrich": 7,
+    "article": 5
   },
   "byModel": {
-    "groq/openai/gpt-oss-120b": 52
+    "groq/openai/gpt-oss-120b": 13
   }
 }
