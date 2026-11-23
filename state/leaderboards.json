@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-22",
+  "date": "2026-11-23",
   "v": 2,
   "boards": {
     "arena:text": [
@@ -6053,17 +6053,17 @@
         "open": false,
         "org": "openai",
         "name": "GPT-Image-2.5 Sunburst",
-        "value": 1428,
+        "value": 1429,
         "ci": 5,
-        "note": "68073 votos"
+        "note": "73040 votos"
       },
       {
         "open": false,
         "org": "openai",
         "name": "GPT-Image-2.6 Sunburst (Medium)",
-        "value": 1410,
+        "value": 1412,
         "ci": 9,
-        "note": "6547 votos"
+        "note": "7168 votos"
       },
       {
         "open": false,
@@ -6071,15 +6071,15 @@
         "name": "GPT-Image-2.5 Flare",
         "value": 1400,
         "ci": 5,
-        "note": "67372 votos"
+        "note": "72202 votos"
       },
       {
         "open": false,
         "org": "microsoft-ai",
         "name": "MAI-Image-2.7",
-        "value": 1387,
-        "ci": 12,
-        "note": "3082 votos"
+        "value": 1385,
+        "ci": 10,
+        "note": "4485 votos"
       },
       {
         "open": false,
@@ -6087,31 +6087,23 @@
         "name": "GPT-Image-2 (Medium)",
         "value": 1382,
         "ci": 4,
-        "note": "110696 votos"
+        "note": "112925 votos"
       },
       {
         "open": false,
         "org": "openai",
         "name": "GPT-Image-2.6 Flare (Medium)",
-        "value": 1375,
+        "value": 1376,
         "ci": 9,
-        "note": "6447 votos"
+        "note": "7042 votos"
       },
       {
         "open": false,
         "org": "microsoft-ai",
         "name": "MAI-Image-2.6",
-        "value": 1331,
+        "value": 1329,
         "ci": 5,
-        "note": "42837 votos"
-      },
-      {
-        "open": false,
-        "org": "google",
-        "name": "Gemini Nano Banana 2.1",
-        "value": 1328,
-        "ci": 9,
-        "note": "4957 votos"
+        "note": "43475 votos"
       },
       {
         "open": false,
@@ -6119,7 +6111,15 @@
         "name": "Grok Imagine Image 2.0",
         "value": 1318,
         "ci": 7,
-        "note": "9894 votos"
+        "note": "9877 votos"
+      },
+      {
+        "open": false,
+        "org": "google",
+        "name": "Gemini Nano Banana 2.1",
+        "value": 1305,
+        "ci": 5,
+        "note": "45471 votos"
       },
       {
         "open": false,
@@ -6127,15 +6127,15 @@
         "name": "Reve 2.1",
         "value": 1302,
         "ci": 8,
-        "note": "7897 votos"
+        "note": "7896 votos"
       },
       {
         "open": false,
         "org": "xai",
         "name": "Grok Imagine Image 2.0 (20260801)",
-        "value": 1287,
+        "value": 1288,
         "ci": 5,
-        "note": "38904 votos"
+        "note": "41806 votos"
       },
       {
         "open": false,
@@ -6143,15 +6143,15 @@
         "name": "Reve 2.0",
         "value": 1268,
         "ci": 6,
-        "note": "15282 votos"
+        "note": "15283 votos"
       },
       {
         "open": false,
         "org": "meta",
         "name": "Muse Image",
-        "value": 1266,
+        "value": 1265,
         "ci": 4,
-        "note": "62120 votos"
+        "note": "64207 votos"
       },
       {
         "open": false,
@@ -6159,7 +6159,7 @@
         "name": "Gemini 3.1 Flash Image (nano-banana-2, Web Search)",
         "value": 1256,
         "ci": 4,
-        "note": "84052 votos"
+        "note": "87077 votos"
       },
       {
         "open": false,
@@ -6167,7 +6167,7 @@
         "name": "Qwen-Image-3.0-Pro",
         "value": 1254,
         "ci": 7,
-        "note": "10895 votos"
+        "note": "10900 votos"
       },
       {
         "open": false,
@@ -6175,15 +6175,7 @@
         "name": "MAI-Image-2.5",
         "value": 1253,
         "ci": 4,
-        "note": "58997 votos"
-      },
-      {
-        "open": false,
-        "org": "bytedance",
-        "name": "Seedream 5.0 Pro",
-        "value": 1249,
-        "ci": 4,
-        "note": "112977 votos"
+        "note": "58993 votos"
       },
       {
         "open": false,
@@ -6191,7 +6183,15 @@
         "name": "Gemini 3.1 Flash-Lite Image (nano-banana-2-lite)",
         "value": 1249,
         "ci": 6,
-        "note": "17109 votos"
+        "note": "17106 votos"
+      },
+      {
+        "open": false,
+        "org": "bytedance",
+        "name": "Seedream 5.0 Pro",
+        "value": 1247,
+        "ci": 4,
+        "note": "116091 votos"
       },
       {
         "open": false,
@@ -6199,7 +6199,7 @@
         "name": "Gemini 3 Pro Image (nano-banana-pro, 2K)",
         "value": 1246,
         "ci": 3,
-        "note": "184617 votos"
+        "note": "184539 votos"
       },
       {
         "open": false,
@@ -6207,7 +6207,7 @@
         "name": "GPT-Image-1.5 (High Fidelity)",
         "value": 1236,
         "ci": 3,
-        "note": "169259 votos"
+        "note": "169182 votos"
       },
       {
         "open": false,
@@ -6215,7 +6215,7 @@
         "name": "Gemini 3 Pro Image Preview (nano-banana-pro)",
         "value": 1231,
         "ci": 5,
-        "note": "83785 votos"
+        "note": "83746 votos"
       },
       {
         "open": true,
@@ -6223,15 +6223,15 @@
         "name": "Qwen-Image-2.1",
         "value": 1227,
         "ci": 6,
-        "note": "17794 votos"
+        "note": "17756 votos"
       },
       {
         "open": true,
         "org": "ideogram",
         "name": "Ideogram 4.0 (Quality)",
-        "value": 1199,
+        "value": 1200,
         "ci": 4,
-        "note": "83791 votos"
+        "note": "86791 votos"
       },
       {
         "open": true,
@@ -6239,7 +6239,7 @@
         "name": "MiniMax H3-Image",
         "value": 1198,
         "ci": 11,
-        "note": "3285 votos"
+        "note": "3281 votos"
       },
       {
         "open": false,
@@ -6247,7 +6247,7 @@
         "name": "Qwen-Image-2.0-Pro (2026-06-22)",
         "value": 1190,
         "ci": 6,
-        "note": "12648 votos"
+        "note": "12645 votos"
       },
       {
         "open": false,
@@ -6255,7 +6255,7 @@
         "name": "UNI-1.1 Max",
         "value": 1188,
         "ci": 6,
-        "note": "13728 votos"
+        "note": "13722 votos"
       },
       {
         "open": false,
@@ -6263,7 +6263,7 @@
         "name": "MAI-Image-2",
         "value": 1183,
         "ci": 5,
-        "note": "50370 votos"
+        "note": "50351 votos"
       },
       {
         "open": false,
@@ -6271,7 +6271,7 @@
         "name": "UNI-1.1",
         "value": 1181,
         "ci": 4,
-        "note": "63517 votos"
+        "note": "65767 votos"
       },
       {
         "open": false,
@@ -6285,9 +6285,9 @@
         "open": false,
         "org": "xai",
         "name": "Grok Imagine Image",
-        "value": 1168,
+        "value": 1169,
         "ci": 3,
-        "note": "295296 votos"
+        "note": "298887 votos"
       },
       {
         "open": true,
@@ -6303,7 +6303,7 @@
         "name": "FLUX.2 [max]",
         "value": 1161,
         "ci": 4,
-        "note": "120384 votos"
+        "note": "120318 votos"
       },
       {
         "open": false,
@@ -6311,7 +6311,7 @@
         "name": "Grok Imagine Image Pro",
         "value": 1160,
         "ci": 4,
-        "note": "96883 votos"
+        "note": "96806 votos"
       },
       {
         "open": false,
@@ -6319,7 +6319,7 @@
         "name": "FLUX.2 [flex]",
         "value": 1156,
         "ci": 3,
-        "note": "152862 votos"
+        "note": "152760 votos"
       },
       {
         "open": false,
@@ -6335,7 +6335,7 @@
         "name": "FLUX.2 [pro]",
         "value": 1153,
         "ci": 3,
-        "note": "218860 votos"
+        "note": "218735 votos"
       },
       {
         "open": true,
@@ -6343,15 +6343,15 @@
         "name": "HunyuanImage 3.0",
         "value": 1151,
         "ci": 3,
-        "note": "175172 votos"
+        "note": "175098 votos"
       },
       {
         "open": true,
         "org": "nvidia",
         "name": "Cosmos3-Super-Text2Image",
-        "value": 1150,
+        "value": 1149,
         "ci": 6,
-        "note": "17370 votos"
+        "note": "17367 votos"
       },
       {
         "open": false,
@@ -6359,7 +6359,7 @@
         "name": "Gemini 2.5 Flash Image Preview (nano-banana)",
         "value": 1148,
         "ci": 2,
-        "note": "893713 votos"
+        "note": "893402 votos"
       },
       {
         "open": false,
@@ -6367,7 +6367,7 @@
         "name": "Seedream 4.5",
         "value": 1148,
         "ci": 3,
-        "note": "311853 votos"
+        "note": "311687 votos"
       },
       {
         "open": false,
@@ -6375,7 +6375,7 @@
         "name": "Imagen 4 Ultra (generate-001)",
         "value": 1146,
         "ci": 4,
-        "note": "385702 votos"
+        "note": "385664 votos"
       },
       {
         "open": true,
@@ -6383,15 +6383,15 @@
         "name": "FLUX.2 [dev]",
         "value": 1145,
         "ci": 4,
-        "note": "75626 votos"
+        "note": "75601 votos"
       },
       {
         "open": false,
         "org": "bytedance",
         "name": "Seedream 5.0 Lite",
-        "value": 1141,
+        "value": 1142,
         "ci": 3,
-        "note": "149656 votos"
+        "note": "152700 votos"
       },
       {
         "open": false,
@@ -6399,7 +6399,7 @@
         "name": "Wan 2.6",
         "value": 1139,
         "ci": 3,
-        "note": "254465 votos"
+        "note": "257312 votos"
       },
       {
         "open": false,
@@ -6407,7 +6407,7 @@
         "name": "Seedream 4.0 (2K)",
         "value": 1138,
         "ci": 7,
-        "note": "12272 votos"
+        "note": "12271 votos"
       },
       {
         "open": false,
@@ -6415,15 +6415,15 @@
         "name": "Recraft V4.1 Pro",
         "value": 1132,
         "ci": 11,
-        "note": "2742 votos"
+        "note": "2741 votos"
       },
       {
         "open": false,
         "org": "krea",
         "name": "Krea 2 Medium",
-        "value": 1130,
+        "value": 1128,
         "ci": 4,
-        "note": "80793 votos"
+        "note": "83713 votos"
       },
       {
         "open": false,
@@ -6431,15 +6431,15 @@
         "name": "Imagen 4 (generate-001)",
         "value": 1128,
         "ci": 3,
-        "note": "533051 votos"
+        "note": "532931 votos"
       },
       {
         "open": true,
         "org": "alibaba",
         "name": "Qwen-Image (2512)",
         "value": 1124,
-        "ci": 3,
-        "note": "95250 votos"
+        "ci": 4,
+        "note": "95197 votos"
       },
       {
         "open": false,
@@ -6447,15 +6447,15 @@
         "name": "Wan 2.5 Preview",
         "value": 1117,
         "ci": 3,
-        "note": "283635 votos"
+        "note": "283513 votos"
       },
       {
         "open": false,
         "org": "recraft",
         "name": "Recraft V4",
-        "value": 1117,
+        "value": 1116,
         "ci": 3,
-        "note": "158841 votos"
+        "note": "161688 votos"
       },
       {
         "open": false,
@@ -6471,7 +6471,7 @@
         "name": "Krea 2 Turbo",
         "value": 1115,
         "ci": 4,
-        "note": "63401 votos"
+        "note": "63342 votos"
       },
       {
         "open": false,
@@ -6479,15 +6479,15 @@
         "name": "GPT-Image-1",
         "value": 1115,
         "ci": 3,
-        "note": "265804 votos"
+        "note": "265739 votos"
       },
       {
         "open": true,
         "org": "hidream",
         "name": "HiDream-O1-Image",
-        "value": 1115,
+        "value": 1114,
         "ci": 4,
-        "note": "75675 votos"
+        "note": "75604 votos"
       },
       {
         "open": false,
@@ -6495,7 +6495,7 @@
         "name": "Krea 2 Large",
         "value": 1114,
         "ci": 4,
-        "note": "67754 votos"
+        "note": "67696 votos"
       },
       {
         "open": false,
@@ -6503,7 +6503,7 @@
         "name": "Seedream 4.0 (High Res, fal)",
         "value": 1113,
         "ci": 3,
-        "note": "178338 votos"
+        "note": "178262 votos"
       },
       {
         "open": false,
@@ -6511,7 +6511,7 @@
         "name": "GPT-Image-1 mini",
         "value": 1109,
         "ci": 3,
-        "note": "167692 votos"
+        "note": "167632 votos"
       },
       {
         "open": false,
@@ -6519,15 +6519,7 @@
         "name": "Wan 2.7 Image Pro",
         "value": 1103,
         "ci": 5,
-        "note": "29773 votos"
-      },
-      {
-        "open": false,
-        "org": "recraft",
-        "name": "Recraft V4.1 Flash",
-        "value": 1101,
-        "ci": 7,
-        "note": "9419 votos"
+        "note": "29777 votos"
       },
       {
         "open": false,
@@ -6535,7 +6527,23 @@
         "name": "Wan 2.7 Image",
         "value": 1100,
         "ci": 5,
-        "note": "30213 votos"
+        "note": "30208 votos"
+      },
+      {
+        "open": false,
+        "org": "recraft",
+        "name": "Recraft V4.1 Flash",
+        "value": 1099,
+        "ci": 8,
+        "note": "5907 votos"
+      },
+      {
+        "open": false,
+        "org": "recraft",
+        "name": "Recraft V4.1 Flash V2",
+        "value": 1098,
+        "ci": 6,
+        "note": "24260 votos"
       },
       {
         "open": false,
@@ -6543,7 +6551,7 @@
         "name": "MAI-Image-1",
         "value": 1093,
         "ci": 4,
-        "note": "96218 votos"
+        "note": "96151 votos"
       },
       {
         "open": true,
@@ -6551,7 +6559,7 @@
         "name": "Z-Image-Turbo",
         "value": 1082,
         "ci": 5,
-        "note": "24086 votos"
+        "note": "24075 votos"
       },
       {
         "open": false,
@@ -6559,7 +6567,7 @@
         "name": "Seedream 3.0",
         "value": 1081,
         "ci": 5,
-        "note": "36183 votos"
+        "note": "36180 votos"
       },
       {
         "open": false,
@@ -6567,7 +6575,7 @@
         "name": "FLUX.1 Kontext [max]",
         "value": 1075,
         "ci": 3,
-        "note": "65261 votos"
+        "note": "65246 votos"
       },
       {
         "open": true,
@@ -6575,15 +6583,15 @@
         "name": "FLUX.2 [klein] 9B",
         "value": 1070,
         "ci": 3,
-        "note": "147034 votos"
+        "note": "146946 votos"
       },
       {
         "open": true,
         "org": "alibaba",
         "name": "Qwen-Image (Prompt Extend)",
-        "value": 1062,
+        "value": 1061,
         "ci": 3,
-        "note": "706256 votos"
+        "note": "706112 votos"
       },
       {
         "open": false,
@@ -6591,7 +6599,7 @@
         "name": "FLUX.1 Kontext [pro]",
         "value": 1059,
         "ci": 3,
-        "note": "329811 votos"
+        "note": "329758 votos"
       },
       {
         "open": true,
@@ -6599,7 +6607,7 @@
         "name": "Qwen-Image",
         "value": 1057,
         "ci": 3,
-        "note": "84273 votos"
+        "note": "84270 votos"
       },
       {
         "open": false,
@@ -6607,7 +6615,7 @@
         "name": "Imagen 3 (generate-002)",
         "value": 1057,
         "ci": 3,
-        "note": "358250 votos"
+        "note": "358226 votos"
       },
       {
         "open": false,
@@ -6615,7 +6623,7 @@
         "name": "Ideogram 3.0 (Quality)",
         "value": 1049,
         "ci": 4,
-        "note": "115762 votos"
+        "note": "115721 votos"
       },
       {
         "open": false,
@@ -6623,7 +6631,7 @@
         "name": "Luma Photon",
         "value": 1036,
         "ci": 4,
-        "note": "127816 votos"
+        "note": "127790 votos"
       },
       {
         "open": false,
@@ -6631,7 +6639,7 @@
         "name": "P-Image",
         "value": 1033,
         "ci": 4,
-        "note": "107105 votos"
+        "note": "107068 votos"
       },
       {
         "open": true,
@@ -6639,7 +6647,7 @@
         "name": "FLUX.2 [klein] 4B",
         "value": 1030,
         "ci": 3,
-        "note": "148655 votos"
+        "note": "148587 votos"
       },
       {
         "open": false,
@@ -6647,7 +6655,7 @@
         "name": "Runway Gen-4",
         "value": 1024,
         "ci": 4,
-        "note": "53178 votos"
+        "note": "53167 votos"
       },
       {
         "open": false,
@@ -6655,7 +6663,7 @@
         "name": "Recraft V3",
         "value": 1022,
         "ci": 4,
-        "note": "192928 votos"
+        "note": "192880 votos"
       },
       {
         "open": false,
@@ -6679,7 +6687,7 @@
         "name": "Lucid Origin",
         "value": 1013,
         "ci": 3,
-        "note": "284697 votos"
+        "note": "284660 votos"
       },
       {
         "open": true,
@@ -6695,7 +6703,7 @@
         "name": "Gemini 2.0 Flash Preview Image Generation",
         "value": 976,
         "ci": 3,
-        "note": "255419 votos"
+        "note": "255400 votos"
       },
       {
         "open": true,
@@ -6711,7 +6719,7 @@
         "name": "DALL-E 3",
         "value": 968,
         "ci": 4,
-        "note": "238136 votos"
+        "note": "238121 votos"
       },
       {
         "open": true,
@@ -6719,7 +6727,7 @@
         "name": "FLUX.1 Kontext [dev]",
         "value": 941,
         "ci": 4,
-        "note": "214321 votos"
+        "note": "214288 votos"
       },
       {
         "open": true,
@@ -6735,7 +6743,7 @@
         "name": "BAGEL",
         "value": 897,
         "ci": 6,
-        "note": "12312 votos"
+        "note": "12307 votos"
       }
     ],
     "arena:image_edit": [
