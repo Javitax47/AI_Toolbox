@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-25",
+  "date": "2026-11-26",
   "v": 2,
   "boards": {
     "arena:text": [
@@ -4723,33 +4723,33 @@
         "open": false,
         "org": "anthropic",
         "name": "Claude Fable 5 (High)",
-        "value": 1325,
+        "value": 1326,
         "ci": 7,
-        "note": "15449 votos"
+        "note": "15428 votos"
       },
       {
         "open": false,
         "org": "anthropic",
         "name": "Claude Fable 5.1 (Max)",
-        "value": 1322,
+        "value": 1321,
         "ci": 8,
-        "note": "7185 votos"
+        "note": "7598 votos"
       },
       {
         "open": false,
         "org": "anthropic",
         "name": "Claude Opus 5.5 (High)",
-        "value": 1322,
+        "value": 1321,
         "ci": 9,
-        "note": "5903 votos"
+        "note": "6457 votos"
       },
       {
         "open": false,
         "org": "anthropic",
         "name": "Claude Opus 4.7",
-        "value": 1317,
+        "value": 1318,
         "ci": 6,
-        "note": "24930 votos"
+        "note": "25450 votos"
       },
       {
         "open": false,
@@ -4757,15 +4757,15 @@
         "name": "Claude Opus 5 (High)",
         "value": 1317,
         "ci": 6,
-        "note": "19229 votos"
+        "note": "19202 votos"
       },
       {
         "open": false,
         "org": "google",
         "name": "Gemini 3.8 Flash (High)",
         "value": 1316,
-        "ci": 8,
-        "note": "9782 votos"
+        "ci": 7,
+        "note": "10812 votos"
       },
       {
         "open": false,
@@ -4773,15 +4773,7 @@
         "name": "Claude Opus 4.6 (High)",
         "value": 1315,
         "ci": 6,
-        "note": "22067 votos"
-      },
-      {
-        "open": false,
-        "org": "anthropic",
-        "name": "Claude Opus 4.7 (High)",
-        "value": 1314,
-        "ci": 6,
-        "note": "22530 votos"
+        "note": "22041 votos"
       },
       {
         "open": false,
@@ -4789,15 +4781,15 @@
         "name": "Gemini 3.7 Flash (High)",
         "value": 1314,
         "ci": 8,
-        "note": "6776 votos"
+        "note": "6769 votos"
       },
       {
         "open": false,
         "org": "anthropic",
-        "name": "Claude Fable 5.2 (Max)",
-        "value": 1313,
-        "ci": 18,
-        "note": "1176 votos"
+        "name": "Claude Opus 4.7 (High)",
+        "value": 1314,
+        "ci": 6,
+        "note": "22504 votos"
       },
       {
         "open": false,
@@ -4805,15 +4797,15 @@
         "name": "Claude Opus 4.6",
         "value": 1312,
         "ci": 6,
-        "note": "26552 votos"
+        "note": "26527 votos"
       },
       {
         "open": false,
-        "org": "google",
-        "name": "Gemini 3.5 Flash (High)",
-        "value": 1308,
-        "ci": 7,
-        "note": "15228 votos"
+        "org": "anthropic",
+        "name": "Claude Fable 5.2 (Max)",
+        "value": 1310,
+        "ci": 15,
+        "note": "1776 votos"
       },
       {
         "open": false,
@@ -4821,15 +4813,15 @@
         "name": "Qwen3.8-Max",
         "value": 1307,
         "ci": 7,
-        "note": "10833 votos"
+        "note": "11466 votos"
       },
       {
         "open": false,
-        "org": "meta",
-        "name": "Muse Spark 1.3 (Max)",
-        "value": 1306,
-        "ci": 8,
-        "note": "9287 votos"
+        "org": "google",
+        "name": "Gemini 3.5 Flash (High)",
+        "value": 1307,
+        "ci": 7,
+        "note": "15221 votos"
       },
       {
         "open": false,
@@ -4837,7 +4829,7 @@
         "name": "Gemini 3.5 Flash (Medium)",
         "value": 1306,
         "ci": 7,
-        "note": "15320 votos"
+        "note": "15316 votos"
       },
       {
         "open": false,
@@ -4845,7 +4837,15 @@
         "name": "Muse Spark",
         "value": 1306,
         "ci": 9,
-        "note": "5835 votos"
+        "note": "5824 votos"
+      },
+      {
+        "open": false,
+        "org": "meta",
+        "name": "Muse Spark 1.3 (Max)",
+        "value": 1305,
+        "ci": 7,
+        "note": "10036 votos"
       },
       {
         "open": false,
@@ -4853,7 +4853,7 @@
         "name": "Gemini 3 Pro",
         "value": 1305,
         "ci": 7,
-        "note": "13482 votos"
+        "note": "13465 votos"
       },
       {
         "open": false,
@@ -4861,7 +4861,15 @@
         "name": "Muse Spark 1.2 (xHigh)",
         "value": 1304,
         "ci": 14,
-        "note": "1922 votos"
+        "note": "1921 votos"
+      },
+      {
+        "open": false,
+        "org": "meta",
+        "name": "Muse Spark 1.3 (xHigh)",
+        "value": 1303,
+        "ci": 7,
+        "note": "10812 votos"
       },
       {
         "open": false,
@@ -4869,15 +4877,7 @@
         "name": "GPT-5.4 (High)",
         "value": 1301,
         "ci": 6,
-        "note": "31907 votos"
-      },
-      {
-        "open": false,
-        "org": "meta",
-        "name": "Muse Spark 1.3 (xHigh)",
-        "value": 1300,
-        "ci": 7,
-        "note": "9809 votos"
+        "note": "31848 votos"
       },
       {
         "open": false,
@@ -4885,15 +4885,7 @@
         "name": "Gemini 3.6 Flash (High)",
         "value": 1297,
         "ci": 7,
-        "note": "10275 votos"
-      },
-      {
-        "open": false,
-        "org": "google",
-        "name": "Gemini 3.1 Pro Preview",
-        "value": 1296,
-        "ci": 5,
-        "note": "48038 votos"
+        "note": "10268 votos"
       },
       {
         "open": true,
@@ -4901,7 +4893,15 @@
         "name": "GLM-5.3-Flash",
         "value": 1296,
         "ci": 5,
-        "note": "36497 votos"
+        "note": "38935 votos"
+      },
+      {
+        "open": false,
+        "org": "google",
+        "name": "Gemini 3.1 Pro Preview",
+        "value": 1296,
+        "ci": 5,
+        "note": "47993 votos"
       },
       {
         "open": false,
@@ -4909,7 +4909,7 @@
         "name": "GPT-5.5",
         "value": 1296,
         "ci": 6,
-        "note": "29925 votos"
+        "note": "29897 votos"
       },
       {
         "open": false,
@@ -4917,7 +4917,7 @@
         "name": "GPT-5.5 (High)",
         "value": 1295,
         "ci": 6,
-        "note": "28221 votos"
+        "note": "28198 votos"
       },
       {
         "open": false,
@@ -4925,15 +4925,15 @@
         "name": "Claude Opus 4.8 (High)",
         "value": 1294,
         "ci": 6,
-        "note": "18113 votos"
+        "note": "18104 votos"
       },
       {
         "open": false,
         "org": "openai",
         "name": "GPT-5.4",
-        "value": 1291,
+        "value": 1292,
         "ci": 6,
-        "note": "22546 votos"
+        "note": "22515 votos"
       },
       {
         "open": false,
@@ -4941,7 +4941,7 @@
         "name": "Muse Spark 1.1",
         "value": 1291,
         "ci": 7,
-        "note": "13311 votos"
+        "note": "13298 votos"
       },
       {
         "open": false,
@@ -4949,7 +4949,7 @@
         "name": "Claude Opus 4.8",
         "value": 1288,
         "ci": 6,
-        "note": "18588 votos"
+        "note": "18562 votos"
       },
       {
         "open": false,
@@ -4957,15 +4957,15 @@
         "name": "Grok 4.5",
         "value": 1288,
         "ci": 7,
-        "note": "13903 votos"
+        "note": "13896 votos"
       },
       {
         "open": false,
         "org": "anthropic",
         "name": "Claude Sonnet 5.5 (xHigh)",
-        "value": 1286,
+        "value": 1285,
         "ci": 9,
-        "note": "5388 votos"
+        "note": "5903 votos"
       },
       {
         "open": false,
@@ -4973,23 +4973,23 @@
         "name": "Gemini 3 Flash",
         "value": 1285,
         "ci": 5,
-        "note": "38733 votos"
+        "note": "38692 votos"
       },
       {
         "open": false,
         "org": "openai",
         "name": "GPT-6.1 Sol (Max)",
-        "value": 1284,
-        "ci": 10,
-        "note": "5043 votos"
+        "value": 1283,
+        "ci": 9,
+        "note": "5555 votos"
       },
       {
         "open": false,
         "org": "anthropic",
         "name": "Claude Sonnet 4.6",
-        "value": 1282,
+        "value": 1283,
         "ci": 6,
-        "note": "27131 votos"
+        "note": "27102 votos"
       },
       {
         "open": true,
@@ -4997,7 +4997,7 @@
         "name": "Kimi K2.6",
         "value": 1282,
         "ci": 7,
-        "note": "16241 votos"
+        "note": "16226 votos"
       },
       {
         "open": false,
@@ -5005,7 +5005,7 @@
         "name": "GPT-5.6 Sol (xHigh)",
         "value": 1282,
         "ci": 7,
-        "note": "12244 votos"
+        "note": "12237 votos"
       },
       {
         "open": true,
@@ -5013,7 +5013,7 @@
         "name": "Gemma 4 31B",
         "value": 1279,
         "ci": 5,
-        "note": "42217 votos"
+        "note": "42173 votos"
       },
       {
         "open": true,
@@ -5021,7 +5021,7 @@
         "name": "DeepSeek-V4.1-Flash-20260910 (Max)",
         "value": 1278,
         "ci": 10,
-        "note": "4192 votos"
+        "note": "4195 votos"
       },
       {
         "open": false,
@@ -5029,15 +5029,15 @@
         "name": "Qwen3.7-Plus",
         "value": 1277,
         "ci": 6,
-        "note": "15084 votos"
+        "note": "15067 votos"
       },
       {
         "open": false,
         "org": "openai",
         "name": "GPT-6 Astra (Max)",
-        "value": 1276,
-        "ci": 9,
-        "note": "6436 votos"
+        "value": 1275,
+        "ci": 8,
+        "note": "6907 votos"
       },
       {
         "open": false,
@@ -5045,7 +5045,15 @@
         "name": "Dola Seed 2.0 Pro",
         "value": 1274,
         "ci": 7,
-        "note": "10914 votos"
+        "note": "10904 votos"
+      },
+      {
+        "open": true,
+        "org": "alibaba",
+        "name": "Qwen3.8-27B",
+        "value": 1274,
+        "ci": 7,
+        "note": "11516 votos"
       },
       {
         "open": false,
@@ -5053,23 +5061,7 @@
         "name": "Claude Sonnet 5 (High)",
         "value": 1272,
         "ci": 7,
-        "note": "14701 votos"
-      },
-      {
-        "open": true,
-        "org": "alibaba",
-        "name": "Qwen3.8-27B",
-        "value": 1271,
-        "ci": 7,
-        "note": "10910 votos"
-      },
-      {
-        "open": false,
-        "org": "openai",
-        "name": "GPT-5.6 Terra (xHigh)",
-        "value": 1270,
-        "ci": 7,
-        "note": "13166 votos"
+        "note": "14697 votos"
       },
       {
         "open": true,
@@ -5077,7 +5069,15 @@
         "name": "Kimi K2.5 (Thinking)",
         "value": 1269,
         "ci": 6,
-        "note": "27947 votos"
+        "note": "27930 votos"
+      },
+      {
+        "open": false,
+        "org": "openai",
+        "name": "GPT-5.6 Terra (xHigh)",
+        "value": 1269,
+        "ci": 7,
+        "note": "13148 votos"
       },
       {
         "open": false,
@@ -5085,7 +5085,7 @@
         "name": "Gemini 3.5 Flash-Lite",
         "value": 1268,
         "ci": 7,
-        "note": "10713 votos"
+        "note": "10715 votos"
       },
       {
         "open": false,
@@ -5093,15 +5093,7 @@
         "name": "GPT-5.2 Chat (20260210)",
         "value": 1268,
         "ci": 6,
-        "note": "16336 votos"
-      },
-      {
-        "open": true,
-        "org": "xiaomi",
-        "name": "MiMo-V2.6-Pro",
-        "value": 1266,
-        "ci": 15,
-        "note": "1812 votos"
+        "note": "16329 votos"
       },
       {
         "open": false,
@@ -5109,23 +5101,31 @@
         "name": "Gemini 3 Flash (Minimal)",
         "value": 1266,
         "ci": 5,
-        "note": "36810 votos"
+        "note": "36782 votos"
       },
       {
-        "open": false,
-        "org": "xai",
-        "name": "Grok 4.6 (High)",
+        "open": true,
+        "org": "xiaomi",
+        "name": "MiMo-V2.6-Pro",
         "value": 1265,
-        "ci": 8,
-        "note": "8578 votos"
+        "ci": 15,
+        "note": "1802 votos"
       },
       {
         "open": false,
         "org": "stepfun",
         "name": "Step 5 Preview",
-        "value": 1265,
+        "value": 1264,
         "ci": 10,
-        "note": "4395 votos"
+        "note": "4439 votos"
+      },
+      {
+        "open": false,
+        "org": "xai",
+        "name": "Grok 4.6 (High)",
+        "value": 1264,
+        "ci": 8,
+        "note": "8576 votos"
       },
       {
         "open": false,
@@ -5133,7 +5133,7 @@
         "name": "Gemini 2.5 Pro",
         "value": 1263,
         "ci": 4,
-        "note": "88464 votos"
+        "note": "88442 votos"
       },
       {
         "open": false,
@@ -5141,7 +5141,7 @@
         "name": "Grok 4.20 Beta (Reasoning, 0309)",
         "value": 1263,
         "ci": 6,
-        "note": "26501 votos"
+        "note": "26480 votos"
       },
       {
         "open": true,
@@ -5149,15 +5149,15 @@
         "name": "Qwen3.5-397B-A17B",
         "value": 1262,
         "ci": 5,
-        "note": "33471 votos"
+        "note": "33444 votos"
       },
       {
         "open": false,
         "org": "xai",
         "name": "Grok 4.20 Multi-Agent Beta (0309)",
-        "value": 1259,
+        "value": 1260,
         "ci": 6,
-        "note": "24292 votos"
+        "note": "24269 votos"
       },
       {
         "open": true,
@@ -5165,7 +5165,7 @@
         "name": "Gemma 4 26B A4B",
         "value": 1259,
         "ci": 6,
-        "note": "23681 votos"
+        "note": "23662 votos"
       },
       {
         "open": true,
@@ -5173,7 +5173,7 @@
         "name": "MiMo-V2.6-Flash",
         "value": 1258,
         "ci": 8,
-        "note": "9656 votos"
+        "note": "10865 votos"
       },
       {
         "open": false,
@@ -5181,15 +5181,7 @@
         "name": "GPT-5.6 Luna (xHigh)",
         "value": 1256,
         "ci": 7,
-        "note": "10996 votos"
-      },
-      {
-        "open": false,
-        "org": "google",
-        "name": "Gemini 2.5 Flash Preview (09-2025)",
-        "value": 1253,
-        "ci": 10,
-        "note": "4759 votos"
+        "note": "10977 votos"
       },
       {
         "open": true,
@@ -5197,15 +5189,31 @@
         "name": "Kimi K2.5 (Instant)",
         "value": 1253,
         "ci": 11,
-        "note": "4085 votos"
+        "note": "4081 votos"
+      },
+      {
+        "open": false,
+        "org": "google",
+        "name": "Gemini 2.5 Flash Preview (09-2025)",
+        "value": 1253,
+        "ci": 10,
+        "note": "4755 votos"
       },
       {
         "open": false,
         "org": "openai",
         "name": "GPT-5.5 Instant",
-        "value": 1251,
+        "value": 1250,
         "ci": 9,
-        "note": "7549 votos"
+        "note": "7545 votos"
+      },
+      {
+        "open": false,
+        "org": "openai",
+        "name": "GPT-6.1 Terra (Max)",
+        "value": 1249,
+        "ci": 12,
+        "note": "3463 votos"
       },
       {
         "open": false,
@@ -5213,7 +5221,7 @@
         "name": "GPT-5.1 (High)",
         "value": 1249,
         "ci": 8,
-        "note": "9775 votos"
+        "note": "9761 votos"
       },
       {
         "open": true,
@@ -5221,7 +5229,7 @@
         "name": "MiniMax-M3",
         "value": 1248,
         "ci": 6,
-        "note": "21034 votos"
+        "note": "21024 votos"
       },
       {
         "open": false,
@@ -5229,7 +5237,7 @@
         "name": "ERNIE-5.0-Preview (1220)",
         "value": 1248,
         "ci": 11,
-        "note": "3330 votos"
+        "note": "3322 votos"
       },
       {
         "open": true,
@@ -5237,15 +5245,7 @@
         "name": "MiMo-V2.5",
         "value": 1247,
         "ci": 6,
-        "note": "29320 votos"
-      },
-      {
-        "open": false,
-        "org": "openai",
-        "name": "GPT-6.1 Terra (Max)",
-        "value": 1247,
-        "ci": 13,
-        "note": "2796 votos"
+        "note": "29278 votos"
       },
       {
         "open": true,
@@ -5253,15 +5253,7 @@
         "name": "Qwen3-VL-235B-A22B-Instruct",
         "value": 1247,
         "ci": 7,
-        "note": "12648 votos"
-      },
-      {
-        "open": true,
-        "org": "mistral",
-        "name": "Mistral Large 4",
-        "value": 1246,
-        "ci": 11,
-        "note": "3699 votos"
+        "note": "12638 votos"
       },
       {
         "open": false,
@@ -5269,15 +5261,23 @@
         "name": "GPT-5.2 (High)",
         "value": 1246,
         "ci": 6,
-        "note": "18881 votos"
+        "note": "18870 votos"
+      },
+      {
+        "open": true,
+        "org": "mistral",
+        "name": "Mistral Large 4",
+        "value": 1245,
+        "ci": 11,
+        "note": "4410 votos"
       },
       {
         "open": false,
         "org": "openai",
         "name": "GPT-5.4 mini (High)",
-        "value": 1244,
+        "value": 1245,
         "ci": 6,
-        "note": "25461 votos"
+        "note": "25435 votos"
       },
       {
         "open": true,
@@ -5285,7 +5285,7 @@
         "name": "Qwen3.5-122B-A10B",
         "value": 1244,
         "ci": 7,
-        "note": "13158 votos"
+        "note": "13148 votos"
       },
       {
         "open": false,
@@ -5293,7 +5293,7 @@
         "name": "ChatGPT-4o Latest (20250326)",
         "value": 1243,
         "ci": 5,
-        "note": "23305 votos"
+        "note": "23288 votos"
       },
       {
         "open": false,
@@ -5301,7 +5301,7 @@
         "name": "Gemini 3.1 Flash-Lite Preview",
         "value": 1240,
         "ci": 6,
-        "note": "27378 votos"
+        "note": "27356 votos"
       },
       {
         "open": true,
@@ -5309,7 +5309,15 @@
         "name": "Qwen3.5-27B",
         "value": 1239,
         "ci": 5,
-        "note": "31190 votos"
+        "note": "31162 votos"
+      },
+      {
+        "open": true,
+        "org": "thinky",
+        "name": "Inkling 2 Small",
+        "value": 1239,
+        "ci": 16,
+        "note": "1572 votos"
       },
       {
         "open": true,
@@ -5317,15 +5325,15 @@
         "name": "Inkling-Small",
         "value": 1236,
         "ci": 8,
-        "note": "9182 votos"
+        "note": "9178 votos"
       },
       {
         "open": false,
         "org": "google",
         "name": "Gemini 2.5 Flash",
-        "value": 1235,
+        "value": 1236,
         "ci": 4,
-        "note": "59854 votos"
+        "note": "59832 votos"
       },
       {
         "open": false,
@@ -5333,7 +5341,7 @@
         "name": "GPT-5.1",
         "value": 1235,
         "ci": 7,
-        "note": "10727 votos"
+        "note": "10715 votos"
       },
       {
         "open": false,
@@ -5341,7 +5349,7 @@
         "name": "GPT-6 Sol (Max)",
         "value": 1232,
         "ci": 9,
-        "note": "6202 votos"
+        "note": "6760 votos"
       },
       {
         "open": false,
@@ -5349,15 +5357,15 @@
         "name": "GPT-5 Chat",
         "value": 1232,
         "ci": 7,
-        "note": "39816 votos"
+        "note": "39811 votos"
       },
       {
         "open": false,
         "org": "xai",
         "name": "Grok 4.7 (xHigh)",
-        "value": 1231,
+        "value": 1230,
         "ci": 8,
-        "note": "7761 votos"
+        "note": "8429 votos"
       },
       {
         "open": false,
@@ -5365,7 +5373,7 @@
         "name": "GPT-5.2",
         "value": 1228,
         "ci": 6,
-        "note": "19962 votos"
+        "note": "19930 votos"
       },
       {
         "open": false,
@@ -5373,7 +5381,7 @@
         "name": "Grok 4.3",
         "value": 1228,
         "ci": 6,
-        "note": "29102 votos"
+        "note": "29056 votos"
       },
       {
         "open": false,
@@ -5381,7 +5389,7 @@
         "name": "MiMo-V2-Omni",
         "value": 1228,
         "ci": 7,
-        "note": "10573 votos"
+        "note": "10566 votos"
       },
       {
         "open": true,
@@ -5389,15 +5397,15 @@
         "name": "Mistral Medium 3.5",
         "value": 1222,
         "ci": 9,
-        "note": "5327 votos"
+        "note": "5311 votos"
       },
       {
         "open": true,
         "org": "mistral",
         "name": "Mistral Large 3",
-        "value": 1222,
+        "value": 1221,
         "ci": 8,
-        "note": "10071 votos"
+        "note": "10064 votos"
       },
       {
         "open": false,
@@ -5405,15 +5413,7 @@
         "name": "o3 (2025-04-16)",
         "value": 1214,
         "ci": 7,
-        "note": "45482 votos"
-      },
-      {
-        "open": true,
-        "org": "nvidia",
-        "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
-        "value": 1213,
-        "ci": 9,
-        "note": "7022 votos"
+        "note": "45479 votos"
       },
       {
         "open": false,
@@ -5421,15 +5421,31 @@
         "name": "Qwen-VL-Max (2025-08-13)",
         "value": 1212,
         "ci": 12,
-        "note": "3157 votos"
+        "note": "3156 votos"
+      },
+      {
+        "open": true,
+        "org": "nvidia",
+        "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
+        "value": 1212,
+        "ci": 8,
+        "note": "7737 votos"
+      },
+      {
+        "open": false,
+        "org": "openai",
+        "name": "GPT-6 Luna (Max)",
+        "value": 1211,
+        "ci": 8,
+        "note": "8456 votos"
       },
       {
         "open": false,
         "org": "openai",
         "name": "GPT-4.1 (2025-04-14)",
-        "value": 1210,
+        "value": 1211,
         "ci": 7,
-        "note": "40925 votos"
+        "note": "40914 votos"
       },
       {
         "open": false,
@@ -5437,15 +5453,7 @@
         "name": "Grok 4 (0709)",
         "value": 1210,
         "ci": 7,
-        "note": "30106 votos"
-      },
-      {
-        "open": false,
-        "org": "openai",
-        "name": "GPT-6 Luna (Max)",
-        "value": 1210,
-        "ci": 8,
-        "note": "7728 votos"
+        "note": "30105 votos"
       },
       {
         "open": false,
@@ -5453,7 +5461,7 @@
         "name": "GPT-5 (High)",
         "value": 1208,
         "ci": 7,
-        "note": "34338 votos"
+        "note": "34325 votos"
       },
       {
         "open": true,
@@ -5469,7 +5477,7 @@
         "name": "GPT-5 mini (High)",
         "value": 1203,
         "ci": 8,
-        "note": "28878 votos"
+        "note": "28874 votos"
       },
       {
         "open": false,
@@ -5477,7 +5485,7 @@
         "name": "Grok 4.1 Fast (Reasoning)",
         "value": 1201,
         "ci": 7,
-        "note": "13282 votos"
+        "note": "13277 votos"
       },
       {
         "open": false,
@@ -5485,7 +5493,7 @@
         "name": "Gemini 2.5 Flash-Lite Preview (Non-Thinking, 09-2025)",
         "value": 1198,
         "ci": 9,
-        "note": "4841 votos"
+        "note": "4839 votos"
       },
       {
         "open": false,
@@ -5493,7 +5501,7 @@
         "name": "GPT-5.4 nano (High)",
         "value": 1195,
         "ci": 6,
-        "note": "25347 votos"
+        "note": "25306 votos"
       },
       {
         "open": false,
@@ -5509,7 +5517,7 @@
         "name": "o4-mini (2025-04-16)",
         "value": 1194,
         "ci": 7,
-        "note": "41255 votos"
+        "note": "41243 votos"
       },
       {
         "open": false,
@@ -5533,7 +5541,7 @@
         "name": "Gemini 2.5 Flash-Lite Preview (Thinking, 06-17)",
         "value": 1187,
         "ci": 7,
-        "note": "35853 votos"
+        "note": "35849 votos"
       },
       {
         "open": false,
@@ -5541,7 +5549,7 @@
         "name": "Step-1o Turbo (202506)",
         "value": 1185,
         "ci": 14,
-        "note": "1894 votos"
+        "note": "1893 votos"
       },
       {
         "open": false,
@@ -5549,7 +5557,15 @@
         "name": "GPT-4.1 mini (2025-04-14)",
         "value": 1181,
         "ci": 7,
-        "note": "40139 votos"
+        "note": "40132 votos"
+      },
+      {
+        "open": true,
+        "org": "thinky",
+        "name": "Inkling 2 Mini",
+        "value": 1181,
+        "ci": 16,
+        "note": "1509 votos"
       },
       {
         "open": false,
@@ -5565,7 +5581,7 @@
         "name": "Hunyuan Vision 1.5 Thinking",
         "value": 1179,
         "ci": 12,
-        "note": "2414 votos"
+        "note": "2412 votos"
       },
       {
         "open": true,
@@ -5573,7 +5589,7 @@
         "name": "Step-3",
         "value": 1176,
         "ci": 12,
-        "note": "3187 votos"
+        "note": "3186 votos"
       },
       {
         "open": false,
@@ -5597,7 +5613,7 @@
         "name": "Mistral Medium 3.1 (2508)",
         "value": 1172,
         "ci": 6,
-        "note": "41496 votos"
+        "note": "41482 votos"
       },
       {
         "open": false,
@@ -5621,7 +5637,7 @@
         "name": "Gemma 3 27B IT",
         "value": 1164,
         "ci": 8,
-        "note": "16928 votos"
+        "note": "16925 votos"
       },
       {
         "open": true,
@@ -5629,7 +5645,7 @@
         "name": "GLM-4.6V",
         "value": 1163,
         "ci": 14,
-        "note": "2440 votos"
+        "note": "2438 votos"
       },
       {
         "open": false,
@@ -5653,7 +5669,7 @@
         "name": "Gemini 2.0 Flash (001)",
         "value": 1158,
         "ci": 7,
-        "note": "10120 votos"
+        "note": "10118 votos"
       },
       {
         "open": false,
@@ -5661,7 +5677,7 @@
         "name": "Mistral Medium 3 (2505)",
         "value": 1157,
         "ci": 8,
-        "note": "10769 votos"
+        "note": "10767 votos"
       },
       {
         "open": true,
@@ -5669,7 +5685,7 @@
         "name": "GLM-4.5V",
         "value": 1154,
         "ci": 12,
-        "note": "3236 votos"
+        "note": "3234 votos"
       },
       {
         "open": true,
@@ -5685,7 +5701,7 @@
         "name": "Claude 3.7 Sonnet (20250219)",
         "value": 1151,
         "ci": 9,
-        "note": "4515 votos"
+        "note": "4514 votos"
       },
       {
         "open": true,
@@ -5693,7 +5709,7 @@
         "name": "Mistral Small 3.2 (2506)",
         "value": 1142,
         "ci": 9,
-        "note": "10814 votos"
+        "note": "10811 votos"
       },
       {
         "open": true,
@@ -5701,7 +5717,7 @@
         "name": "Llama 4 Maverick 17B 128E Instruct",
         "value": 1142,
         "ci": 9,
-        "note": "6909 votos"
+        "note": "6907 votos"
       },
       {
         "open": false,
@@ -5725,7 +5741,7 @@
         "name": "Mistral Small 3.1 24B Instruct (2503)",
         "value": 1136,
         "ci": 8,
-        "note": "28440 votos"
+        "note": "28439 votos"
       },
       {
         "open": false,
@@ -5813,7 +5829,7 @@
         "name": "Molmo 2 8B",
         "value": 1081,
         "ci": 20,
-        "note": "1185 votos"
+        "note": "1182 votos"
       },
       {
         "open": false,
@@ -5827,7 +5843,7 @@
         "open": false,
         "org": "openai",
         "name": "GPT-4o (2024-08-06)",
-        "value": 1064,
+        "value": 1065,
         "ci": 13,
         "note": "3376 votos"
       },
@@ -5843,7 +5859,7 @@
         "open": false,
         "org": "alibaba",
         "name": "Qwen-VL-Max (1119)",
-        "value": 1057,
+        "value": 1058,
         "ci": 16,
         "note": "1422 votos"
       },
@@ -5891,7 +5907,7 @@
         "open": true,
         "org": "mistral",
         "name": "Pixtral 12B (2409)",
-        "value": 1008,
+        "value": 1009,
         "ci": 10,
         "note": "7511 votos"
       },
@@ -5905,9 +5921,9 @@
       },
       {
         "open": true,
-        "org": "",
+        "org": "opengvlab",
         "name": "InternVL2 26B",
-        "value": 1004,
+        "value": 1005,
         "ci": 13,
         "note": "5148 votos"
       },
@@ -5931,7 +5947,7 @@
         "open": true,
         "org": "cohere",
         "name": "Aya Vision 32B",
-        "value": 995,
+        "value": 996,
         "ci": 22,
         "note": "847 votos"
       },
@@ -5969,7 +5985,7 @@
       },
       {
         "open": false,
-        "org": "",
+        "org": "zeroone-ai",
         "name": "Yi Vision",
         "value": 978,
         "ci": 18,
@@ -6001,7 +6017,7 @@
       },
       {
         "open": true,
-        "org": "",
+        "org": "opengvlab",
         "name": "InternVL2 4B",
         "value": 941,
         "ci": 13,
@@ -6017,7 +6033,7 @@
       },
       {
         "open": true,
-        "org": "",
+        "org": "llava",
         "name": "LLaVA 1.6 34B",
         "value": 936,
         "ci": 12,
@@ -6033,7 +6049,7 @@
       },
       {
         "open": true,
-        "org": "",
+        "org": "llava",
         "name": "LLaVA-OneVision Qwen2 72B OV",
         "value": 923,
         "ci": 18,
@@ -6041,7 +6057,7 @@
       },
       {
         "open": true,
-        "org": "",
+        "org": "openbmb",
         "name": "MiniCPM-V 2.6",
         "value": 912,
         "ci": 16,
