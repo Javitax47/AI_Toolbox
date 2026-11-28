@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "v": 2,
   "boards": {
     "arena:text": [
@@ -8102,17 +8102,26 @@
         "org": "Anthropic",
         "name": "Claude Fable 5.2",
         "alt": "Claude Fable 5.2",
-        "value": 173.4,
+        "value": 173.2,
         "ci": 3.6,
         "note": "Anthropic"
+      },
+      {
+        "open": false,
+        "org": "Google DeepMind",
+        "name": "Gemini 4 Neon",
+        "alt": "Gemini 4 Neon",
+        "value": 171.8,
+        "ci": 3.6,
+        "note": "Google DeepMind"
       },
       {
         "open": false,
         "org": "OpenAI",
         "name": "GPT-6.2 Astra",
         "alt": "GPT-6.2 Astra",
-        "value": 172.8,
-        "ci": 3.8,
+        "value": 171.6,
+        "ci": 3.6,
         "note": "OpenAI"
       },
       {
@@ -8120,8 +8129,8 @@
         "org": "Google DeepMind",
         "name": "Gemini 4 Carbon",
         "alt": "Gemini 4 Carbon",
-        "value": 169.7,
-        "ci": 3.3,
+        "value": 169.1,
+        "ci": 3.2,
         "note": "Google DeepMind"
       },
       {
@@ -8129,8 +8138,8 @@
         "org": "OpenAI",
         "name": "GPT-6 Astra",
         "alt": "GPT-6 Astra",
-        "value": 169.2,
-        "ci": 3,
+        "value": 169.1,
+        "ci": 3.1,
         "note": "OpenAI"
       },
       {
@@ -8138,7 +8147,7 @@
         "org": "Anthropic",
         "name": "Claude Opus 5.5",
         "alt": "Claude Opus 5.5",
-        "value": 168.7,
+        "value": 168.5,
         "ci": 3,
         "note": "Anthropic"
       },
@@ -8147,8 +8156,8 @@
         "org": "OpenAI",
         "name": "GPT-6.1 Sol",
         "alt": "GPT-6.1 Sol",
-        "value": 168.6,
-        "ci": 3.1,
+        "value": 168.5,
+        "ci": 3,
         "note": "OpenAI"
       },
       {
@@ -8156,8 +8165,8 @@
         "org": "OpenAI",
         "name": "GPT-6.1 Terra",
         "alt": "GPT-6.1 Terra",
-        "value": 167.7,
-        "ci": 3.1,
+        "value": 167.3,
+        "ci": 3,
         "note": "OpenAI"
       },
       {
@@ -8165,8 +8174,8 @@
         "org": "Anthropic",
         "name": "Claude Fable 5.1",
         "alt": "Claude Fable 5.1",
-        "value": 167.1,
-        "ci": 2.9,
+        "value": 166.9,
+        "ci": 2.8,
         "note": "Anthropic"
       },
       {
@@ -8174,18 +8183,9 @@
         "org": "Google DeepMind",
         "name": "Gemini 4 Hydrogen",
         "alt": "Gemini 4 Hydrogen",
-        "value": 166.8,
-        "ci": 3.1,
+        "value": 166.5,
+        "ci": 2.9,
         "note": "Google DeepMind"
-      },
-      {
-        "open": false,
-        "org": "Anthropic",
-        "name": "Claude Sonnet 5.5",
-        "alt": "Claude Sonnet 5.5",
-        "value": 166.6,
-        "ci": 2.8,
-        "note": "Anthropic"
       },
       {
         "open": false,
@@ -8199,9 +8199,18 @@
       {
         "open": false,
         "org": "Anthropic",
+        "name": "Claude Sonnet 5.5",
+        "alt": "Claude Sonnet 5.5",
+        "value": 166.4,
+        "ci": 2.8,
+        "note": "Anthropic"
+      },
+      {
+        "open": false,
+        "org": "Anthropic",
         "name": "Claude Opus 5",
         "alt": "Claude Opus 5",
-        "value": 164.7,
+        "value": 164.6,
         "ci": 2.6,
         "note": "Anthropic"
       },
@@ -8210,7 +8219,7 @@
         "org": "Anthropic",
         "name": "Claude Fable 5",
         "alt": "Claude Fable 5",
-        "value": 164.2,
+        "value": 164.1,
         "ci": 2.5,
         "note": "Anthropic"
       },
@@ -8219,8 +8228,8 @@
         "org": "OpenAI",
         "name": "GPT-6 Sol",
         "alt": "GPT-6 Sol",
-        "value": 163.8,
-        "ci": 2.6,
+        "value": 163.7,
+        "ci": 2.5,
         "note": "OpenAI"
       },
       {
@@ -8238,7 +8247,16 @@
         "name": "GPT-5.5 Pro",
         "alt": "GPT-5.5 Pro",
         "value": 162.8,
-        "ci": 2.9,
+        "ci": 2.8,
+        "note": "OpenAI"
+      },
+      {
+        "open": false,
+        "org": "OpenAI",
+        "name": "GPT-6.2 Sol",
+        "alt": "GPT-6.2 Sol",
+        "value": 162.6,
+        "ci": 3.2,
         "note": "OpenAI"
       },
       {
@@ -8246,8 +8264,8 @@
         "org": "Meta AI",
         "name": "Muse Wonder",
         "alt": "Muse Wonder",
-        "value": 161.7,
-        "ci": 2.5,
+        "value": 161.8,
+        "ci": 2.4,
         "note": "Meta AI"
       },
       {
@@ -8255,8 +8273,8 @@
         "org": "Moonshot",
         "name": "Kimi K3.1 Pro",
         "alt": "Kimi K3.1 Pro",
-        "value": 161.2,
-        "ci": 2.4,
+        "value": 161.1,
+        "ci": 2.3,
         "note": "Moonshot"
       },
       {
@@ -8264,18 +8282,9 @@
         "org": "OpenAI",
         "name": "GPT-5.6 Terra",
         "alt": "GPT-5.6 Terra",
-        "value": 160.8,
-        "ci": 2.4,
-        "note": "OpenAI"
-      },
-      {
-        "open": false,
-        "org": "Anthropic",
-        "name": "Claude Haiku 5.5",
-        "alt": "Claude Haiku 5.5",
-        "value": 160.3,
+        "value": 160.7,
         "ci": 2.3,
-        "note": "Anthropic"
+        "note": "OpenAI"
       },
       {
         "open": false,
@@ -8288,6 +8297,15 @@
       },
       {
         "open": false,
+        "org": "Anthropic",
+        "name": "Claude Haiku 5.5",
+        "alt": "Claude Haiku 5.5",
+        "value": 160.2,
+        "ci": 2.2,
+        "note": "Anthropic"
+      },
+      {
+        "open": false,
         "org": "OpenAI",
         "name": "GPT-5.5",
         "alt": "GPT-5.5",
@@ -8297,11 +8315,20 @@
       },
       {
         "open": false,
+        "org": "Alibaba",
+        "name": "Qwen4-Max",
+        "alt": "Qwen4-Max",
+        "value": 160,
+        "ci": 2.4,
+        "note": "Alibaba"
+      },
+      {
+        "open": false,
         "org": "Anthropic",
         "name": "Claude Opus 4.8",
         "alt": "Claude Opus 4.8",
         "value": 159.9,
-        "ci": 2.2,
+        "ci": 2.1,
         "note": "Anthropic"
       },
       {
@@ -8310,7 +8337,7 @@
         "name": "DeepSeek V4.1 Flash 1017",
         "alt": "DeepSeek V4.1 Flash 1017",
         "value": 159.4,
-        "ci": 2.4,
+        "ci": 2.3,
         "note": "DeepSeek"
       },
       {
@@ -8323,12 +8350,21 @@
         "note": "Google DeepMind"
       },
       {
+        "open": false,
+        "org": "Meta AI",
+        "name": "Muse Ember",
+        "alt": "Muse Ember",
+        "value": 158.7,
+        "ci": 2.7,
+        "note": "Meta AI"
+      },
+      {
         "open": true,
         "org": "Moonshot",
         "name": "Kimi K3",
         "alt": "Kimi K3",
         "value": 158.6,
-        "ci": 2.1,
+        "ci": 2,
         "note": "Moonshot"
       },
       {
@@ -8337,7 +8373,7 @@
         "name": "Gemini 3.7 Flash",
         "alt": "Gemini 3.7 Flash",
         "value": 158.4,
-        "ci": 2.1,
+        "ci": 2,
         "note": "Google DeepMind"
       },
       {
@@ -8373,7 +8409,7 @@
         "name": "Qwen 3.8 Max",
         "alt": "Qwen 3.8 Max",
         "value": 157.6,
-        "ci": 2.2,
+        "ci": 2.1,
         "note": "Alibaba"
       },
       {
@@ -8382,7 +8418,7 @@
         "name": "Claude Opus 4.7",
         "alt": "Claude Opus 4.7",
         "value": 157.5,
-        "ci": 2,
+        "ci": 1.9,
         "note": "Anthropic"
       },
       {
@@ -8390,7 +8426,7 @@
         "org": "OpenAI",
         "name": "GPT-5.2 Pro",
         "alt": "GPT-5.2 Pro",
-        "value": 157.3,
+        "value": 157.4,
         "ci": 2.4,
         "note": "OpenAI"
       },
@@ -8399,7 +8435,7 @@
         "org": "Z.ai (Zhipu AI)",
         "name": "GLM-5.3",
         "alt": "GLM-5.3",
-        "value": 157.1,
+        "value": 157,
         "ci": 2.2,
         "note": "Z.ai (Zhipu AI)"
       },
@@ -8409,7 +8445,7 @@
         "name": "DeepSeek V4.1 Flash",
         "alt": "DeepSeek V4.1 Flash",
         "value": 157,
-        "ci": 2.1,
+        "ci": 2,
         "note": "DeepSeek"
       },
       {
@@ -8427,7 +8463,7 @@
         "name": "GPT-5.6 Luna",
         "alt": "GPT-5.6 Luna",
         "value": 156.7,
-        "ci": 2,
+        "ci": 1.9,
         "note": "OpenAI"
       },
       {
@@ -8445,7 +8481,7 @@
         "name": "Grok 4.7",
         "alt": "Grok 4.7",
         "value": 156.4,
-        "ci": 2,
+        "ci": 1.9,
         "note": "xAI"
       },
       {
@@ -8467,15 +8503,6 @@
         "note": "Google DeepMind"
       },
       {
-        "open": false,
-        "org": "Alibaba",
-        "name": "Qwen3.8 Max (0902)",
-        "alt": "Qwen3.8 Max (0902)",
-        "value": 156,
-        "ci": 2.2,
-        "note": "Alibaba"
-      },
-      {
         "open": true,
         "org": "DeepSeek",
         "name": "DeepSeek V4 Pro 0813",
@@ -8485,12 +8512,21 @@
         "note": "DeepSeek"
       },
       {
+        "open": false,
+        "org": "Alibaba",
+        "name": "Qwen3.8 Max (0902)",
+        "alt": "Qwen3.8 Max (0902)",
+        "value": 155.9,
+        "ci": 2.1,
+        "note": "Alibaba"
+      },
+      {
         "open": true,
         "org": "Meta AI",
         "name": "Muse Spark Open",
         "alt": "Muse Spark Open",
         "value": 155.5,
-        "ci": 2.2,
+        "ci": 2.1,
         "note": "Meta AI"
       },
       {
@@ -8498,8 +8534,8 @@
         "org": "Google DeepMind",
         "name": "Gemini 3.5 Flash",
         "alt": "Gemini 3.5 Flash",
-        "value": 155.3,
-        "ci": 1.9,
+        "value": 155.4,
+        "ci": 1.8,
         "note": "Google DeepMind"
       },
       {
@@ -8507,18 +8543,9 @@
         "org": "Google DeepMind",
         "name": "Gemini 3.6 Flash",
         "alt": "Gemini 3.6 Flash",
-        "value": 155.2,
+        "value": 155.3,
         "ci": 1.9,
         "note": "Google DeepMind"
-      },
-      {
-        "open": false,
-        "org": "Meta AI",
-        "name": "Muse Spark 1.2",
-        "alt": "Muse Spark 1.2",
-        "value": 155,
-        "ci": 2.4,
-        "note": "Meta AI"
       },
       {
         "open": false,
@@ -8526,8 +8553,17 @@
         "name": "Grok 4.5",
         "alt": "Grok 4.5",
         "value": 155,
-        "ci": 1.9,
+        "ci": 1.8,
         "note": "xAI"
+      },
+      {
+        "open": false,
+        "org": "Meta AI",
+        "name": "Muse Spark 1.2",
+        "alt": "Muse Spark 1.2",
+        "value": 155,
+        "ci": 2.3,
+        "note": "Meta AI"
       },
       {
         "open": false,
@@ -8537,6 +8573,15 @@
         "value": 154.9,
         "ci": 2.7,
         "note": "Meta AI"
+      },
+      {
+        "open": false,
+        "org": "Alibaba",
+        "name": "Qwen3.7-Max",
+        "alt": "Qwen3.7-Max",
+        "value": 154.6,
+        "ci": 2,
+        "note": "Alibaba"
       },
       {
         "open": true,
@@ -8549,20 +8594,11 @@
       },
       {
         "open": false,
-        "org": "Alibaba",
-        "name": "Qwen3.7-Max",
-        "alt": "Qwen3.7-Max",
-        "value": 154.6,
-        "ci": 2.1,
-        "note": "Alibaba"
-      },
-      {
-        "open": false,
         "org": "OpenAI",
         "name": "GPT-5.2",
         "alt": "GPT-5.2",
         "value": 154.5,
-        "ci": 1.7,
+        "ci": 1.6,
         "note": "OpenAI"
       },
       {
@@ -8571,7 +8607,7 @@
         "name": "DeepSeek V4 Flash 0731",
         "alt": "DeepSeek V4 Flash 0731",
         "value": 154.4,
-        "ci": 1.9,
+        "ci": 2,
         "note": "DeepSeek"
       },
       {
@@ -8580,7 +8616,7 @@
         "name": "GLM-5.3-Flash",
         "alt": "GLM-5.3-Flash",
         "value": 153.8,
-        "ci": 1.9,
+        "ci": 1.8,
         "note": "Z.ai (Zhipu AI)"
       },
       {
@@ -8589,7 +8625,7 @@
         "name": "Muse Spark",
         "alt": "Muse Spark",
         "value": 153.2,
-        "ci": 2.3,
+        "ci": 2.2,
         "note": "Meta AI"
       },
       {
@@ -8598,7 +8634,7 @@
         "name": "GLM-5.2",
         "alt": "GLM-5.2",
         "value": 153.1,
-        "ci": 1.8,
+        "ci": 1.7,
         "note": "Z.ai (Zhipu AI)"
       },
       {
@@ -8611,12 +8647,21 @@
         "note": "Google DeepMind"
       },
       {
+        "open": true,
+        "org": "Thinking Machines",
+        "name": "Inkling 2 Mini",
+        "alt": "Inkling 2 Mini",
+        "value": 153,
+        "ci": 2.3,
+        "note": "Thinking Machines"
+      },
+      {
         "open": false,
         "org": "Anthropic",
         "name": "Claude Sonnet 4.6",
         "alt": "Claude Sonnet 4.6",
-        "value": 152.8,
-        "ci": 1.6,
+        "value": 152.9,
+        "ci": 1.7,
         "note": "Anthropic"
       },
       {
@@ -8624,7 +8669,7 @@
         "org": "Mistral AI",
         "name": "Mistral Large 4 Preview",
         "alt": "Mistral Large 4 Preview",
-        "value": 152.7,
+        "value": 152.8,
         "ci": 1.9,
         "note": "Mistral AI"
       },
@@ -8633,7 +8678,7 @@
         "org": "Alibaba",
         "name": "Qwen 3.8 27B",
         "alt": "Qwen 3.8 27B",
-        "value": 152.6,
+        "value": 152.7,
         "ci": 2,
         "note": "Alibaba"
       },
@@ -8642,8 +8687,8 @@
         "org": "Google DeepMind",
         "name": "Gemini 3 Flash",
         "alt": "Gemini 3 Flash",
-        "value": 152.3,
-        "ci": 1.7,
+        "value": 152.4,
+        "ci": 1.6,
         "note": "Google DeepMind"
       },
       {
@@ -8652,7 +8697,7 @@
         "name": "Grok 4.20",
         "alt": "Grok 4.20",
         "value": 152.3,
-        "ci": 1.8,
+        "ci": 1.7,
         "note": "xAI"
       },
       {
@@ -8660,7 +8705,7 @@
         "org": "Anthropic",
         "name": "Claude Opus 4.5",
         "alt": "Claude Opus 4.5",
-        "value": 151.9,
+        "value": 151.8,
         "ci": 1.5,
         "note": "Anthropic"
       },
@@ -8669,7 +8714,7 @@
         "org": "Moonshot",
         "name": "Kimi K2.6",
         "alt": "Kimi K2.6",
-        "value": 151.6,
+        "value": 151.7,
         "ci": 1.8,
         "note": "Moonshot"
       },
@@ -8687,7 +8732,7 @@
         "org": "Moonshot",
         "name": "Kimi K2.7 Code",
         "alt": "Kimi K2.7 Code",
-        "value": 151.2,
+        "value": 151.1,
         "ci": 2,
         "note": "Moonshot"
       },
@@ -8696,7 +8741,7 @@
         "org": "OpenAI",
         "name": "GPT-5.1",
         "alt": "GPT-5.1",
-        "value": 150.9,
+        "value": 151,
         "ci": 1.6,
         "note": "OpenAI"
       },
@@ -8706,7 +8751,7 @@
         "name": "Beam 1.0",
         "alt": "Beam 1.0",
         "value": 150.8,
-        "ci": 2.3,
+        "ci": 2.2,
         "note": "Reflection"
       },
       {
@@ -8715,7 +8760,7 @@
         "name": "Inkling-Small",
         "alt": "Inkling-Small",
         "value": 150.8,
-        "ci": 1.8,
+        "ci": 1.7,
         "note": "Thinking Machines"
       },
       {
@@ -8724,7 +8769,7 @@
         "name": "GLM-5.1",
         "alt": "GLM-5.1",
         "value": 150.7,
-        "ci": 2.1,
+        "ci": 2,
         "note": "Z.ai (Zhipu AI)"
       },
       {
@@ -8733,7 +8778,7 @@
         "name": "DeepSeek-V4-Pro",
         "alt": "DeepSeek-V4-Pro",
         "value": 150.2,
-        "ci": 1.8,
+        "ci": 1.7,
         "note": "DeepSeek"
       },
       {
@@ -8760,7 +8805,7 @@
         "name": "Qwen 3.6 Max (Preview)",
         "alt": "Qwen 3.6 Max (Preview)",
         "value": 149.9,
-        "ci": 2,
+        "ci": 2.1,
         "note": "Alibaba"
       },
       {
@@ -8769,7 +8814,7 @@
         "name": "GPT-5.4 Mini",
         "alt": "GPT-5.4 Mini",
         "value": 149.4,
-        "ci": 1.7,
+        "ci": 1.6,
         "note": "OpenAI"
       },
       {
@@ -8796,25 +8841,25 @@
         "name": "Inkling",
         "alt": "Inkling",
         "value": 148.4,
-        "ci": 1.7,
+        "ci": 1.6,
         "note": "Thinking Machines"
-      },
-      {
-        "open": true,
-        "org": "Alibaba",
-        "name": "Qwen3.5 397B-A17B",
-        "alt": "Qwen3.5 397B-A17B",
-        "value": 148,
-        "ci": 2.1,
-        "note": "Alibaba"
       },
       {
         "open": false,
         "org": "Alibaba",
         "name": "Qwen3.7-Plus",
         "alt": "Qwen3.7-Plus",
-        "value": 147.9,
+        "value": 148,
         "ci": 2,
+        "note": "Alibaba"
+      },
+      {
+        "open": true,
+        "org": "Alibaba",
+        "name": "Qwen3.5 397B-A17B",
+        "alt": "Qwen3.5 397B-A17B",
+        "value": 147.9,
+        "ci": 2.1,
         "note": "Alibaba"
       },
       {
@@ -8832,7 +8877,7 @@
         "name": "Claude Sonnet 4.5",
         "alt": "Claude Sonnet 4.5",
         "value": 147.6,
-        "ci": 1.5,
+        "ci": 1.4,
         "note": "Anthropic"
       },
       {
@@ -8841,7 +8886,7 @@
         "name": "o3-pro",
         "alt": "o3-pro",
         "value": 147.5,
-        "ci": 1.9,
+        "ci": 1.8,
         "note": "OpenAI"
       },
       {
@@ -8858,8 +8903,8 @@
         "org": "OpenAI",
         "name": "o3",
         "alt": "o3",
-        "value": 147,
-        "ci": 1.5,
+        "value": 147.1,
+        "ci": 1.4,
         "note": "OpenAI"
       },
       {
@@ -8876,7 +8921,7 @@
         "org": "xAI",
         "name": "Grok 4",
         "alt": "Grok 4",
-        "value": 146.9,
+        "value": 147,
         "ci": 1.5,
         "note": "xAI"
       },
@@ -8885,7 +8930,7 @@
         "org": "DeepSeek",
         "name": "DeepSeek-V4-Flash",
         "alt": "DeepSeek-V4-Flash",
-        "value": 146.9,
+        "value": 146.8,
         "ci": 3.3,
         "note": "DeepSeek"
       },
@@ -8894,7 +8939,7 @@
         "org": "Alibaba",
         "name": "Qwen3.6 27B",
         "alt": "Qwen3.6 27B",
-        "value": 146.7,
+        "value": 146.8,
         "ci": 2.1,
         "note": "Alibaba"
       },
@@ -8913,7 +8958,7 @@
         "name": "GPT-5.4 Nano",
         "alt": "GPT-5.4 Nano",
         "value": 146.4,
-        "ci": 1.7,
+        "ci": 1.6,
         "note": "OpenAI"
       },
       {
@@ -8921,7 +8966,7 @@
         "org": "DeepSeek",
         "name": "DeepSeek-V3.2",
         "alt": "DeepSeek-V3.2",
-        "value": 146.3,
+        "value": 146.2,
         "ci": 1.5,
         "note": "DeepSeek"
       },
@@ -8930,8 +8975,8 @@
         "org": "OpenAI",
         "name": "GPT-5 mini",
         "alt": "GPT-5 mini",
-        "value": 146,
-        "ci": 1.6,
+        "value": 146.1,
+        "ci": 1.5,
         "note": "OpenAI"
       },
       {
@@ -8957,7 +9002,7 @@
         "org": "OpenAI",
         "name": "o4-mini",
         "alt": "o4-mini",
-        "value": 145.2,
+        "value": 145.3,
         "ci": 1.5,
         "note": "OpenAI"
       },
@@ -8966,7 +9011,7 @@
         "org": "Google",
         "name": "Gemini 3.1 Flash-Lite",
         "alt": "Gemini 3.1 Flash-Lite",
-        "value": 145,
+        "value": 145.1,
         "ci": 2.2,
         "note": "Google"
       },
@@ -8985,7 +9030,7 @@
         "name": "Claude Opus 4.1",
         "alt": "Claude Opus 4.1",
         "value": 144.8,
-        "ci": 1.8,
+        "ci": 1.7,
         "note": "Anthropic"
       },
       {
@@ -9011,7 +9056,7 @@
         "org": "Google DeepMind",
         "name": "Gemma 4 31B IT",
         "alt": "Gemma 4 31B IT",
-        "value": 144.1,
+        "value": 144.2,
         "ci": 2.4,
         "note": "Google DeepMind"
       },
@@ -9021,7 +9066,7 @@
         "name": "Qwen 3.6 35B-A3B",
         "alt": "Qwen 3.6 35B-A3B",
         "value": 144.1,
-        "ci": 1.9,
+        "ci": 1.8,
         "note": "Alibaba"
       },
       {
@@ -9047,7 +9092,7 @@
         "org": "Alibaba",
         "name": "Qwen 3.5 Flash (hosted 35B-A3B)",
         "alt": "Qwen 3.5 Flash (hosted 35B-A3B)",
-        "value": 143.8,
+        "value": 143.9,
         "ci": 1.9,
         "note": "Alibaba"
       },
@@ -9056,7 +9101,7 @@
         "org": "Alibaba",
         "name": "Qwen 3.6 Flash",
         "alt": "Qwen 3.6 Flash",
-        "value": 143.7,
+        "value": 143.8,
         "ci": 1.9,
         "note": "Alibaba"
       },
@@ -9065,7 +9110,7 @@
         "org": "Z.ai (Zhipu AI)",
         "name": "GLM-4.7",
         "alt": "GLM-4.7",
-        "value": 143.3,
+        "value": 143.4,
         "ci": 1.9,
         "note": "Z.ai (Zhipu AI)"
       },
@@ -9074,7 +9119,7 @@
         "org": "Alibaba",
         "name": "Qwen3-235B-A22B-Thinking (Jul 2025)",
         "alt": "Qwen3-235B-A22B-Thinking (Jul 2025)",
-        "value": 143.2,
+        "value": 143.3,
         "ci": 1.9,
         "note": "Alibaba"
       },
@@ -9083,8 +9128,8 @@
         "org": "Anthropic",
         "name": "Claude Opus 4",
         "alt": "Claude Opus 4",
-        "value": 142.8,
-        "ci": 1.6,
+        "value": 142.9,
+        "ci": 1.5,
         "note": "Anthropic"
       },
       {
@@ -9092,8 +9137,8 @@
         "org": "Anthropic",
         "name": "Claude Haiku 4.5",
         "alt": "Claude Haiku 4.5",
-        "value": 142.7,
-        "ci": 1.7,
+        "value": 142.8,
+        "ci": 1.6,
         "note": "Anthropic"
       },
       {
@@ -9111,7 +9156,7 @@
         "name": "Gemini 2.5 Flash (Sep 2025)",
         "alt": "Gemini 2.5 Flash (Sep 2025)",
         "value": 141.9,
-        "ci": 2.6,
+        "ci": 2.7,
         "note": "Google DeepMind"
       },
       {
@@ -9119,7 +9164,7 @@
         "org": "Anthropic",
         "name": "Claude Sonnet 4",
         "alt": "Claude Sonnet 4",
-        "value": 141.8,
+        "value": 141.9,
         "ci": 1.5,
         "note": "Anthropic"
       },
@@ -9128,9 +9173,18 @@
         "org": "Mistral AI",
         "name": "Mistral Medium 3.5",
         "alt": "Mistral Medium 3.5",
-        "value": 141.6,
-        "ci": 3.2,
+        "value": 141.7,
+        "ci": 3.1,
         "note": "Mistral AI"
+      },
+      {
+        "open": true,
+        "org": "Google DeepMind",
+        "name": "Gemma 4 26B A4B",
+        "alt": "Gemma 4 26B A4B",
+        "value": 141.6,
+        "ci": 2.5,
+        "note": "Google DeepMind"
       },
       {
         "open": false,
@@ -9143,19 +9197,10 @@
       },
       {
         "open": true,
-        "org": "Google DeepMind",
-        "name": "Gemma 4 26B A4B",
-        "alt": "Gemma 4 26B A4B",
-        "value": 141.6,
-        "ci": 2.4,
-        "note": "Google DeepMind"
-      },
-      {
-        "open": true,
         "org": "Moonshot",
         "name": "Kimi K2 (Jul 2025)",
         "alt": "Kimi K2 (Jul 2025)",
-        "value": 141.3,
+        "value": 141.2,
         "ci": 2.7,
         "note": "Moonshot"
       },
@@ -9196,22 +9241,31 @@
         "note": "Google DeepMind"
       },
       {
-        "open": true,
-        "org": "DeepSeek",
-        "name": "DeepSeek-R1 (May 2025)",
-        "alt": "DeepSeek-R1 (May 2025)",
-        "value": 140.7,
-        "ci": 1.8,
-        "note": "DeepSeek"
-      },
-      {
         "open": false,
         "org": "Google DeepMind",
         "name": "Gemini 2.5 Flash (Apr 2025)",
         "alt": "Gemini 2.5 Flash (Apr 2025)",
         "value": 140.7,
-        "ci": 2.3,
+        "ci": 2.2,
         "note": "Google DeepMind"
+      },
+      {
+        "open": true,
+        "org": "DeepSeek",
+        "name": "DeepSeek-R1 (May 2025)",
+        "alt": "DeepSeek-R1 (May 2025)",
+        "value": 140.7,
+        "ci": 1.7,
+        "note": "DeepSeek"
+      },
+      {
+        "open": false,
+        "org": "OpenAI",
+        "name": "o3-mini",
+        "alt": "o3-mini",
+        "value": 140.7,
+        "ci": 1.7,
+        "note": "OpenAI"
       },
       {
         "open": false,
@@ -9223,21 +9277,12 @@
         "note": "Google DeepMind"
       },
       {
-        "open": false,
-        "org": "OpenAI",
-        "name": "o3-mini",
-        "alt": "o3-mini",
-        "value": 140.6,
-        "ci": 1.7,
-        "note": "OpenAI"
-      },
-      {
         "open": true,
         "org": "OpenAI",
         "name": "gpt-oss-120b",
         "alt": "gpt-oss-120b",
         "value": 140.2,
-        "ci": 1.8,
+        "ci": 1.9,
         "note": "OpenAI"
       },
       {
@@ -9246,7 +9291,7 @@
         "name": "Grok-3 mini",
         "alt": "Grok-3 mini",
         "value": 139.9,
-        "ci": 1.8,
+        "ci": 1.7,
         "note": "xAI"
       },
       {
@@ -9273,7 +9318,7 @@
         "name": "DeepSeek-R1",
         "alt": "DeepSeek-R1",
         "value": 138.6,
-        "ci": 1.9,
+        "ci": 1.8,
         "note": "DeepSeek"
       },
       {
@@ -9291,7 +9336,7 @@
         "name": "Qwen3-30B-A3B-Thinking (Jul 2025)",
         "alt": "Qwen3-30B-A3B-Thinking (Jul 2025)",
         "value": 138.3,
-        "ci": 2.5,
+        "ci": 2.6,
         "note": "Alibaba"
       },
       {
@@ -9299,8 +9344,8 @@
         "org": "Alibaba",
         "name": "Qwen3-235B-A22B-Instruct (Jul 2025)",
         "alt": "Qwen3-235B-A22B-Instruct (Jul 2025)",
-        "value": 138,
-        "ci": 2.3,
+        "value": 137.9,
+        "ci": 2.2,
         "note": "Alibaba"
       },
       {
@@ -9308,7 +9353,7 @@
         "org": "xAI",
         "name": "Grok 3",
         "alt": "Grok 3",
-        "value": 137.6,
+        "value": 137.5,
         "ci": 1.9,
         "note": "xAI"
       },
@@ -9317,8 +9362,17 @@
         "org": "Alibaba",
         "name": "Qwen3-32B",
         "alt": "Qwen3-32B",
-        "value": 136.8,
+        "value": 136.9,
         "ci": 2.4,
+        "note": "Alibaba"
+      },
+      {
+        "open": true,
+        "org": "Alibaba",
+        "name": "QwQ-32B",
+        "alt": "QwQ-32B",
+        "value": 136.5,
+        "ci": 2.7,
         "note": "Alibaba"
       },
       {
@@ -9326,16 +9380,16 @@
         "org": "OpenAI",
         "name": "GPT-4.5",
         "alt": "GPT-4.5",
-        "value": 136.5,
+        "value": 136.4,
         "ci": 2,
         "note": "OpenAI"
       },
       {
         "open": true,
         "org": "Alibaba",
-        "name": "QwQ-32B",
-        "alt": "QwQ-32B",
-        "value": 136.4,
+        "name": "Qwen3-14B",
+        "alt": "Qwen3-14B",
+        "value": 136.1,
         "ci": 2.7,
         "note": "Alibaba"
       },
@@ -9347,15 +9401,6 @@
         "value": 136.1,
         "ci": 1.9,
         "note": "OpenAI"
-      },
-      {
-        "open": true,
-        "org": "Alibaba",
-        "name": "Qwen3-14B",
-        "alt": "Qwen3-14B",
-        "value": 136.1,
-        "ci": 2.7,
-        "note": "Alibaba"
       },
       {
         "open": false,
@@ -9372,7 +9417,7 @@
         "name": "o1-mini",
         "alt": "o1-mini",
         "value": 135.3,
-        "ci": 2.2,
+        "ci": 2.1,
         "note": "OpenAI"
       },
       {
@@ -9381,7 +9426,7 @@
         "name": "DeepSeek-V3 (Mar 2025)",
         "alt": "DeepSeek-V3 (Mar 2025)",
         "value": 135.3,
-        "ci": 2.2,
+        "ci": 2.1,
         "note": "DeepSeek"
       },
       {
@@ -9399,7 +9444,7 @@
         "name": "Qwen3-30B-A3B-Instruct (Jul 2025)",
         "alt": "Qwen3-30B-A3B-Instruct (Jul 2025)",
         "value": 134.9,
-        "ci": 2.9,
+        "ci": 2.8,
         "note": "Alibaba"
       },
       {
@@ -9408,7 +9453,7 @@
         "name": "GPT-4.1 mini",
         "alt": "GPT-4.1 mini",
         "value": 134.2,
-        "ci": 2.1,
+        "ci": 2,
         "note": "OpenAI"
       },
       {
@@ -9417,7 +9462,7 @@
         "name": "Qwen3-30B-A3B",
         "alt": "Qwen3-30B-A3B",
         "value": 134.2,
-        "ci": 2.7,
+        "ci": 2.6,
         "note": "Alibaba"
       },
       {
@@ -9434,8 +9479,8 @@
         "org": "Google DeepMind,Google",
         "name": "Gemini 2.0 Flash Thinking (Jan 2025)",
         "alt": "Gemini 2.0 Flash Thinking (Jan 2025)",
-        "value": 133.6,
-        "ci": 2.9,
+        "value": 133.7,
+        "ci": 2.8,
         "note": "Google DeepMind,Google"
       },
       {
@@ -9444,7 +9489,7 @@
         "name": "o1-preview",
         "alt": "o1-preview",
         "value": 133.6,
-        "ci": 2.4,
+        "ci": 2.3,
         "note": "OpenAI"
       },
       {
@@ -9452,7 +9497,7 @@
         "org": "Anthropic",
         "name": "Claude 3.5 Sonnet (October 2024)",
         "alt": "Claude 3.5 Sonnet (October 2024)",
-        "value": 133.4,
+        "value": 133.3,
         "ci": 2.2,
         "note": "Anthropic"
       },
@@ -9462,7 +9507,7 @@
         "name": "Gemini 2.5 Flash-Lite (Jun 2025)",
         "alt": "Gemini 2.5 Flash-Lite (Jun 2025)",
         "value": 133,
-        "ci": 3.7,
+        "ci": 3.6,
         "note": "Google DeepMind"
       },
       {
@@ -9471,7 +9516,7 @@
         "name": "Mistral Medium 3",
         "alt": "Mistral Medium 3",
         "value": 132.8,
-        "ci": 2.6,
+        "ci": 2.5,
         "note": "Mistral AI"
       },
       {
@@ -9489,7 +9534,7 @@
         "name": "Qwen3-8B",
         "alt": "Qwen3-8B",
         "value": 132.1,
-        "ci": 3,
+        "ci": 2.8,
         "note": "Alibaba"
       },
       {
@@ -9498,7 +9543,7 @@
         "name": "DeepSeek-V3",
         "alt": "DeepSeek-V3",
         "value": 131.7,
-        "ci": 2.4,
+        "ci": 2.5,
         "note": "DeepSeek"
       },
       {
@@ -9515,8 +9560,8 @@
         "org": "Google DeepMind",
         "name": "Gemini 1.5 Pro (Sept 2024)",
         "alt": "Gemini 1.5 Pro (Sept 2024)",
-        "value": 130.4,
-        "ci": 2.5,
+        "value": 130.5,
+        "ci": 2.6,
         "note": "Google DeepMind"
       },
       {
@@ -9543,7 +9588,7 @@
         "name": "Phi-4",
         "alt": "Phi-4",
         "value": 129.2,
-        "ci": 3,
+        "ci": 2.8,
         "note": "Microsoft Research"
       },
       {
@@ -9578,8 +9623,8 @@
         "org": "Meta AI",
         "name": "Llama 4 Scout",
         "alt": "Llama 4 Scout",
-        "value": 127.8,
-        "ci": 2.7,
+        "value": 127.7,
+        "ci": 2.6,
         "note": "Meta AI"
       },
       {
@@ -9588,7 +9633,7 @@
         "name": "Gemma 3 27B",
         "alt": "Gemma 3 27B",
         "value": 127.6,
-        "ci": 3,
+        "ci": 2.9,
         "note": "Google DeepMind"
       },
       {
@@ -9605,7 +9650,7 @@
         "org": "OpenAI",
         "name": "GPT-4o (Aug 2024)",
         "alt": "GPT-4o (Aug 2024)",
-        "value": 127.2,
+        "value": 127.1,
         "ci": 2.9,
         "note": "OpenAI"
       },
@@ -9615,7 +9660,7 @@
         "name": "Gemini 1.5 Flash (Sep 2024)",
         "alt": "Gemini 1.5 Flash (Sep 2024)",
         "value": 127,
-        "ci": 3,
+        "ci": 2.9,
         "note": "Google DeepMind"
       },
       {
@@ -9624,7 +9669,7 @@
         "name": "GPT-4.1 nano",
         "alt": "GPT-4.1 nano",
         "value": 126.8,
-        "ci": 2.8,
+        "ci": 2.9,
         "note": "OpenAI"
       },
       {
@@ -9642,7 +9687,7 @@
         "name": "Llama 3.3 70B",
         "alt": "Llama 3.3 70B",
         "value": 126.2,
-        "ci": 3,
+        "ci": 2.9,
         "note": "Meta AI"
       },
       {
@@ -9651,7 +9696,7 @@
         "name": "GPT-4 Turbo (Apr 2024)",
         "alt": "GPT-4 Turbo (Apr 2024)",
         "value": 125.8,
-        "ci": 3.1,
+        "ci": 3,
         "note": "OpenAI"
       },
       {
@@ -9660,7 +9705,7 @@
         "name": "Claude 3 Opus",
         "alt": "Claude 3 Opus",
         "value": 125.6,
-        "ci": 2.9,
+        "ci": 2.8,
         "note": "Anthropic"
       },
       {
@@ -9669,17 +9714,8 @@
         "name": "Gemini 1.5 Pro (May 2024)",
         "alt": "Gemini 1.5 Pro (May 2024)",
         "value": 125.4,
-        "ci": 3.1,
+        "ci": 3,
         "note": "Google DeepMind"
-      },
-      {
-        "open": false,
-        "org": "OpenAI",
-        "name": "GPT-4 Turbo (Nov 2023)",
-        "alt": "GPT-4 Turbo (Nov 2023)",
-        "value": 124.8,
-        "ci": 3.1,
-        "note": "OpenAI"
       },
       {
         "open": false,
@@ -9687,8 +9723,17 @@
         "name": "Claude 3.5 Haiku",
         "alt": "Claude 3.5 Haiku",
         "value": 124.8,
-        "ci": 3.1,
+        "ci": 3,
         "note": "Anthropic"
+      },
+      {
+        "open": false,
+        "org": "OpenAI",
+        "name": "GPT-4 Turbo (Nov 2023)",
+        "alt": "GPT-4 Turbo (Nov 2023)",
+        "value": 124.7,
+        "ci": 3.2,
+        "note": "OpenAI"
       },
       {
         "open": true,
@@ -9705,7 +9750,7 @@
         "name": "GPT-4o mini",
         "alt": "GPT-4o mini",
         "value": 123.8,
-        "ci": 3.2,
+        "ci": 3,
         "note": "OpenAI"
       },
       {
@@ -9722,7 +9767,7 @@
         "org": "Alibaba",
         "name": "Qwen2-72B",
         "alt": "Qwen2-72B",
-        "value": 122.3,
+        "value": 122.4,
         "ci": 3.5,
         "note": "Alibaba"
       },
@@ -9732,7 +9777,7 @@
         "name": "GPT-4 (Mar 2023)",
         "alt": "GPT-4 (Mar 2023)",
         "value": 121.6,
-        "ci": 3.8,
+        "ci": 3.7,
         "note": "OpenAI"
       },
       {
@@ -9750,7 +9795,7 @@
         "name": "DeepSeek-V2 (MoE-236B, May 2024)",
         "alt": "DeepSeek-V2 (MoE-236B, May 2024)",
         "value": 120.8,
-        "ci": 6.8,
+        "ci": 7,
         "note": "DeepSeek"
       },
       {
@@ -9759,7 +9804,7 @@
         "name": "Gemini 1.5 Flash (May 2024)",
         "alt": "Gemini 1.5 Flash (May 2024)",
         "value": 120.6,
-        "ci": 3.7,
+        "ci": 3.8,
         "note": "Google DeepMind"
       },
       {
@@ -9767,8 +9812,8 @@
         "org": "Mistral AI",
         "name": "Mistral Large",
         "alt": "Mistral Large",
-        "value": 120,
-        "ci": 3.8,
+        "value": 119.9,
+        "ci": 4,
         "note": "Mistral AI"
       },
       {
@@ -9777,7 +9822,7 @@
         "name": "GPT-4 (Jun 2023)",
         "alt": "GPT-4 (Jun 2023)",
         "value": 119.9,
-        "ci": 3.5,
+        "ci": 3.6,
         "note": "OpenAI"
       },
       {
@@ -9786,17 +9831,8 @@
         "name": "Claude 3 Sonnet",
         "alt": "Claude 3 Sonnet",
         "value": 119.7,
-        "ci": 3.9,
+        "ci": 3.8,
         "note": "Anthropic"
-      },
-      {
-        "open": true,
-        "org": "Alibaba",
-        "name": "Qwen2.5-Coder-32B",
-        "alt": "Qwen2.5-Coder-32B",
-        "value": 118.7,
-        "ci": 9.2,
-        "note": "Alibaba"
       },
       {
         "open": true,
@@ -9812,9 +9848,18 @@
         "org": "Google DeepMind",
         "name": "Gemma 2 27B",
         "alt": "Gemma 2 27B",
-        "value": 118.6,
-        "ci": 4.1,
+        "value": 118.7,
+        "ci": 3.9,
         "note": "Google DeepMind"
+      },
+      {
+        "open": true,
+        "org": "Alibaba",
+        "name": "Qwen2.5-Coder-32B",
+        "alt": "Qwen2.5-Coder-32B",
+        "value": 118.6,
+        "ci": 9,
+        "note": "Alibaba"
       },
       {
         "open": false,
@@ -9831,7 +9876,7 @@
         "name": "Claude 2",
         "alt": "Claude 2",
         "value": 117.2,
-        "ci": 4.2,
+        "ci": 4.1,
         "note": "Anthropic"
       },
       {
@@ -9840,7 +9885,7 @@
         "name": "phi-3-small 7.4B",
         "alt": "phi-3-small 7.4B",
         "value": 116.3,
-        "ci": 5.7,
+        "ci": 5.6,
         "note": "Microsoft"
       },
       {
@@ -9848,7 +9893,7 @@
         "org": "Microsoft",
         "name": "phi-3-medium 14B",
         "alt": "phi-3-medium 14B",
-        "value": 114.1,
+        "value": 114.2,
         "ci": 4.7,
         "note": "Microsoft"
       },
@@ -9857,8 +9902,8 @@
         "org": "Anthropic",
         "name": "Claude Instant",
         "alt": "Claude Instant",
-        "value": 114,
-        "ci": 6.7,
+        "value": 114.1,
+        "ci": 6.5,
         "note": "Anthropic"
       },
       {
@@ -9867,7 +9912,16 @@
         "name": "PaLM 2-L",
         "alt": "PaLM 2-L",
         "value": 114,
-        "ci": 16,
+        "ci": 15.2,
+        "note": ""
+      },
+      {
+        "open": false,
+        "org": "",
+        "name": "Qwen2.5-Coder-14B",
+        "alt": "Qwen2.5-Coder-14B",
+        "value": 113.9,
+        "ci": 8.5,
         "note": ""
       },
       {
@@ -9875,25 +9929,16 @@
         "org": "Mistral AI",
         "name": "Mistral NeMo",
         "alt": "Mistral NeMo",
-        "value": 113.9,
-        "ci": 4.9,
+        "value": 113.8,
+        "ci": 5,
         "note": "Mistral AI"
-      },
-      {
-        "open": false,
-        "org": "",
-        "name": "Qwen2.5-Coder-14B",
-        "alt": "Qwen2.5-Coder-14B",
-        "value": 113.7,
-        "ci": 8.6,
-        "note": ""
       },
       {
         "open": true,
         "org": "Mistral AI",
         "name": "Mixtral 8x7B",
         "alt": "Mixtral 8x7B",
-        "value": 113.2,
+        "value": 113.3,
         "ci": 4.7,
         "note": "Mistral AI"
       },
@@ -9903,7 +9948,7 @@
         "name": "GPT-3.5 Turbo (Jan 2024)",
         "alt": "GPT-3.5 Turbo (Jan 2024)",
         "value": 112.9,
-        "ci": 4.7,
+        "ci": 4.8,
         "note": "OpenAI"
       },
       {
@@ -9920,8 +9965,8 @@
         "org": "Google DeepMind",
         "name": "Gemma 2 9B",
         "alt": "Gemma 2 9B",
-        "value": 112.4,
-        "ci": 5.3,
+        "value": 112.5,
+        "ci": 5.2,
         "note": "Google DeepMind"
       },
       {
@@ -9929,8 +9974,8 @@
         "org": "Meta AI",
         "name": "Llama 3.1-8B",
         "alt": "Llama 3.1-8B",
-        "value": 110.9,
-        "ci": 5.4,
+        "value": 111,
+        "ci": 5.3,
         "note": "Meta AI"
       },
       {
@@ -9939,7 +9984,7 @@
         "name": "phi-3-mini 3.8B",
         "alt": "phi-3-mini 3.8B",
         "value": 110.5,
-        "ci": 6,
+        "ci": 6.1,
         "note": "Microsoft"
       },
       {
@@ -9947,8 +9992,8 @@
         "org": "Stability AI",
         "name": "Stable Beluga 2",
         "alt": "Stable Beluga 2",
-        "value": 109.4,
-        "ci": 7.1,
+        "value": 109.6,
+        "ci": 7.2,
         "note": "Stability AI"
       },
       {
@@ -9956,8 +10001,8 @@
         "org": "Meta AI",
         "name": "Llama 3-8B",
         "alt": "Llama 3-8B",
-        "value": 109.1,
-        "ci": 5.3,
+        "value": 109.2,
+        "ci": 5.2,
         "note": "Meta AI"
       },
       {
@@ -9965,8 +10010,8 @@
         "org": "Alibaba",
         "name": "Qwen2.5-Coder (7B)",
         "alt": "Qwen2.5-Coder (7B)",
-        "value": 107.4,
-        "ci": 9.2,
+        "value": 107.8,
+        "ci": 8.6,
         "note": "Alibaba"
       },
       {
@@ -9974,8 +10019,8 @@
         "org": "Technology Innovation Institute",
         "name": "Falcon-180B",
         "alt": "Falcon-180B",
-        "value": 107,
-        "ci": 8.6,
+        "value": 107.2,
+        "ci": 8.3,
         "note": "Technology Innovation Institute"
       },
       {
@@ -9983,7 +10028,7 @@
         "org": "OpenAI",
         "name": "GPT-3.5 Turbo (Jun 2023)",
         "alt": "GPT-3.5 Turbo (Jun 2023)",
-        "value": 106,
+        "value": 106.1,
         "ci": 7.9,
         "note": "OpenAI"
       },
@@ -9992,8 +10037,8 @@
         "org": "Meta AI",
         "name": "Llama 2-70B",
         "alt": "Llama 2-70B",
-        "value": 105.7,
-        "ci": 5.7,
+        "value": 105.8,
+        "ci": 5.8,
         "note": "Meta AI"
       },
       {
@@ -10001,8 +10046,8 @@
         "org": "Google DeepMind",
         "name": "Gemma 7B",
         "alt": "Gemma 7B",
-        "value": 103.2,
-        "ci": 7.1,
+        "value": 103.3,
+        "ci": 7.4,
         "note": "Google DeepMind"
       },
       {
@@ -10010,7 +10055,7 @@
         "org": "Mistral AI",
         "name": "Mistral 7B v0.1",
         "alt": "Mistral 7B v0.1",
-        "value": 102.7,
+        "value": 103,
         "ci": 7.1,
         "note": "Mistral AI"
       },
@@ -10019,8 +10064,8 @@
         "org": "",
         "name": "Yi-9B",
         "alt": "Yi-9B",
-        "value": 102.2,
-        "ci": 10.3,
+        "value": 102.4,
+        "ci": 10.8,
         "note": ""
       },
       {
@@ -10028,8 +10073,8 @@
         "org": "Alibaba",
         "name": "Qwen-14B",
         "alt": "Qwen-14B",
-        "value": 101.8,
-        "ci": 8.1,
+        "value": 101.9,
+        "ci": 8.2,
         "note": "Alibaba"
       },
       {
@@ -10037,8 +10082,8 @@
         "org": "Meta AI",
         "name": "LLaMA-65B",
         "alt": "LLaMA-65B",
-        "value": 101.5,
-        "ci": 7.8,
+        "value": 101.7,
+        "ci": 8,
         "note": "Meta AI"
       },
       {
@@ -10046,7 +10091,7 @@
         "org": "",
         "name": "DeepSeek-Coder-V2-Lite-Base",
         "alt": "DeepSeek-Coder-V2-Lite-Base",
-        "value": 99.4,
+        "value": 99.6,
         "ci": 9.8,
         "note": ""
       },
@@ -10055,7 +10100,7 @@
         "org": "Technology Innovation Institute",
         "name": "Falcon 2 11B",
         "alt": "Falcon 2 11B",
-        "value": 99.2,
+        "value": 99.5,
         "ci": 10.3,
         "note": "Technology Innovation Institute"
       },
@@ -10064,8 +10109,8 @@
         "org": "Nvidia",
         "name": "Nemotron-4 15B",
         "alt": "Nemotron-4 15B",
-        "value": 99.1,
-        "ci": 8.5,
+        "value": 99.5,
+        "ci": 8.7,
         "note": "Nvidia"
       },
       {
@@ -10073,8 +10118,8 @@
         "org": "",
         "name": "internlm-20b",
         "alt": "internlm-20b",
-        "value": 98.9,
-        "ci": 9.2,
+        "value": 99.1,
+        "ci": 8.9,
         "note": ""
       },
       {
@@ -10082,8 +10127,8 @@
         "org": "",
         "name": "PaLM 2-M",
         "alt": "PaLM 2-M",
-        "value": 97.9,
-        "ci": 12.6,
+        "value": 98.3,
+        "ci": 12.2,
         "note": ""
       },
       {
@@ -10091,8 +10136,8 @@
         "org": "",
         "name": "Qwen2.5-Coder-3B",
         "alt": "Qwen2.5-Coder-3B",
-        "value": 96.8,
-        "ci": 13.1,
+        "value": 97.2,
+        "ci": 12.8,
         "note": ""
       },
       {
@@ -10100,8 +10145,8 @@
         "org": "Meta AI",
         "name": "LLaMA-33B",
         "alt": "LLaMA-33B",
-        "value": 96.5,
-        "ci": 8.5,
+        "value": 96.9,
+        "ci": 8.7,
         "note": "Meta AI"
       },
       {
@@ -10109,7 +10154,7 @@
         "org": "Meta AI",
         "name": "Llama 2-13B",
         "alt": "Llama 2-13B",
-        "value": 96.5,
+        "value": 96.8,
         "ci": 8.4,
         "note": "Meta AI"
       },
@@ -10118,8 +10163,8 @@
         "org": "Microsoft",
         "name": "Phi-2",
         "alt": "Phi-2",
-        "value": 96.2,
-        "ci": 8.7,
+        "value": 96.6,
+        "ci": 9,
         "note": "Microsoft"
       },
       {
@@ -10127,8 +10172,8 @@
         "org": "Hugging Face,ServiceNow,Nvidia,BigCode",
         "name": "StarCoder 2 15B",
         "alt": "StarCoder 2 15B",
-        "value": 96.1,
-        "ci": 11,
+        "value": 96.5,
+        "ci": 10.6,
         "note": "Hugging Face,ServiceNow,Nvidia,BigCode"
       },
       {
@@ -10136,7 +10181,7 @@
         "org": "01.AI",
         "name": "Yi 6B",
         "alt": "Yi 6B",
-        "value": 94.3,
+        "value": 94.7,
         "ci": 9.6,
         "note": "01.AI"
       },
@@ -10145,7 +10190,7 @@
         "org": "Meta AI",
         "name": "Llama 2-34B",
         "alt": "Llama 2-34B",
-        "value": 93.9,
+        "value": 94.2,
         "ci": 9.4,
         "note": "Meta AI"
       },
@@ -10154,8 +10199,8 @@
         "org": "",
         "name": "PaLM 2-S",
         "alt": "PaLM 2-S",
-        "value": 93.8,
-        "ci": 12.5,
+        "value": 94.2,
+        "ci": 12.4,
         "note": ""
       },
       {
@@ -10163,8 +10208,8 @@
         "org": "Baichuan",
         "name": "Baichuan2-13B",
         "alt": "Baichuan2-13B",
-        "value": 91.8,
-        "ci": 10.1,
+        "value": 92.2,
+        "ci": 9.9,
         "note": "Baichuan"
       },
       {
@@ -10172,26 +10217,26 @@
         "org": "Technology Innovation Institute",
         "name": "Falcon-40B",
         "alt": "Falcon-40B",
-        "value": 90.7,
+        "value": 91.1,
         "ci": 10,
         "note": "Technology Innovation Institute"
       },
       {
         "open": true,
         "org": "Alibaba",
-        "name": "Qwen-7B",
-        "alt": "Qwen-7B",
-        "value": 89.1,
-        "ci": 10.4,
+        "name": "Qwen2.5-Coder (1.5B)",
+        "alt": "Qwen2.5-Coder (1.5B)",
+        "value": 89.6,
+        "ci": 12,
         "note": "Alibaba"
       },
       {
         "open": true,
         "org": "Alibaba",
-        "name": "Qwen2.5-Coder (1.5B)",
-        "alt": "Qwen2.5-Coder (1.5B)",
-        "value": 89.1,
-        "ci": 12,
+        "name": "Qwen-7B",
+        "alt": "Qwen-7B",
+        "value": 89.4,
+        "ci": 10.4,
         "note": "Alibaba"
       },
       {
@@ -10199,7 +10244,7 @@
         "org": "Meta AI",
         "name": "LLaMA-13B",
         "alt": "LLaMA-13B",
-        "value": 85.2,
+        "value": 85.8,
         "ci": 11,
         "note": "Meta AI"
       },
@@ -10208,8 +10253,8 @@
         "org": "MosaicML",
         "name": "MPT-30B",
         "alt": "MPT-30B",
-        "value": 85.2,
-        "ci": 11,
+        "value": 85.7,
+        "ci": 11.2,
         "note": "MosaicML"
       },
       {
@@ -10217,8 +10262,8 @@
         "org": "",
         "name": "internlm-7b",
         "alt": "internlm-7b",
-        "value": 84.6,
-        "ci": 11.1,
+        "value": 85,
+        "ci": 11.4,
         "note": ""
       },
       {
@@ -10226,7 +10271,7 @@
         "org": "Baichuan",
         "name": "Baichuan 2-7B",
         "alt": "Baichuan 2-7B",
-        "value": 83.6,
+        "value": 84,
         "ci": 12,
         "note": "Baichuan"
       },
@@ -10235,8 +10280,8 @@
         "org": "Prime Intellect,Hugging Face,Arcee AI",
         "name": "INTELLECT-1",
         "alt": "INTELLECT-1",
-        "value": 83.3,
-        "ci": 11.6,
+        "value": 83.8,
+        "ci": 11.9,
         "note": "Prime Intellect,Hugging Face,Arcee AI"
       },
       {
@@ -10244,8 +10289,8 @@
         "org": "Meta AI",
         "name": "Llama 2-7B",
         "alt": "Llama 2-7B",
-        "value": 83.2,
-        "ci": 11.6,
+        "value": 83.7,
+        "ci": 11.5,
         "note": "Meta AI"
       },
       {
@@ -10253,8 +10298,8 @@
         "org": "Meta AI",
         "name": "LLaMA-7B",
         "alt": "LLaMA-7B",
-        "value": 77.3,
-        "ci": 12.7,
+        "value": 77.9,
+        "ci": 13.1,
         "note": "Meta AI"
       },
       {
@@ -10262,7 +10307,7 @@
         "org": "DeepSeek,Peking University",
         "name": "DeepSeek Coder 33B",
         "alt": "DeepSeek Coder 33B",
-        "value": 76.3,
+        "value": 76.8,
         "ci": 14.6,
         "note": "DeepSeek,Peking University"
       },
@@ -10271,8 +10316,8 @@
         "org": "",
         "name": "vicuna-13b-v1.1",
         "alt": "vicuna-13b-v1.1",
-        "value": 76.1,
-        "ci": 13.9,
+        "value": 76.6,
+        "ci": 13.7,
         "note": ""
       },
       {
@@ -10280,8 +10325,8 @@
         "org": "Google DeepMind",
         "name": "Gemma 2B",
         "alt": "Gemma 2B",
-        "value": 75.7,
-        "ci": 13.3,
+        "value": 76.4,
+        "ci": 13,
         "note": "Google DeepMind"
       },
       {
@@ -10289,7 +10334,7 @@
         "org": "",
         "name": "CodeQwen1.5-7B",
         "alt": "CodeQwen1.5-7B",
-        "value": 74.8,
+        "value": 75.4,
         "ci": 15.5,
         "note": ""
       },
@@ -10298,8 +10343,8 @@
         "org": "",
         "name": "chatglm2-6b",
         "alt": "chatglm2-6b",
-        "value": 73.7,
-        "ci": 14.2,
+        "value": 74.3,
+        "ci": 14.9,
         "note": ""
       },
       {
@@ -10307,8 +10352,8 @@
         "org": "MosaicML",
         "name": "MPT-7B",
         "alt": "MPT-7B",
-        "value": 73.4,
-        "ci": 14,
+        "value": 74.1,
+        "ci": 13.6,
         "note": "MosaicML"
       },
       {
@@ -10316,8 +10361,8 @@
         "org": "Technology Innovation Institute",
         "name": "Falcon-7B",
         "alt": "Falcon-7B",
-        "value": 73.1,
-        "ci": 13.6,
+        "value": 73.8,
+        "ci": 14,
         "note": "Technology Innovation Institute"
       },
       {
@@ -10325,8 +10370,8 @@
         "org": "Hugging Face,ServiceNow,Nvidia,BigCode",
         "name": "StarCoder 2 7B",
         "alt": "StarCoder 2 7B",
-        "value": 72.4,
-        "ci": 15.9,
+        "value": 73.1,
+        "ci": 15.8,
         "note": "Hugging Face,ServiceNow,Nvidia,BigCode"
       },
       {
@@ -10334,8 +10379,8 @@
         "org": "Salesforce",
         "name": "XGen-7B",
         "alt": "XGen-7B",
-        "value": 70.3,
-        "ci": 15,
+        "value": 71,
+        "ci": 15.4,
         "note": "Salesforce"
       },
       {
@@ -10343,7 +10388,7 @@
         "org": "Microsoft",
         "name": "Phi-1.5",
         "alt": "Phi-1.5",
-        "value": 68.4,
+        "value": 69,
         "ci": 16.2,
         "note": "Microsoft"
       },
@@ -10352,8 +10397,8 @@
         "org": "",
         "name": "Qwen2.5-Coder-0.5B",
         "alt": "Qwen2.5-Coder-0.5B",
-        "value": 68.1,
-        "ci": 17.8,
+        "value": 68.7,
+        "ci": 17.5,
         "note": ""
       },
       {
@@ -10361,8 +10406,8 @@
         "org": "DeepSeek,Peking University",
         "name": "DeepSeek Coder 6.7B",
         "alt": "DeepSeek Coder 6.7B",
-        "value": 67.5,
-        "ci": 16.5,
+        "value": 68.1,
+        "ci": 16.7,
         "note": "DeepSeek,Peking University"
       },
       {
@@ -10370,8 +10415,8 @@
         "org": "Hugging Face,ServiceNow,Nvidia,BigCode",
         "name": "StarCoder 2 3B",
         "alt": "StarCoder 2 3B",
-        "value": 66.6,
-        "ci": 16.9,
+        "value": 67.2,
+        "ci": 17.8,
         "note": "Hugging Face,ServiceNow,Nvidia,BigCode"
       },
       {
@@ -10379,8 +10424,8 @@
         "org": "",
         "name": "open_llama_7b",
         "alt": "open_llama_7b",
-        "value": 64.4,
-        "ci": 16.7,
+        "value": 65,
+        "ci": 16.9,
         "note": ""
       },
       {
@@ -10388,8 +10433,8 @@
         "org": "",
         "name": "Qwen-1_8B",
         "alt": "Qwen-1_8B",
-        "value": 59.6,
-        "ci": 17.7,
+        "value": 60.5,
+        "ci": 17.3,
         "note": ""
       },
       {
@@ -10397,8 +10442,8 @@
         "org": "",
         "name": "RedPajama-INCITE-7B-Base",
         "alt": "RedPajama-INCITE-7B-Base",
-        "value": 57.7,
-        "ci": 18.2,
+        "value": 58.5,
+        "ci": 18.8,
         "note": ""
       },
       {
@@ -10406,8 +10451,8 @@
         "org": "Databricks",
         "name": "Dolly 2.0-12b",
         "alt": "Dolly 2.0-12b",
-        "value": 55.5,
-        "ci": 19.1,
+        "value": 56.4,
+        "ci": 19.3,
         "note": "Databricks"
       },
       {
@@ -10415,8 +10460,8 @@
         "org": "Cerebras Systems",
         "name": "Cerebras-GPT-13B",
         "alt": "Cerebras-GPT-13B",
-        "value": 48.9,
-        "ci": 20.4,
+        "value": 49.9,
+        "ci": 20.5,
         "note": "Cerebras Systems"
       }
     ]
